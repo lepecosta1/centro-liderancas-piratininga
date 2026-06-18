@@ -13,7 +13,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .wrap{max-width:760px;margin:0 auto;padding:0 16px}
 .tabs{position:sticky;top:0;left:0;right:0;background:rgba(10,22,40,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;overflow-x:auto;z-index:50;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{flex:0 0 auto;padding:13px 16px;font-size:12px;color:var(--mut);background:none;border:none;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;font-weight:600}
+.tab{flex:0 0 auto;padding:13px 15px;font-size:12px;color:var(--mut);background:none;border:none;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;font-weight:600;display:flex;align-items:center;gap:5px}
+.tab .e{font-size:15px;line-height:1}
 .tab.on{color:var(--acc2);border-bottom-color:var(--acc)}
 .hero{padding:40px 20px 30px;text-align:center;background:radial-gradient(circle at 50% 0%,rgba(255,107,53,.16),transparent 60%)}
 .badge{display:inline-block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--acc2);border:1px solid var(--line);padding:6px 14px;border-radius:30px;margin-bottom:18px}
@@ -21,7 +22,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .hero p{color:var(--mut);font-size:15px;max-width:480px;margin:0 auto}
 .formula{margin:22px auto 0;max-width:520px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;font-size:14px}
 .formula b{color:var(--acc2)}
-h2.sec{font-size:21px;font-weight:800;margin:8px 0 16px;letter-spacing:-.3px}
+h2.sec{font-size:21px;font-weight:800;margin:8px 0 16px;letter-spacing:-.3px;display:flex;align-items:center;gap:9px}
+h2.sec .em{font-size:26px;line-height:1}
 h2.sec span{color:var(--acc)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px}
 .card h3{font-size:16px;margin-bottom:8px;color:#fff}
@@ -80,15 +82,15 @@ td:first-child{color:#fff;font-weight:600}
 <body>
 
 <nav class="tabs">
-<button class="tab on" data-t="dash">Dashboard</button>
-<button class="tab" data-t="graf">Gráficos</button>
-<button class="tab" data-t="tese">Tese</button>
-<button class="tab" data-t="mercado">Mercado</button>
-<button class="tab" data-t="bench">Benchmark</button>
-<button class="tab" data-t="supply">Cadeia</button>
-<button class="tab" data-t="fin">Financeiro</button>
-<button class="tab" data-t="gov">Governança</button>
-<button class="tab" data-t="risco">Riscos</button>
+<button class="tab on" data-t="dash"><span class="e">📊</span>Dashboard</button>
+<button class="tab" data-t="graf"><span class="e">📈</span>Gráficos</button>
+<button class="tab" data-t="tese"><span class="e">💡</span>Tese</button>
+<button class="tab" data-t="mercado"><span class="e">🌎</span>Mercado</button>
+<button class="tab" data-t="bench"><span class="e">🏆</span>Benchmark</button>
+<button class="tab" data-t="supply"><span class="e">🔗</span>Cadeia</button>
+<button class="tab" data-t="fin"><span class="e">💰</span>Financeiro</button>
+<button class="tab" data-t="gov"><span class="e">🏛️</span>Governança</button>
+<button class="tab" data-t="risco"><span class="e">⚠️</span>Riscos</button>
 </nav>
 
 <header class="hero">
@@ -101,7 +103,7 @@ td:first-child{color:#fff;font-weight:600}
 <main class="wrap">
 
 <section class="panel on" id="p-dash">
-<h2 class="sec">Dashboard <span>de Impacto</span></h2>
+<h2 class="sec"><span class="em">📊</span>Dashboard <span>de Impacto</span></h2>
 <div class="grid2" style="margin-bottom:14px">
 <div class="kpi"><div class="n">500</div><div class="l">Líderes / 5 anos</div></div>
 <div class="kpi"><div class="n">2M+</div><div class="l">Pessoas alcançadas</div></div>
@@ -117,7 +119,7 @@ td:first-child{color:#fff;font-weight:600}
 </section>
 
 <section class="panel" id="p-tese">
-<h2 class="sec">A <span>Tese</span></h2>
+<h2 class="sec"><span class="em">💡</span>A <span>Tese</span></h2>
 <div class="card"><h3>O problema</h3><p>Existem milhares de líderes jovens reais já transformando suas comunidades — mas invisíveis e sem escala. O talento existe; a alavancagem, não.</p></div>
 <div class="card"><h3>As 3 alavancas</h3>
 <div class="lev"><h4>1 · Software / IA</h4><p>Ferramentas que automatizam e potencializam o trabalho de cada líder, liberando tempo e ampliando capacidade.</p></div>
@@ -128,7 +130,7 @@ td:first-child{color:#fff;font-weight:600}
 </section>
 
 <section class="panel" id="p-mercado">
-<h2 class="sec">Mercado & <span>Contexto</span></h2>
+<h2 class="sec"><span class="em">🌎</span>Mercado & <span>Contexto</span></h2>
 <div class="grid2" style="margin-bottom:14px">
 <div class="kpi"><div class="n">50M</div><div class="l">Jovens no Brasil (15-29)</div></div>
 <div class="kpi"><div class="n">R$5,7Bi</div><div class="l">Doações Brasil/ano</div></div>
@@ -138,7 +140,7 @@ td:first-child{color:#fff;font-weight:600}
 </section>
 
 <section class="panel" id="p-bench">
-<h2 class="sec">Benchmark <span>Global</span></h2>
+<h2 class="sec"><span class="em">🏆</span>Benchmark <span>Global</span></h2>
 <div class="bench"><div class="top"><span class="nm">Ashoka</span><span class="tag">Empreendedores sociais</span></div><p>Rede global que seleciona e financia "fellows" já em ação. Referência em identificar líderes existentes — exatamente nossa tese.</p></div>
 <div class="bench"><div class="top"><span class="nm">Gerando Falcões</span><span class="tag">Brasil · Favela</span></div><p>Ecossistema que usa dados e tecnologia para escalar lideranças locais nas favelas. Prova nacional do modelo de alavancagem.</p></div>
 <div class="bench"><div class="top"><span class="nm">charity:water</span><span class="tag">Mídia + transparência</span></div><p>Mestres em transformar impacto em narrativa visível. Modelo de "quem vê o que você faz".</p></div>
@@ -148,7 +150,7 @@ td:first-child{color:#fff;font-weight:600}
 </section>
 
 <section class="panel" id="p-graf">
-<h2 class="sec">Gráficos <span>do Projeto</span></h2>
+<h2 class="sec"><span class="em">📈</span>Gráficos <span>do Projeto</span></h2>
 
 <div class="chartcard">
 <h3>Scout Radar — Forças do modelo</h3>
@@ -177,7 +179,7 @@ td:first-child{color:#fff;font-weight:600}
 </section>
 
 <section class="panel" id="p-supply">
-<h2 class="sec">Cadeia de <span>Valor</span></h2>
+<h2 class="sec"><span class="em">🔗</span>Cadeia de <span>Valor</span></h2>
 <p style="color:var(--mut);font-size:13px;margin-bottom:16px">Do descobrimento do líder ao impacto multiplicado.</p>
 <div class="flow">
 <div class="step"><div class="num">1</div><div><h4>Descoberta</h4><p>Mapeamento ativo via IA, indicações e redes de líderes jovens já em ação.</p></div></div>
@@ -190,7 +192,7 @@ td:first-child{color:#fff;font-weight:600}
 </section>
 
 <section class="panel" id="p-fin">
-<h2 class="sec">Projeção <span>Financeira</span></h2>
+<h2 class="sec"><span class="em">💰</span>Projeção <span>Financeira</span></h2>
 <div class="card"><table>
 <tr><th>Ano</th><th>Líderes</th><th>Orçamento</th><th>Custo/líder</th></tr>
 <tr><td>1</td><td>50</td><td>R$1,2M</td><td>R$24k</td></tr>
@@ -208,7 +210,7 @@ td:first-child{color:#fff;font-weight:600}
 </section>
 
 <section class="panel" id="p-gov">
-<h2 class="sec">Governança & <span>SWOT</span></h2>
+<h2 class="sec"><span class="em">🏛️</span>Governança & <span>SWOT</span></h2>
 <div class="card"><h3>Estrutura</h3><p>Associação sem fins lucrativos ligada ao Instituto Piratininga, com conselho consultivo, núcleo executivo enxuto e comitê de impacto independente para auditar métricas.</p></div>
 <div class="swot">
 <div class="s"><h5>Forças</h5><ul><li>Tese clara e mensurável</li><li>Vínculo Instituto Piratininga</li><li>Modelo de alavancagem</li></ul></div>
@@ -219,7 +221,7 @@ td:first-child{color:#fff;font-weight:600}
 </section>
 
 <section class="panel" id="p-risco">
-<h2 class="sec">Matriz de <span>Riscos</span></h2>
+<h2 class="sec"><span class="em">⚠️</span>Matriz de <span>Riscos</span></h2>
 <div class="card"><table>
 <tr><th>Risco</th><th>Prob.</th><th>Impacto</th></tr>
 <tr><td>Captação abaixo da meta</td><td><span class="pill m">Média</span></td><td><span class="pill l">Alto</span></td></tr>
