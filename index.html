@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0a1628">
+<title>Centro de Lideranças Piratininga — Business Plan</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--bg:#0a1628;--bg2:#0f1f3a;--card:#13233f;--card2:#1a2d4f;--line:#1e3358;--ink:#eaf1ff;--mut:#9db2d4;--acc:#ff6b35;--acc2:#ffd23f;--grn:#2ecc71;--blu:#4da8ff;--prp:#a78bfa}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(160deg,#0a1628,#0d1b33);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:78px;overflow-x:hidden}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.hero{padding:46px 20px 34px;text-align:center;background:radial-gradient(circle at 50% 0%,rgba(255,107,53,.16),transparent 60%)}
+.badge{display:inline-block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--acc2);border:1px solid var(--line);padding:6px 14px;border-radius:30px;margin-bottom:18px}
+.hero h1{font-size:30px;font-weight:800;line-height:1.15;letter-spacing:-.5px;margin-bottom:12px;background:linear-gradient(120deg,#fff,#9db2d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--mut);font-size:15px;max-width:480px;margin:0 auto}
+.formula{margin:22px auto 0;max-width:520px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;font-size:14px}
+.formula b{color:var(--acc2)}
+h2.sec{font-size:21px;font-weight:800;margin:8px 0 16px;letter-spacing:-.3px}
+h2.sec span{color:var(--acc)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px}
+.card h3{font-size:16px;margin-bottom:8px;color:#fff}
+.card p{color:var(--mut);font-size:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.kpi{background:linear-gradient(145deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center}
+.kpi .n{font-size:26px;font-weight:800;color:var(--acc2);line-height:1}
+.kpi .l{font-size:11px;color:var(--mut);margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+.tabs{position:fixed;bottom:0;left:0;right:0;background:rgba(10,22,40,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;overflow-x:auto;z-index:50;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;padding:12px 16px;font-size:12px;color:var(--mut);background:none;border:none;cursor:pointer;white-space:nowrap;border-top:2px solid transparent;font-weight:600}
+.tab.on{color:var(--acc2);border-top-color:var(--acc)}
+.panel{display:none;padding:24px 0 30px;animation:fade .35s}
+.panel.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.bar{height:8px;background:var(--bg2);border-radius:8px;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2));border-radius:8px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:9px 8px;text-align:left;border-bottom:1px solid var(--line)}
+th{color:var(--acc2);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+td{color:var(--mut)}
+td:first-child{color:#fff;font-weight:600}
+.pill{display:inline-block;font-size:11px;padding:3px 9px;border-radius:20px;font-weight:600}
+.pill.h{background:rgba(46,204,113,.15);color:var(--grn)}
+.pill.m{background:rgba(255,210,63,.15);color:var(--acc2)}
+.pill.l{background:rgba(255,107,53,.15);color:var(--acc)}
+.lev{border-left:3px solid var(--acc);padding-left:14px;margin-bottom:14px}
+.lev h4{font-size:15px;color:#fff;margin-bottom:3px}
+.lev p{font-size:13px;color:var(--mut)}
+.flow{display:flex;flex-direction:column;gap:10px}
+.step{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.step .num{flex:0 0 30px;height:30px;border-radius:50%;background:linear-gradient(145deg,var(--acc),var(--acc2));color:#0a1628;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.step h4{font-size:14px;color:#fff;margin-bottom:2px}
+.step p{font-size:13px;color:var(--mut)}
+.bench{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.bench .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.bench .nm{font-weight:700;color:#fff;font-size:15px}
+.bench .tag{font-size:10px;color:var(--blu);text-transform:uppercase;letter-spacing:.5px}
+.bench p{font-size:13px;color:var(--mut)}
+.swot{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.swot div{border-radius:12px;padding:12px;font-size:12px}
+.swot .s{background:rgba(46,204,113,.1);border:1px solid rgba(46,204,113,.3)}
+.swot .w{background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.3)}
+.swot .o{background:rgba(77,168,255,.1);border:1px solid rgba(77,168,255,.3)}
+.swot .t{background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3)}
+.swot h5{font-size:12px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.swot ul{list-style:none;font-size:12px;color:var(--mut)}
+.swot li{margin-bottom:3px;padding-left:10px;position:relative}
+.swot li:before{content:'›';position:absolute;left:0;color:var(--acc2)}
+.foot{text-align:center;padding:20px;color:var(--mut);font-size:12px}
+@media(max-width:380px){.grid2{grid-template-columns:1fr}.swot{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="badge">Business Plan · Modelo Filantrópico</div>
+<h1>Centro de Lideranças Piratininga</h1>
+<p>Um ecossistema que encontra líderes jovens que já existem e multiplica o que eles fazem.</p>
+<div class="formula">Resultado = <b>O que você faz</b> × <b>Quem vê o que você faz</b></div>
+</header>
+
+<main class="wrap">
+
+<section class="panel on" id="p-dash">
+<h2 class="sec">Dashboard <span>de Impacto</span></h2>
+<div class="grid2" style="margin-bottom:14px">
+<div class="kpi"><div class="n">500</div><div class="l">Líderes / 5 anos</div></div>
+<div class="kpi"><div class="n">2M+</div><div class="l">Pessoas alcançadas</div></div>
+<div class="kpi"><div class="n">R$12M</div><div class="l">Orçamento 5 anos</div></div>
+<div class="kpi"><div class="n">1:8</div><div class="l">ROI social</div></div>
+</div>
+<div class="card"><h3>Maturação do programa</h3>
+<p>Ano 1 — Piloto (50 líderes)</p><div class="bar"><i style="width:20%"></i></div>
+<p style="margin-top:10px">Ano 3 — Escala (200 líderes)</p><div class="bar"><i style="width:55%"></i></div>
+<p style="margin-top:10px">Ano 5 — Consolidação (500 líderes)</p><div class="bar"><i style="width:100%"></i></div>
+</div>
+<div class="card"><h3>Princípio central</h3><p>Alavancagem do que já existe, não construção do zero. Não criamos líderes — encontramos os que já agem e amplificamos seu alcance.</p></div>
+</section>
+
+<section class="panel" id="p-tese">
+<h2 class="sec">A <span>Tese</span></h2>
+<div class="card"><h3>O problema</h3><p>Existem milhares de líderes jovens reais já transformando suas comunidades — mas invisíveis e sem escala. O talento existe; a alavancagem, não.</p></div>
+<div class="card"><h3>As 3 alavancas</h3>
+<div class="lev"><h4>1 · Software / IA</h4><p>Ferramentas que automatizam e potencializam o trabalho de cada líder, liberando tempo e ampliando capacidade.</p></div>
+<div class="lev"><h4>2 · Mídia</h4><p>Dar visibilidade ao que o líder já faz — porque resultado é o que se faz vezes quem vê.</p></div>
+<div class="lev"><h4>3 · Pessoas</h4><p>Rede, mentoria e conexões "taylor made", com diagnóstico individual de cada líder.</p></div>
+</div>
+<div class="card"><h3>Método taylor made</h3><p>Cada líder recebe um diagnóstico individual: identificamos sua alavanca de maior impacto e concentramos recursos ali, em vez de aplicar fórmula única.</p></div>
+</section>
+
+<section class="panel" id="p-mercado">
+<h2 class="sec">Mercado & <span>Contexto</span></h2>
+<div class="grid2" style="margin-bottom:14px">
+<div class="kpi"><div class="n">50M</div><div class="l">Jovens no Brasil (15-29)</div></div>
+<div class="kpi"><div class="n">R$5,7Bi</div><div class="l">Doações Brasil/ano</div></div>
+</div>
+<div class="card"><h3>Lacuna de mercado</h3><p>A filantropia tradicional financia projetos. Nós financiamos pessoas que já provaram impacto — modelo de alavancagem ainda raro no terceiro setor brasileiro.</p></div>
+<div class="card"><h3>Tendência favorável</h3><p>Crescimento de doações via PIX, filantropia de dados e investimento de impacto criam ambiente fértil para um modelo mensurável e escalável.</p></div>
+</section>
+
+<section class="panel" id="p-bench">
+<h2 class="sec">Benchmark <span>Global</span></h2>
+<div class="bench"><div class="top"><span class="nm">Ashoka</span><span class="tag">Empreendedores sociais</span></div><p>Rede global que seleciona e financia "fellows" já em ação. Referência em identificar líderes existentes — exatamente nossa tese.</p></div>
+<div class="bench"><div class="top"><span class="nm">Gerando Falcões</span><span class="tag">Brasil · Favela</span></div><p>Ecossistema que usa dados e tecnologia para escalar lideranças locais nas favelas. Prova nacional do modelo de alavancagem.</p></div>
+<div class="bench"><div class="top"><span class="nm">charity:water</span><span class="tag">Mídia + transparência</span></div><p>Mestres em transformar impacto em narrativa visível. Modelo de "quem vê o que você faz".</p></div>
+<div class="bench"><div class="top"><span class="nm">Echoing Green</span><span class="tag">Seed para líderes</span></div><p>Fellowship que aposta cedo em líderes emergentes com capital e rede.</p></div>
+<div class="bench"><div class="top"><span class="nm">Fundação Lemann</span><span class="tag">Brasil · Talentos</span></div><p>Investe em pessoas e formação de lideranças com foco em resultado mensurável.</p></div>
+<div class="bench"><div class="top"><span class="nm">GiveDirectly</span><span class="tag">Eficiência radical</span></div><p>Referência mundial em ROI social e transparência de recursos direto a pessoas.</p></div>
+</section>
+
+<section class="panel" id="p-supply">
+<h2 class="sec">Cadeia de <span>Valor</span></h2>
+<p style="color:var(--mut);font-size:13px;margin-bottom:16px">Do descobrimento do líder ao impacto multiplicado.</p>
+<div class="flow">
+<div class="step"><div class="num">1</div><div><h4>Descoberta</h4><p>Mapeamento ativo via IA, indicações e redes de líderes jovens já em ação.</p></div></div>
+<div class="step"><div class="num">2</div><div><h4>Diagnóstico</h4><p>Análise taylor made: qual das 3 alavancas gera maior retorno para aquele líder.</p></div></div>
+<div class="step"><div class="num">3</div><div><h4>Alavancagem</h4><p>Aplicação de Software/IA, Mídia e Pessoas sobre o que o líder já faz.</p></div></div>
+<div class="step"><div class="num">4</div><div><h4>Amplificação</h4><p>Produção de mídia e distribuição para multiplicar quem vê o trabalho.</p></div></div>
+<div class="step"><div class="num">5</div><div><h4>Mensuração</h4><p>Métricas de alcance e impacto por líder, alimentando o dashboard.</p></div></div>
+<div class="step"><div class="num">6</div><div><h4>Reinvestimento</h4><p>Os resultados atraem novos recursos e doadores, fechando o ciclo de escala.</p></div></div>
+</div>
+</section>
+
+<section class="panel" id="p-fin">
+<h2 class="sec">Projeção <span>Financeira</span></h2>
+<div class="card"><table>
+<tr><th>Ano</th><th>Líderes</th><th>Orçamento</th><th>Custo/líder</th></tr>
+<tr><td>1</td><td>50</td><td>R$1,2M</td><td>R$24k</td></tr>
+<tr><td>2</td><td>110</td><td>R$1,8M</td><td>R$16k</td></tr>
+<tr><td>3</td><td>200</td><td>R$2,6M</td><td>R$13k</td></tr>
+<tr><td>4</td><td>340</td><td>R$3,0M</td><td>R$8,8k</td></tr>
+<tr><td>5</td><td>500</td><td>R$3,4M</td><td>R$6,8k</td></tr>
+</table></div>
+<div class="card"><h3>Fontes de recurso</h3>
+<p>Doadores institucionais (PJ)</p><div class="bar"><i style="width:45%"></i></div>
+<p style="margin-top:10px">Filantropia individual / PIX</p><div class="bar"><i style="width:30%"></i></div>
+<p style="margin-top:10px">Editais & fundos de impacto</p><div class="bar"><i style="width:25%"></i></div>
+</div>
+<div class="card"><h3>Eficiência crescente</h3><p>O custo por líder cai de R$24k para R$6,8k conforme a plataforma de Software/IA dilui custos fixos — o modelo fica mais barato quanto mais escala.</p></div>
+</section>
+
+<section class="panel" id="p-gov">
+<h2 class="sec">Governança & <span>SWOT</span></h2>
+<div class="card"><h3>Estrutura</h3><p>Associação sem fins lucrativos ligada ao Instituto Piratininga, com conselho consultivo, núcleo executivo enxuto e comitê de impacto independente para auditar métricas.</p></div>
+<div class="swot">
+<div class="s"><h5>Forças</h5><ul><li>Tese clara e mensurável</li><li>Vínculo Instituto Piratininga</li><li>Modelo de alavancagem</li></ul></div>
+<div class="w"><h5>Fraquezas</h5><ul><li>Marca nova</li><li>Dependência de doação</li><li>Time inicial enxuto</li></ul></div>
+<div class="o"><h5>Oportunidades</h5><ul><li>Filantropia via PIX</li><li>IA barateando custos</li><li>Investimento de impacto</li></ul></div>
+<div class="t"><h5>Ameaças</h5><ul><li>Concorrência por doadores</li><li>Ciclos econômicos</li><li>Retenção de líderes</li></ul></div>
+</div>
+</section>
+
+<section class="panel" id="p-risco">
+<h2 class="sec">Matriz de <span>Riscos</span></h2>
+<div class="card"><table>
+<tr><th>Risco</th><th>Prob.</th><th>Impacto</th></tr>
+<tr><td>Captação abaixo da meta</td><td><span class="pill m">Média</span></td><td><span class="pill l">Alto</span></td></tr>
+<tr><td>Dificuldade de mensuração</td><td><span class="pill m">Média</span></td><td><span class="pill m">Médio</span></td></tr>
+<tr><td>Evasão de líderes</td><td><span class="pill l">Baixa</span></td><td><span class="pill m">Médio</span></td></tr>
+<tr><td>Dependência de 1 doador</td><td><span class="pill m">Média</span></td><td><span class="pill l">Alto</span></td></tr>
+<tr><td>Tecnologia não madura</td><td><span class="pill l">Baixa</span></td><td><span class="pill l">Baixo</span></td></tr>
+</table></div>
+<div class="card"><h3>Mitigação</h3><p>Diversificação de fontes desde o ano 1, dashboard de impacto auditável por terceiros e contratos de permanência leves com líderes reduzem os riscos críticos.</p></div>
+<div class="foot">Centro de Lideranças Piratininga · Business Plan · Modelo Filantrópico de Alavancagem<br>Instituto Piratininga · 2026</div>
+</section>
+
+</main>
+
+<nav class="tabs">
+<button class="tab on" data-t="dash">Dashboard</button>
+<button class="tab" data-t="tese">Tese</button>
+<button class="tab" data-t="mercado">Mercado</button>
+<button class="tab" data-t="bench">Benchmark</button>
+<button class="tab" data-t="supply">Cadeia</button>
+<button class="tab" data-t="fin">Financeiro</button>
+<button class="tab" data-t="gov">Governança</button>
+<button class="tab" data-t="risco">Riscos</button>
+</nav>
+
+<script>
+var tabs=document.querySelectorAll('.tab');
+tabs.forEach(function(b){b.addEventListener('click',function(){
+tabs.forEach(function(x){x.classList.remove('on')});
+b.classList.add('on');
+document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on')});
+document.getElementById('p-'+b.dataset.t).classList.add('on');
+window.scrollTo({top:0,behavior:'smooth'});
+});});
+</script>
+</body>
+</html>
