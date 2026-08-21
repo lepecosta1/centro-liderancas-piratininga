@@ -1,0 +1,661 @@
+<title>Trilha Claude Academy</title>
+<meta name="description" content="Roteiro passo a passo dos cursos oficiais e gratuitos da Claude Academy (Anthropic), da fluência em IA até as certificações.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&display=swap">
+
+<style>
+/* ---------- tokens: light is the base, both dark states redefine them ---------- */
+:root{
+  --ground:#F7F6F9;
+  --surface:#FFFFFF;
+  --surface-2:#F1EFF5;
+  --ink:#1B1726;
+  --ink-soft:#5A5470;
+  --ink-faint:#847CA0;
+  --line:#E1DEE9;
+  --line-strong:#CBC5DA;
+  --accent:#0E7C86;
+  --accent-ink:#FFFFFF;
+  --gold:#A8791B;
+  --shadow:0 1px 2px rgba(27,23,38,.05), 0 8px 24px -16px rgba(27,23,38,.28);
+
+  /* progression ramp — teal (início) para âmbar (certificação) */
+  --p0:#6B6480;
+  --p1:#0E7C86;
+  --p2:#2A7A78;
+  --p3:#4E7867;
+  --p4:#75764F;
+  --p5:#97733A;
+  --pc:#B0651F;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#14111C;
+    --surface:#1D1928;
+    --surface-2:#241F33;
+    --ink:#EDEAF4;
+    --ink-soft:#A49CBC;
+    --ink-faint:#7E7599;
+    --line:#2E2840;
+    --line-strong:#42395C;
+    --accent:#4FC3CE;
+    --accent-ink:#10333A;
+    --gold:#E0B653;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.9);
+    --p0:#948CAC;
+    --p1:#4FC3CE;
+    --p2:#5CC0B8;
+    --p3:#7FBE9E;
+    --p4:#B0BB7A;
+    --p5:#D6B25E;
+    --pc:#E8944A;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#14111C;
+  --surface:#1D1928;
+  --surface-2:#241F33;
+  --ink:#EDEAF4;
+  --ink-soft:#A49CBC;
+  --ink-faint:#7E7599;
+  --line:#2E2840;
+  --line-strong:#42395C;
+  --accent:#4FC3CE;
+  --accent-ink:#10333A;
+  --gold:#E0B653;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.9);
+  --p0:#948CAC;
+  --p1:#4FC3CE;
+  --p2:#5CC0B8;
+  --p3:#7FBE9E;
+  --p4:#B0BB7A;
+  --p5:#D6B25E;
+  --pc:#E8944A;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:Literata,Georgia,"Times New Roman",serif;
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:Archivo,"Helvetica Neue",Arial,sans-serif;text-wrap:balance;margin:0}
+a{color:var(--accent)}
+code,.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+
+.page{max-width:960px;margin:0 auto;padding:0 24px 96px}
+.reading{max-width:66ch}
+
+/* ---------- cabeçalho ---------- */
+.masthead{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-faint);margin:0 0 20px;
+}
+h1{font-size:clamp(38px,7vw,60px);font-weight:700;letter-spacing:-.025em;line-height:1.02}
+h1 .rule{display:block;color:var(--accent)}
+.deck{margin:22px 0 0;font-size:19px;color:var(--ink-soft);max-width:56ch}
+
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.stat{
+  background:var(--surface);border:1px solid var(--line);border-radius:3px;
+  padding:12px 18px;box-shadow:var(--shadow);
+}
+.stat b{
+  display:block;font-family:Archivo,sans-serif;font-size:26px;font-weight:700;
+  line-height:1.1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;
+}
+.stat span{
+  display:block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:4px;
+}
+
+/* ---------- barra de progresso ---------- */
+.tracker{
+  position:sticky;top:0;z-index:20;
+  background:var(--ground);
+  background:color-mix(in srgb, var(--ground) 92%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  margin:0 -24px;padding:12px 24px;
+}
+.tracker-in{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:16px}
+.tracker .lbl{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-faint);white-space:nowrap;
+}
+.meter{flex:1;height:6px;background:var(--surface-2);border:1px solid var(--line);border-radius:99px;overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--p1),var(--p5));transition:width .3s ease}
+.tracker .count{
+  font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.reset{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;background:none;border:1px solid var(--line-strong);
+  color:var(--ink-faint);border-radius:3px;padding:4px 9px;cursor:pointer;
+}
+.reset:hover{color:var(--ink);border-color:var(--ink-faint)}
+
+/* ---------- blocos de texto ---------- */
+section{padding-top:56px}
+h2{
+  font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-faint);padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:28px;
+}
+h3{font-size:24px;font-weight:600;letter-spacing:-.015em}
+p{margin:0 0 16px}
+.note{
+  border-left:2px solid var(--accent);padding:2px 0 2px 18px;
+  color:var(--ink-soft);font-size:16px;margin:24px 0;
+}
+
+/* ---------- passo a passo de acesso ---------- */
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{
+  counter-increment:s;position:relative;padding:0 0 20px 44px;
+}
+.steps li::before{
+  content:counter(s);position:absolute;left:0;top:2px;
+  width:26px;height:26px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--line-strong);color:var(--ink-soft);
+  font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;
+  display:grid;place-items:center;
+}
+.steps li b{font-family:Archivo,sans-serif;font-weight:600}
+
+/* ---------- fases ---------- */
+.phase{margin-bottom:8px}
+.phase-head{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  padding:32px 0 14px;border-top:1px solid var(--line);
+}
+.phase:first-of-type .phase-head{border-top:none;padding-top:0}
+.tier{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent-ink);background:var(--tier,var(--p1));
+  padding:4px 9px;border-radius:3px;white-space:nowrap;
+}
+.phase-head h3{flex:1;min-width:200px}
+.phase-time{
+  font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;
+}
+.phase-goal{color:var(--ink-soft);font-size:16px;margin:0 0 20px;max-width:62ch}
+
+/* ---------- curso ---------- */
+.course{
+  display:grid;grid-template-columns:auto 1fr;gap:0 16px;
+  background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--tier,var(--p1));
+  border-radius:3px;padding:18px 20px;margin-bottom:10px;box-shadow:var(--shadow);
+}
+.course.done{opacity:.55}
+.course.done .c-title{text-decoration:line-through;text-decoration-color:var(--ink-faint)}
+.tick{
+  appearance:none;-webkit-appearance:none;margin:5px 0 0;
+  width:20px;height:20px;border:1.5px solid var(--line-strong);border-radius:3px;
+  background:var(--ground);cursor:pointer;grid-row:span 3;align-self:start;
+}
+.tick:checked{background:var(--tier,var(--p1));border-color:var(--tier,var(--p1))}
+.tick:checked::after{
+  content:"";display:block;width:5px;height:10px;margin:2px auto 0;
+  border:solid var(--accent-ink);border-width:0 2px 2px 0;transform:rotate(42deg);
+}
+.tick:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.c-meta{
+  display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;
+  color:var(--ink-faint);margin-bottom:4px;
+}
+.c-meta .code{color:var(--tier,var(--p1));font-weight:600}
+.c-meta .sep{color:var(--line-strong)}
+.tag{
+  border:1px solid var(--line-strong);border-radius:99px;padding:1px 8px;
+  font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+}
+.tag.opt{color:var(--ink-faint)}
+.c-title{font-family:Archivo,sans-serif;font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+.c-title a{text-decoration:none;color:var(--ink);border-bottom:1.5px solid var(--tier,var(--p1));padding-bottom:1px}
+.c-title a:hover{color:var(--tier,var(--p1))}
+.c-title a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.c-why{margin:6px 0 0;font-size:15.5px;color:var(--ink-soft);line-height:1.55}
+.c-why b{color:var(--ink);font-weight:600}
+
+/* ---------- certificações ---------- */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:600px;font-size:15px}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:none}
+th{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);
+  background:var(--surface-2);
+}
+td.code{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;color:var(--gold);white-space:nowrap}
+td.price{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td b{font-family:Archivo,sans-serif;font-weight:600}
+
+/* ---------- links de apoio ---------- */
+.links{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.links li{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.links a{font-family:Archivo,sans-serif;font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--accent)}
+.links a:hover{opacity:.75}
+.links span{font-size:15px;color:var(--ink-soft)}
+
+footer{
+  margin-top:72px;padding-top:24px;border-top:1px solid var(--line);
+  font-size:14px;color:var(--ink-faint);
+}
+footer p{margin:0 0 8px}
+
+@media (max-width:600px){
+  body{font-size:16px}
+  .page{padding:0 18px 72px}
+  .tracker{margin:0 -18px;padding:10px 18px}
+  .masthead{padding-top:44px}
+  .course{padding:16px}
+  .tracker .lbl{display:none}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important}
+}
+</style>
+
+<div class="page">
+
+<header class="masthead">
+  <p class="eyebrow">Roteiro de estudos · Claude Academy · Anthropic</p>
+  <h1>Do zero ao<span class="rule">agente multi-agente.</span></h1>
+  <p class="deck">Todos os cursos oficiais e gratuitos da Anthropic, colocados na ordem em que fazem sentido estudar — terminando nas certificações oficiais.</p>
+  <div class="stats">
+    <div class="stat"><b>20</b><span>cursos oficiais</span></div>
+    <div class="stat"><b>~34 h</b><span>trilha completa</span></div>
+    <div class="stat"><b>R$ 0</b><span>custo dos cursos</span></div>
+    <div class="stat"><b>4</b><span>certificações</span></div>
+  </div>
+</header>
+
+<div class="tracker">
+  <div class="tracker-in">
+    <span class="lbl">Seu progresso</span>
+    <div class="meter"><i id="bar"></i></div>
+    <span class="count" id="count">0 / 0</span>
+    <button class="reset" id="reset" type="button">Zerar</button>
+  </div>
+</div>
+
+<section id="acesso">
+  <h2>Antes de tudo — por que os links "não abrem"</h2>
+  <div class="reading">
+    <p>Os cursos não saíram do ar. A plataforma foi rebatizada de <b>Claude Academy</b> e todo curso agora fica atrás de uma tela de login: se você clica direto no link do curso sem estar logado, cai numa página de cadastro que parece erro. Resolva isso uma vez e todos os links passam a funcionar:</p>
+    <ol class="steps">
+      <li><b>Crie a conta gratuita</b> em <a href="https://anthropic.skilljar.com/" target="_blank" rel="noopener">anthropic.skilljar.com</a>. Só pede e-mail — não precisa de conta Claude, nem cartão.</li>
+      <li><b>Confirme o e-mail</b> e deixe a aba logada aberta. Daí em diante, qualquer link desta página abre o curso direto.</li>
+      <li><b>Matricule-se em cada curso</b> clicando em <em>Enroll</em>. O curso só aparece no seu painel — e só emite certificado — depois da matrícula.</li>
+      <li><b>Baixe o certificado</b> ao concluir e publique no LinkedIn. Cada curso emite o seu, separadamente.</li>
+      <li><b>Marque aqui.</b> As caixas desta página ficam salvas no seu navegador — dá pra fechar e voltar depois.</li>
+    </ol>
+    <p class="note">O catálogo em português ainda não existe: as aulas são em inglês, com legendas automáticas. Ative as legendas e a velocidade 1.25× — a maior parte da trilha fica bem confortável assim.</p>
+  </div>
+</section>
+
+<section id="trilha">
+  <h2>A trilha, fase por fase</h2>
+
+  <!-- FASE 0 -->
+  <div class="phase" style="--tier:var(--p0)">
+    <div class="phase-head">
+      <span class="tier">Fase 00</span>
+      <h3>Preparação</h3>
+      <span class="phase-time">~30 min</span>
+    </div>
+    <p class="phase-goal">Conta criada, plataforma entendida, primeiro curso matriculado. É o passo que a maioria pula — e é por isso que a maioria não termina.</p>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="setup" aria-label="Concluído: criar conta e explorar o catálogo">
+      <div class="c-meta"><span class="code">SETUP</span><span class="sep">·</span><span>~30 min</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/" target="_blank" rel="noopener">Criar conta e explorar o catálogo</a></p>
+      <p class="c-why">Passe os olhos nos 20 cursos antes de começar. Saber o que existe muda a forma como você estuda o primeiro.</p>
+    </div>
+  </div>
+
+  <!-- FASE 1 -->
+  <div class="phase" style="--tier:var(--p1)">
+    <div class="phase-head">
+      <span class="tier">Fase 01</span>
+      <h3>Fundamentos de IA</h3>
+      <span class="phase-time">~4 h</span>
+    </div>
+    <p class="phase-goal">Antes de qualquer prompt: o que a IA faz bem, onde ela falha, e o vocabulário que o resto da trilha assume que você já tem.</p>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="ai-fluency-framework-foundations" aria-label="Concluído: AI Fluency: Framework &amp; Foundations">
+      <div class="c-meta"><span class="code">AIF-101</span><span class="sep">·</span><span>~2 h</span><span class="tag">Base</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/ai-fluency-framework-foundations" target="_blank" rel="noopener">AI Fluency: Framework &amp; Foundations</a></p>
+      <p class="c-why">O curso que a Anthropic construiu com pesquisadores acadêmicos. Apresenta o framework <b>4D</b> — Delegation, Description, Discernment, Diligence — que é a espinha dorsal de tudo que vem depois. Se você só fizer um curso, faça este.</p>
+    </div>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="ai-capabilities-and-limitations" aria-label="Concluído: AI Capabilities and Limitations">
+      <div class="c-meta"><span class="code">AIF-110</span><span class="sep">·</span><span>~1 h</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/ai-capabilities-and-limitations" target="_blank" rel="noopener">AI Capabilities and Limitations</a></p>
+      <p class="c-why">Onde o modelo alucina, onde ele é confiável, e como calibrar sua confiança. É o antídoto contra os dois erros clássicos: confiar demais e desistir cedo demais.</p>
+    </div>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="claude-101" aria-label="Concluído: Claude 101">
+      <div class="c-meta"><span class="code">CLD-101</span><span class="sep">·</span><span>~1 h</span><span class="tag">Base</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/claude-101" target="_blank" rel="noopener">Claude 101</a></p>
+      <p class="c-why">Claude no trabalho de verdade: Projects, artifacts, upload de arquivos, memória. Curto e direto ao ponto.</p>
+    </div>
+  </div>
+
+  <!-- FASE 2 -->
+  <div class="phase" style="--tier:var(--p2)">
+    <div class="phase-head">
+      <span class="tier">Fase 02</span>
+      <h3>Produtividade e primeiros builds</h3>
+      <span class="phase-time">~5 h</span>
+    </div>
+    <p class="phase-goal">Sair do chat e começar a delegar trabalho de verdade — inclusive trabalho que não é código.</p>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="ai-fluency-for-builders" aria-label="Concluído: AI Fluency for Builders">
+      <div class="c-meta"><span class="code">AIF-201</span><span class="sep">·</span><span>~1,5 h</span><span class="tag">Novo</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/ai-fluency-for-builders" target="_blank" rel="noopener">AI Fluency for Builders</a></p>
+      <p class="c-why">A versão do AI Fluency para quem <b>constrói</b> coisas, não só usa. Substitui, na prática, o "for Students" para o seu objetivo.</p>
+    </div>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="introduction-to-claude-cowork" aria-label="Concluído: Introduction to Claude Cowork">
+      <div class="c-meta"><span class="code">CWK-101</span><span class="sep">·</span><span>~1,5 h</span><span class="tag">Novo</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/introduction-to-claude-cowork" target="_blank" rel="noopener">Introduction to Claude Cowork</a></p>
+      <p class="c-why">Cowork é o Claude executando tarefas longas de várias etapas sobre os seus arquivos — sem você escrever código. É o caminho mais curto entre "usar IA" e "ter um agente trabalhando pra você".</p>
+    </div>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="claude-code-101" aria-label="Concluído: Claude Code 101">
+      <div class="c-meta"><span class="code">CC-101</span><span class="sep">·</span><span>~2 h</span><span class="tag">Base</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/claude-code-101" target="_blank" rel="noopener">Claude Code 101</a></p>
+      <p class="c-why">Da instalação ao primeiro projeto. Feito para quem <b>não</b> é engenheiro de software — não pule achando que é básico demais, ele apresenta CLAUDE.md, subagents, skills, MCP e hooks, que são o mapa das fases 3 a 5.</p>
+    </div>
+  </div>
+
+  <!-- FASE 3 -->
+  <div class="phase" style="--tier:var(--p3)">
+    <div class="phase-head">
+      <span class="tier">Fase 03</span>
+      <h3>Claude Code a sério</h3>
+      <span class="phase-time">~6 h</span>
+    </div>
+    <p class="phase-goal">Aqui a trilha vira multi-agente pela primeira vez. Subagents e Skills são <em>literalmente</em> o seu objetivo final — só que dentro do Claude Code, que é o ambiente mais fácil pra aprender.</p>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="claude-code-in-action" aria-label="Concluído: Claude Code in Action">
+      <div class="c-meta"><span class="code">CC-201</span><span class="sep">·</span><span>~2,5 h</span><span class="tag">Base</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/claude-code-in-action" target="_blank" rel="noopener">Claude Code in Action</a></p>
+      <p class="c-why">Sessões longas sem perder o controle: escrever CLAUDE.md que o Claude realmente obedece, empacotar procedimentos como skills, impor regras com hooks e distribuir tudo em plugins.</p>
+    </div>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="introduction-to-subagents" aria-label="Concluído: Introduction to subagents">
+      <div class="c-meta"><span class="code">CC-210</span><span class="sep">·</span><span>~1,5 h</span><span class="tag">Multi-agente</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/introduction-to-subagents" target="_blank" rel="noopener">Introduction to subagents</a></p>
+      <p class="c-why">Criar sub-agentes com <code>/agents</code>, delegar tarefas para eles e manter a conversa principal limpa. <b>Este é o curso mais próximo do seu objetivo de multi-agentes</b> — e ele vem bem antes do MCP.</p>
+    </div>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="introduction-to-agent-skills" aria-label="Concluído: Introduction to Agent Skills">
+      <div class="c-meta"><span class="code">CC-220</span><span class="sep">·</span><span>~2 h</span><span class="tag">Multi-agente</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/introduction-to-agent-skills" target="_blank" rel="noopener">Introduction to Agent Skills</a></p>
+      <p class="c-why">Skills são instruções em markdown que o Claude aplica sozinho na tarefa certa. Aprenda a criar, compartilhar via repositório, distribuir em plugins e conectar cada skill a um subagent especialista.</p>
+    </div>
+  </div>
+
+  <!-- FASE 4 -->
+  <div class="phase" style="--tier:var(--p4)">
+    <div class="phase-head">
+      <span class="tier">Fase 04</span>
+      <h3>Plataforma, API e nuvem</h3>
+      <span class="phase-time">~9 h</span>
+    </div>
+    <p class="phase-goal">Sair da linha de comando e colocar Claude dentro dos seus sistemas. Os dois cursos de nuvem são intercambiáveis — faça o da nuvem que você usa.</p>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="claude-platform-101" aria-label="Concluído: Claude Platform 101">
+      <div class="c-meta"><span class="code">API-101</span><span class="sep">·</span><span>~2,5 h</span><span class="tag">Novo</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/claude-platform-101" target="_blank" rel="noopener">Claude Platform 101</a></p>
+      <p class="c-why">O ponto de entrada atualizado para desenvolvedores: ferramentas nativas (web search, code execution, web fetch), skills, servidores MCP e padrões de gestão de contexto. <b>Comece por aqui</b>, não pelo curso de API.</p>
+    </div>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="claude-with-the-anthropic-api" aria-label="Concluído: Building with the Claude API">
+      <div class="c-meta"><span class="code">API-201</span><span class="sep">·</span><span>~3 h</span><span class="tag">Base</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/claude-with-the-anthropic-api" target="_blank" rel="noopener">Building with the Claude API</a></p>
+      <p class="c-why">O curso mais denso da trilha: chamadas de API, prompting avançado, tool use, RAG, <b>avaliações</b> (dataset de teste + correção automática) e arquiteturas de agente. As avaliações caem na certificação.</p>
+    </div>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="claude-with-google-vertex" aria-label="Concluído: Claude on Google Cloud (Vertex AI)">
+      <div class="c-meta"><span class="code">CLOUD-GCP</span><span class="sep">·</span><span>~2 h</span><span class="tag opt">Escolha uma</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/claude-with-google-vertex" target="_blank" rel="noopener">Claude on Google Cloud (Vertex AI)</a></p>
+      <p class="c-why">Rodar Claude dentro da sua conta Google: autenticação, regiões, tool use, RAG e MCP no Vertex. Faça este se sua infra já é Google.</p>
+    </div>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="claude-in-amazon-bedrock" aria-label="Concluído: Claude with Amazon Bedrock">
+      <div class="c-meta"><span class="code">CLOUD-AWS</span><span class="sep">·</span><span>~2 h</span><span class="tag opt">Escolha uma</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/claude-in-amazon-bedrock" target="_blank" rel="noopener">Claude with Amazon Bedrock</a></p>
+      <p class="c-why">O mesmo conteúdo no mundo AWS: conversas multi-turno, ferramentas com JSON Schema, pipelines RAG, extended thinking e prompt caching.</p>
+    </div>
+  </div>
+
+  <!-- FASE 5 -->
+  <div class="phase" style="--tier:var(--p5)">
+    <div class="phase-head">
+      <span class="tier">Fase 05</span>
+      <h3>MCP e sistemas multi-agente</h3>
+      <span class="phase-time">~6 h</span>
+    </div>
+    <p class="phase-goal">O objetivo final: agentes que conversam com serviços externos e entre si, em produção.</p>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="introduction-to-model-context-protocol" aria-label="Concluído: Introduction to Model Context Protocol">
+      <div class="c-meta"><span class="code">MCP-101</span><span class="sep">·</span><span>~3 h</span><span class="tag">Multi-agente</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/introduction-to-model-context-protocol" target="_blank" rel="noopener">Introduction to Model Context Protocol</a></p>
+      <p class="c-why">Construir servidores <em>e</em> clientes MCP do zero com o SDK Python, dominando as três primitivas — <b>tools, resources e prompts</b>. É o protocolo que conecta qualquer agente a qualquer serviço.</p>
+    </div>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="model-context-protocol-advanced-topics" aria-label="Concluído: Model Context Protocol: Advanced Topics">
+      <div class="c-meta"><span class="code">MCP-201</span><span class="sep">·</span><span>~3 h</span><span class="tag">Multi-agente</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/model-context-protocol-advanced-topics" target="_blank" rel="noopener">Model Context Protocol: Advanced Topics</a></p>
+      <p class="c-why">Sampling, notificações, acesso a sistema de arquivos e transportes. <b>Sampling é a peça que falta</b>: é o que permite um servidor MCP pedir uma inferência de volta ao modelo — a base de arquiteturas multi-agente reais.</p>
+    </div>
+  </div>
+
+  <!-- FASE 6 -->
+  <div class="phase" style="--tier:var(--pc)">
+    <div class="phase-head">
+      <span class="tier">Fase 06</span>
+      <h3>Certificação</h3>
+      <span class="phase-time">~4 h + exame</span>
+    </div>
+    <p class="phase-goal">As provas oficiais não estão no catálogo público — ficam na <b>Anthropic Partner Academy</b>, uma plataforma separada. Entrar no Claude Partner Network no nível <em>Registered</em> é gratuito e é o que destrava o registro nos exames.</p>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="partner-network-path" aria-label="Concluído: Claude Partner Network Learning Path">
+      <div class="c-meta"><span class="code">CPN-PATH</span><span class="sep">·</span><span>~2 h</span><span class="tag">Pré-requisito</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/page/claude-partner-network-learning-path" target="_blank" rel="noopener">Claude Partner Network Learning Path</a></p>
+      <p class="c-why">A porta de entrada da rede de parceiros e o primeiro passo formal rumo à certificação.</p>
+    </div>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="partner-academy" aria-label="Concluído: Anthropic Partner Academy">
+      <div class="c-meta"><span class="code">CPN-ACAD</span><span class="sep">·</span><span>~2 h</span><span class="tag">Pré-requisito</span></div>
+      <p class="c-title"><a href="https://anthropic-partners.skilljar.com/" target="_blank" rel="noopener">Anthropic Partner Academy — cursos de preparação</a></p>
+      <p class="c-why">Plataforma separada, com <b>login próprio</b>. É onde ficam os cursos de prep e o registro dos exames — inclusive o <a href="https://anthropic-partners.skilljar.com/path/claude-certified-developer-foundations" target="_blank" rel="noopener">prep path do CCDV-F</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="exames">
+  <h2>Os quatro exames oficiais</h2>
+  <div class="reading">
+    <p>Todos aplicados pela <b>Pearson VUE</b> (online ou em centro de testes), 120 minutos de prova, aprovação em 720 de 1000 pontos, validade de 12 meses com renovação gratuita se feita no prazo. Múltipla escolha e múltipla resposta baseada em cenários.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Código</th><th>Exame</th><th>Para quem</th><th>Preço</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="code">CCAO-F</td>
+          <td><b>Claude Certified Associate — Foundations</b></td>
+          <td>Quem usa Claude em funções de negócio</td>
+          <td class="price">US$ 99</td>
+        </tr>
+        <tr>
+          <td class="code">CCDV-F</td>
+          <td><b><a href="https://anthropic-partners.skilljar.com/claude-certified-developer-foundations-certification" target="_blank" rel="noopener">Claude Certified Developer — Foundations</a></b></td>
+          <td>Quem entrega aplicações na API e no Agent SDK</td>
+          <td class="price">US$ 125</td>
+        </tr>
+        <tr>
+          <td class="code">CCAR-F</td>
+          <td><b><a href="https://anthropic-partners.skilljar.com/claude-certified-architect-foundations-certification" target="_blank" rel="noopener">Claude Certified Architect — Foundations</a></b></td>
+          <td>Quem desenha sistemas com Claude Code, MCP e agentes</td>
+          <td class="price">US$ 125</td>
+        </tr>
+        <tr>
+          <td class="code">CCAR-P</td>
+          <td><b><a href="https://anthropic-partners.skilljar.com/claude-certified-architect-professional-certification" target="_blank" rel="noopener">Claude Certified Architect — Professional</a></b></td>
+          <td>Arquitetos experientes, entrega ponta a ponta</td>
+          <td class="price">US$ 175</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="reading">
+    <p class="note">Rota recomendada para o seu objetivo: <b>CCDV-F</b> depois da Fase 04, e <b>CCAR-F</b> depois da Fase 05. Dúvidas de logística estão no <a href="https://anthropic-partners.skilljar.com/page/faq-certifications" target="_blank" rel="noopener">FAQ oficial de certificações</a>.</p>
+  </div>
+</section>
+
+<section id="paralelas">
+  <h2>Trilhas paralelas — se você for ensinar</h2>
+  <div class="reading">
+    <p>Estes cursos não entram na sequência principal, mas são os certos para quem vai formar outras pessoas — o que combina com o trabalho do Centro.</p>
+  </div>
+
+  <div class="phase" style="--tier:var(--p0)">
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="teaching-ai-fluency" aria-label="Concluído: Teaching AI Fluency">
+      <div class="c-meta"><span class="code">EDU-201</span><span class="sep">·</span><span>~2 h</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/teaching-ai-fluency" target="_blank" rel="noopener">Teaching AI Fluency</a></p>
+      <p class="c-why">Como <b>ensinar e avaliar</b> fluência em IA em turmas presenciais. O curso a fazer se você vai dar as oficinas.</p>
+    </div>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="ai-fluency-for-educators" aria-label="Concluído: AI Fluency for educators">
+      <div class="c-meta"><span class="code">EDU-101</span><span class="sep">·</span><span>~1,5 h</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/ai-fluency-for-educators" target="_blank" rel="noopener">AI Fluency for educators</a></p>
+      <p class="c-why">Para docentes e coordenadores: aplicar IA na prática de ensino e na estratégia da instituição.</p>
+    </div>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="ai-fluency-for-students" aria-label="Concluído: AI Fluency for students">
+      <div class="c-meta"><span class="code">EDU-110</span><span class="sep">·</span><span>~1,5 h</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/ai-fluency-for-students" target="_blank" rel="noopener">AI Fluency for students</a></p>
+      <p class="c-why">A versão para estudantes — o link que você manda para os jovens do programa antes da primeira oficina.</p>
+    </div>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="ai-fluency-for-pk-12-educators" aria-label="Concluído: AI Fluency for pK-12 Educators">
+      <div class="c-meta"><span class="code">EDU-120</span><span class="sep">·</span><span>~3 h</span><span class="tag">Trilha</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/path/ai-fluency-for-pk-12-educators" target="_blank" rel="noopener">AI Fluency for pK-12 Educators</a></p>
+      <p class="c-why">Trilha completa (vários cursos) para educação básica — pré-escola ao ensino médio.</p>
+    </div>
+
+    <div class="course">
+      <input class="tick" type="checkbox" data-id="driving-enterprise-adoption-of-claude" aria-label="Concluído: Driving enterprise adoption of Claude">
+      <div class="c-meta"><span class="code">ENT-201</span><span class="sep">·</span><span>~2 h</span></div>
+      <p class="c-title"><a href="https://anthropic.skilljar.com/driving-enterprise-adoption-of-claude" target="_blank" rel="noopener">Driving enterprise adoption of Claude</a></p>
+      <p class="c-why">O framework de três fases — <b>Activation, Acceleration, Expansion</b> — que grandes organizações usam para adotar IA. Útil para desenhar a adoção dentro de uma ONG ou de um parceiro.</p>
+    </div>
+  </div>
+</section>
+
+<section id="apoio">
+  <h2>Fontes oficiais de apoio</h2>
+  <ul class="links">
+    <li><a href="https://www.anthropic.com/learn" target="_blank" rel="noopener">Claude Academy</a> <span>— o hub oficial que organiza tudo por público.</span></li>
+    <li><a href="https://anthropic.skilljar.com/" target="_blank" rel="noopener">Catálogo de cursos</a> <span>— a plataforma onde os cursos rodam de fato.</span></li>
+    <li><a href="https://anthropic-partners.skilljar.com/" target="_blank" rel="noopener">Partner Academy</a> <span>— certificações e cursos de preparação (login separado).</span></li>
+    <li><a href="https://docs.claude.com/" target="_blank" rel="noopener">Documentação Claude</a> <span>— referência da API, do Claude Code e do Agent SDK.</span></li>
+    <li><a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener">modelcontextprotocol.io</a> <span>— especificação e SDKs oficiais do MCP.</span></li>
+    <li><a href="https://www.anthropic.com/engineering" target="_blank" rel="noopener">Anthropic Engineering</a> <span>— os artigos técnicos sobre agentes, contexto e avaliação.</span></li>
+    <li><a href="mailto:academy-support@anthropic.com">academy-support@anthropic.com</a> <span>— suporte da plataforma de cursos.</span></li>
+  </ul>
+</section>
+
+<footer>
+  <p>Catálogo conferido em <b>21 de agosto de 2026</b>. A Anthropic publica cursos novos com frequência — se algum link falhar, procure o curso pelo nome no <a href="https://anthropic.skilljar.com/" target="_blank" rel="noopener">catálogo</a>, que é sempre a fonte da verdade.</p>
+  <p>Durações são estimativas de estudo, não números oficiais. Preços de exame em dólar, referência de julho de 2026.</p>
+  <p>Compilado para o Centro de Lideranças Piratininga. Conteúdo dos cursos © Anthropic.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var KEY = "trilha-anthropic-v1";
+  var ticks = Array.prototype.slice.call(document.querySelectorAll(".tick"));
+  var bar = document.getElementById("bar");
+  var count = document.getElementById("count");
+  var reset = document.getElementById("reset");
+
+  function load(){
+    try {
+      var raw = localStorage.getItem(KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) { return {}; }
+  }
+  function save(state){
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* modo privado */ }
+  }
+  function render(){
+    var done = 0;
+    ticks.forEach(function(t){
+      t.closest(".course").classList.toggle("done", t.checked);
+      if (t.checked) done++;
+    });
+    count.textContent = done + " / " + ticks.length;
+    bar.style.width = (ticks.length ? (done / ticks.length) * 100 : 0) + "%";
+  }
+
+  var state = load();
+  ticks.forEach(function(t){
+    if (state[t.dataset.id]) t.checked = true;
+    t.addEventListener("change", function(){
+      var s = load();
+      if (t.checked) { s[t.dataset.id] = 1; } else { delete s[t.dataset.id]; }
+      save(s);
+      render();
+    });
+  });
+  reset.addEventListener("click", function(){
+    ticks.forEach(function(t){ t.checked = false; });
+    save({});
+    render();
+  });
+  render();
+})();
+</script>
