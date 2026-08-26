@@ -281,6 +281,12 @@ tbody tr:hover td{background:rgba(224,154,58,.045)}
 .rodape{border-top:1px solid var(--veio);margin-top:40px;padding:26px 22px 44px;text-align:center;
   font-family:var(--f-util);text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--mut2);line-height:1.9}
 .rodape b{color:var(--mut)}
+.baixar{display:inline-flex;align-items:center;gap:9px;margin-bottom:20px;padding:12px 22px;border-radius:5px;
+  border:1px solid var(--verniz);background:var(--verniz-fraco);color:var(--mel);text-decoration:none;
+  font-family:var(--f-util);font-weight:600;text-transform:uppercase;letter-spacing:.11em;font-size:14px;
+  transition:background .18s ease,color .18s ease}
+.baixar:hover{background:var(--verniz);color:var(--nogueira)}
+.baixar svg{width:17px;height:17px}
 
 /* ---------- responsivo ---------- */
 @media(max-width:720px){
@@ -321,7 +327,7 @@ tbody tr:hover td{background:rgba(224,154,58,.045)}
   }
   *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;box-shadow:none !important}
   body{background:#FFF;font-size:10.6pt;line-height:1.5}
-  .trena,.rodape .tela-only{display:none !important}
+  .trena,.rodape .tela-only,.baixar{display:none !important}  /* o botão de baixar não faz sentido dentro do PDF */
   .grain{display:none}
   .capa{border-bottom:2px solid var(--veio2);background:none;page-break-after:always}
   .capa .inner{padding:0 0 20px}
@@ -1208,6 +1214,7 @@ tbody tr:hover td{background:rgba(224,154,58,.045)}
 </main>
 
 <footer class="rodape">
+<!--BOTAO-PDF-->
 <b>Casa do Marceneiro Tatuapé</b> · Proposta de reconstrução digital<br>
 Emitida em 26 de agosto de 2026 · Validade de 30 dias<br>
 <span class="tela-only">Documento interativo — navegue pelas abas no topo</span>

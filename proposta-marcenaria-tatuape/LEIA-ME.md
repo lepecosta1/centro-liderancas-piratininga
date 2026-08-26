@@ -14,6 +14,9 @@ compartilhamento.
 | `index.html` | Documento autônomo — o que se compartilha e o que vira PDF. *Gerado.* |
 | `artifact.html` | Corpo para publicação como Artifact, sem `doctype`/`head`/`body`. *Gerado, fora do versionamento.* |
 | `Proposta-Casa-do-Marceneiro-Tatuape.pdf` | Versão para enviar ao cliente. |
+| `capa-link.png` | Cartão 1200×630 que WhatsApp e Telegram mostram ao receber o link. |
+| `icone.png` | Ícone de aba e de tela de início do celular. |
+| `gerador/` | Fontes dos dois PNG acima; renderizados com Chromium. |
 
 ## Como reconstruir
 
@@ -26,6 +29,26 @@ python3 montar.py   # gera index.html e artifact.html
   --no-pdf-header-footer --print-to-pdf-no-header \
   --print-to-pdf=Proposta-Casa-do-Marceneiro-Tatuape.pdf "file://$PWD/index.html"
 ```
+
+## Hospedagem
+
+Servido pelo GitHub Pages deste repositório, que já está ativado:
+
+```
+https://lepecosta1.github.io/centro-liderancas-piratininga/proposta-marcenaria-tatuape/
+```
+
+O endereço fica em `SITE`, no topo do `montar.py`. Ao mudar de casa — por exemplo
+para um subdomínio do próprio `marceneirotatuape.com.br`, depois do resgate —
+basta trocar ali e rodar `montar.py` de novo: as URLs absolutas do cartão de
+prévia e da tag canônica acompanham.
+
+A página vai com `noindex, nofollow`: é uma proposta com preço, não convém no
+índice do Google. Isso não impede a prévia no WhatsApp, que lê as tags Open Graph
+independentemente. Se algum dia ela precisar ser encontrável, a linha sai do
+`montar.py`.
+
+O `.nojekyll` na raiz do repositório desliga o processamento Jekyll do Pages.
 
 ## Decisões de projeto
 
@@ -43,6 +66,10 @@ HTML compartilhado tenham a mesma tipografia mesmo sem rede.
 **O acordeão das semanas é melhoria progressiva.** Os `<details>` nascem `open` no
 HTML — assim o PDF e a leitura sem JavaScript trazem o conteúdo inteiro. O script
 fecha as semanas 2 a 8 na tela e reabre todas antes de imprimir.
+
+**O botão "Baixar em PDF" só existe na versão hospedada.** O `montar.py` troca o
+marcador `<!--BOTAO-PDF-->` pelo botão em `index.html` e o remove em
+`artifact.html`, onde o PDF não está ao lado. O botão também some na impressão.
 
 **A paleta dos gráficos foi validada por script**, não a olho: as quatro trilhas do
 cronograma e a rampa âmbar do funil passam nos testes de banda de luminosidade,
