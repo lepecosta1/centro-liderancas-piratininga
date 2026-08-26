@@ -1,0 +1,1270 @@
+<title>Casa do Marceneiro Tatuapé</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+
+<style>
+/* ============================================================
+   OFICINA DE NOGUEIRA — sistema de tokens
+   Compromisso deliberado com um único mundo visual (madeira
+   escura sob luz de verniz). Tela = oficina. Impressão = papel
+   de projeto: os mesmos tokens, virados para o branco quente.
+   ============================================================ */
+:root{
+  color-scheme:dark;
+  /* superfícies */
+  --nogueira:#1A120C;  --nogueira2:#150F0A;
+  --bancada:#2A1E15;   --bancada2:#332419;
+  --veio:#4A3527;      --veio2:#5C4231;
+  /* tinta — neutros enviesados ao marrom, escolhidos e não herdados */
+  --serragem:#F4E9D8;  --mut:#C0A88C;  --mut2:#96806A;
+  --tinta-forte:#FFF6E8;
+  /* acento */
+  --verniz:#E09A3A;    --mel:#F5C15C;  --verniz-fraco:rgba(224,154,58,.13);
+  --realce:#3A2817;    /* nogueira sob luz quente — topo dos gradientes */
+  /* semântica de estado (sempre acompanhada de rótulo, nunca cor sozinha) */
+  --brasa:#E0674D;     --brasa-bg:rgba(224,103,77,.13);
+  --cera:#EFBE4A;      --cera-bg:rgba(239,190,74,.12);
+  --folha:#84B96B;     --folha-bg:rgba(132,185,107,.12);
+  /* trilhas do cronograma (paleta categórica validada) */
+  --t1:#C4821A; --t2:#4C8AD9; --t3:#BE6BD0; --t4:#4FA457;
+  /* rampa ordinal âmbar (validada) — r5 = sinal mais forte */
+  --r1:#8C5A18; --r2:#B8792A; --r3:#DDA043; --r4:#F0C273; --r5:#F8DFAF;
+  /* medidas */
+  --col:880px;
+  --f-disp:"Fraunces",Georgia,"Times New Roman",serif;
+  --f-body:"Barlow",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --f-util:"Barlow Condensed","Barlow",-apple-system,sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
+body{
+  font-family:var(--f-body);
+  background:var(--nogueira);
+  color:var(--serragem);
+  font-size:16px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ---------- tipografia ---------- */
+h1,h2,h3,h4{font-family:var(--f-disp);font-variation-settings:"SOFT" 40,"WONK" 1;text-wrap:balance;line-height:1.12;letter-spacing:-.012em}
+.eyebrow{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.16em;font-weight:600;font-size:13px;color:var(--verniz)}
+.num{font-variant-numeric:tabular-nums}
+strong,b{font-weight:600;color:var(--tinta-forte)}
+em{font-style:italic;color:var(--mel)}
+a{color:var(--mel);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;text-decoration-color:var(--veio2)}
+a:hover{text-decoration-color:var(--mel)}
+:focus-visible{outline:2px solid var(--mel);outline-offset:3px;border-radius:4px}
+
+/* ---------- veio de madeira procedural (o risco da peça) ---------- */
+.grain{position:absolute;inset:0;width:100%;height:100%;opacity:.16;pointer-events:none;z-index:0}
+
+/* ---------- capa ---------- */
+.capa{position:relative;overflow:hidden;border-bottom:1px solid var(--veio);
+  background:radial-gradient(120% 90% at 50% -10%,var(--realce) 0%,var(--nogueira) 62%)}
+.capa .inner{position:relative;z-index:1;max-width:var(--col);margin:0 auto;padding:56px 22px 42px}
+.capa .marca{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.capa .marca .selo{width:38px;height:38px;flex:none;border:1.5px solid var(--verniz);border-radius:50%;
+  display:grid;place-items:center;color:var(--verniz)}
+.capa .marca .txt{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.15em;font-size:12.5px;color:var(--mut);line-height:1.35}
+.capa .marca .txt b{display:block;color:var(--serragem);font-weight:600;letter-spacing:.15em}
+.capa h1{font-size:clamp(38px,7.4vw,64px);font-weight:900;font-variation-settings:"SOFT" 60,"WONK" 1;margin:0 0 18px;max-width:15ch}
+.capa h1 .luz{color:var(--verniz)}
+.tese{font-family:var(--f-disp);font-size:clamp(18px,3.2vw,23px);font-weight:500;font-style:italic;color:var(--mel);
+  max-width:34ch;line-height:1.34;border-left:2px solid var(--verniz);padding-left:16px;margin:0 0 22px}
+.capa .lead{font-size:17px;color:var(--mut);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;font-family:var(--f-util);
+  text-transform:uppercase;letter-spacing:.11em;font-size:12.5px;color:var(--mut2)}
+.meta b{color:var(--serragem);font-weight:600}
+
+/* ---------- trena (barra de abas) ---------- */
+.trena{position:sticky;top:0;z-index:60;background:rgba(21,15,10,.96);backdrop-filter:blur(14px) saturate(1.2);
+  border-bottom:1px solid var(--veio)}
+.trena .fita{max-width:var(--col);margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;padding:0 8px}
+.trena .fita::-webkit-scrollbar{display:none}
+.aba{flex:0 0 auto;position:relative;display:flex;align-items:center;gap:8px;
+  padding:14px 14px 15px;border:0;background:none;cursor:pointer;color:var(--mut);
+  font-family:var(--f-util);font-weight:600;font-size:14.5px;text-transform:uppercase;letter-spacing:.09em;
+  white-space:nowrap;transition:color .18s ease}
+.aba svg{width:16px;height:16px;flex:none;opacity:.75;transition:opacity .18s ease}
+.aba:hover{color:var(--serragem)}
+.aba:hover svg{opacity:1}
+.aba[aria-selected="true"]{color:var(--mel)}
+.aba[aria-selected="true"] svg{opacity:1}
+.aba::after{content:"";position:absolute;left:10px;right:10px;bottom:0;height:3px;border-radius:2px 2px 0 0;
+  background:var(--verniz);transform:scaleX(0);transform-origin:center;transition:transform .22s cubic-bezier(.3,.8,.3,1)}
+.aba[aria-selected="true"]::after{transform:scaleX(1)}
+/* marcações da fita métrica */
+.ticks{height:9px;background-image:repeating-linear-gradient(90deg,var(--veio) 0 1px,transparent 1px 11px);
+  opacity:.55;border-top:1px solid var(--veio)}
+
+/* ---------- estrutura ---------- */
+main{max-width:var(--col);margin:0 auto;padding:0 22px}
+.painel{display:none;padding:34px 0 68px}
+.painel.on{display:block;animation:sobe .34s cubic-bezier(.2,.7,.3,1)}
+@keyframes sobe{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.painel > * + *{margin-top:20px}
+
+h2.sec{font-size:clamp(25px,4.6vw,33px);font-weight:700;margin:0}
+h2.sec + .sub{margin-top:8px;color:var(--mut);font-size:16.5px;max-width:66ch}
+h3.blk{font-size:20px;font-weight:600;margin:0}
+h4{font-size:16.5px;font-weight:600;color:var(--tinta-forte)}
+
+/* régua rabo-de-andorinha */
+.regua{display:flex;align-items:center;gap:14px;color:var(--veio);margin:34px 0 22px !important}
+.regua i{flex:1;height:1px;background:currentColor}
+.regua svg{flex:none;color:var(--veio2)}
+
+/* ---------- superfícies ---------- */
+.bancada{background:linear-gradient(168deg,var(--bancada),var(--bancada2));
+  border:1px solid var(--veio);border-radius:6px;padding:20px 22px}
+.bancada.fina{padding:16px 18px}
+.grade{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+
+/* ---------- placas de estado (KPI) ---------- */
+.placa{background:var(--bancada);border:1px solid var(--veio);border-radius:6px;padding:16px 16px 14px}
+.placa .n{font-family:var(--f-disp);font-size:34px;font-weight:900;line-height:1;color:var(--mel);font-variant-numeric:tabular-nums}
+.placa .n.ruim{color:var(--brasa)}
+.placa .l{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.1em;font-size:12.5px;color:var(--mut2);margin-top:9px;line-height:1.3}
+.placa .obs{font-size:13.5px;color:var(--mut);margin-top:7px;line-height:1.45}
+
+/* ---------- medidor ---------- */
+.medidor{height:7px;background:var(--nogueira2);border:1px solid var(--veio);border-radius:4px;overflow:hidden;margin-top:9px}
+.medidor i{display:block;height:100%;border-radius:3px;background:var(--verniz)}
+.medidor i.b{background:var(--brasa)} .medidor i.c{background:var(--cera)} .medidor i.f{background:var(--folha)}
+
+/* ---------- selos de estado ---------- */
+.selo{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-util);font-weight:600;
+  text-transform:uppercase;letter-spacing:.09em;font-size:12px;padding:4px 10px;border-radius:3px;border:1px solid}
+.selo.crit{color:var(--brasa);background:var(--brasa-bg);border-color:rgba(224,103,77,.4)}
+.selo.aten{color:var(--cera);background:var(--cera-bg);border-color:rgba(239,190,74,.36)}
+.selo.ok{color:var(--folha);background:var(--folha-bg);border-color:rgba(132,185,107,.38)}
+.selo.info{color:var(--mut);background:rgba(150,128,106,.12);border-color:var(--veio2)}
+
+/* ---------- cartão de diagnóstico ---------- */
+.diag{background:var(--bancada);border:1px solid var(--veio);border-left:3px solid var(--veio2);border-radius:6px;padding:20px 22px}
+.diag.crit{border-left-color:var(--brasa)}
+.diag.aten{border-left-color:var(--cera)}
+.diag.ok{border-left-color:var(--folha)}
+.diag .topo{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between;margin-bottom:6px}
+.diag .topo h3{font-size:21px;font-weight:700;margin:0}
+.diag .canal{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--mut2);margin-bottom:10px}
+.diag dl{display:grid;gap:12px;margin-top:14px}
+.diag dt{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.1em;font-size:12.5px;color:var(--verniz);margin-bottom:3px}
+.diag dd{font-size:15.5px;color:var(--mut);line-height:1.6}
+.diag dd b{color:var(--tinta-forte)}
+
+/* ---------- listas ---------- */
+ul.marcas,ol.marcas{list-style:none;display:grid;gap:9px}
+ul.marcas li{position:relative;padding-left:22px;font-size:15.5px;color:var(--mut);line-height:1.55}
+ul.marcas li::before{content:"";position:absolute;left:4px;top:.62em;width:7px;height:7px;border:1.5px solid var(--verniz);
+  border-radius:1px;transform:rotate(45deg)}
+ul.marcas li b{color:var(--tinta-forte)}
+ul.check li::before{content:"";left:2px;top:.44em;width:11px;height:6px;border:1.8px solid var(--folha);border-top:0;border-right:0;
+  transform:rotate(-45deg);border-radius:0}
+ul.cruz li::before{border-color:var(--brasa);border-radius:50%;transform:none;width:8px;height:8px;top:.6em}
+ol.passos{list-style:none;counter-reset:p;display:grid;gap:11px}
+ol.passos li{counter-increment:p;position:relative;padding-left:38px;font-size:15.5px;color:var(--mut);line-height:1.55}
+ol.passos li::before{content:counter(p);position:absolute;left:0;top:-1px;width:26px;height:26px;border-radius:3px;
+  background:var(--verniz-fraco);border:1px solid var(--veio2);color:var(--mel);
+  font-family:var(--f-util);font-weight:700;font-size:14px;display:grid;place-items:center;font-variant-numeric:tabular-nums}
+ol.passos li b{color:var(--tinta-forte)}
+
+/* ---------- tabelas ---------- */
+.rolo{overflow-x:auto;border:1px solid var(--veio);border-radius:6px;background:var(--bancada)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:540px}
+thead th{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.1em;font-size:12.5px;font-weight:600;
+  color:var(--verniz);text-align:left;padding:12px 14px;background:var(--nogueira2);border-bottom:1px solid var(--veio);white-space:nowrap}
+td{padding:12px 14px;border-bottom:1px solid rgba(74,53,39,.55);color:var(--mut);vertical-align:top;line-height:1.5}
+tbody tr:last-child td{border-bottom:0}
+td:first-child{color:var(--tinta-forte);font-weight:600}
+td.n,th.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover td{background:rgba(224,154,58,.045)}
+
+/* ---------- corrente causal ---------- */
+.corrente{display:grid;gap:0}
+.elo{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start}
+.elo .marco{display:flex;flex-direction:column;align-items:center;height:100%}
+.elo .bolha{width:34px;height:34px;flex:none;border-radius:3px;border:1px solid var(--veio2);background:var(--bancada);
+  display:grid;place-items:center;font-family:var(--f-util);font-weight:700;font-size:14px;color:var(--mel);font-variant-numeric:tabular-nums}
+.elo .fio{flex:1;width:1px;background:linear-gradient(var(--veio2),var(--veio));min-height:16px;margin:5px 0}
+.elo:last-child .fio{display:none}
+.elo .txt{padding-bottom:16px}
+.elo:last-child .txt{padding-bottom:0}
+.elo h4{margin-bottom:3px}
+.elo p{font-size:15px;color:var(--mut);line-height:1.55}
+.elo.fim .bolha{border-color:var(--brasa);color:var(--brasa);background:var(--brasa-bg)}
+
+/* ---------- semanas ---------- */
+.semana{background:var(--bancada);border:1px solid var(--veio);border-radius:6px;overflow:hidden}
+.semana > summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;
+  padding:16px 18px;transition:background .18s ease}
+.semana > summary::-webkit-details-marker{display:none}
+.semana > summary:hover{background:rgba(224,154,58,.05)}
+.semana .cav{width:44px;height:38px;flex:none;display:grid;place-items:center;border:1px solid var(--veio2);border-radius:3px;
+  background:var(--nogueira2);font-family:var(--f-util);font-weight:700;color:var(--mel);line-height:1;font-variant-numeric:tabular-nums;
+  clip-path:polygon(0 0,100% 0,88% 50%,100% 100%,0 100%,12% 50%)}
+.semana .cav span{font-size:10px;display:block;letter-spacing:.1em;color:var(--mut2)}
+.semana .cav b{font-size:18px;display:block}
+.semana .tit h4{font-size:18px;font-family:var(--f-disp);font-weight:700}
+.semana .tit p{font-size:14px;color:var(--mut2);margin-top:2px}
+.semana .abre{font-family:var(--f-util);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut2);
+  border:1px solid var(--veio2);border-radius:3px;padding:3px 9px;white-space:nowrap}
+.semana[open] .abre{color:var(--mel);border-color:var(--verniz)}
+.semana .corpo{padding:2px 18px 20px;border-top:1px solid var(--veio);display:grid;gap:16px}
+.semana .corpo .bloco h5{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.11em;font-size:12.5px;
+  color:var(--verniz);margin:16px 0 8px;font-weight:600}
+.marco-sem{display:flex;gap:9px;align-items:flex-start;background:var(--nogueira2);border:1px dashed var(--veio2);
+  border-radius:4px;padding:11px 13px;font-size:14.5px;color:var(--mut)}
+.marco-sem b{color:var(--mel);font-family:var(--f-util);text-transform:uppercase;letter-spacing:.09em;font-size:12.5px;white-space:nowrap}
+
+/* ---------- destaque / avisos ---------- */
+.nota{border:1px solid var(--veio2);border-radius:6px;padding:16px 18px;background:var(--nogueira2);font-size:15px;color:var(--mut);line-height:1.6}
+.nota h4{margin-bottom:6px;font-family:var(--f-util);text-transform:uppercase;letter-spacing:.11em;font-size:13px;font-weight:600}
+.nota.alerta{border-color:rgba(224,103,77,.45);background:var(--brasa-bg)}
+.nota.alerta h4{color:var(--brasa)}
+.nota.regra{border-color:rgba(224,154,58,.42);background:var(--verniz-fraco)}
+.nota.regra h4{color:var(--verniz)}
+.nota.bom{border-color:rgba(132,185,107,.4);background:var(--folha-bg)}
+.nota.bom h4{color:var(--folha)}
+.nota b{color:var(--tinta-forte)}
+
+/* ---------- preço ---------- */
+.preco{position:relative;overflow:hidden;border:1px solid var(--verniz);border-radius:6px;padding:26px 24px;
+  background:linear-gradient(160deg,var(--realce),var(--bancada) 70%)}
+.preco .valor{font-family:var(--f-disp);font-size:clamp(46px,9vw,72px);font-weight:900;line-height:1;color:var(--mel);
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.preco .cond{font-size:17px;color:var(--serragem);margin-top:8px}
+.parcelas{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.parcela{background:var(--nogueira2);border:1px solid var(--veio2);border-radius:5px;padding:14px}
+.parcela .q{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.1em;font-size:12px;color:var(--verniz)}
+.parcela .v{font-family:var(--f-disp);font-size:23px;font-weight:700;margin-top:5px;font-variant-numeric:tabular-nums}
+.parcela .d{font-size:13.5px;color:var(--mut2);margin-top:5px;line-height:1.4}
+
+/* ---------- gráficos ---------- */
+.figura{background:var(--bancada);border:1px solid var(--veio);border-radius:6px;padding:20px 20px 16px}
+.figura h4{font-size:17px;margin-bottom:4px}
+.figura .cap{font-size:14px;color:var(--mut2);margin-bottom:16px;line-height:1.45}
+.figura .tela{overflow-x:auto}
+.figura svg{display:block;min-width:560px;width:100%;height:auto}
+.legenda{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:13.5px;color:var(--mut)}
+.legenda span{display:inline-flex;align-items:center;gap:7px}
+.legenda i{width:11px;height:11px;border-radius:2px;flex:none}
+.g-lbl{font-family:var(--f-util);font-size:12px;fill:var(--mut2);text-transform:uppercase;letter-spacing:.08em}
+.g-nom{font-family:var(--f-body);font-size:13px;fill:var(--serragem);font-weight:500}
+.g-eixo{stroke:var(--veio);stroke-width:1}
+.g-grade{stroke:rgba(74,53,39,.55);stroke-width:1}
+.risco-ponto{fill:var(--verniz);stroke:var(--bancada);stroke-width:2}
+
+/* funil */
+.etapa{display:grid;grid-template-columns:1fr auto;gap:4px 14px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(74,53,39,.5)}
+.etapa:last-child{border-bottom:0}
+.etapa .nome{font-size:15.5px;color:var(--tinta-forte);font-weight:500}
+.etapa .val{font-family:var(--f-disp);font-size:22px;font-weight:700;color:var(--mel);font-variant-numeric:tabular-nums}
+.etapa .barra{grid-column:1/-1;height:7px;background:var(--nogueira2);border:1px solid var(--veio);border-radius:4px;overflow:hidden;margin-top:6px}
+.etapa .barra i{display:block;height:100%;border-radius:3px}
+.etapa .taxa{grid-column:1/-1;font-size:13px;color:var(--mut2);margin-top:5px}
+
+/* ---------- aceite ---------- */
+.aceite{border:1px solid var(--verniz);border-radius:6px;padding:26px 24px;background:linear-gradient(160deg,var(--realce),var(--bancada) 70%)}
+.assina{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:30px}
+.assina div{border-top:1px solid var(--veio2);padding-top:9px;font-family:var(--f-util);text-transform:uppercase;
+  letter-spacing:.1em;font-size:12.5px;color:var(--mut2)}
+.assina div b{display:block;color:var(--serragem);font-size:14px;letter-spacing:.06em;margin-bottom:2px}
+
+/* ---------- rodapé ---------- */
+.rodape{border-top:1px solid var(--veio);margin-top:40px;padding:26px 22px 44px;text-align:center;
+  font-family:var(--f-util);text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--mut2);line-height:1.9}
+.rodape b{color:var(--mut)}
+
+/* ---------- responsivo ---------- */
+@media(max-width:720px){
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:1fr}
+  .parcelas{grid-template-columns:1fr}
+  .assina{grid-template-columns:1fr;gap:26px}
+}
+@media(max-width:520px){
+  .g2{grid-template-columns:1fr}
+  .g4{grid-template-columns:1fr}
+  .capa .inner{padding:40px 18px 34px}
+  main{padding:0 18px}
+  .bancada,.diag,.preco,.aceite{padding-left:16px;padding-right:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}
+}
+
+/* ============================================================
+   IMPRESSÃO / PDF — mesma peça, virada para o papel de projeto.
+   Todos os painéis abertos, tokens invertidos para tinta escura
+   sobre branco quente. Nenhuma cor fora do sistema de tokens.
+   ============================================================ */
+@media print{
+  @page{size:A4;margin:13mm 12mm}
+  :root{
+    color-scheme:light;
+    --nogueira:#FFFFFF; --nogueira2:#F7F1E6;
+    --bancada:#FBF6EC;  --bancada2:#F6EFE2;
+    --veio:#D6C6AE;     --veio2:#BCA88A;
+    --serragem:#241A12; --mut:#4E3D2E; --mut2:#6E5A45; --tinta-forte:#1C130C;
+    --verniz:#93601A;   --mel:#7A4E12; --verniz-fraco:rgba(147,96,26,.09); --realce:#F3EADB;
+    --brasa:#A93A22;    --brasa-bg:rgba(169,58,34,.08);
+    --cera:#8A6410;     --cera-bg:rgba(138,100,16,.09);
+    --folha:#3F7030;    --folha-bg:rgba(63,112,48,.09);
+    --r1:#EFE0C4; --r2:#DCBE86; --r3:#C39A48; --r4:#A0761F; --r5:#7A5512;
+  }
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;box-shadow:none !important}
+  body{background:#FFF;font-size:10.6pt;line-height:1.5}
+  .trena,.rodape .tela-only{display:none !important}
+  .grain{display:none}
+  .capa{border-bottom:2px solid var(--veio2);background:none;page-break-after:always}
+  .capa .inner{padding:0 0 20px}
+  .capa h1{font-size:40pt}
+  .painel{display:block !important;padding:0;page-break-before:always}
+  /* .painel.on tem especificidade maior e traz animation:sobe, que começa em opacity:0.
+     Sem !important o primeiro painel imprimiria invisível. */
+  .painel,.painel.on{animation:none !important;opacity:1 !important;transform:none !important}
+  .painel:first-of-type{page-break-before:avoid}
+  main{max-width:100%;padding:0}
+  .bancada,.diag,.placa,.figura,.nota,.preco,.aceite,.semana,.marco-sem,.rolo{
+    background:var(--bancada) !important;border-color:var(--veio) !important;break-inside:avoid}
+  .preco,.aceite,.capa .marca .selo{background:var(--nogueira2) !important}
+  thead th{background:var(--nogueira2) !important}
+  .semana .corpo{display:grid !important}
+  .semana .abre{display:none}
+  h2.sec,h3.blk,.regua{break-after:avoid}
+  .figura svg{min-width:0}
+  .impressao-only{display:block !important}
+  a{color:var(--mel);text-decoration:none}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:var(--mut2);word-break:break-all}
+}
+.impressao-only{display:none}
+</style>
+
+<!-- ============ SPRITE DE ÍCONES (traço, 16px) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<defs>
+<g id="i-grao" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4c2.2-2 3.6 2 5.5 0s3.6-2 5.5 0"/><path d="M1.5 8c2.2-2 3.6 2 5.5 0s3.6-2 5.5 0"/><path d="M1.5 12c2.2-2 3.6 2 5.5 0s3.6-2 5.5 0"/></g>
+<g id="i-lupa" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="7" cy="7" r="4.8"/><path d="M10.6 10.6 15 15"/></g>
+<g id="i-esquadro" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1.8v11.4h11.4"/><path d="M3 8.4h5v4.8"/></g>
+<g id="i-cal" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3.2" width="12" height="11" rx="1.6"/><path d="M2 7h12M5.4 1.6v3M10.6 1.6v3"/></g>
+<g id="i-chave" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="5" cy="8" r="3.1"/><path d="M8.1 8H15M12.4 8v2.8M14.6 8v2"/></g>
+<g id="i-alerta" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.4 15.1 13.6H.9L8 2.4Z"/><path d="M8 6.6v3.1M8 11.7v.05"/></g>
+<g id="i-moeda" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M10.1 5.9a2.1 2.1 0 0 0-3.9.7c0 2.1 3.9 1.2 3.9 3.1a2.1 2.1 0 0 1-3.9.6M8 4.1v7.8"/></g>
+<g id="i-ciclo" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.6 8A5.6 5.6 0 1 1 11.4 3.5"/><path d="M14.2 1.4v3.2H11"/></g>
+<g id="i-serra" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M4 16 16 4l4 4L8 20l-4-4Z"/><path d="m4 16 2 2"/></g>
+</defs>
+</svg>
+
+<!-- ============ CAPA ============ -->
+<header class="capa">
+<svg class="grain" viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+<defs>
+<filter id="veio-f" x="-6%" y="-6%" width="112%" height="112%">
+<feTurbulence type="fractalNoise" baseFrequency="0.0035 0.055" numOctaves="4" seed="17" result="ruido"/>
+<feDisplacementMap in="SourceGraphic" in2="ruido" scale="46" xChannelSelector="R" yChannelSelector="G"/>
+</filter>
+<pattern id="aneis" width="1200" height="17" patternUnits="userSpaceOnUse">
+<rect width="1200" height="1.7" y="5" fill="#B47A3A"/>
+<rect width="1200" height="0.9" y="11" fill="#8A5A2C"/>
+</pattern>
+</defs>
+<rect width="1200" height="520" fill="url(#aneis)" filter="url(#veio-f)"/>
+</svg>
+<div class="inner">
+  <div class="marca">
+    <span class="selo"><svg width="21" height="21" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-serra"/></svg></span>
+    <span class="txt"><b>Casa do Marceneiro Tatuapé</b>Proposta comercial · Reconstrução digital</span>
+  </div>
+  <h1>De volta ao <span class="luz">mapa</span>, à vitrine e à busca.</h1>
+  <p class="tese">A marcenaria nunca saiu do Tatuapé. Foi o endereço digital dela que caiu — e levou junto o site, o anúncio e o telefone tocando.</p>
+  <p class="lead">Diagnóstico completo dos quatro canais, resgate dos ativos que hoje estão no nome de outras pessoas, site novo no ar e reativação responsável do Google Ads. Oito semanas, com marco verificável em cada uma.</p>
+  <div class="meta">
+    <span>Para <b>Gabriel Landi</b></span>
+    <span>Investimento <b class="num">R$ 2.000,00</b> em 3×</span>
+    <span>Prazo <b>8 semanas</b></span>
+    <span>Emitida em <b class="num">26/08/2026</b></span>
+  </div>
+</div>
+</header>
+
+<!-- ============ TRENA (ABAS) ============ -->
+<nav class="trena" aria-label="Seções da proposta">
+<div class="fita" role="tablist">
+<button class="aba" role="tab" aria-selected="true" aria-controls="p-visao" id="t-visao"><svg aria-hidden="true"><use href="#i-grao"/></svg>Visão geral</button>
+<button class="aba" role="tab" aria-selected="false" aria-controls="p-diag" id="t-diag"><svg aria-hidden="true"><use href="#i-lupa"/></svg>Diagnóstico</button>
+<button class="aba" role="tab" aria-selected="false" aria-controls="p-estr" id="t-estr"><svg aria-hidden="true"><use href="#i-esquadro"/></svg>Estratégia</button>
+<button class="aba" role="tab" aria-selected="false" aria-controls="p-plano" id="t-plano"><svg aria-hidden="true"><use href="#i-cal"/></svg>8 semanas</button>
+<button class="aba" role="tab" aria-selected="false" aria-controls="p-acessos" id="t-acessos"><svg aria-hidden="true"><use href="#i-chave"/></svg>Acessos</button>
+<button class="aba" role="tab" aria-selected="false" aria-controls="p-riscos" id="t-riscos"><svg aria-hidden="true"><use href="#i-alerta"/></svg>Riscos</button>
+<button class="aba" role="tab" aria-selected="false" aria-controls="p-invest" id="t-invest"><svg aria-hidden="true"><use href="#i-moeda"/></svg>Investimento</button>
+<button class="aba" role="tab" aria-selected="false" aria-controls="p-cont" id="t-cont"><svg aria-hidden="true"><use href="#i-ciclo"/></svg>Continuidade</button>
+</div>
+<div class="ticks" aria-hidden="true"></div>
+</nav>
+
+<main>
+
+<!-- ==================== 1. VISÃO GERAL ==================== -->
+<section class="painel on" id="p-visao" role="tabpanel" aria-labelledby="t-visao" tabindex="0">
+<p class="eyebrow">Onde estamos hoje</p>
+<h2 class="sec">Quatro canais. Nenhum trabalhando a favor.</h2>
+<p class="sub">O que segue é o retrato do dia 26/08/2026, montado a partir do que apuramos juntos nas contas. Cada número tem uma origem — e cada hipótese está marcada como hipótese.</p>
+
+<div class="grade g4" style="margin-top:22px">
+  <div class="placa"><div class="n ruim num">0</div><div class="l">Sites no ar</div><div class="obs">marceneirotatuape.com.br não responde.</div></div>
+  <div class="placa"><div class="n ruim num">3</div><div class="l">Violações no Google Ads</div><div class="obs">Sinalizadas pelo próprio Google, nunca lidas.</div></div>
+  <div class="placa"><div class="n num">R$ 300</div><div class="l">Verba parada desde 2024</div><div class="obs">Reembolso pedido em 25/08/2026.</div></div>
+  <div class="placa"><div class="n ruim num">0 / 4</div><div class="l">Ativos no seu nome</div><div class="obs">Nenhuma titularidade confirmada até aqui.</div></div>
+</div>
+
+<div class="regua" aria-hidden="true"><i></i><svg width="48" height="14" viewBox="0 0 48 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 11h14l5-8h10l5 8h14"/></svg><i></i></div>
+
+<h3 class="blk">Nota de diagnóstico por canal</h3>
+<p class="sub" style="margin-bottom:16px">Avaliação inicial de 0 a 100, considerando presença, exatidão dos dados, conteúdo e capacidade de gerar contato. É a minha leitura profissional — vira medição de verdade quando a medição estiver instalada, na Semana 5.</p>
+<div class="grade g4">
+  <div class="placa"><div class="n ruim num">0</div><div class="l">Site &amp; domínio</div><div class="medidor"><i class="b" style="width:2%"></i></div><div class="obs">Fora do ar. Sem site, não há para onde mandar ninguém.</div></div>
+  <div class="placa"><div class="n num" style="color:var(--cera)">45</div><div class="l">Perfil no Google</div><div class="medidor"><i class="c" style="width:45%"></i></div><div class="obs">Existe e foi corrigido. Falta completar e alimentar.</div></div>
+  <div class="placa"><div class="n num" style="color:var(--cera)">25</div><div class="l">Instagram</div><div class="medidor"><i class="c" style="width:25%"></i></div><div class="obs">Ativo, porém desatualizado e sem caminho para o orçamento.</div></div>
+  <div class="placa"><div class="n ruim num">10</div><div class="l">Google Ads</div><div class="medidor"><i class="b" style="width:10%"></i></div><div class="obs">Cancelado, com violações abertas e verba travada.</div></div>
+</div>
+
+<div class="regua" aria-hidden="true"><i></i><svg width="48" height="14" viewBox="0 0 48 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 11h14l5-8h10l5 8h14"/></svg><i></i></div>
+
+<h3 class="blk">A corrente que derrubou tudo</h3>
+<p class="sub" style="margin-bottom:18px">Os quatro problemas não são quatro problemas. São um só, caindo em fila. Entender a ordem é o que evita gastar dinheiro na ponta errada.</p>
+<div class="corrente">
+  <div class="elo"><div class="marco"><span class="bolha num">1</span><span class="fio"></span></div><div class="txt"><h4>A hospedagem e o domínio deixam de ser pagos</h4><p>Renovações silenciosas, num e-mail que provavelmente não é lido todo dia.</p></div></div>
+  <div class="elo"><div class="marco"><span class="bolha num">2</span><span class="fio"></span></div><div class="txt"><h4>O site sai do ar</h4><p>marceneirotatuape.com.br para de abrir. Ninguém é avisado — nem o Google.</p></div></div>
+  <div class="elo"><div class="marco"><span class="bolha num">3</span><span class="fio"></span></div><div class="txt"><h4>O anúncio passa a apontar para o vazio</h4><p>Página de destino que não carrega é uma das reprovações mais clássicas do Google Ads. O anúncio morre junto com o site.</p></div></div>
+  <div class="elo"><div class="marco"><span class="bolha num">4</span><span class="fio"></span></div><div class="txt"><h4>As violações se acumulam sem leitor</h4><p>Os avisos chegam na conta em nome da Sandra. Sem alguém entrando, viram penalidade.</p></div></div>
+  <div class="elo"><div class="marco"><span class="bolha num">5</span><span class="fio"></span></div><div class="txt"><h4>Os R$ 300 de 2024 ficam presos</h4><p>Verba depositada para campanhas que nunca foram aprovadas.</p></div></div>
+  <div class="elo"><div class="marco"><span class="bolha num">6</span><span class="fio"></span></div><div class="txt"><h4>Em 19/01/2026 a conta é cancelada</h4><p>Cancelada por um terceiro, sem que o dono do negócio soubesse. É o sintoma mais grave — e ele é de governança, não de marketing.</p></div></div>
+  <div class="elo fim"><div class="marco"><span class="bolha num">7</span><span class="fio"></span></div><div class="txt"><h4>O Tatuapé para de achar a marcenaria</h4><p>Sem site, sem anúncio e com o pino do mapa fora do lugar, sobra a indicação boca a boca. É um bom canal — mas é um canal só.</p></div></div>
+</div>
+
+<div class="nota alerta" style="margin-top:20px">
+<h4>Isto é hipótese de trabalho, não laudo</h4>
+<p>A sequência acima é a explicação mais provável para tudo o que vimos, mas <b>ainda não foi confirmada tecnicamente</b>. Ao tentar consultar o site a partir do meu ambiente, o acesso ao domínio foi bloqueado antes de chegar ao servidor — ou seja, não deu para distinguir "hospedagem vencida" de "domínio expirado" de fora. <b>Essa confirmação é o primeiro item das primeiras 72 horas</b>, direto no painel do Registro.br e da hospedagem, com você na chamada. Se algum elo cair por terra, eu te conto e o plano se ajusta.</p>
+</div>
+
+<div class="nota bom">
+<h4>O que já está em movimento</h4>
+<ul class="marcas check" style="margin-top:8px">
+<li><b>Perfil no Google corrigido.</b> Divergência entre o endereço e o pino no Maps ajustada; alteração enviada e em análise pelo Google.</li>
+<li><b>Reembolso dos R$ 300 solicitado</b> em 25/08/2026, para a conta do Gabriel.</li>
+<li><b>Conta de Ads localizada e auditada:</b> sabemos que está cancelada, quando, por quem, e que há três violações abertas — além de existir botão de reativação.</li>
+</ul>
+</div>
+
+<div class="nota regra">
+<h4>A ordem é inegociável</h4>
+<ol class="passos" style="margin-top:10px">
+<li><b>Endereço primeiro.</b> Domínio resgatado, site no ar, dados certos no mapa. Sem endereço válido, tudo o mais é dinheiro jogado fora — inclusive anúncio.</li>
+<li><b>Vitrine depois.</b> Portfólio fotografado, site publicado, Instagram organizado. É o que transforma um clique em confiança.</li>
+<li><b>Tráfego por último.</b> Google Ads só volta quando houver destino válido, política de privacidade publicada e medição instalada. É exatamente o que faltava em 2024.</li>
+</ol>
+</div>
+</section>
+
+<!-- ==================== 2. DIAGNÓSTICO ==================== -->
+<section class="painel" id="p-diag" role="tabpanel" aria-labelledby="t-diag" tabindex="0">
+<p class="eyebrow">Canal por canal</p>
+<h2 class="sec">O diagnóstico, sem suavizar.</h2>
+<p class="sub">Quatro canais auditados e uma quinta camada que ninguém tinha olhado ainda: quem é o dono das coisas. Em cada bloco: o que está acontecendo, quanto isso custa em cliente perdido, o que eu faço e como a gente confirma que resolveu.</p>
+
+<div class="grade" style="margin-top:24px;gap:16px">
+
+<article class="diag crit">
+  <div class="topo"><h3>O site não existe mais para o mundo</h3><span class="selo crit">Crítico</span></div>
+  <p class="canal">Domínio &amp; hospedagem · marceneirotatuape.com.br</p>
+  <dl>
+    <dt>O que está acontecendo</dt>
+    <dd>O endereço não responde. As duas causas prováveis são <b>hospedagem não renovada</b> (o site some, o domínio continua seu) ou <b>domínio expirado no Registro.br</b> (bem mais grave). Da forma como o cenário se apresenta — cobranças automáticas caindo em um e-mail pouco acessado — é plausível que os dois tenham vencido próximos um do outro.</dd>
+    <dt>Por que isso custa dinheiro</dt>
+    <dd>É o elo que derruba a corrente inteira: sem site, o anúncio perde o destino, o Perfil no Google perde o link, o Instagram perde o "saiba mais" e quem pesquisa "marceneiro no Tatuapé" encontra só concorrente. E tem um relógio correndo: no Registro.br, um domínio não pago <b>não some no dia seguinte</b> — ele entra numa fila de vencimento, congelamento e processo de liberação, e enquanto estiver nessa fila dá para recuperar pagando. Quando sai da fila, <b>qualquer pessoa pode registrar marceneirotatuape.com.br</b> — inclusive um concorrente. Não existe recurso depois disso.</dd>
+    <dt>O que fazemos</dt>
+    <dd>Consulta oficial de WHOIS no Registro.br nas primeiras 72 horas para saber exatamente em que ponto da fila estamos; resgate e renovação por <b>3 anos</b> (não 1) com renovação automática ligada; e o domínio passa a ficar no CPF/CNPJ do Gabriel, não de terceiros. Depois, site novo em hospedagem nova, com a cobrança num e-mail que ele lê.</dd>
+    <dt>Como confirmamos</dt>
+    <dd>Print do WHOIS com o titular correto e a nova data de vencimento, mais o site abrindo em conexão segura (cadeado) em celular e computador.</dd>
+  </dl>
+</article>
+
+<article class="diag aten">
+  <div class="topo"><h3>O mapa apontava para o lugar errado</h3><span class="selo aten">Em correção</span></div>
+  <p class="canal">Perfil da Empresa no Google · Maps e Busca</p>
+  <dl>
+    <dt>O que está acontecendo</dt>
+    <dd>Havia divergência entre o endereço cadastrado e o pino exibido no Google Maps. <b>Já editamos e a alteração está em análise pelo Google.</b> Mas o perfil segue incompleto no que mais converte: categorias, lista de serviços, horários, fotos recentes, perguntas e respostas, publicações e — principalmente — avaliações.</dd>
+    <dt>Por que isso custa dinheiro</dt>
+    <dd>Para serviço local, o Perfil no Google é a vitrine mais rentável que existe: aparece antes do site, é gratuito e entrega gente com intenção de contratar agora. Pino errado significa cliente que roda a rua, não acha e liga para o próximo da lista. E um perfil magro perde para um perfil cheio mesmo estando mais perto.</dd>
+    <dt>O que fazemos</dt>
+    <dd>Acompanhar a aprovação da correção, completar categoria principal e secundárias, cadastrar serviços com descrição, publicar fotos reais da oficina e das obras, ligar mensagens, criar rotina de publicações e — o item de maior retorno — montar um <b>programa de avaliações</b>: pedido no fim de cada obra, com QR code e mensagem pronta.</dd>
+    <dt>Como confirmamos</dt>
+    <dd>Perfil verificado, pino no lugar certo, e o painel do próprio Google mostrando ligações, rotas e cliques no site mês a mês.</dd>
+  </dl>
+</article>
+
+<article class="diag crit">
+  <div class="topo"><h3>A conta de anúncios foi cancelada por um terceiro</h3><span class="selo crit">Crítico</span></div>
+  <p class="canal">Google Ads · conta em nome de Sandra (mãe)</p>
+  <dl>
+    <dt>O que está acontecendo</dt>
+    <dd>Conta <b>cancelada em 19/01/2026</b>, por um primo, sem que o dono do negócio soubesse. Três violações sinalizadas pelo próprio Google seguem abertas e nunca foram lidas, porque ninguém entrava na conta. Há <b>R$ 300 depositados em 2024</b> que nunca viraram anúncio aprovado. Existe botão de reativação disponível.</dd>
+    <dt>As três violações — hipóteses a confirmar no primeiro acesso</dt>
+    <dd>Pelo quadro, as candidatas mais prováveis são <b>destino não funcional</b> (o site fora do ar — a mais certa das três), <b>deturpação</b> (informações da empresa incompletas ou divergentes entre anúncio, site e perfil) e <b>verificação de anunciante pendente</b>, que hoje o Google exige e bloqueia quando não é feita. Só o painel dirá quais são de fato; a leitura literal dos três avisos é a primeira tarefa da Semana 7.</dd>
+    <dt>Por que isso custa dinheiro</dt>
+    <dd>Além da verba parada, há um custo invisível: histórico de violações pesa na avaliação da conta. Quanto mais tempo aberto sem tratamento, pior a conversa com o Google depois.</dd>
+    <dt>O que fazemos</dt>
+    <dd>Só na Semana 7, e de propósito: reativar antes de o site estar no ar é repetir 2024. Primeiro corrigimos a <b>causa raiz</b> (destino válido, política de privacidade publicada, dados batendo em todos os canais), depois reativamos, tratamos cada violação, concluímos a verificação de anunciante e, se necessário, entramos com recurso formal e documentado.</dd>
+    <dt>Como confirmamos</dt>
+    <dd>Conta ativa, zero violações abertas, verificação de anunciante concluída e um anúncio efetivamente aprovado e veiculando.</dd>
+  </dl>
+</article>
+
+<div class="nota alerta">
+<h4>Duas armadilhas que eu não vou deixar você pisar</h4>
+<ul class="marcas cruz" style="margin-top:8px">
+<li><b>Não vamos abrir uma conta nova para fugir da penalidade.</b> Criar outra conta para contornar suspensão é, por si só, uma violação de política do Google — a de burlar os sistemas — e pode virar banimento permanente, alcançando inclusive contas ligadas ao mesmo cartão, e-mail ou site. O caminho certo é reativar e recorrer na conta existente, mesmo que dê mais trabalho.</li>
+<li><b>Cuidado com o pedido de reembolso dos R$ 300.</b> Se a intenção é voltar a anunciar, esse saldo já é orçamento de mídia pronto dentro da conta. Vale conversarmos antes de a devolução se concretizar: se a reativação for aprovada, pode fazer mais sentido usar o saldo do que trazê-lo para fora e depois recolocar dinheiro. De todo modo, <b>não conto com esses R$ 300 em lugar nenhum deste orçamento</b> — se voltarem, é bônus.</li>
+</ul>
+</div>
+
+<article class="diag aten">
+  <div class="topo"><h3>A vitrine está com a luz apagada</h3><span class="selo aten">Grave</span></div>
+  <p class="canal">Instagram · @casadomarceneirotatuape</p>
+  <dl>
+    <dt>O que está acontecendo</dt>
+    <dd>O perfil existe, mas não funciona como vitrine: fotos e vídeos desatualizados, sem padrão visual, sem sequência de destaques que responda às dúvidas de quem contrata, biografia sem proposta de valor, link apontando para um site que não abre e nenhum caminho direto e óbvio para o WhatsApp.</dd>
+    <dt>Por que isso custa dinheiro</dt>
+    <dd>Marcenaria é a categoria mais audiovisual que existe: a matéria-prima do conteúdo é a serragem voando, o encaixe fechando na medida e o antes-e-depois do ambiente. Isso hoje já acontece todo dia na oficina e <b>está sendo jogado fora</b>. Pior: quem recebe uma indicação vai olhar o Instagram antes de ligar. Um perfil parado faz o cliente duvidar se a marcenaria ainda está aberta.</dd>
+    <dt>O que fazemos</dt>
+    <dd>Converter para conta profissional dentro de um Gerenciador de Negócios que seja do Gabriel; reescrever a biografia com serviço, bairro e chamada; destaques fixos (Obras, Processo, Cozinhas, Closets, Como orçar, Depoimentos); nove publicações de recomposição da grade e quatro vídeos curtos de processo; e um calendário de 30 dias com roteiros prontos que ele consiga executar sozinho com o celular.</dd>
+    <dt>Como confirmamos</dt>
+    <dd>Perfil profissional ativo, link levando ao site novo, botão de WhatsApp funcionando e trinta dias de conteúdo já programados.</dd>
+  </dl>
+</article>
+
+</div>
+
+<div class="regua" aria-hidden="true"><i></i><svg width="48" height="14" viewBox="0 0 48 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 11h14l5-8h10l5 8h14"/></svg><i></i></div>
+
+<h3 class="blk">Os pontos cegos — o que ninguém tinha olhado</h3>
+<p class="sub" style="margin-bottom:16px">Estes não estavam na lista original. São eles que decidem se o resultado dura depois que eu sair.</p>
+<div class="rolo">
+<table>
+<caption class="impressao-only" style="caption-side:top;text-align:left;padding:10px 14px;font-family:var(--f-util);text-transform:uppercase;letter-spacing:.1em;font-size:10pt;color:var(--mut2)">Pontos cegos identificados na auditoria</caption>
+<thead><tr><th>Ponto cego</th><th>Por que importa</th><th class="n">Semana</th></tr></thead>
+<tbody>
+<tr><td>Titularidade dos ativos</td><td>Conta de anúncios no nome da mãe, cancelamento feito por um primo, domínio e hospedagem de origem indefinida. O negócio digital do Gabriel não está no nome do Gabriel — foi exatamente isso que permitiu o cancelamento.</td><td class="n">1</td></tr>
+<tr><td>Acesso do primo ainda ativo</td><td>Quem cancelou a conta uma vez pode cancelar de novo. Revogar acessos antigos é item de segurança, não de mágoa.</td><td class="n">1</td></tr>
+<tr><td>Sem 2FA e sem e-mail do negócio</td><td>Tudo pendurado em e-mail pessoal de terceiro, sem verificação em duas etapas e sem códigos de recuperação. Uma troca de celular perdida derruba o negócio inteiro.</td><td class="n">1</td></tr>
+<tr><td>Zero medição instalada</td><td>Sem Analytics, sem Search Console e sem eventos de conversão, não dá para saber se o anúncio deu obra ou só deu clique. Foi assim que os R$ 300 sumiram sem resposta.</td><td class="n">5</td></tr>
+<tr><td>WhatsApp Business não estruturado</td><td>É onde a venda de marcenaria realmente fecha. Sem catálogo, respostas rápidas, etiquetas e mensagem de ausência, o orçamento esfria na fila.</td><td class="n">5</td></tr>
+<tr><td>Portfólio não catalogado</td><td>O ativo mais valioso da empresa está espalhado na galeria do celular. Obra fotografada é conteúdo, é prova social e é argumento de preço.</td><td class="n">3</td></tr>
+<tr><td>Dados divergentes entre canais</td><td>Nome, endereço e telefone precisam ser idênticos em site, Google, Instagram e WhatsApp. Divergência derruba posicionamento local e alimenta acusação de deturpação no Ads.</td><td class="n">2</td></tr>
+<tr><td>Poucas avaliações no Google</td><td>No mapa, quem tem mais avaliações recentes ganha de quem está mais perto. É o item de maior retorno por real investido — e custa zero.</td><td class="n">2</td></tr>
+<tr><td>Sem política de privacidade</td><td>Site que capta contato precisa dela por LGPD, e a ausência é fator de reprovação em análise do Google Ads.</td><td class="n">4</td></tr>
+<tr><td>Canal de arquitetos inexistente</td><td>Em marcenaria sob medida, arquiteto e designer de interiores são o canal de maior ticket e maior recorrência — e hoje não há nada endereçado a eles.</td><td class="n">6</td></tr>
+<tr><td>Concentração de risco</td><td>Um único canal (indicação), uma única pessoa, uma única fonte de demanda. Qualquer solavanco para a agenda.</td><td class="n">8</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ==================== 3. ESTRATÉGIA ==================== -->
+<section class="painel" id="p-estr" role="tabpanel" aria-labelledby="t-estr" tabindex="0">
+<p class="eyebrow">Para onde vamos</p>
+<h2 class="sec">Não é fazer barulho. É ser encontrado na hora certa.</h2>
+<p class="sub">Marcenaria sob medida não se vende por alcance. Vende-se por confiança, prova e proximidade. A estratégia inteira está montada sobre isso.</p>
+
+<div class="bancada" style="margin-top:22px">
+<p class="eyebrow">Posicionamento</p>
+<p class="tese" style="margin:12px 0 0;border-left-color:var(--verniz)">Marcenaria de verdade, madeira de verdade, medida de verdade — no Tatuapé, com o marceneiro na sua casa e não um vendedor no showroom.</p>
+<p style="color:var(--mut);margin-top:16px;font-size:15.5px">Não brigamos com planejado industrializado em preço de tabela nem em velocidade de catálogo. Brigamos onde o industrializado perde feio: <b>medida irregular, madeira escolhida, ajuste em obra, acabamento que dura e um profissional que atende pessoalmente</b>. Toda a comunicação — site, perfil, anúncio, legenda — vai reforçar esse mesmo eixo.</p>
+</div>
+
+<h3 class="blk" style="margin-top:30px">Três públicos, três conversas diferentes</h3>
+<div class="grade g3" style="margin-top:14px">
+  <div class="bancada fina"><p class="eyebrow">Público 1 · volume</p><h4 style="margin:8px 0 6px">Quem está reformando na Zona Leste</h4><p style="font-size:14.5px;color:var(--mut)">Cozinha, closet, home office, painel de TV. Busca "marceneiro no Tatuapé" no celular, compara três, pede orçamento por WhatsApp. <b>Decide por prova e por atendimento rápido.</b></p><p style="font-size:13.5px;color:var(--mut2);margin-top:10px">Ganha-se com: Perfil no Google, avaliações, portfólio, resposta em minutos.</p></div>
+  <div class="bancada fina"><p class="eyebrow">Público 2 · ticket alto</p><h4 style="margin:8px 0 6px">Arquitetos e designers de interiores</h4><p style="font-size:14.5px;color:var(--mut)">Não compram móvel — compram <b>previsibilidade</b>: prazo, acabamento e um marceneiro que lê projeto e não os deixa na mão diante do cliente deles. Um único arquiteto satisfeito vale vários anos de obra.</p><p style="font-size:13.5px;color:var(--mut2);margin-top:10px">Ganha-se com: portfólio técnico, pontualidade, Instagram de processo.</p></div>
+  <div class="bancada fina"><p class="eyebrow">Público 3 · recorrência</p><h4 style="margin:8px 0 6px">Comércio do bairro</h4><p style="font-size:14.5px;color:var(--mut)">Balcão de padaria, expositor de loja, recepção de clínica, móvel de barbearia. Ciclo curto, decisão rápida, <b>volta a comprar</b> e indica para o vizinho de rua.</p><p style="font-size:13.5px;color:var(--mut2);margin-top:10px">Ganha-se com: presença no mapa, visita presencial, agilidade.</p></div>
+</div>
+
+<div class="regua" aria-hidden="true"><i></i><svg width="48" height="14" viewBox="0 0 48 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 11h14l5-8h10l5 8h14"/></svg><i></i></div>
+
+<h3 class="blk">O papel de cada canal</h3>
+<p class="sub" style="margin-bottom:16px">Nenhum canal faz tudo. Cada um tem uma função, um prazo de maturação e um custo — e é assim que a expectativa fica honesta.</p>
+<div class="rolo">
+<table>
+<thead><tr><th>Canal</th><th>Função</th><th>Primeiro sinal</th><th class="n">Custo mensal</th></tr></thead>
+<tbody>
+<tr><td>Perfil no Google</td><td>Ser achado por quem já quer contratar, agora, perto</td><td>2 a 4 semanas</td><td class="n">R$ 0</td></tr>
+<tr><td>Site próprio</td><td>Provar competência e transformar interesse em orçamento</td><td>30 a 90 dias no orgânico</td><td class="n">± R$ 25</td></tr>
+<tr><td>Instagram</td><td>Gerar desejo e sustentar a confiança de quem foi indicado</td><td>2 a 6 semanas</td><td class="n">R$ 0</td></tr>
+<tr><td>WhatsApp Business</td><td>Fechar. É onde o orçamento vira obra</td><td>Imediato</td><td class="n">R$ 0</td></tr>
+<tr><td>Google Ads</td><td>Comprar demanda quando a agenda abrir um buraco</td><td>1 a 2 semanas após aprovação</td><td class="n">R$ 600–900</td></tr>
+<tr><td>Arquitetos (B2B)</td><td>Elevar o ticket e criar recorrência previsível</td><td>60 a 120 dias</td><td class="n">R$ 0 + tempo</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="nota regra" style="margin-top:18px">
+<h4>O ciclo da serragem</h4>
+<p style="margin-bottom:12px">O motor não é o anúncio. É a obra. Cada trabalho entregue alimenta o próximo cliente — desde que alguém registre.</p>
+<ol class="passos">
+<li><b>A obra acontece.</b> Foto do antes, três do processo, vídeo curto do encaixe fechando.</li>
+<li><b>A entrega vira prova.</b> Foto do depois com boa luz, no mesmo enquadramento do antes.</li>
+<li><b>O cliente vira avaliação.</b> Pedido no dia da entrega, com QR code e mensagem pronta.</li>
+<li><b>A prova vira conteúdo.</b> Publicação no Instagram, foto no Perfil do Google, página no portfólio do site.</li>
+<li><b>O conteúdo vira busca.</b> Mais avaliações e mais páginas reais melhoram a posição no mapa e na busca.</li>
+<li><b>A busca vira o próximo orçamento</b> — e o ciclo recomeça, agora com uma obra a mais de bagagem.</li>
+</ol>
+<p style="margin-top:12px;color:var(--mut2);font-size:14.5px">Custo desse ciclo: <b>quinze minutos por obra</b>. É a rotina que eu deixo montada e treinada na Semana 8.</p>
+</div>
+
+<div class="regua" aria-hidden="true"><i></i><svg width="48" height="14" viewBox="0 0 48 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 11h14l5-8h10l5 8h14"/></svg><i></i></div>
+
+<h3 class="blk">Motor Ninka AI — inteligência artificial em cada etapa</h3>
+<p class="sub" style="margin-bottom:16px">A IA não é enfeite de proposta nem substitui marceneiro. Ela é o que torna viável entregar, por R$ 2.000, um trabalho que normalmente exigiria uma equipe — e o que permite que o Gabriel mantenha o ritmo sozinho depois.</p>
+<div class="grade g2">
+  <div class="bancada fina"><h4>Conteúdo em escala</h4><p style="font-size:14.5px;color:var(--mut);margin-top:6px">Trinta dias de roteiros, legendas e ideias de vídeo gerados a partir das obras reais dele — e não de banco de imagem genérico. Ele grava; o roteiro já está pronto no celular.</p></div>
+  <div class="bancada fina"><h4>Atendimento que não esfria</h4><p style="font-size:14.5px;color:var(--mut);margin-top:6px">Respostas rápidas do WhatsApp escritas com IA para os dez casos que mais aparecem: prazo, forma de pagamento, visita técnica, faixa de preço, garantia. Resposta em segundos, no tom dele.</p></div>
+  <div class="bancada fina"><h4>Texto do site e busca local</h4><p style="font-size:14.5px;color:var(--mut);margin-top:6px">Páginas de serviço escritas para as palavras que as pessoas realmente digitam no Tatuapé, com estrutura que o Google entende — sem encher o site de texto artificial.</p></div>
+  <div class="bancada fina"><h4>Recuperação do acervo</h4><p style="font-size:14.5px;color:var(--mut);margin-top:6px">Fotos antigas tratadas, recortadas e padronizadas; conteúdo do site velho recuperado do arquivo público da web antes que se perca de vez.</p></div>
+  <div class="bancada fina"><h4>Triagem de orçamento</h4><p style="font-size:14.5px;color:var(--mut);margin-top:6px">Um roteiro de perguntas que qualifica o pedido antes da visita — ambiente, medidas, material, prazo, faixa de investimento. Menos visita perdida, mais visita que vira obra.</p></div>
+  <div class="bancada fina"><h4>Relatório sem planilha</h4><p style="font-size:14.5px;color:var(--mut);margin-top:6px">Um resumo mensal em linguagem simples: quantas ligações, quantas conversas, quantos orçamentos, o que mudar no mês seguinte. Sem jargão e sem gráfico que ninguém lê.</p></div>
+</div>
+
+<div class="nota alerta" style="margin-top:16px">
+<h4>A regra de honestidade da IA neste projeto</h4>
+<p><b>Nenhuma imagem gerada por inteligência artificial será apresentada como obra executada pela marcenaria.</b> Toda foto de portfólio é obra real do Gabriel. Se em algum momento usarmos IA para simular um ambiente antes da execução, a peça sai identificada como simulação de projeto. Isso não é preciosismo: apresentar trabalho de terceiro ou imagem sintética como próprio é caminho direto para acusação de deturpação no Google, derrubada de anúncio e — muito pior — perda de confiança do cliente na hora da entrega.</p>
+</div>
+</section>
+
+<!-- ==================== 4. PLANO DE 8 SEMANAS ==================== -->
+<section class="painel" id="p-plano" role="tabpanel" aria-labelledby="t-plano" tabindex="0">
+<p class="eyebrow">Execução</p>
+<h2 class="sec">Oito semanas, oito marcos verificáveis.</h2>
+<p class="sub">Nada de "estamos trabalhando nisso". Cada semana fecha com uma prova concreta que você consegue conferir sozinho, do celular. Se um marco depender de análise do Google, aquela semana desliza — as outras seguem, e eu te aviso no mesmo dia.</p>
+
+<div class="figura" style="margin-top:22px">
+<h4>Mapa das oito semanas</h4>
+<p class="cap">Quatro frentes correndo em paralelo. Repare que Google Ads só entra na sétima semana — é intencional, e é a diferença entre reativar e ser penalizado de novo.</p>
+<div class="tela">
+<svg viewBox="0 0 880 240" role="img" aria-label="Cronograma de oito semanas com quatro frentes: Site e domínio nas semanas 1 e 3 a 5; Google e medição nas semanas 2, 5 e 8; Instagram nas semanas 3 e 6; Google Ads nas semanas 7 e 8.">
+<g class="g-lbl">
+<text x="200.4" y="16" text-anchor="middle">S1</text><text x="289.1" y="16" text-anchor="middle">S2</text>
+<text x="377.9" y="16" text-anchor="middle">S3</text><text x="466.6" y="16" text-anchor="middle">S4</text>
+<text x="555.4" y="16" text-anchor="middle">S5</text><text x="644.1" y="16" text-anchor="middle">S6</text>
+<text x="732.9" y="16" text-anchor="middle">S7</text><text x="821.6" y="16" text-anchor="middle">S8</text>
+</g>
+<g class="g-grade">
+<line x1="156" y1="26" x2="156" y2="184"/><line x1="244.75" y1="26" x2="244.75" y2="184"/>
+<line x1="333.5" y1="26" x2="333.5" y2="184"/><line x1="422.25" y1="26" x2="422.25" y2="184"/>
+<line x1="511" y1="26" x2="511" y2="184"/><line x1="599.75" y1="26" x2="599.75" y2="184"/>
+<line x1="688.5" y1="26" x2="688.5" y2="184"/><line x1="777.25" y1="26" x2="777.25" y2="184"/>
+<line x1="866" y1="26" x2="866" y2="184"/>
+</g>
+<g class="g-nom" text-anchor="end">
+<text x="138" y="58">Site &amp; domínio</text><text x="138" y="96">Google &amp; medição</text>
+<text x="138" y="134">Instagram</text><text x="138" y="172">Google Ads</text>
+</g>
+<g font-family="Barlow, sans-serif" font-size="11.5" font-weight="600" fill="#1A120C">
+<rect x="157" y="40" width="86.75" height="26" rx="4" fill="#C4821A"/><text x="200.4" y="57" text-anchor="middle">Resgate</text>
+<rect x="334.5" y="40" width="264.25" height="26" rx="4" fill="#C4821A"/><text x="466.6" y="57" text-anchor="middle">Conteúdo · Construção · Publicação</text>
+<rect x="245.75" y="78" width="86.75" height="26" rx="4" fill="#4C8AD9"/><text x="289.1" y="95" text-anchor="middle">Perfil</text>
+<rect x="512" y="78" width="86.75" height="26" rx="4" fill="#4C8AD9"/><text x="555.4" y="95" text-anchor="middle">Medição</text>
+<rect x="778.25" y="78" width="86.75" height="26" rx="4" fill="#4C8AD9"/><text x="821.6" y="95" text-anchor="middle">Painel</text>
+<rect x="334.5" y="116" width="86.75" height="26" rx="4" fill="#BE6BD0"/><text x="377.9" y="133" text-anchor="middle">Captura</text>
+<rect x="600.75" y="116" width="86.75" height="26" rx="4" fill="#BE6BD0"/><text x="644.1" y="133" text-anchor="middle">Vitrine</text>
+<rect x="689.5" y="154" width="86.75" height="26" rx="4" fill="#4FA457"/><text x="732.9" y="171" text-anchor="middle">Recuperação</text>
+<rect x="778.25" y="154" width="86.75" height="26" rx="4" fill="#4FA457"/><text x="821.6" y="171" text-anchor="middle">Campanha</text>
+</g>
+<line x1="156" y1="192" x2="866" y2="192" class="g-eixo"/>
+<g fill="#F5C15C">
+<path d="M200.4 197l6 6-6 6-6-6z"/><path d="M555.4 197l6 6-6 6-6-6z"/>
+<path d="M732.9 197l6 6-6 6-6-6z"/><path d="M821.6 197l6 6-6 6-6-6z"/>
+</g>
+<g class="g-lbl" text-anchor="middle">
+<text x="200.4" y="226">Domínio salvo</text><text x="555.4" y="226">Site no ar</text>
+<text x="732.9" y="226">Ads reativado</text><text x="821.6" y="226">Chaves na mão</text>
+</g>
+</svg>
+</div>
+<div class="legenda">
+<span><i style="background:#C4821A"></i>Site &amp; domínio</span>
+<span><i style="background:#4C8AD9"></i>Google &amp; medição</span>
+<span><i style="background:#BE6BD0"></i>Instagram &amp; conteúdo</span>
+<span><i style="background:#4FA457"></i>Google Ads</span>
+<span><i style="background:#F5C15C;transform:rotate(45deg)"></i>Marco verificável</span>
+</div>
+</div>
+
+<div class="grade" style="gap:12px;margin-top:22px">
+
+<details class="semana" open>
+<summary><span class="cav"><span>Sem</span><b class="num">1</b></span><span class="tit"><h4>Resgate e titularidade</h4><p>Parar a sangria e colocar o negócio no nome do dono</p></span><span class="abre">Ver</span></summary>
+<div class="corpo">
+<div class="bloco"><h5>Objetivo</h5><p style="color:var(--mut);font-size:15.5px">Antes de construir qualquer coisa, garantir que existe terreno — e que o terreno é dele. Esta é a semana com relógio correndo.</p></div>
+<div class="bloco"><h5>Entregáveis</h5><ul class="marcas check">
+<li><b>Nas primeiras 72 horas:</b> consulta oficial de WHOIS no Registro.br e diagnóstico do estado real do domínio.</li>
+<li>Resgate e renovação do domínio por <b>3 anos</b>, com renovação automática ligada.</li>
+<li>Inventário completo dos ativos digitais: o que existe, em nome de quem, quem tem acesso e o que vence quando.</li>
+<li>E-mail profissional no domínio, gerenciador de senhas e verificação em duas etapas em todas as contas.</li>
+<li><b>Revogação dos acessos antigos</b>, inclusive o de quem cancelou a conta de anúncios.</li>
+<li>Recuperação do conteúdo do site antigo pelo arquivo público da web, antes que se perca de vez.</li>
+<li>Calendário de vencimentos com lembrete 30 dias antes de cada renovação.</li>
+</ul></div>
+<div class="bloco"><h5>O que preciso de você</h5><ul class="marcas">
+<li>Uma chamada de <b>40 minutos</b> para liberar os acessos comigo junto (detalhado na aba Acessos).</li>
+<li>CNPJ ou CPF, comprovante de endereço da oficina e o logotipo, se existir arquivo.</li>
+</ul></div>
+<div class="marco-sem"><b>Marco</b><span>Domínio confirmado no nome do Gabriel, com nova data de vencimento e comprovante.</span></div>
+</div>
+</details>
+
+<details class="semana" open>
+<summary><span class="cav"><span>Sem</span><b class="num">2</b></span><span class="tit"><h4>Fundação no Google</h4><p>Fazer o mapa apontar certo e o Google entender o negócio</p></span><span class="abre">Ver</span></summary>
+<div class="corpo">
+<div class="bloco"><h5>Objetivo</h5><p style="color:var(--mut);font-size:15.5px">É a semana de maior retorno por real investido do projeto inteiro: o Perfil no Google é gratuito e entrega gente pronta para contratar.</p></div>
+<div class="bloco"><h5>Entregáveis</h5><ul class="marcas check">
+<li>Acompanhamento e confirmação da correção do pino junto ao Google.</li>
+<li>Categoria principal e secundárias corretas, serviços cadastrados com descrição, horários e área de atendimento.</li>
+<li>Quinze fotos reais publicadas: fachada, oficina, ferramentas, equipe e obras entregues.</li>
+<li>Mensagens ativadas e as oito dúvidas mais comuns já respondidas na seção de perguntas.</li>
+<li><b>Programa de avaliações:</b> QR code impresso para a entrega, mensagem pronta e rotina de pedido.</li>
+<li>Padronização de nome, endereço e telefone idênticos em todos os canais.</li>
+</ul></div>
+<div class="bloco"><h5>O que preciso de você</h5><ul class="marcas">
+<li>Confirmar os dados cadastrais e tirar as quinze fotos com o roteiro que eu envio.</li>
+<li>Pedir avaliação a <b>cinco clientes antigos</b> — eu escrevo a mensagem, você só encaminha.</li>
+</ul></div>
+<div class="marco-sem"><b>Marco</b><span>Perfil verificado, pino no lugar certo e as primeiras avaliações novas entrando.</span></div>
+</div>
+</details>
+
+<details class="semana" open>
+<summary><span class="cav"><span>Sem</span><b class="num">3</b></span><span class="tit"><h4>Conteúdo e portfólio</h4><p>Transformar obra feita em ativo que vende</p></span><span class="abre">Ver</span></summary>
+<div class="corpo">
+<div class="bloco"><h5>Objetivo</h5><p style="color:var(--mut);font-size:15.5px">O melhor material de vendas da marcenaria já existe — está espalhado na galeria do celular. Esta semana organiza isso.</p></div>
+<div class="bloco"><h5>Entregáveis</h5><ul class="marcas check">
+<li>Roteiro de captura para celular: lista de tomadas, luz, enquadramento e ângulos que valorizam madeira.</li>
+<li>Sessão guiada de fotos e vídeos na oficina e em uma ou duas obras entregues.</li>
+<li>Curadoria e tratamento de <b>40 a 60 imagens</b>, padronizadas para site, Google e Instagram.</li>
+<li>Arquitetura e texto completo do site: páginas, títulos, chamadas e termos que o Tatuapé realmente busca.</li>
+<li>Seleção de seis obras para virarem casos com antes e depois.</li>
+</ul></div>
+<div class="bloco"><h5>O que preciso de você</h5><ul class="marcas">
+<li><b>Três horas</b> para a captura e acesso a uma obra entregue, com autorização do cliente.</li>
+<li>Lista de serviços com faixas de preço de referência e prazos médios de execução.</li>
+</ul></div>
+<div class="marco-sem"><b>Marco</b><span>Banco de imagens organizado e texto do site aprovado por você.</span></div>
+</div>
+</details>
+
+<details class="semana" open>
+<summary><span class="cav"><span>Sem</span><b class="num">4</b></span><span class="tit"><h4>Construção do site</h4><p>Erguer a casa — desta vez no seu nome</p></span><span class="abre">Ver</span></summary>
+<div class="corpo">
+<div class="bloco"><h5>Objetivo</h5><p style="color:var(--mut);font-size:15.5px">Um site que existe para uma coisa: transformar quem chegou em quem pede orçamento. Rápido no celular, simples de atualizar.</p></div>
+<div class="bloco"><h5>Entregáveis</h5><ul class="marcas check">
+<li>Hospedagem contratada <b>no nome do Gabriel</b>, com certificado de segurança e e-mail do domínio.</li>
+<li>Site responsivo com início, serviços, portfólio, sobre, área de atendimento e contato.</li>
+<li>Botão de WhatsApp em todas as páginas e formulário de orçamento com destino garantido.</li>
+<li><b>Política de privacidade e aviso de cookies</b> — exigência da LGPD e pré-requisito para o Google Ads.</li>
+<li>Otimização de velocidade e leitura em celular, onde está a maioria absoluta dos acessos.</li>
+</ul></div>
+<div class="bloco"><h5>O que preciso de você</h5><ul class="marcas">
+<li>Uma rodada de revisão, com retorno em até 48 horas. Ajustes finos entram nesta rodada.</li>
+</ul></div>
+<div class="marco-sem"><b>Marco</b><span>Site completo em ambiente de testes, com link para você conferir do celular.</span></div>
+</div>
+</details>
+
+<details class="semana" open>
+<summary><span class="cav"><span>Sem</span><b class="num">5</b></span><span class="tit"><h4>Publicação e medição</h4><p>No ar, medindo e com destino válido para o Ads</p></span><span class="abre">Ver</span></summary>
+<div class="corpo">
+<div class="bloco"><h5>Objetivo</h5><p style="color:var(--mut);font-size:15.5px">Publicar é metade. A outra metade é instalar a medição que faltou em 2024 — é ela que impede o próximo dinheiro de sumir sem resposta.</p></div>
+<div class="bloco"><h5>Entregáveis</h5><ul class="marcas check">
+<li>Publicação, apontamento de DNS, cadeado de segurança e teste em celular e computador.</li>
+<li>Search Console instalado, mapa do site enviado e indexação solicitada.</li>
+<li>Analytics com <b>eventos de conversão</b>: clique no WhatsApp, envio de formulário e clique no telefone.</li>
+<li><b>WhatsApp Business estruturado:</b> catálogo de serviços, respostas rápidas, etiquetas de funil, mensagem de ausência e link direto.</li>
+<li>Link do site novo atualizado no Perfil do Google e no Instagram.</li>
+</ul></div>
+<div class="bloco"><h5>O que preciso de você</h5><ul class="marcas">
+<li><b>Trinta minutos</b> comigo para configurar o WhatsApp Business no seu aparelho.</li>
+</ul></div>
+<div class="marco-sem"><b>Marco</b><span>Site no ar e medindo, com um contato de teste percorrendo o caminho inteiro e aparecendo no painel.</span></div>
+</div>
+</details>
+
+<details class="semana" open>
+<summary><span class="cav"><span>Sem</span><b class="num">6</b></span><span class="tit"><h4>Vitrine e canal de arquitetos</h4><p>Acender o Instagram e abrir a frente de maior ticket</p></span><span class="abre">Ver</span></summary>
+<div class="corpo">
+<div class="bloco"><h5>Objetivo</h5><p style="color:var(--mut);font-size:15.5px">Fazer o perfil parecer o que a marcenaria é — e, em paralelo, abrir o canal que costuma ser o mais lucrativo do setor e hoje está zerado.</p></div>
+<div class="bloco"><h5>Entregáveis</h5><ul class="marcas check">
+<li>Conta profissional dentro de um Gerenciador de Negócios da Meta <b>de propriedade dele</b>.</li>
+<li>Biografia, foto, seis capas de destaques (Obras, Processo, Cozinhas, Closets, Como orçar, Depoimentos) e link para o site.</li>
+<li><b>Nove publicações</b> de recomposição da grade e <b>quatro vídeos curtos</b> de processo.</li>
+<li>Calendário editorial de trinta dias com roteiros prontos, executáveis só com o celular.</li>
+<li>Kit de apresentação para arquitetos e lista de <b>vinte escritórios</b> do Tatuapé e Zona Leste para abordagem.</li>
+</ul></div>
+<div class="bloco"><h5>O que preciso de você</h5><ul class="marcas">
+<li>Gravar quatro vídeos curtos seguindo o roteiro — cada um leva poucos minutos, na própria rotina da oficina.</li>
+<li>Uma hora para revisarmos juntos a lista de arquitetos e o texto da abordagem.</li>
+</ul></div>
+<div class="marco-sem"><b>Marco</b><span>Perfil renovado, trinta dias de conteúdo programados e as cinco primeiras abordagens a arquitetos enviadas.</span></div>
+</div>
+</details>
+
+<details class="semana" open>
+<summary><span class="cav"><span>Sem</span><b class="num">7</b></span><span class="tit"><h4>Google Ads: recuperação</h4><p>Reabrir a conta do jeito certo — e não repetir 2024</p></span><span class="abre">Ver</span></summary>
+<div class="corpo">
+<div class="bloco"><h5>Objetivo</h5><p style="color:var(--mut);font-size:15.5px">Chegamos aqui com tudo o que faltava em 2024: destino válido, política publicada, dados batendo e medição instalada. Agora dá para conversar com o Google.</p></div>
+<div class="bloco"><h5>Entregáveis</h5><ul class="marcas check">
+<li>Leitura literal e documentada das <b>três violações</b>, com print e data.</li>
+<li>Reativação da conta e correção da causa de cada violação, uma a uma.</li>
+<li><b>Verificação de anunciante</b> concluída com os documentos da empresa.</li>
+<li>Recurso formal e documentado, se a reativação não bastar.</li>
+<li>Estrutura enxuta de campanha: Pesquisa com termos locais, palavras negativas, extensões, raio de atendimento e horário.</li>
+<li>Acompanhamento do reembolso dos R$ 300 e decisão sobre usar o saldo ou receber de volta.</li>
+</ul></div>
+<div class="bloco"><h5>O que preciso de você</h5><ul class="marcas">
+<li>Documentos da empresa para a verificação de anunciante.</li>
+<li>Decisão sobre o orçamento mensal de mídia — pago direto ao Google, no cartão dele.</li>
+</ul></div>
+<div class="marco-sem"><b>Marco</b><span>Conta ativa, violações zeradas e um anúncio efetivamente aprovado e veiculando.</span></div>
+</div>
+</details>
+
+<details class="semana" open>
+<summary><span class="cav"><span>Sem</span><b class="num">8</b></span><span class="tit"><h4>Entrega, painel e autonomia</h4><p>Sair de cena sem que nada pare de funcionar</p></span><span class="abre">Ver</span></summary>
+<div class="corpo">
+<div class="bloco"><h5>Objetivo</h5><p style="color:var(--mut);font-size:15.5px">O projeto só é bem-sucedido se continuar funcionando quando eu não estiver mais olhando todo dia. Esta semana existe para isso.</p></div>
+<div class="bloco"><h5>Entregáveis</h5><ul class="marcas check">
+<li>Painel único de métricas: ligações, conversas, orçamentos e obras — em linguagem de gente.</li>
+<li><b>Manual de operação</b>: a rotina de quinze minutos por obra e trinta minutos por semana.</li>
+<li>Treinamento ao vivo de uma hora, <b>gravado</b>, para ele rever quando esquecer.</li>
+<li>Cofre de credenciais entregue, com absolutamente tudo no nome dele.</li>
+<li>Plano de noventa dias com prioridades e o calendário de vencimentos já marcado.</li>
+<li>Reunião de fechamento e decisão sobre continuidade — sem obrigação nenhuma.</li>
+</ul></div>
+<div class="bloco"><h5>O que preciso de você</h5><ul class="marcas">
+<li>Uma hora de treinamento. É a hora mais importante das oito semanas.</li>
+</ul></div>
+<div class="marco-sem"><b>Marco</b><span>Chaves na mão: tudo no nome dele, tudo funcionando e ele sabendo operar sozinho.</span></div>
+</div>
+</details>
+
+</div>
+</section>
+
+<!-- ==================== 5. ACESSOS ==================== -->
+<section class="painel" id="p-acessos" role="tabpanel" aria-labelledby="t-acessos" tabindex="0">
+<p class="eyebrow">Para começar</p>
+<h2 class="sec">O que eu preciso que você libere — e o que eu nunca vou pedir.</h2>
+<p class="sub">Este projeto nasceu de um problema de acesso: uma conta no nome da sua mãe, cancelada por um primo. Seria contraditório resolver isso criando mais uma bagunça de senha compartilhada. Então o combinado é o oposto.</p>
+
+<div class="nota regra" style="margin-top:22px">
+<h4>As três regras de ouro</h4>
+<ol class="passos" style="margin-top:10px">
+<li><b>Você nunca me manda senha. Você me convida.</b> Todo acesso é delegado por e-mail, dentro da própria plataforma. Se algum dia eu pedir sua senha, desconfie de mim.</li>
+<li><b>Você é sempre o Proprietário. Eu sou sempre o Gerente.</b> Em nenhum momento eu viro dono de nada seu — nem do domínio, nem do perfil, nem da conta de anúncios.</li>
+<li><b>No fim, você me remove em um clique e nada para.</b> Sem refém, sem dependência, sem "só eu sei mexer". É a cláusula de saída deste projeto, e ela vale a partir do primeiro dia.</li>
+</ol>
+</div>
+
+<h3 class="blk" style="margin-top:30px">O quadro de acessos</h3>
+<p class="sub" style="margin-bottom:16px">Nove itens. Quarenta minutos de chamada, tudo feito com você na tela — nada nas minhas costas.</p>
+<div class="rolo">
+<table>
+<thead><tr><th>Ativo</th><th>Nível que preciso</th><th>Como você concede</th><th class="n">Tempo</th></tr></thead>
+<tbody>
+<tr><td>Perfil da Empresa no Google</td><td>Gerente</td><td>No perfil: Configurações → Pessoas e acesso → Adicionar → meu e-mail como <b>Gerente</b>. Você segue Proprietário Principal.</td><td class="n">5 min</td></tr>
+<tr><td>Google Ads (conta da Sandra)</td><td>Administrador</td><td>Ferramentas → Acesso e segurança → convidar meu e-mail. A conta continua sendo de vocês; depois avaliamos a transferência formal de titularidade.</td><td class="n">5 min</td></tr>
+<tr><td>Analytics e Search Console</td><td>Eu crio, você é dono</td><td>Eu configuro do zero e cadastro você como <b>Proprietário</b>. Você aceita um convite por e-mail.</td><td class="n">5 min</td></tr>
+<tr><td>Registro.br (domínio)</td><td>Nenhum. Você opera</td><td><b>Aqui não há delegação e não peço senha.</b> Fazemos numa chamada com a tela compartilhada: você digita, eu oriente cada passo.</td><td class="n">15 min</td></tr>
+<tr><td>Hospedagem</td><td>Usuário próprio</td><td>Contratamos nova, <b>no seu nome e no seu cartão</b>, e você cria um usuário separado para mim dentro do painel.</td><td class="n">10 min</td></tr>
+<tr><td>Instagram e Meta</td><td>Administrador via Gerenciador</td><td>Criamos um Gerenciador de Negócios <b>seu</b>, você vincula o perfil e me adiciona como administrador. Nunca pelo login do Instagram.</td><td class="n">10 min</td></tr>
+<tr><td>WhatsApp Business</td><td>Nenhum</td><td>Fica só com você. Na Semana 5 configuramos juntos no seu aparelho, com você segurando o celular.</td><td class="n">30 min</td></tr>
+<tr><td>Acervo de fotos</td><td>Pasta compartilhada</td><td>Uma pasta no Drive, compartilhada comigo. Os originais continuam sendo seus.</td><td class="n">2 min</td></tr>
+<tr><td>Documentos da empresa</td><td>Cópia digital</td><td>CNPJ ou CPF, comprovante de endereço da oficina, logotipo (se houver arquivo) e lista de serviços com faixas de preço.</td><td class="n">10 min</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="grade g2" style="margin-top:20px">
+<div class="nota alerta">
+<h4>Higiene de segurança — feito junto na Semana 1</h4>
+<ul class="marcas" style="margin-top:8px">
+<li><b>Revogar os acessos antigos.</b> Começando por quem cancelou a conta de anúncios. Não é mágoa, é procedimento: quem cancelou uma vez pode cancelar de novo.</li>
+<li><b>Verificação em duas etapas</b> em todas as contas, com os códigos de recuperação impressos e guardados na oficina.</li>
+<li><b>Telefone e e-mail de recuperação no seu nome</b>, não no de terceiros. É o que evita perder tudo numa troca de aparelho.</li>
+<li><b>Gerenciador de senhas gratuito</b>, para parar de anotar senha em papel e repetir a mesma em todo lugar.</li>
+<li><b>E-mail do negócio separado do pessoal</b>, no próprio domínio — é para lá que vão as cobranças de renovação.</li>
+</ul>
+</div>
+<div class="nota bom">
+<h4>O que você recebe em troca, por escrito</h4>
+<ul class="marcas check" style="margin-top:8px">
+<li>Um inventário com <b>tudo o que existe, em nome de quem e o que vence quando</b>. Hoje esse documento não existe — e é a raiz do problema.</li>
+<li>Todas as credenciais organizadas em um cofre que é seu.</li>
+<li>Registro de cada alteração que eu fizer, com data.</li>
+<li>Ao fim das oito semanas, a remoção dos meus acessos a qualquer momento, sem que nada quebre.</li>
+<li>Nenhum ativo, conta, domínio ou perfil registrado em meu nome. Nenhum.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ==================== 6. RISCOS ==================== -->
+<section class="painel" id="p-riscos" role="tabpanel" aria-labelledby="t-riscos" tabindex="0">
+<p class="eyebrow">O que pode dar errado</p>
+<h2 class="sec">Os riscos, na mesa, antes de você assinar.</h2>
+<p class="sub">Proposta que só mostra o lado bom não é proposta, é propaganda. Aqui estão os nove riscos reais deste projeto, o que eu faço para reduzir cada um e o que acontece se mesmo assim acontecer.</p>
+
+<div class="figura" style="margin-top:22px">
+<h4>Matriz de risco</h4>
+<p class="cap">O fundo de cada quadrante indica a gravidade da combinação. Os números identificam os riscos — a descrição completa de cada um está na tabela abaixo.</p>
+<div class="tela">
+<svg viewBox="0 0 620 344" role="img" aria-label="Matriz de risco de três por três. Risco 1, domínio liberado a terceiros, é o único no quadrante de probabilidade média e impacto alto. Riscos 4 e 5, atraso de acessos e falta de conteúdo, ficam em probabilidade alta e impacto médio.">
+<g>
+<rect x="110" y="20" width="160" height="90" fill="rgba(239,190,74,.19)"/><rect x="270" y="20" width="160" height="90" fill="rgba(224,103,77,.24)"/><rect x="430" y="20" width="160" height="90" fill="rgba(224,103,77,.24)"/>
+<rect x="110" y="110" width="160" height="90" fill="rgba(132,185,107,.15)"/><rect x="270" y="110" width="160" height="90" fill="rgba(239,190,74,.19)"/><rect x="430" y="110" width="160" height="90" fill="rgba(224,103,77,.24)"/>
+<rect x="110" y="200" width="160" height="90" fill="rgba(132,185,107,.15)"/><rect x="270" y="200" width="160" height="90" fill="rgba(132,185,107,.15)"/><rect x="430" y="200" width="160" height="90" fill="rgba(239,190,74,.19)"/>
+</g>
+<g class="g-grade">
+<line x1="110" y1="20" x2="590" y2="20"/><line x1="110" y1="110" x2="590" y2="110"/>
+<line x1="110" y1="200" x2="590" y2="200"/><line x1="110" y1="290" x2="590" y2="290"/>
+<line x1="110" y1="20" x2="110" y2="290"/><line x1="270" y1="20" x2="270" y2="290"/>
+<line x1="430" y1="20" x2="430" y2="290"/><line x1="590" y1="20" x2="590" y2="290"/>
+</g>
+<g class="g-nom" text-anchor="end">
+<text x="98" y="70">Alto</text><text x="98" y="160">Médio</text><text x="98" y="250">Baixo</text>
+</g>
+<g class="g-nom" text-anchor="middle">
+<text x="190" y="312">Baixa</text><text x="350" y="312">Média</text><text x="510" y="312">Alta</text>
+</g>
+<text x="28" y="155" class="g-lbl" transform="rotate(-90 28 155)" text-anchor="middle">Impacto</text>
+<text x="350" y="338" class="g-lbl" text-anchor="middle">Probabilidade</text>
+<g font-family="Barlow, sans-serif" font-size="13" font-weight="700" fill="#1A120C" text-anchor="middle">
+<circle cx="330" cy="52" r="14" class="risco-ponto"/><text x="330" y="57">1</text>
+<circle cx="176" cy="50" r="14" class="risco-ponto"/><text x="176" y="55">3</text>
+<circle cx="216" cy="82" r="14" class="risco-ponto"/><text x="216" y="87">7</text>
+<circle cx="326" cy="140" r="14" class="risco-ponto"/><text x="326" y="145">2</text>
+<circle cx="374" cy="172" r="14" class="risco-ponto"/><text x="374" y="177">9</text>
+<circle cx="486" cy="140" r="14" class="risco-ponto"/><text x="486" y="145">4</text>
+<circle cx="532" cy="172" r="14" class="risco-ponto"/><text x="532" y="177">5</text>
+<circle cx="190" cy="155" r="14" class="risco-ponto"/><text x="190" y="160">8</text>
+<circle cx="350" cy="245" r="14" class="risco-ponto"/><text x="350" y="250">6</text>
+</g>
+</svg>
+</div>
+<div class="legenda">
+<span><i style="background:rgba(224,103,77,.5)"></i>Gravidade alta</span>
+<span><i style="background:rgba(239,190,74,.5)"></i>Gravidade média</span>
+<span><i style="background:rgba(132,185,107,.5)"></i>Gravidade baixa</span>
+</div>
+</div>
+
+<div class="rolo" style="margin-top:18px">
+<table>
+<thead><tr><th class="n">#</th><th>Risco</th><th>Como eu reduzo</th><th>Se acontecer mesmo assim</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td>O domínio já saiu da fila e foi registrado por outra pessoa</td><td>Consulta de WHOIS nas primeiras 72 horas — antes de qualquer outra coisa. Se ainda dá para pagar, pago no mesmo dia e renovo por 3 anos.</td><td>Registramos uma variação forte da marca no mesmo dia, ajustamos a comunicação e monitoramos o domínio original para retomá-lo se voltar a ficar livre. O site sai no prazo de qualquer jeito.</td></tr>
+<tr><td class="n">2</td><td>O Google não reativa a conta de anúncios ou nega o recurso</td><td>Chegar na Semana 7 com a causa raiz já resolvida: destino válido, política publicada, dados consistentes e verificação de anunciante concluída. Recurso formal, documentado, na conta existente.</td><td>Seguimos sem Ads e reforçamos o que não depende de aprovação: Perfil no Google, avaliações, orgânico e Instagram. Nada de abrir conta nova para burlar — isso vira banimento permanente.</td></tr>
+<tr><td class="n">3</td><td>O Perfil no Google é suspenso durante as edições</td><td>Alterações graduais em vez de tudo de uma vez, com documentação pronta (fachada, comprovante de endereço) para a verificação em vídeo, que hoje é o padrão do Google.</td><td>Abrimos o processo de restabelecimento com as provas já organizadas. É por isso que reúno a documentação antes de mexer, e não depois.</td></tr>
+<tr><td class="n">4</td><td>Os acessos não são liberados no prazo e o cronograma trava</td><td>Uma única chamada de 40 minutos resolve nove itens. Envio o roteiro por escrito antes, com print de cada tela.</td><td>A semana desliza e eu te aviso no mesmo dia, por escrito. As frentes que não dependem daquele acesso continuam andando.</td></tr>
+<tr><td class="n">5</td><td>Falta conteúdo: obras não fotografadas, cliente não autoriza</td><td>Sessão guiada de captura na Semana 3, com roteiro de tomadas. Recuperação do acervo do site antigo pelo arquivo público da web.</td><td>Publicamos com o que houver e o site já nasce preparado para receber as obras novas — a primeira entrega depois do lançamento vira o primeiro caso completo.</td></tr>
+<tr><td class="n">6</td><td>O reembolso dos R$ 300 não sai ou demora meses</td><td>Protocolo registrado, prazo anotado e acompanhamento na Semana 7.</td><td>Nada muda: esse valor <b>não está previsto em lugar nenhum</b> deste orçamento nem do plano de mídia. Se voltar, é bônus.</td></tr>
+<tr><td class="n">7</td><td>Alguém de fora volta a mexer nas contas</td><td>Revogação de todos os acessos antigos na Semana 1, verificação em duas etapas ligada e alerta de login para o e-mail do negócio.</td><td>Com 2FA ativo e acessos revogados, ninguém entra sem você saber. É exatamente o buraco que permitiu o cancelamento de janeiro.</td></tr>
+<tr><td class="n">8</td><td>A demanda cresce acima da capacidade da oficina</td><td>Roteiro de triagem que qualifica o pedido antes da visita e define ticket mínimo, filtrando o que não cabe na agenda.</td><td>Regulamos o orçamento de mídia para baixo e priorizamos ticket alto e arquitetos. Problema bom, mas problema — melhor combinar antes.</td></tr>
+<tr><td class="n">9</td><td>Expectativa de resultado imediato</td><td>Prazos declarados por canal desde a proposta e relatório mensal em linguagem simples, sem métrica de vaidade.</td><td>Conversa franca com os números na tela. Busca orgânica leva de 30 a 90 dias; mapa e anúncio respondem antes. Isso está combinado desde a assinatura.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="grade g2" style="margin-top:20px">
+<div class="nota">
+<h4>O que não está sob meu controle — nem sob o seu</h4>
+<ul class="marcas cruz" style="margin-top:8px">
+<li>O prazo e a decisão do Google sobre a correção do pino, a reativação da conta e a análise do recurso.</li>
+<li>A liberação do reembolso pelo Google e o prazo bancário.</li>
+<li>Posição em resultados de busca — ninguém sério promete primeira posição, e quem promete está vendendo outra coisa.</li>
+<li>Quantas obras vão fechar. Eu entrego oportunidade qualificada; a venda e a execução são seu ofício, e nisso você é melhor do que eu.</li>
+</ul>
+</div>
+<div class="nota">
+<h4>Os riscos do meu lado — assumidos por escrito</h4>
+<ul class="marcas" style="margin-top:8px">
+<li><b>Sou uma pessoa só.</b> Se eu ficar doente ou viajar, a semana desliza. Compenso mantendo tudo documentado em pasta compartilhada, para qualquer profissional continuar de onde parei.</li>
+<li><b>Somos amigos.</b> Amizade tende a afrouxar prazo dos dois lados. Por isso a proposta tem marco semanal verificável: é o que mantém o profissionalismo de pé sem estragar a relação.</li>
+<li><b>O preço é de amigo.</b> Está declarado na aba de investimento quanto isso valeria no mercado, para que nenhum de nós dois esqueça o que está sendo trocado.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ==================== 7. INVESTIMENTO ==================== -->
+<section class="painel" id="p-invest" role="tabpanel" aria-labelledby="t-invest" tabindex="0">
+<p class="eyebrow">Investimento</p>
+<h2 class="sec">O combinado, sem letra miúda.</h2>
+<p class="sub">Valor fechado entre nós, condições e prazos escritos aqui para que ninguém precise lembrar de cabeça daqui a dois meses.</p>
+
+<div class="preco" style="margin-top:22px">
+<p class="eyebrow">Projeto completo · 8 semanas</p>
+<div class="valor">R$ 2.000<span style="font-size:.42em;font-weight:600">,00</span></div>
+<p class="cond">Em <b>3 parcelas</b> — a primeira no ato, as outras nos dois meses seguintes.</p>
+<div class="parcelas">
+  <div class="parcela"><div class="q">Parcela 1 · no ato</div><div class="v num">R$ 666,67</div><div class="d">Libera as Semanas 1 a 3: resgate do domínio, Perfil no Google e portfólio.</div></div>
+  <div class="parcela"><div class="q">Parcela 2 · 30 dias</div><div class="v num">R$ 666,67</div><div class="d">Libera as Semanas 4 a 6: construção, publicação, medição e Instagram.</div></div>
+  <div class="parcela"><div class="q">Parcela 3 · 60 dias</div><div class="v num">R$ 666,66</div><div class="d">Libera as Semanas 7 e 8: Google Ads, painel, treinamento e entrega.</div></div>
+</div>
+<p style="color:var(--mut);font-size:14.5px;margin-top:18px">Pagamento por PIX. Se preferir outra divisão — entrada maior, parcelas menores —, é só falar: o total não muda.</p>
+</div>
+
+<div class="grade g2" style="margin-top:20px">
+<div class="nota bom">
+<h4>Está incluso</h4>
+<ul class="marcas check" style="margin-top:8px">
+<li>Diagnóstico completo dos quatro canais e inventário de titularidade.</li>
+<li>Resgate do domínio e configuração da nova hospedagem.</li>
+<li>Site novo completo, responsivo, com portfólio, formulário e política de privacidade.</li>
+<li>Perfil no Google otimizado e programa de avaliações montado.</li>
+<li>Instagram reestruturado com 9 publicações, 4 vídeos e 30 dias de calendário.</li>
+<li>Recuperação do Google Ads e estruturação da campanha.</li>
+<li>Medição instalada: Analytics, Search Console e eventos de conversão.</li>
+<li>WhatsApp Business estruturado e kit de abordagem a arquitetos.</li>
+<li>Painel de métricas, manual de operação e treinamento gravado.</li>
+<li>Uma rodada de revisão por entrega e acompanhamento por WhatsApp durante as 8 semanas.</li>
+</ul>
+</div>
+<div class="nota">
+<h4>Não está incluso — e por quê</h4>
+<ul class="marcas cruz" style="margin-top:8px">
+<li><b>Custos de terceiros</b> (domínio, hospedagem, mídia). Ficam no seu nome e no seu cartão de propósito: é isso que garante que os ativos sejam seus, e não meus.</li>
+<li><b>Verba de anúncio.</b> Paga direto ao Google, com o valor que você decidir.</li>
+<li><b>Produção de vídeo profissional</b> com equipe e equipamento. Trabalhamos com celular e roteiro — que, para marcenaria, funciona muito bem.</li>
+<li><b>Manutenção mensal após a Semana 8.</b> Opcional, decidida no fim, detalhada na aba Continuidade.</li>
+<li><b>Loja virtual, sistema de orçamento automático ou aplicativo.</b> Fora do escopo; se um dia fizer sentido, vira outra proposta.</li>
+</ul>
+</div>
+</div>
+
+<h3 class="blk" style="margin-top:30px">Os custos que ficam com você</h3>
+<p class="sub" style="margin-bottom:16px">Transparência total: além dos R$ 2.000, o projeto tem custos de terceiros. São baixos, mas existem — e é melhor você saber agora do que na Semana 4.</p>
+<div class="rolo">
+<table>
+<thead><tr><th>Item</th><th class="n">Faixa estimada</th><th>Pago a quem</th><th class="n">Quando</th></tr></thead>
+<tbody>
+<tr><td>Domínio .com.br (3 anos)</td><td class="n">R$ 100 – 150</td><td>Registro.br</td><td class="n">Semana 1</td></tr>
+<tr><td>Hospedagem</td><td class="n">R$ 15 – 40 / mês</td><td>Provedor de hospedagem</td><td class="n">Semana 4</td></tr>
+<tr><td>E-mail profissional</td><td class="n">R$ 0 – 35 / mês</td><td>Incluso na hospedagem ou provedor</td><td class="n">Semana 1</td></tr>
+<tr><td>QR code e impressão de avaliações</td><td class="n">± R$ 30</td><td>Gráfica do bairro</td><td class="n">Semana 2</td></tr>
+<tr><td>Gerenciador de senhas</td><td class="n">R$ 0</td><td>Versão gratuita atende</td><td class="n">Semana 1</td></tr>
+<tr><td>Verba de Google Ads</td><td class="n">R$ 600 – 900 / mês</td><td>Google, direto no seu cartão</td><td class="n">A partir da Semana 7</td></tr>
+</tbody>
+</table>
+</div>
+<p style="color:var(--mut2);font-size:14px;margin-top:10px">Somando o que é obrigatório, algo entre <b>R$ 180 e R$ 300 nos dois primeiros meses</b>, fora a verba de anúncio — que é decisão sua e pode começar em zero. Valores de terceiros são estimativas de agosto de 2026 e conferidos no ato da contratação.</p>
+
+<div class="regua" aria-hidden="true"><i></i><svg width="48" height="14" viewBox="0 0 48 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 11h14l5-8h10l5 8h14"/></svg><i></i></div>
+
+<h3 class="blk">Quanto isso custaria no mercado</h3>
+<p class="sub" style="margin-bottom:16px">Não para justificar preço — o valor já está fechado. É para que daqui a seis meses nenhum de nós esqueça o que foi trocado.</p>
+<div class="rolo">
+<table>
+<thead><tr><th>Entregável</th><th class="n">Faixa de mercado em São Paulo</th></tr></thead>
+<tbody>
+<tr><td>Diagnóstico digital e inventário de ativos</td><td class="n">R$ 600 – 900</td></tr>
+<tr><td>Resgate de domínio e migração de hospedagem</td><td class="n">R$ 300 – 500</td></tr>
+<tr><td>Site institucional com portfólio</td><td class="n">R$ 2.500 – 4.500</td></tr>
+<tr><td>Perfil no Google e programa de avaliações</td><td class="n">R$ 700 – 1.200</td></tr>
+<tr><td>Instagram reestruturado + 30 dias de conteúdo</td><td class="n">R$ 1.200 – 2.000</td></tr>
+<tr><td>Recuperação e estruturação de Google Ads</td><td class="n">R$ 1.000 – 1.800</td></tr>
+<tr><td>Medição e eventos de conversão</td><td class="n">R$ 500 – 800</td></tr>
+<tr><td>Manual de operação e treinamento</td><td class="n">R$ 400 – 700</td></tr>
+<tr><td><b>Total de referência</b></td><td class="n"><b>R$ 7.200 – 12.400</b></td></tr>
+</tbody>
+</table>
+</div>
+<p style="color:var(--mut2);font-size:14px;margin-top:10px">Faixas praticadas por profissionais autônomos e agências pequenas na cidade de São Paulo. Servem de referência, não de cotação formal.</p>
+
+<div class="regua" aria-hidden="true"><i></i><svg width="48" height="14" viewBox="0 0 48 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 11h14l5-8h10l5 8h14"/></svg><i></i></div>
+
+<div class="figura">
+<h4>Como o anúncio pode se pagar</h4>
+<p class="cap">Cenário construído com premissas declaradas, para raciocinar sobre a decisão de mídia. <b>Não é promessa de resultado</b> — os números reais só existem depois que a medição estiver rodando, na Semana 5.</p>
+<div class="etapa">
+  <span class="nome">Cliques no anúncio, por mês</span><span class="val num">265</span>
+  <span class="barra"><i style="width:100%;background:var(--r5)"></i></span>
+  <span class="taxa">Premissa: R$ 800 de verba ÷ R$ 3,00 por clique, faixa comum em serviço local na Zona Leste.</span>
+</div>
+<div class="etapa">
+  <span class="nome">Conversas iniciadas no WhatsApp</span><span class="val num">27</span>
+  <span class="barra"><i style="width:10%;background:var(--r4)"></i></span>
+  <span class="taxa">10% dos cliques puxam conversa — com site que abre, portfólio visível e botão em toda página.</span>
+</div>
+<div class="etapa">
+  <span class="nome">Orçamentos enviados</span><span class="val num">11</span>
+  <span class="barra"><i style="width:40%;background:var(--r3)"></i></span>
+  <span class="taxa">40% das conversas chegam a orçamento, com a triagem qualificando antes da visita.</span>
+</div>
+<div class="etapa">
+  <span class="nome">Obras fechadas</span><span class="val num">2</span>
+  <span class="barra"><i style="width:18%;background:var(--r2)"></i></span>
+  <span class="taxa">Cerca de 1 em cada 5 orçamentos fecha. Aqui quem decide é o seu atendimento, não o anúncio.</span>
+</div>
+<div class="grade g3" style="margin-top:20px">
+  <div class="placa"><div class="n num">R$ 12.000</div><div class="l">Receita no cenário</div><div class="obs">Duas obras a um ticket médio de R$ 6.000.</div></div>
+  <div class="placa"><div class="n num">R$ 400</div><div class="l">Custo de mídia por obra</div><div class="obs">R$ 800 de verba dividido por duas obras.</div></div>
+  <div class="placa"><div class="n num">15×</div><div class="l">Retorno sobre a mídia</div><div class="obs">Mesmo caindo pela metade, uma única obra já paga o mês com folga.</div></div>
+</div>
+</div>
+</section>
+
+<!-- ==================== 8. CONTINUIDADE ==================== -->
+<section class="painel" id="p-cont" role="tabpanel" aria-labelledby="t-cont" tabindex="0">
+<p class="eyebrow">Depois da entrega</p>
+<h2 class="sec">Sustentável quer dizer: funciona sem mim.</h2>
+<p class="sub">O erro que derrubou tudo em 2024 não foi técnico. Foi de manutenção — renovações que ninguém acompanhou, avisos que ninguém leu, contas que ninguém abria. Se este projeto terminar sem resolver isso, ele vai cair de novo. Então a Semana 8 existe para blindar exatamente esse ponto.</p>
+
+<div class="grade g2" style="margin-top:22px">
+<div class="nota regra">
+<h4>A rotina do Gabriel — 30 minutos por semana</h4>
+<ul class="marcas" style="margin-top:8px">
+<li><b>A cada obra (15 min):</b> foto do antes, três do processo, vídeo curto do encaixe, foto do depois e o pedido de avaliação pelo QR code.</li>
+<li><b>Segunda-feira (10 min):</b> responder mensagens do Perfil no Google e comentários do Instagram.</li>
+<li><b>Quarta-feira (10 min):</b> publicar uma peça do calendário — o roteiro já está pronto no celular.</li>
+<li><b>Sexta-feira (10 min):</b> olhar o painel — quantas ligações, quantas conversas, quantos orçamentos.</li>
+<li><b>Uma vez por mês:</b> conferir o calendário de vencimentos. Trinta minutos que evitam perder o domínio de novo.</li>
+</ul>
+</div>
+<div class="nota alerta">
+<h4>O calendário que não pode falhar</h4>
+<p style="margin-bottom:10px">Entregue impresso e com lembrete no celular, avisando 30 dias antes de cada vencimento:</p>
+<ul class="marcas" style="margin-top:8px">
+<li><b>Domínio</b> — renovação a cada 3 anos, com renovação automática ligada e cartão válido cadastrado.</li>
+<li><b>Hospedagem</b> — mensal ou anual, no cartão dele, com aviso no e-mail do negócio.</li>
+<li><b>Cartão de crédito</b> — quando vencer o plástico, atualizar em domínio, hospedagem e Google Ads. É a causa silenciosa de metade das quedas.</li>
+<li><b>Verificação de anunciante</b> — o Google pede revalidação periódica; entra no calendário.</li>
+</ul>
+</div>
+</div>
+
+<h3 class="blk" style="margin-top:30px">Os primeiros 90 dias depois da entrega</h3>
+<div class="rolo" style="margin-top:14px">
+<table>
+<thead><tr><th class="n">Mês</th><th>Prioridade</th><th>Sinal de que está funcionando</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td>Alimentar o Perfil no Google e acumular avaliações. Executar o calendário de conteúdo.</td><td>Aumento de ligações e pedidos de rota no painel do Google.</td></tr>
+<tr><td class="n">2</td><td>Ajustar o Google Ads com dados reais: cortar termos que só gastam, reforçar os que geram conversa.</td><td>Custo por conversa caindo mês a mês.</td></tr>
+<tr><td class="n">3</td><td>Colher o canal de arquitetos e publicar os primeiros casos de obra completos no site.</td><td>Primeiro orçamento vindo de indicação de arquiteto e site aparecendo no orgânico.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="nota" style="margin-top:20px">
+<h4>Se você quiser que eu continue — opcional, decidido na Semana 8</h4>
+<p style="margin-bottom:12px">Isto <b>não faz parte dos R$ 2.000</b> e não é condição para nada. Ao fim das oito semanas tudo está no seu nome e funcionando; você continua sozinho se quiser. Se preferir que eu siga cuidando, as faixas seriam estas — e conversamos com os números reais na mesa:</p>
+<div class="grade g2" style="margin-top:12px">
+  <div class="bancada fina"><p class="eyebrow">Acompanhamento leve</p><div style="font-family:var(--f-disp);font-size:26px;font-weight:700;color:var(--mel);margin:6px 0 8px" class="num">R$ 400 / mês</div><p style="font-size:14.5px;color:var(--mut)">Gestão do Google Ads, relatório mensal, duas publicações no Perfil do Google e monitoramento de renovações.</p></div>
+  <div class="bancada fina"><p class="eyebrow">Acompanhamento pleno</p><div style="font-family:var(--f-disp);font-size:26px;font-weight:700;color:var(--mel);margin:6px 0 8px" class="num">R$ 800 / mês</div><p style="font-size:14.5px;color:var(--mut)">Tudo do leve, mais oito publicações de Instagram por mês, otimização contínua da campanha e um caso de obra novo no site a cada mês.</p></div>
+</div>
+<p style="color:var(--mut2);font-size:14px;margin-top:12px">Sem fidelidade e sem multa. Se um mês não fizer sentido, você pausa.</p>
+</div>
+
+<div class="regua" aria-hidden="true"><i></i><svg width="48" height="14" viewBox="0 0 48 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 11h14l5-8h10l5 8h14"/></svg><i></i></div>
+
+<div class="aceite">
+<p class="eyebrow">Para começar</p>
+<h3 class="blk" style="margin:10px 0 6px;font-size:26px">Quatro passos, e o relógio do domínio para de correr contra a gente.</h3>
+<ol class="passos" style="margin-top:18px">
+<li><b>Você me responde "aceito"</b> pelo WhatsApp. Não precisa de contrato assinado em cartório entre nós — mas esta proposta vale como o combinado, e é para isso que ela está escrita em detalhe.</li>
+<li><b>PIX da primeira parcela</b> de R$ 666,67.</li>
+<li><b>Chamada de 40 minutos</b> para liberar os nove acessos, com você na tela. Marcamos para as primeiras 72 horas.</li>
+<li><b>Consulta do domínio no mesmo dia da chamada.</b> Este é o item que não pode esperar: cada semana parada aproxima marceneirotatuape.com.br da liberação para qualquer pessoa.</li>
+</ol>
+<div class="marco-sem" style="margin-top:20px"><b>Validade</b><span>Esta proposta vale por 30 dias a partir de 26/08/2026. O preço de R$ 2.000 é fechado entre amigos e não se repete em contratações futuras.</span></div>
+<div class="assina">
+  <div><b>Gabriel Landi</b>Casa do Marceneiro Tatuapé · Contratante</div>
+  <div><b>Leandro Pereira Costa</b>Responsável pelo projeto · Data ____ / ____ / ______</div>
+</div>
+</div>
+
+<div class="nota bom" style="margin-top:20px">
+<h4>Uma última palavra, de amigo para amigo</h4>
+<p>Gabriel, o problema aqui nunca foi falta de talento nem falta de cliente. Foi o negócio digital ter ficado no nome dos outros, com as contas caindo num e-mail que ninguém abria. Isso tem conserto, e o conserto começa por uma consulta de domínio que leva cinco minutos. O resto é trabalho — e trabalho é o que você faz melhor do que ninguém. Vamos pôr essa marcenaria de volta no mapa.</p>
+</div>
+</section>
+
+</main>
+
+<footer class="rodape">
+<b>Casa do Marceneiro Tatuapé</b> · Proposta de reconstrução digital<br>
+Emitida em 26 de agosto de 2026 · Validade de 30 dias<br>
+<span class="tela-only">Documento interativo — navegue pelas abas no topo</span>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var abas = Array.prototype.slice.call(document.querySelectorAll(".aba"));
+  var paineis = abas.map(function(a){ return document.getElementById(a.getAttribute("aria-controls")); });
+
+  function mostrar(i, focar){
+    abas.forEach(function(aba, j){
+      var ativo = i === j;
+      aba.setAttribute("aria-selected", ativo ? "true" : "false");
+      aba.setAttribute("tabindex", ativo ? "0" : "-1");
+      if (paineis[j]) paineis[j].classList.toggle("on", ativo);
+    });
+    if (focar) abas[i].focus();
+    abas[i].scrollIntoView({ block: "nearest", inline: "nearest" });
+    window.scrollTo({ top: 0, behavior: "auto" });
+    var id = abas[i].getAttribute("aria-controls").replace("p-", "");
+    if (history.replaceState) history.replaceState(null, "", "#" + id);
+  }
+
+  abas.forEach(function(aba, i){
+    aba.setAttribute("tabindex", i === 0 ? "0" : "-1");
+    aba.addEventListener("click", function(){ mostrar(i, false); });
+    aba.addEventListener("keydown", function(e){
+      var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (d) { e.preventDefault(); mostrar((i + d + abas.length) % abas.length, true); }
+      else if (e.key === "Home") { e.preventDefault(); mostrar(0, true); }
+      else if (e.key === "End") { e.preventDefault(); mostrar(abas.length - 1, true); }
+    });
+  });
+
+  // Acordeão como melhoria progressiva: as semanas nascem abertas no HTML,
+  // para que o PDF e a leitura sem JavaScript tragam o conteúdo inteiro.
+  // Na tela, fechamos todas menos a primeira; antes de imprimir, reabrimos.
+  var semanas = Array.prototype.slice.call(document.querySelectorAll("details.semana"));
+  semanas.forEach(function(d, i){ if (i > 0) d.open = false; });
+
+  function reabrirParaImprimir(){ semanas.forEach(function(d){ d.dataset.aberta = d.open ? "1" : "0"; d.open = true; }); }
+  function restaurarDaImpressao(){ semanas.forEach(function(d){ d.open = d.dataset.aberta === "1"; }); }
+  window.addEventListener("beforeprint", reabrirParaImprimir);
+  window.addEventListener("afterprint", restaurarDaImpressao);
+  if (window.matchMedia) {
+    var mm = window.matchMedia("print");
+    var aoMudar = function(e){ (e.matches ? reabrirParaImprimir : restaurarDaImpressao)(); };
+    if (mm.addEventListener) mm.addEventListener("change", aoMudar);
+    else if (mm.addListener) mm.addListener(aoMudar);
+  }
+
+  var alvo = (location.hash || "").replace("#", "");
+  if (alvo) {
+    var i = abas.findIndex(function(a){ return a.getAttribute("aria-controls") === "p-" + alvo; });
+    if (i > -1) mostrar(i, false);
+  }
+})();
+</script>
