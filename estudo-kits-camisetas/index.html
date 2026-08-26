@@ -1,0 +1,1728 @@
+<title>Ficha Técnica dos R$100</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
+
+<style>
+/* ============ TOKENS — tema claro é a base ============ */
+:root{
+  --ground:#FBFAF7;        /* algodão cru */
+  --surface:#FFFFFF;
+  --surface-2:#F5F3EE;
+  --sunken:#F0EDE6;
+  --ink:#141A24;           /* índigo-carvão */
+  --ink-2:#3E4756;
+  --ink-3:#6B7382;
+  --line:#E3E0D7;          /* linha de costura crua */
+  --line-2:#CFCBBF;
+  --accent:#C1362B;        /* vermelho de linha */
+  --accent-soft:#FBEEEC;
+  --indigo:#1E3A6E;
+
+  --s1:#2F5FC4; --s2:#C08414; --s3:#0E8F7A; --s4:#8A4FBF; --s5:#D13B2E;
+  --good:#12795A; --good-bg:#E8F4EF;
+  --warn:#A0670A; --warn-bg:#FBF1E0;
+  --crit:#B3261E; --crit-bg:#FCECEA;
+
+  --grid:#EAE7DF;
+  --shadow:0 1px 2px rgba(20,26,36,.05),0 8px 24px -12px rgba(20,26,36,.14);
+  --radius:3px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E1219; --surface:#161C26; --surface-2:#1C2330; --sunken:#11161E;
+    --ink:#ECE9E2; --ink-2:#B6BDC9; --ink-3:#828B99;
+    --line:#28303C; --line-2:#39424F;
+    --accent:#E86154; --accent-soft:#2A1B1A; --indigo:#8FB0EC;
+    --s1:#5386E2; --s2:#BE8A18; --s3:#149C86; --s4:#9269D6; --s5:#E0503F;
+    --good:#3EA57E; --good-bg:#132A23;
+    --warn:#C79024; --warn-bg:#2B2113;
+    --crit:#E0655A; --crit-bg:#2C1817;
+    --grid:#232B37;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E1219; --surface:#161C26; --surface-2:#1C2330; --sunken:#11161E;
+  --ink:#ECE9E2; --ink-2:#B6BDC9; --ink-3:#828B99;
+  --line:#28303C; --line-2:#39424F;
+  --accent:#E86154; --accent-soft:#2A1B1A; --indigo:#8FB0EC;
+  --s1:#5386E2; --s2:#BE8A18; --s3:#149C86; --s4:#9269D6; --s5:#E0503F;
+  --good:#3EA57E; --good-bg:#132A23;
+  --warn:#C79024; --warn-bg:#2B2113;
+  --crit:#E0655A; --crit-bg:#2C1817;
+  --grid:#232B37;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:Newsreader,Georgia,'Times New Roman',serif;
+  font-size:17px;line-height:1.62;
+  font-optical-sizing:auto;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:Archivo,'Helvetica Neue',Arial,sans-serif;text-wrap:balance;margin:0;line-height:1.08}
+.mono,th,td.n,.tag,.eyebrow,input,select,button,label,.legend,.axis{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace}
+.n{font-variant-numeric:tabular-nums}
+
+/* ============ COSTURA: rule motif ============ */
+.stitch{height:1px;background:repeating-linear-gradient(90deg,var(--line-2) 0 7px,transparent 7px 13px);border:0;margin:0}
+.stitch-accent{height:1px;background:repeating-linear-gradient(90deg,var(--accent) 0 7px,transparent 7px 13px);border:0;margin:0}
+
+/* ============ SHELL ============ */
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.masthead{border-bottom:1px solid var(--line);background:var(--surface);position:relative}
+.masthead .wrap{padding-top:26px;padding-bottom:22px}
+.label-strip{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.label-strip b{color:var(--accent);font-weight:600}
+h1.title{font-size:clamp(34px,6.4vw,62px);font-weight:800;font-stretch:82%;letter-spacing:-.022em;margin:16px 0 10px}
+h1.title em{font-style:normal;color:var(--accent)}
+.dek{font-size:clamp(17px,2.1vw,20px);color:var(--ink-2);max-width:62ch;line-height:1.5}
+
+/* ============ TABS ============ */
+.tabbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--ground) 94%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.tabbar-inner{max-width:1080px;margin:0 auto;padding:0 22px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.tabbar-inner::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;appearance:none;background:none;border:0;border-bottom:2px solid transparent;
+  padding:13px 11px 11px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+  color:var(--ink-3);cursor:pointer;white-space:nowrap;display:flex;align-items:baseline;gap:8px;transition:color .15s}
+.tab .num{font-size:9.5px;opacity:.6}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:2px}
+
+.panel{display:none;padding:44px 0 76px;animation:rise .34s cubic-bezier(.2,.7,.3,1)}
+.panel[data-on]{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.panel{animation:none}*{transition:none!important}}
+
+/* ============ TIPOGRAFIA ============ */
+.eyebrow{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.eyebrow::before{content:"";width:16px;height:1px;background:var(--accent);flex:0 0 16px}
+h2.sec{font-size:clamp(25px,3.5vw,36px);font-weight:800;font-stretch:86%;letter-spacing:-.018em;margin-bottom:14px}
+h3.sub{font-size:19px;font-weight:700;font-stretch:92%;letter-spacing:-.008em;margin:0 0 8px}
+h4.mini{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;color:var(--ink-3);margin:0 0 10px}
+p{margin:0 0 15px;max-width:70ch}
+.lead{font-size:19.5px;line-height:1.55;color:var(--ink-2)}
+.block{margin-bottom:44px}
+strong{font-weight:600;color:var(--ink)}
+a{color:var(--accent);text-underline-offset:3px}
+
+/* ============ CARDS / GRIDS ============ */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:860px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+/* stat tiles */
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:17px 18px;position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--bar,var(--line-2))}
+.stat .k{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:9px}
+.stat .v{font-family:Archivo,sans-serif;font-size:31px;font-weight:800;font-stretch:80%;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+.stat .v small{font-size:15px;font-weight:600;color:var(--ink-3)}
+.stat .d{font-size:13.5px;color:var(--ink-3);margin-top:8px;line-height:1.4;font-family:Newsreader,serif}
+
+/* pills */
+.pill{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:2px;border:1px solid transparent;white-space:nowrap}
+.pill.ok{color:var(--good);background:var(--good-bg);border-color:color-mix(in srgb,var(--good) 30%,transparent)}
+.pill.wa{color:var(--warn);background:var(--warn-bg);border-color:color-mix(in srgb,var(--warn) 30%,transparent)}
+.pill.no{color:var(--crit);background:var(--crit-bg);border-color:color-mix(in srgb,var(--crit) 30%,transparent)}
+.pill.nu{color:var(--ink-3);background:var(--surface-2);border-color:var(--line)}
+.pill::before{content:"●";font-size:7px;line-height:1}
+.pill.no::before{content:"■"}
+.pill.wa::before{content:"▲"}
+
+/* tables */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}
+th{text-align:left;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);font-weight:600;
+  padding:11px 13px;border-bottom:1px solid var(--line);background:var(--surface-2);white-space:nowrap}
+td{padding:10px 13px;border-bottom:1px solid var(--line);color:var(--ink-2);font-family:Newsreader,serif;font-size:14.5px}
+td.n,th.n{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink)}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:var(--surface-2)}
+tr.total td{font-weight:600;color:var(--ink);background:var(--sunken)}
+caption{caption-side:bottom;text-align:left;padding:10px 13px;font-size:12px;color:var(--ink-3);font-family:'IBM Plex Mono',monospace;line-height:1.5}
+
+/* callouts */
+.note{border-left:2px solid var(--accent);background:var(--accent-soft);padding:15px 18px;border-radius:0 var(--radius) var(--radius) 0;margin:0 0 22px}
+.note p:last-child{margin-bottom:0}
+.note .h{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:7px}
+.quote{font-size:22px;line-height:1.42;font-style:italic;color:var(--ink);border-left:2px solid var(--line-2);padding-left:22px;margin:26px 0;max-width:60ch}
+
+/* fonte / source list */
+.src{font-size:12.5px;color:var(--ink-3);font-family:'IBM Plex Mono',monospace;line-height:1.65}
+.src a{color:var(--ink-3)}
+
+/* ============ CALCULADORA ============ */
+.calc{display:grid;grid-template-columns:322px minmax(0,1fr);gap:20px;align-items:start}
+.calc>*{min-width:0}
+.card,.grid>*,.results>*{min-width:0}
+@media(max-width:900px){.calc{grid-template-columns:1fr}}
+.controls{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:0;position:sticky;top:56px;box-shadow:var(--shadow)}
+@media(max-width:900px){.controls{position:static}}
+.ctl-group{padding:16px 18px;border-bottom:1px solid var(--line)}
+.ctl-group:last-child{border-bottom:0}
+.ctl-group>h4{margin-bottom:12px}
+.field{display:grid;grid-template-columns:1fr 92px;gap:9px;align-items:center;margin-bottom:9px}
+.field:last-child{margin-bottom:0}
+.field label{font-size:11.5px;color:var(--ink-2);line-height:1.32;font-family:'IBM Plex Mono',monospace}
+.field .u{font-size:9.5px;color:var(--ink-3);display:block}
+input[type=number],select{width:100%;background:var(--sunken);border:1px solid var(--line);border-radius:2px;
+  padding:6px 8px;color:var(--ink);font-size:12.5px;font-variant-numeric:tabular-nums;text-align:right;font-family:'IBM Plex Mono',monospace}
+select{text-align:left}
+input[type=number]:focus,select:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:transparent}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.field.full{grid-template-columns:1fr}
+.field.full label{margin-bottom:5px}
+.seg{display:flex;border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.seg button{flex:1;appearance:none;border:0;background:var(--sunken);color:var(--ink-3);padding:7px 4px;
+  font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;font-family:'IBM Plex Mono',monospace;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#fff;font-weight:600}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.reset{width:100%;appearance:none;border:1px solid var(--line);background:var(--surface-2);color:var(--ink-3);
+  padding:8px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:2px;font-family:'IBM Plex Mono',monospace}
+.reset:hover{color:var(--accent);border-color:var(--accent)}
+
+/* resultado por plataforma */
+.results{display:grid;gap:12px;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:1000px){.results{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.results{grid-template-columns:1fr}}
+.rescard{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--c);border-radius:var(--radius);padding:15px 15px 13px;box-shadow:var(--shadow)}
+.rescard .plat{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:6px}
+.rescard .mc{font-family:Archivo,sans-serif;font-size:30px;font-weight:800;font-stretch:80%;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.rescard .mcp{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-3);margin-top:5px}
+.rescard .brk{margin-top:12px;padding-top:11px;border-top:1px dashed var(--line-2);display:grid;gap:4px}
+.rescard .brk div{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)}
+.rescard .brk div span:last-child{color:var(--ink-2);font-variant-numeric:tabular-nums}
+.rescard .brk div.hi span:last-child{color:var(--ink);font-weight:600}
+
+/* charts */
+figure{margin:0}
+figcaption{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-3);line-height:1.55;margin-top:10px}
+.chart-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.legend{display:flex;flex-wrap:wrap;gap:5px 15px;font-size:11px;color:var(--ink-2)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:1px;margin-right:6px;vertical-align:-1px}
+svg{display:block;max-width:100%;overflow:visible}
+svg text{font-family:'IBM Plex Mono',monospace;fill:var(--ink-3)}
+svg .lbl{font-size:10.5px}
+svg .val{font-size:11px;fill:var(--ink);font-weight:500}
+svg .gridline{stroke:var(--grid);stroke-width:1}
+svg .axisline{stroke:var(--line-2);stroke-width:1}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--ground);padding:7px 10px;border-radius:2px;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.5;z-index:99;opacity:0;transition:opacity .12s;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.tip[data-on]{opacity:1}
+.hitzone{cursor:crosshair}
+
+/* ficha técnica */
+.spec{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.spec header{padding:14px 17px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.spec header .nm{font-family:Archivo,sans-serif;font-size:17px;font-weight:800;font-stretch:88%;letter-spacing:-.01em}
+.spec header .cmp{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:5px}
+.spec .rows{padding:6px 17px 14px}
+.spec .rows div{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px dashed var(--line);
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-3)}
+.spec .rows div:last-child{border-bottom:0}
+.spec .rows div b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.spec footer{padding:12px 17px;background:var(--sunken);border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline}
+.spec footer .lb{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.spec footer .vl{font-family:Archivo,sans-serif;font-size:23px;font-weight:800;font-stretch:82%;font-variant-numeric:tabular-nums}
+
+/* timeline / fases */
+.phase{display:grid;grid-template-columns:56px minmax(0,1fr);gap:18px;padding-bottom:26px;position:relative}
+.phase::before{content:"";position:absolute;left:27px;top:34px;bottom:0;width:1px;background:repeating-linear-gradient(180deg,var(--line-2) 0 5px,transparent 5px 10px)}
+.phase:last-child::before{display:none}
+.phase .mk{width:56px;height:56px;border:1px solid var(--line);background:var(--surface);border-radius:50%;
+  display:grid;place-items:center;font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.25;text-align:center;color:var(--ink-3);position:relative;z-index:1}
+.phase .mk b{display:block;font-family:Archivo,sans-serif;font-size:18px;font-weight:800;color:var(--accent)}
+.chk{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:7px}
+.chk li{padding-left:22px;position:relative;font-size:15px;color:var(--ink-2);line-height:1.45}
+.chk li::before{content:"";position:absolute;left:0;top:8px;width:9px;height:9px;border:1px solid var(--accent);border-radius:1px}
+
+.footnote{font-size:12.5px;color:var(--ink-3);font-family:'IBM Plex Mono',monospace;line-height:1.6;margin-top:10px}
+.kbd{font-family:'IBM Plex Mono',monospace;font-size:12px;background:var(--sunken);border:1px solid var(--line);border-radius:2px;padding:1px 5px;color:var(--ink-2)}
+</style>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="label-strip">
+      <span>Estudo de viabilidade</span>
+      <span><b>Confidencial</b> · Roberto Monte Fusco</span>
+      <span>Rev. 01 · Agosto 2026</span>
+    </div>
+    <h1 class="title">A ficha técnica<br>dos <em>R$&nbsp;100</em></h1>
+    <p class="dek">Duas empresas vendem camiseta de algodão no Brasil. Uma cobra R$&nbsp;49. A outra cobra R$&nbsp;160 e fatura R$&nbsp;800&nbsp;milhões. A malha é quase a mesma. Este estudo mostra, real por real, onde a sua fábrica cabe nessa distância — e onde ela não cabe.</p>
+  </div>
+</header>
+
+<nav class="tabbar" aria-label="Seções do estudo">
+  <div class="tabbar-inner" role="tablist">
+    <button class="tab" role="tab" id="t-tese" aria-controls="p-tese" aria-selected="true"><span class="num">01</span>Tese</button>
+    <button class="tab" role="tab" id="t-mercado" aria-controls="p-mercado" aria-selected="false"><span class="num">02</span>Mercado</button>
+    <button class="tab" role="tab" id="t-players" aria-controls="p-players" aria-selected="false"><span class="num">03</span>Concorrência</button>
+    <button class="tab" role="tab" id="t-custo" aria-controls="p-custo" aria-selected="false"><span class="num">04</span>Custo da peça</button>
+    <button class="tab" role="tab" id="t-calc" aria-controls="p-calc" aria-selected="false"><span class="num">05</span>Calculadora</button>
+    <button class="tab" role="tab" id="t-ads" aria-controls="p-ads" aria-selected="false"><span class="num">06</span>Loja &amp; mídia</button>
+    <button class="tab" role="tab" id="t-cenarios" aria-controls="p-cenarios" aria-selected="false"><span class="num">07</span>Cenários</button>
+    <button class="tab" role="tab" id="t-plano" aria-controls="p-plano" aria-selected="false"><span class="num">08</span>Plano &amp; riscos</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ══════════════ 01 TESE ══════════════ -->
+<section class="panel" id="p-tese" role="tabpanel" aria-labelledby="t-tese" data-on>
+
+  <div class="block">
+    <div class="eyebrow">Veredito em uma frase</div>
+    <h2 class="sec">Sim, dá margem. Mas não no formato que você pediu.</h2>
+    <p class="lead">A pergunta que chegou foi: <em>“kit de 5 camisetas de algodão por R$&nbsp;90 a R$&nbsp;100 nos marketplaces — fecha?”</em> A resposta honesta é <strong>não</strong>. Nesse formato, depois das taxas que Mercado Livre, Shopee e TikTok Shop subiram em 2026, a conta fecha negativa ou em cima do zero. Não é pessimismo: é aritmética, e você vai poder refazê-la na aba 05 com os números reais da sua fábrica.</p>
+    <p class="lead">Mas a mesma fábrica, com a mesma malha, <strong>tem margem de 20% a 25%</strong> em três formatos diferentes. O erro não está no produto. Está na embalagem comercial do produto.</p>
+  </div>
+
+  <div class="block">
+    <div class="grid g3">
+      <div class="stat" style="--bar:var(--crit)">
+        <div class="k">Formato pedido</div>
+        <div class="v" style="color:var(--crit)">−3,9%</div>
+        <div class="d">Kit de 5 peças a R$&nbsp;99, no <strong>melhor</strong> caso — malha popular a R$&nbsp;10,94/peça. Em algodão penteado, a margem despenca para <strong>−60%</strong>.</div>
+      </div>
+      <div class="stat" style="--bar:var(--good)">
+        <div class="k">Formato recomendado</div>
+        <div class="v" style="color:var(--good)">20,1%</div>
+        <div class="d">Kit de 3 peças em algodão penteado 30.1, 180g, a R$&nbsp;169. Margem de contribuição no ML Clássico — <strong>R$&nbsp;33,96 por kit</strong>.</div>
+      </div>
+      <div class="stat" style="--bar:var(--s3)">
+        <div class="k">A pergunta do Roberto</div>
+        <div class="v" style="color:var(--s3)">20,8%</div>
+        <div class="d">Camiseta avulsa de fibra longa a R$&nbsp;100, com frete de pacote leve (R$&nbsp;15). <strong>Fecha.</strong> O obstáculo aqui não é a planilha — é convencer alguém a pagar R$&nbsp;100 numa peça.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block" style="padding-top:38px">
+    <div class="eyebrow">O paradoxo que organiza tudo</div>
+    <h2 class="sec">A malha custa R$&nbsp;10. O preço varia 6 vezes.</h2>
+    <p>Em 2026 a Hering — sob a Azzas 2154 — reposicionou-se para as classes B e C com <strong>camiseta básica a R$&nbsp;49</strong>. No mesmo mercado, a Insider vende camiseta a partir de R$&nbsp;135, com média em torno de R$&nbsp;160, e projeta <strong>R$&nbsp;800 milhões de faturamento em 2026</strong>, depois de R$&nbsp;400 milhões em 2024. Marcas de algodão Pima e egípcio ancoram entre R$&nbsp;199 e R$&nbsp;299.</p>
+    <p>O custo de fabricação dessas peças varia de R$&nbsp;11 a R$&nbsp;35. O preço varia de R$&nbsp;20 a R$&nbsp;299. <strong>A distância entre esses dois intervalos é o negócio inteiro</strong> — e ela não é feita de algodão. É feita de posicionamento, foto, garantia, recompra e reputação de vendedor.</p>
+
+    <figure style="margin:26px 0 8px">
+      <div class="chart-head">
+        <h4 class="mini" style="margin:0">Régua de preço por peça — mercado brasileiro, 2026</h4>
+      </div>
+      <div id="ruler"></div>
+      <figcaption>Preço unitário praticado ao consumidor final. A faixa cinza é a zona de commodity, onde o preço é a única variável de decisão. Fontes: Hering/Azzas, Insider, listagens de marketplace e marcas de fibra longa (ver aba 08).</figcaption>
+    </figure>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block" style="padding-top:38px">
+    <div class="eyebrow">O que mudou em 2026 e ninguém recalculou</div>
+    <h2 class="sec">As três plataformas subiram o pedágio no mesmo ano.</h2>
+    <p>Este não é um estudo sobre “como vender em marketplace”. É um estudo sobre <strong>um ano específico</strong> em que as três principais plataformas aumentaram custos com poucos meses de diferença — e a maioria dos vendedores continuou precificando com a planilha de 2024.</p>
+
+    <div class="tablewrap" style="margin-top:20px">
+      <table>
+        <caption>Mudanças de custo confirmadas em 2026. Cada uma isolada parece pequena; somadas, comem de 4 a 9 pontos de margem em ticket baixo.</caption>
+        <thead><tr><th>Plataforma</th><th>Quando</th><th>O que mudou</th><th class="n">Impacto em kit de R$ 99</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Mercado Livre</strong></td><td>02/mar/2026</td><td>Taxa fixa por item abaixo de R$&nbsp;79 vira <em>custo logístico variável</em> por peso e dimensão; tarifa logística passa a incidir em toda venda, independente de quem paga o frete; armazenagem Full +7,6%</td><td class="n">−R$ 2 a −R$ 5</td></tr>
+          <tr><td><strong>Shopee</strong></td><td>mar/2026</td><td>Fim do teto de comissão de R$&nbsp;100 por item; nova tabela por faixa; taxa fixa por item sobe até 550%; <strong>Programa de Frete Grátis deixa de ser opcional</strong></td><td class="n">−R$ 12 a −R$ 16</td></tr>
+          <tr><td><strong>TikTok Shop</strong></td><td>15/jul/2026</td><td>Comissão sobe de 6% para 10% em itens abaixo de R$&nbsp;50; taxa fixa por item sobe de R$&nbsp;4 para R$&nbsp;6 em itens de R$&nbsp;50+</td><td class="n">−R$ 2</td></tr>
+          <tr><td><strong>Meta Ads</strong></td><td>01/jan/2026</td><td>Repasse de PIS/Cofins (9,25%) e ISS (2,9%): mídia fica <strong>12,15% mais cara</strong>. R$&nbsp;1.000 de verba passa a custar R$&nbsp;1.121,50</td><td class="n">−R$ 0,70</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note" style="margin-top:22px">
+      <div class="h">Por que isso favorece quem tem fábrica</div>
+      <p>Aumento de taxa é regressivo: ele destrói primeiro quem revende com 15% de markup e sobrevive de giro. Quem <strong>fabrica</strong> tem 25 a 35 pontos de margem bruta a mais para absorver o choque — e continua vendendo quando o revendedor ao lado sai. A elevação de custos de 2026 é, para vocês, uma <em>barreira de entrada financiada pelas plataformas</em>.</p>
+    </div>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block" style="padding-top:38px">
+    <div class="eyebrow">Resumo executivo</div>
+    <h2 class="sec">Os cinco caminhos, lado a lado.</h2>
+    <div class="tablewrap">
+      <table>
+        <caption>Margem de contribuição = o que sobra depois de comissão, taxa fixa, frete, mídia, imposto, provisão de devolução e CMV — antes de custos fixos. Simulação completa e editável na aba 05.</caption>
+        <thead><tr><th>Caminho</th><th class="n">Custo/peça</th><th class="n">CMV do kit</th><th class="n">MC R$</th><th class="n">MC %</th><th>Veredito</th></tr></thead>
+        <tbody>
+          <tr><td><strong>A.</strong> Kit 5 un · penteado 180g · R$ 99</td><td class="n">22,06</td><td class="n">110,30</td><td class="n" style="color:var(--crit)">−59,50</td><td class="n" style="color:var(--crit)">−60,1%</td><td><span class="pill no">Impossível</span></td></tr>
+          <tr><td><strong>B.</strong> Kit 5 un · malha popular · R$ 99</td><td class="n">10,94</td><td class="n">54,72</td><td class="n" style="color:var(--crit)">−3,91</td><td class="n" style="color:var(--crit)">−3,9%</td><td><span class="pill no">Inviável</span></td></tr>
+          <tr><td><strong>C.</strong> Kit 5 un · ao custo mínimo de mercado · R$ 99</td><td class="n">8,00</td><td class="n">40,00</td><td class="n">10,80</td><td class="n">10,9%</td><td><span class="pill wa">Sobrevive, não escala</span></td></tr>
+          <tr><td><strong>D.</strong> Kit 3 un · penteado 180g · R$ 169</td><td class="n">22,06</td><td class="n">66,18</td><td class="n" style="color:var(--good)">33,97</td><td class="n" style="color:var(--good)">20,1%</td><td><span class="pill ok">Recomendado</span></td></tr>
+          <tr><td><strong>E.</strong> Avulsa · fibra longa · R$ 119</td><td class="n">34,71</td><td class="n">34,71</td><td class="n" style="color:var(--good)">30,18</td><td class="n" style="color:var(--good)">25,4%</td><td><span class="pill ok">Melhor margem %</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="footnote">Todos os caminhos no Mercado Livre Clássico (Moda, 14%), frete líquido de R$&nbsp;19, Simples Nacional Anexo II 1ª faixa (4,5%), Product Ads a 6% de ACOS e provisão de devolução de 5%. Cada linha é reproduzível na calculadora da aba 05. <strong>O ponto de virada do kit de 5 a R$&nbsp;99 é um custo de R$&nbsp;10,16 por peça</strong> — um centavo acima disso e o Mercado Livre devolve prejuízo.</p>
+  </div>
+
+  <div class="quote">A fábrica não vai ganhar dinheiro vendendo algodão. Vai ganhar vendendo <em>previsibilidade de reposição</em> — e cobrando por isso.</div>
+</section>
+
+<!-- ══════════════ 02 MERCADO ══════════════ -->
+<section class="panel" id="p-mercado" role="tabpanel" aria-labelledby="t-mercado">
+
+  <div class="block">
+    <div class="eyebrow">Onde o dinheiro está</div>
+    <h2 class="sec">O mercado é grande, mas o crescimento é de preço — não de peças.</h2>
+    <p class="lead">Este é o dado mais importante e o menos citado: entre maio e agosto de 2026 o varejo brasileiro de vestuário deve vender <strong>1,85 bilhão de peças</strong>, alta de apenas <strong>0,65%</strong> sobre 2025. O faturamento da estação sobe 4,2%, para R$&nbsp;63,34 bilhões.</p>
+    <p>Traduzindo: <strong>o brasileiro não está comprando mais roupa. Está pagando mais caro pela mesma quantidade.</strong> Um plano de negócio baseado em “roubar volume da concorrência” entra num jogo de soma zero. Um plano baseado em <em>capturar valor por peça</em> anda a favor do vento.</p>
+
+    <div class="grid g4" style="margin-top:24px">
+      <div class="stat" style="--bar:var(--s1)"><div class="k">E-commerce BR 2026</div><div class="v">R$ 260<small> bi</small></div><div class="d">Projeção ABComm/Abiacom. Ticket médio de R$&nbsp;562 e 460,9 milhões de pedidos.</div></div>
+      <div class="stat" style="--bar:var(--s2)"><div class="k">Vestuário · estação</div><div class="v">R$ 63,3<small> bi</small></div><div class="d">Maio–agosto 2026 (IEMI). +4,2% em valor, +0,65% em peças.</div></div>
+      <div class="stat" style="--bar:var(--s3)"><div class="k">TikTok Shop · 1º ano</div><div class="v">102<small>×</small></div><div class="d">Crescimento do GMV médio diário entre mai/2025 e mai/2026. Lives: +161× em receita.</div></div>
+      <div class="stat" style="--bar:var(--s4)"><div class="k">Devolução em moda</div><div class="v">30<small>–40%</small></div><div class="d">Dos pedidos online. Tamanho errado explica mais da metade dos casos.</div></div>
+    </div>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block" style="padding-top:38px">
+    <div class="eyebrow">Divisão do bolo</div>
+    <h2 class="sec">Dois players controlam 60% do marketplace brasileiro.</h2>
+    <p>As estimativas variam por metodologia, mas a ordem nunca muda. Mercado Livre lidera com folga; Shopee é a segunda força; TikTok Shop é o que cresce mais rápido a partir de uma base pequena.</p>
+
+    <figure style="margin:24px 0 8px">
+      <div class="chart-head">
+        <h4 class="mini" style="margin:0">Participação estimada no marketplace brasileiro · 2026</h4>
+        <div class="legend"><span><i style="background:var(--s1)"></i>Mercado Livre</span><span><i style="background:var(--s2)"></i>Shopee</span><span><i style="background:var(--s3)"></i>TikTok Shop</span><span><i style="background:var(--w5)"></i>demais</span></div>
+      </div>
+      <div id="share"></div>
+      <figcaption>Barra = ponto médio das estimativas; a linha fina marca a faixa entre as fontes consultadas. Em cor, as três plataformas analisadas neste estudo; em cinza, as demais. Metodologias diferentes (GMV, visitas, receita) produzem números diferentes — a leitura correta é a ordem de grandeza, não o decimal.</figcaption>
+    </figure>
+
+    <div class="grid g3" style="margin-top:26px">
+      <div class="card">
+        <h3 class="sub" style="color:var(--s1)">Mercado Livre</h3>
+        <p style="font-size:15px">Maior demanda orgânica de moda do país e a única com logística própria madura. <strong>Você não precisa criar demanda aqui — precisa ganhar a busca.</strong> Em compensação, é a plataforma mais cara em taxa efetiva quando se soma comissão + frete grátis obrigatório acima de R$&nbsp;79.</p>
+      </div>
+      <div class="card">
+        <h3 class="sub" style="color:var(--s2)">Shopee</h3>
+        <p style="font-size:15px">Público mais sensível a preço e altíssima frequência de compra. A tabela de 2026 é <strong>brutal com ticket baixo</strong> (20% + R$&nbsp;4 abaixo de R$&nbsp;80) e mais civilizada acima de R$&nbsp;100 (14% + R$&nbsp;20). Isso empurra você para cima — e é bom.</p>
+      </div>
+      <div class="card">
+        <h3 class="sub" style="color:var(--s3)">TikTok Shop</h3>
+        <p style="font-size:15px">A menor taxa de plataforma das três (6% + R$&nbsp;6 acima de R$&nbsp;50), mas <strong>a demanda não vem de graça</strong>: você paga entre 10% e 20% de comissão a afiliados para gerar o tráfego que o ML já te dá. É um custo de mídia disfarçado de comissão.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block" style="padding-top:38px">
+    <div class="eyebrow">A janela</div>
+    <h2 class="sec">TikTok Shop é a única assimetria disponível hoje.</h2>
+    <p>Em maio de 2026 o TikTok Shop completou um ano no Brasil com <strong>134 milhões de usuários</strong> na plataforma, GMV médio diário <strong>102 vezes maior</strong> que no primeiro mês, número de lives <strong>20 vezes maior</strong>, receita de live commerce <strong>161 vezes maior</strong> e base de afiliados ativos <strong>46 vezes maior</strong>. Saúde e Beleza lidera as vendas; <strong>moda é a segunda categoria</strong>.</p>
+    <p>Um canal que multiplica por 100 em doze meses ainda não tem seus lugares tomados. No Mercado Livre, os vendedores de kit de camiseta acumularam cinco anos de reputação e milhares de avaliações — você entra em desvantagem estrutural. No TikTok Shop, <strong>ninguém acumulou nada ainda</strong>. Essa janela fecha, e fecha rápido.</p>
+
+    <div class="note">
+      <div class="h">Consequência prática para a fábrica</div>
+      <p>O TikTok Shop premia quem consegue <strong>produzir variação rápido</strong> — cor nova, gola nova, gramatura nova, colaboração com creator. É exatamente o que uma fábrica verticalizada faz e um revendedor não faz. É o canal onde a sua vantagem estrutural vira vantagem comercial.</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">Instrumentação</div>
+    <h3 class="sub">O que usar para medir — e não chutar</h3>
+    <p style="font-size:15.5px">Nenhuma decisão deste estudo precisa ficar no “eu acho”. Cada plataforma tem ferramenta de inteligência de vendedor que mostra volume real, preço praticado e curva de demanda dos concorrentes:</p>
+    <div class="tablewrap" style="margin-top:14px">
+      <table>
+        <thead><tr><th>Ferramenta</th><th>Cobre</th><th>Para quê, aqui</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Nubimetrics</strong></td><td>Mercado Livre (parceiro Platinum do próprio ML)</td><td>Volume real vendido por anúncio concorrente, sazonalidade de “kit camiseta”, gaps de busca sem oferta</td></tr>
+          <tr><td><strong>Kalodata</strong></td><td>TikTok Shop &amp; TikTok</td><td>Quais SKUs de moda estão crescendo, quais creators convertem de verdade, comissão praticada por SKU</td></tr>
+          <tr><td><strong>EchoTik / Shoplus</strong></td><td>TikTok Shop, lives e vídeos</td><td>Segunda fonte para validar Kalodata; leitura de lives e preço em campanha</td></tr>
+          <tr><td><strong>Google Trends + Planejador de Palavras-chave</strong></td><td>Busca aberta</td><td>Sazonalidade de “camiseta básica”, volume de “kit camiseta masculina”, custo esperado de clique</td></tr>
+          <tr><td><strong>Perfil da Empresa no Google</strong></td><td>Presença local da fábrica</td><td>Canal B2B: pequenas confecções e lojistas que compram no atacado buscam fábrica por região</td></tr>
+        </tbody>
+      </table>
+      </div>
+    <p class="footnote">Antes de investir em estoque, rode uma semana de leitura nessas ferramentas e substitua as premissas de volume da aba 07 pelos números reais. O modelo foi construído para receber esses dados.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 03 CONCORRÊNCIA ══════════════ -->
+<section class="panel" id="p-players" role="tabpanel" aria-labelledby="t-players">
+
+  <div class="block">
+    <div class="eyebrow">O campo de batalha</div>
+    <h2 class="sec">Você não compete com uma marca. Compete com três mercados diferentes.</h2>
+    <p class="lead">“Camiseta básica de algodão” parece uma categoria. Não é. São três mercados que quase não se tocam, com clientes, canais e lógicas econômicas distintas. Entrar sem escolher qual deles você quer é a forma mais rápida de perder dinheiro.</p>
+  </div>
+
+  <div class="block">
+    <div class="grid g3">
+      <div class="card" style="border-top:3px solid var(--crit)">
+        <h4 class="mini">Mercado 1 · Commodity</h4>
+        <h3 class="sub">R$ 15 a R$ 30 por peça</h3>
+        <p style="font-size:15px">Kits de 5 a 10 peças por R$&nbsp;79–R$&nbsp;129. Malha PV ou algodão cardado leve (130–140g). Foto em manequim, título com 12 palavras-chave. Decisão 100% por preço e frete.</p>
+        <p style="font-size:15px"><strong>Quem ganha:</strong> quem tem o menor custo de malha do Brasil e giro suficiente para negociar frete. <strong>Sua fábrica não vence aqui</strong> — a menos que já compre malha abaixo de R$&nbsp;27/kg.</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--good)">
+        <h4 class="mini">Mercado 2 · Básico com nome</h4>
+        <h3 class="sub">R$ 49 a R$ 89 por peça</h3>
+        <p style="font-size:15px">Hering a <strong>R$&nbsp;49</strong> (reposicionamento 2026 para classes B/C), Malwee, marcas de marketplace com reputação. Algodão penteado 30.1, 160–180g, modelagem consistente, grade de tamanho confiável.</p>
+        <p style="font-size:15px"><strong>Quem ganha:</strong> quem tem constância de qualidade e reposição. <strong>É aqui que a fábrica tem vantagem real</strong> — e é o alvo deste estudo.</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--s4)">
+        <h4 class="mini">Mercado 3 · Premium / techwear</h4>
+        <h3 class="sub">R$ 119 a R$ 299 por peça</h3>
+        <p style="font-size:15px">Insider (R$&nbsp;135–280, média ~R$&nbsp;160, R$&nbsp;800 mi projetados para 2026), marcas de Pima e egípcio (R$&nbsp;199–299). Venda por atributo funcional ou por fibra nomeada.</p>
+        <p style="font-size:15px"><strong>Quem ganha:</strong> quem construiu marca antes de precisar dela. <strong>Exige 18–24 meses e caixa</strong> para bancar CAC negativo na primeira compra.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block" style="padding-top:38px">
+    <div class="eyebrow">O mapa</div>
+    <h2 class="sec">Onde há espaço — e onde só há sangue.</h2>
+    <figure style="margin:22px 0 8px">
+      <div class="chart-head">
+        <h4 class="mini" style="margin:0">Preço por peça × custo de fabricação estimado</h4>
+        <div class="legend">
+          <span><i style="background:var(--s5)"></i>Commodity</span>
+          <span><i style="background:var(--s1)"></i>Básico com nome</span>
+          <span><i style="background:var(--s4)"></i>Premium</span>
+          <span><i style="background:var(--s3)"></i>Proposta</span>
+        </div>
+      </div>
+      <div id="mapa"></div>
+      <figcaption>Eixo vertical: preço ao consumidor por peça. Eixo horizontal: custo estimado de fabricação por peça. A diagonal tracejada marca markup 3×. Quanto mais acima da diagonal, mais o preço é sustentado por marca — e não por matéria-prima. Custos de fabricação são estimativas do modelo (aba 04), não dados divulgados pelas marcas.</figcaption>
+    </figure>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block" style="padding-top:38px">
+    <div class="eyebrow">Três lições de quem já fez</div>
+    <h2 class="sec">Casos reais, traduzidos para a sua proposta.</h2>
+
+    <div class="grid g2" style="gap:18px">
+      <div class="card">
+        <h4 class="mini" style="color:var(--s1)">Caso 1 · Insider</h4>
+        <h3 class="sub">Vender um problema, não um tecido.</h3>
+        <p style="font-size:15px">A Insider saiu de R$&nbsp;30 milhões para R$&nbsp;400 milhões (2024) e projeta R$&nbsp;800 milhões em 2026, crescendo em média 100% ao ano. Não vendeu “camiseta de algodão”: vendeu <em>uma camiseta que não amassa, não fede e não desbota</em>. O produto responde a uma reclamação que o cliente já tinha.</p>
+        <p style="font-size:15px"><strong>Tradução para vocês:</strong> não anuncie “100% algodão penteado”. Anuncie o defeito que vocês eliminaram — gola que não arregaça depois de 20 lavagens, por exemplo. É verificável, é fabril, e é a única promessa que uma fábrica pode fazer melhor que um revendedor.</p>
+      </div>
+      <div class="card">
+        <h4 class="mini" style="color:var(--s2)">Caso 2 · Hering / Azzas 2154</h4>
+        <h3 class="sub">O teto de preço acabou de descer.</h3>
+        <p style="font-size:15px">Em 2026 a Hering voltou aos básicos com camiseta a <strong>R$&nbsp;49</strong>, mirando classes B e C. É a marca com maior reconhecimento espontâneo em básicos no Brasil.</p>
+        <p style="font-size:15px"><strong>Tradução para vocês:</strong> qualquer peça avulsa anunciada acima de R$&nbsp;60 sem marca conhecida será comparada com a Hering a R$&nbsp;49 e vai perder. Esse é o argumento mais forte a favor do <strong>formato kit</strong>: o kit muda a unidade de comparação. Ninguém compara “kit de 3 por R$&nbsp;169” com “Hering por R$&nbsp;49” — compara com outros kits.</p>
+      </div>
+      <div class="card">
+        <h4 class="mini" style="color:var(--s4)">Caso 3 · Naraka</h4>
+        <h3 class="sub">Kit é uma tecnologia de ticket, não um desconto.</h3>
+        <p style="font-size:15px">A Naraka opera no Mercado Livre com mais de <strong>61,9 mil seguidores</strong> na loja oficial, itens a partir de R$&nbsp;30 e avaliações entre 4,2 e 4,9. O jeans é o carro-chefe; o mecanismo é o mesmo que se aplica a camiseta: giro alto, preço competitivo, grade ampla e presença constante no topo da busca.</p>
+        <p style="font-size:15px"><strong>Tradução para vocês:</strong> a loja oficial com seguidores é um <em>ativo</em>. Custa 18 meses para construir e reduz o custo de mídia de cada lançamento seguinte a quase zero. Comece a construí-lo no primeiro dia, mesmo vendendo pouco.</p>
+      </div>
+      <div class="card" style="border-left:2px solid var(--accent)">
+        <h4 class="mini" style="color:var(--accent)">A lacuna</h4>
+        <h3 class="sub">Kit premium não tem dono.</h3>
+        <p style="font-size:15px">Existem centenas de vendedores de <em>kit barato</em> e dezenas de marcas de <em>peça cara</em>. O que quase não existe é <strong>kit de poucas peças com qualidade declarada e verificável</strong> — 3 peças, algodão penteado nomeado, gramatura na etiqueta, garantia de troca por tamanho.</p>
+        <p style="font-size:15px">É a faixa de R$&nbsp;149 a R$&nbsp;199 no marketplace: cara demais para o caçador de preço, barata demais para a marca premium olhar. <strong>É exatamente a faixa onde uma fábrica com custo bom ganha dinheiro.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 04 CUSTO DA PEÇA ══════════════ -->
+<section class="panel" id="p-custo" role="tabpanel" aria-labelledby="t-custo">
+
+  <div class="block">
+    <div class="eyebrow">Engenharia de custo</div>
+    <h2 class="sec">Tudo começa aqui. Se este número estiver errado, o resto do estudo é ficção.</h2>
+    <p class="lead">Abaixo estão três fichas técnicas com custo aberto por componente. São <strong>estimativas de mercado</strong>, construídas a partir de consumo real de malha (0,80&nbsp;m de meia-malha 30.1 por camiseta) e de preços de atacado praticados em 2026. <strong>Substitua pelos números reais da sua fábrica</strong> — é o primeiro trabalho da reunião.</p>
+    <div class="note">
+      <div class="h">O que muda tudo</div>
+      <p>Vocês têm fábrica. Isso significa que a linha <em>facção</em> não é uma nota fiscal de terceiro — é capacidade ociosa. Se a fábrica já roda com folga, o custo marginal de produzir a camiseta é próximo de <strong>malha + aviamentos + embalagem</strong>, e a margem real fica de 6 a 9 pontos acima do que este modelo mostra. Se a fábrica está cheia, o custo de oportunidade é integral e o modelo abaixo está correto. <strong>Descubram qual dos dois é o caso antes de precificar.</strong></p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="grid g3">
+
+      <div class="spec">
+        <header>
+          <div class="nm">Linha Popular</div>
+          <div class="cmp">PV 67/33 ou cardado · 140 g/m² · fio 30.1 cardado</div>
+        </header>
+        <div class="rows">
+          <div><span>Malha · 0,175 kg × R$ 27,00/kg</span><b>4,73</b></div>
+          <div><span>Gola, ribana e aviamentos</span><b>0,90</b></div>
+          <div><span>Facção · corte, costura, acabamento</span><b>4,20</b></div>
+          <div><span>Embalagem</span><b>0,80</b></div>
+          <div><span>Perdas e 2ª qualidade · 3%</span><b>0,32</b></div>
+        </div>
+        <footer><span class="lb">Custo / peça</span><span class="vl">R$ 10,94</span></footer>
+      </div>
+
+      <div class="spec" style="outline:2px solid var(--good);outline-offset:-1px">
+        <header style="background:var(--good-bg)">
+          <div class="nm">Linha Essencial <span class="pill ok" style="vertical-align:3px;margin-left:6px">Recomendada</span></div>
+          <div class="cmp">100% algodão penteado · 180 g/m² · fio 30.1 penteado</div>
+        </header>
+        <div class="rows">
+          <div><span>Malha · 0,215 kg × R$ 48,00/kg</span><b>10,32</b></div>
+          <div><span>Gola, ribana, aviamentos, etiqueta tecida</span><b>1,80</b></div>
+          <div><span>Facção · corte, costura, acabamento</span><b>7,20</b></div>
+          <div><span>Embalagem individual + caixa do kit</span><b>2,10</b></div>
+          <div><span>Perdas e 2ª qualidade · 3%</span><b>0,64</b></div>
+        </div>
+        <footer style="background:var(--good-bg)"><span class="lb">Custo / peça</span><span class="vl" style="color:var(--good)">R$ 22,06</span></footer>
+      </div>
+
+      <div class="spec">
+        <header>
+          <div class="nm">Linha Fibra Longa</div>
+          <div class="cmp">Pima ou egípcio · 165 g/m² · fibra extralonga 35 mm+</div>
+        </header>
+        <div class="rows">
+          <div><span>Malha · 0,200 kg × R$ 88,00/kg</span><b>17,60</b></div>
+          <div><span>Aviamentos premium</span><b>2,60</b></div>
+          <div><span>Facção premium · costura reforçada</span><b>9,50</b></div>
+          <div><span>Embalagem premium</span><b>4,00</b></div>
+          <div><span>Perdas e 2ª qualidade · 3%</span><b>1,01</b></div>
+        </div>
+        <footer><span class="lb">Custo / peça</span><span class="vl">R$ 34,71</span></footer>
+      </div>
+
+    </div>
+    <p class="footnote">Consumo de malha calibrado por gramatura e tamanho médio M/G, com 10% de perda de encaixe já embutida no peso. Preço de malha 30.1 penteada e de fibra longa referenciados em fornecedores de atacado (Itajaí/SC, Goiânia/GO, Fortaleza/CE), 2026.</p>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block" style="padding-top:38px">
+    <div class="eyebrow">A conversa difícil</div>
+    <h2 class="sec">Algodão egípcio a R$ 20 a peça não existe.</h2>
+    <p>O briefing pedia posicionamento “algodão egípcio, minimalista, estilo Insider” com <strong>kit de 5 peças por R$&nbsp;90 a R$&nbsp;100</strong>. Isso são R$&nbsp;18 a R$&nbsp;20 por camiseta ao consumidor final. A conta:</p>
+
+    <div class="grid g3" style="margin:22px 0">
+      <div class="stat" style="--bar:var(--crit)"><div class="k">CMV do kit de 5 em fibra longa</div><div class="v">R$ 173,55</div><div class="d">5 × R$&nbsp;34,71. Só de custo de fabricação.</div></div>
+      <div class="stat" style="--bar:var(--crit)"><div class="k">Preço pedido</div><div class="v">R$ 99,00</div><div class="d">Antes de comissão, frete, imposto e devolução.</div></div>
+      <div class="stat" style="--bar:var(--crit)"><div class="k">Resultado por kit vendido</div><div class="v" style="color:var(--crit)">−R$ 74,55</div><div class="d">Prejuízo <strong>antes</strong> de qualquer taxa de plataforma. Cada venda destrói caixa.</div></div>
+    </div>
+
+    <p>Não é uma questão de negociar melhor com fornecedor ou ganhar escala. <strong>É uma impossibilidade aritmética:</strong> o custo da matéria-prima sozinho é 75% maior que o preço de venda pretendido. Nenhuma eficiência operacional cobre um buraco desse tamanho.</p>
+
+    <div class="note">
+      <div class="h">E há um segundo problema, jurídico</div>
+      <p>No Brasil não existe fiscalização efetiva do termo “algodão egípcio”, e boa parte do que se vende com esse nome é Pima peruano ou blend. Declarar composição que a peça não tem é <strong>publicidade enganosa</strong> pelo Código de Defesa do Consumidor e motivo de remoção de anúncio nas três plataformas. Se a peça for penteado 30.1, o rótulo correto é <em>“100% algodão penteado, fio 30.1, 180 g/m²”</em> — o que, dito com precisão, vende <strong>mais</strong> que um adjetivo importado que o comprador não consegue verificar.</p>
+    </div>
+
+    <p>A boa notícia: a promessa por trás do briefing — <em>“camiseta que parece cara, que dura, minimalista”</em> — é totalmente executável. Só não a R$&nbsp;20. Ela custa <strong>R$&nbsp;56 por peça</strong> no kit de 3 a R$&nbsp;169, e nessa faixa a conta fecha com 20% de margem de contribuição.</p>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block" style="padding-top:38px">
+    <div class="eyebrow">Estrutura tributária</div>
+    <h2 class="sec">4,5% ou 4,0% — e a janela de setembro de 2026.</h2>
+    <p>A fábrica vendendo direto ao consumidor final está no <strong>Anexo II (Indústria)</strong> do Simples Nacional: 4,5% na primeira faixa, até R$&nbsp;180 mil de receita bruta em 12 meses. Uma empresa comercial separada, comprando da fábrica e revendendo, cai no <strong>Anexo I (Comércio)</strong>: 4,0%. A diferença de meio ponto é real, mas <strong>operações entre partes relacionadas têm regras próprias</strong> — isso é assunto para o contador, não para uma planilha.</p>
+
+    <div class="tablewrap" style="margin-top:18px">
+      <table>
+        <caption>Alíquotas nominais do Simples Nacional 2026 (inalteradas em relação a 2025). A alíquota efetiva usa a fórmula [(RBT12 × nominal) − parcela a deduzir] ÷ RBT12, sempre menor que a nominal a partir da 2ª faixa.</caption>
+        <thead><tr><th>Receita bruta em 12 meses</th><th class="n">Anexo I · Comércio</th><th class="n">Anexo II · Indústria</th></tr></thead>
+        <tbody>
+          <tr><td>Até R$ 180.000</td><td class="n">4,00%</td><td class="n">4,50%</td></tr>
+          <tr><td>De R$ 180.000 a R$ 360.000</td><td class="n">7,30%</td><td class="n">7,80%</td></tr>
+          <tr><td>De R$ 360.000 a R$ 720.000</td><td class="n">9,50%</td><td class="n">10,00%</td></tr>
+          <tr><td>De R$ 720.000 a R$ 1.800.000</td><td class="n">10,70%</td><td class="n">11,20%</td></tr>
+          <tr><td>De R$ 1.800.000 a R$ 3.600.000</td><td class="n">14,30%</td><td class="n">14,70%</td></tr>
+          <tr><td>De R$ 3.600.000 a R$ 4.800.000</td><td class="n">19,00%</td><td class="n">30,00%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note" style="margin-top:20px">
+      <div class="h">Prazo com data marcada — setembro de 2026</div>
+      <p>2026 é ano de teste da Reforma Tributária: CBS a 0,9% e IBS a 0,1%, com dispensa de penalidades, e <strong>nada muda no cálculo do DAS do Simples este ano</strong>. Mas entre <strong>1º e 30 de setembro de 2026</strong> abre a janela para optar por recolher IBS e CBS <em>fora</em> do DAS no primeiro semestre de 2027. Para quem vende B2C, permanecer dentro do DAS costuma ser o caminho; para quem vende B2B — e uma fábrica quase sempre vende — recolher por fora permite gerar crédito ao cliente e pode valer mais que a simplicidade. <strong>Essa decisão precisa estar na pauta do contador ainda este mês.</strong></p>
+    </div>
+    <p class="footnote">Este estudo não é consultoria tributária. As alíquotas acima são a tabela pública vigente; o enquadramento correto de cada CNAE e a decisão de setembro devem ser validados com o contador da empresa.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 05 CALCULADORA ══════════════ -->
+<section class="panel" id="p-calc" role="tabpanel" aria-labelledby="t-calc">
+
+  <div class="block">
+    <div class="eyebrow">Simulador operacional</div>
+    <h2 class="sec">Mexa nos números. O estudo se recalcula.</h2>
+    <p class="lead">Cada plataforma tem sua própria regra de comissão, taxa fixa e frete — e as regras de 2026 são diferentes das de 2025. Este simulador aplica <strong>a tabela vigente de cada uma</strong> sobre o mesmo produto, para que a comparação seja honesta. Comece trocando o custo por peça pelo custo real da fábrica.</p>
+  </div>
+
+  <div class="calc">
+    <!-- ───── controles ───── -->
+    <form class="controls" id="ctl" autocomplete="off">
+      <div class="ctl-group">
+        <h4 class="mini">Produto</h4>
+        <div class="field full">
+          <label>Linha de produto</label>
+          <div class="seg" role="group" aria-label="Linha de produto">
+            <button type="button" data-preset="10.94" aria-pressed="false">Popular</button>
+            <button type="button" data-preset="22.06" aria-pressed="true">Essencial</button>
+            <button type="button" data-preset="34.71" aria-pressed="false">Fibra longa</button>
+          </div>
+        </div>
+        <div class="field"><label>Custo por peça<span class="u">R$ · fábrica</span></label><input type="number" id="i-custo" value="22.06" step="0.01" min="0"></div>
+        <div class="field"><label>Peças por kit<span class="u">unidades</span></label><input type="number" id="i-pecas" value="3" step="1" min="1"></div>
+        <div class="field"><label>Preço de venda do kit<span class="u">R$ · ao consumidor</span></label><input type="number" id="i-preco" value="169" step="1" min="1"></div>
+      </div>
+
+      <div class="ctl-group">
+        <h4 class="mini">Comum a todos os canais</h4>
+        <div class="field"><label>Simples Nacional<span class="u">% sobre receita</span></label><input type="number" id="i-aliq" value="4.5" step="0.1" min="0"></div>
+        <div class="field"><label>Provisão de devolução<span class="u">% sobre receita</span></label><input type="number" id="i-devol" value="5" step="0.5" min="0"></div>
+        <div class="field"><label>Custo fixo mensal<span class="u">R$ · equipe, sistemas</span></label><input type="number" id="i-fixo" value="13000" step="500" min="0"></div>
+      </div>
+
+      <details class="ctl-group" open>
+        <summary style="cursor:pointer;list-style:revert"><h4 class="mini" style="display:inline">Mercado Livre</h4></summary>
+        <div style="margin-top:12px">
+          <div class="field full">
+            <label>Tipo de anúncio</label>
+            <div class="seg" role="group" aria-label="Tipo de anúncio ML">
+              <button type="button" data-ml="14" aria-pressed="true">Clássico 14%</button>
+              <button type="button" data-ml="19" aria-pressed="false">Premium 19%</button>
+            </div>
+          </div>
+          <div class="field"><label>Comissão<span class="u">% · Moda</span></label><input type="number" id="i-mlcom" value="14" step="0.5" min="0"></div>
+          <div class="field"><label>Frete líquido do vendedor<span class="u">R$ · se preço ≥ 79</span></label><input type="number" id="i-mlfrete" value="19" step="1" min="0"></div>
+          <div class="field"><label>Tarifa logística<span class="u">R$ · se preço &lt; 79</span></label><input type="number" id="i-mlfixo" value="6.50" step="0.5" min="0"></div>
+          <div class="field"><label>ACOS Product Ads<span class="u">% sobre receita</span></label><input type="number" id="i-mlads" value="6" step="0.5" min="0"></div>
+        </div>
+      </details>
+
+      <details class="ctl-group">
+        <summary style="cursor:pointer;list-style:revert"><h4 class="mini" style="display:inline">Shopee</h4></summary>
+        <div style="margin-top:12px">
+          <p class="footnote" style="margin:0 0 10px">Comissão e taxa fixa são definidas automaticamente pela faixa de preço da tabela de março/2026.</p>
+          <div class="field"><label>Frete pago pelo vendedor<span class="u">R$ · fora do programa</span></label><input type="number" id="i-shfrete" value="0" step="1" min="0"></div>
+          <div class="field"><label>ACOS Shopee Ads<span class="u">% sobre receita</span></label><input type="number" id="i-shads" value="8" step="0.5" min="0"></div>
+          <div class="field full"><label style="display:flex;align-items:center;gap:8px;cursor:pointer"><input type="checkbox" id="i-shcamp" style="width:auto;accent-color:var(--accent)"> Campanha de destaque (+2,5%)</label></div>
+        </div>
+      </details>
+
+      <details class="ctl-group">
+        <summary style="cursor:pointer;list-style:revert"><h4 class="mini" style="display:inline">TikTok Shop</h4></summary>
+        <div style="margin-top:12px">
+          <p class="footnote" style="margin:0 0 10px">Tabela de 15/jul/2026: abaixo de R$&nbsp;50 → 10%; a partir de R$&nbsp;50 → 6% + R$&nbsp;6 por item.</p>
+          <div class="field"><label>Programa de frete grátis<span class="u">% sobre o produto</span></label><input type="number" id="i-ttfrete" value="6" step="0.5" min="0"></div>
+          <div class="field"><label>Comissão de afiliado<span class="u">% · 10–20% em moda</span></label><input type="number" id="i-ttafi" value="15" step="1" min="0"></div>
+          <div class="field"><label>ACOS anúncios<span class="u">% sobre receita</span></label><input type="number" id="i-ttads" value="5" step="0.5" min="0"></div>
+        </div>
+      </details>
+
+      <details class="ctl-group">
+        <summary style="cursor:pointer;list-style:revert"><h4 class="mini" style="display:inline">Loja própria</h4></summary>
+        <div style="margin-top:12px">
+          <div class="field"><label>Gateway de pagamento<span class="u">% por transação</span></label><input type="number" id="i-lpgw" value="4.99" step="0.1" min="0"></div>
+          <div class="field"><label>Taxa fixa do gateway<span class="u">R$ por pedido</span></label><input type="number" id="i-lpgwf" value="0.39" step="0.01" min="0"></div>
+          <div class="field"><label>Frete pago pela loja<span class="u">R$ por pedido</span></label><input type="number" id="i-lpfrete" value="19" step="1" min="0"></div>
+          <div class="field"><label>Plataforma e apps<span class="u">R$ rateado / pedido</span></label><input type="number" id="i-lpplat" value="1.57" step="0.1" min="0"></div>
+          <div class="field"><label>ROAS da mídia<span class="u">× · receita ÷ verba</span></label><input type="number" id="i-lproas" value="3" step="0.1" min="0.1"></div>
+        </div>
+      </details>
+
+      <div class="ctl-group"><button type="button" class="reset" id="reset">Restaurar valores do estudo</button></div>
+    </form>
+
+    <!-- ───── resultados ───── -->
+    <div>
+      <div class="results" id="res"></div>
+
+      <div class="card" style="margin-top:20px">
+        <figure>
+          <div class="chart-head">
+            <h4 class="mini" style="margin:0">Para onde vai cada real vendido</h4>
+            <div class="legend" id="lg-waterfall"></div>
+          </div>
+          <div id="waterfall"></div>
+          <figcaption>Composição de 100% do preço de venda em cada canal. A faixa mais à direita é o que sobra — a margem de contribuição. Passe o mouse sobre cada faixa para o valor em reais.</figcaption>
+        </figure>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <h4 class="mini">Demonstrativo linha a linha</h4>
+        <div class="tablewrap" style="border:0">
+          <table id="dre">
+            <caption id="dre-cap"></caption>
+          </table>
+        </div>
+      </div>
+
+      <div class="grid g2" style="margin-top:16px">
+        <div class="card">
+          <h4 class="mini">Ponto de equilíbrio</h4>
+          <p style="font-size:14.5px;color:var(--ink-3);margin-bottom:14px">Kits por mês necessários para cobrir o custo fixo, se todo o volume viesse de um único canal.</p>
+          <div id="breakeven"></div>
+        </div>
+        <div class="card">
+          <h4 class="mini">Preço mínimo para 25% de margem</h4>
+          <p style="font-size:14.5px;color:var(--ink-3);margin-bottom:14px">Quanto o kit precisaria custar, em cada canal, para entregar 25% de margem de contribuição com o CMV atual.</p>
+          <div id="precomin"></div>
+        </div>
+      </div>
+
+      <div class="note" style="margin-top:20px">
+        <div class="h">Como ler o resultado</div>
+        <p><strong>Margem de contribuição não é lucro.</strong> É o que sobra por unidade para pagar aluguel, equipe, sistemas e pró-labore. Abaixo de 15% em moda, a operação não sustenta estrutura própria. Entre 15% e 25%, sustenta com volume. Acima de 25%, começa a virar negócio de verdade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 06 LOJA PRÓPRIA & ADS ══════════════ -->
+<section class="panel" id="p-ads" role="tabpanel" aria-labelledby="t-ads">
+
+  <div class="block">
+    <div class="eyebrow">A pergunta da loja própria</div>
+    <h2 class="sec">Na loja própria você não paga comissão. Paga algo pior.</h2>
+    <p class="lead">O argumento a favor do e-commerce próprio é sempre o mesmo: <em>“no marketplace eu perco 14%, na minha loja eu fico com tudo”</em>. É verdade sobre a comissão e falso sobre o total. No marketplace, a demanda vem junto com a taxa. Na loja própria, <strong>você compra a demanda no leilão do Meta e do Google — e em 2026 esse leilão ficou 12,15% mais caro num único dia.</strong></p>
+    <p>Em 1º de janeiro de 2026 a Meta passou a repassar PIS/Cofins (9,25%) e ISS (2,9%) na fatura de mídia no Brasil. Uma verba de R$&nbsp;1.000 passou a custar R$&nbsp;1.121,50 pelo mesmo alcance. Some a isso o CAC do varejo online, que subiu cerca de <strong>35% em três anos</strong> — a cliente que custava R$&nbsp;80 em 2022 custa R$&nbsp;108 hoje.</p>
+  </div>
+
+  <div class="block">
+    <div class="grid g3">
+      <div class="stat" style="--bar:var(--s4)"><div class="k">ROAS de equilíbrio</div><div class="v" id="k-roasbe">2,95×</div><div class="d">Abaixo disso, cada venda na loja própria dá prejuízo. É o inverso da margem antes de mídia.</div></div>
+      <div class="stat" style="--bar:var(--warn)"><div class="k">ROAS mediano de mercado</div><div class="v">1,93×</div><div class="d">Mediana de e-commerce em Meta Ads. <strong>Abaixo do equilíbrio</strong> — a média do mercado perde dinheiro na primeira compra.</div></div>
+      <div class="stat" style="--bar:var(--s3)"><div class="k">Regra de sobrevivência</div><div class="v">LTV ≥ 3× CAC</div><div class="d">Sem recompra estruturada, lojas ficam em 15–25% de recompra em 12 meses. Com fidelidade e e-mail, 35–50%.</div></div>
+    </div>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block" style="padding-top:38px">
+    <div class="eyebrow">Simulador de mídia</div>
+    <h2 class="sec">Quanto custa comprar um cliente.</h2>
+    <p>Os dois motores de mídia funcionam com lógicas diferentes: Meta cobra por <strong>impressão</strong> e você depende do criativo para gerar clique; Google cobra por <strong>clique</strong> e a intenção de busca já vem embutida. Simule os dois com os mesmos números de produto.</p>
+
+    <div class="calc" style="margin-top:22px">
+      <form class="controls" id="ctl-ads" autocomplete="off">
+        <div class="ctl-group">
+          <h4 class="mini">Produto e verba</h4>
+          <div class="field"><label>Ticket médio<span class="u">R$ por pedido</span></label><input type="number" id="a-ticket" value="169" step="1" min="1"></div>
+          <div class="field"><label>Margem antes de mídia<span class="u">% · vem da aba 05</span></label><input type="number" id="a-mc" value="33.9" step="0.1" min="0"></div>
+          <div class="field"><label>Verba mensal<span class="u">R$ · total</span></label><input type="number" id="a-verba" value="10000" step="500" min="0"></div>
+        </div>
+        <div class="ctl-group">
+          <h4 class="mini">Meta Ads · Feed, Reels</h4>
+          <div class="field"><label>CPM<span class="u">R$ por mil</span></label><input type="number" id="a-cpm" value="22" step="1" min="1"></div>
+          <div class="field"><label>CTR<span class="u">% de cliques</span></label><input type="number" id="a-ctr" value="1.6" step="0.1" min="0.01"></div>
+          <div class="field"><label>Conversão<span class="u">% do clique</span></label><input type="number" id="a-convm" value="1.5" step="0.1" min="0.01"></div>
+          <div class="field"><label>Split da verba<span class="u">% para Meta</span></label><input type="number" id="a-split" value="70" step="5" min="0" max="100"></div>
+        </div>
+        <div class="ctl-group">
+          <h4 class="mini">Google Ads · Busca, PMax</h4>
+          <div class="field"><label>CPC<span class="u">R$ por clique</span></label><input type="number" id="a-cpc" value="2.50" step="0.1" min="0.1"></div>
+          <div class="field"><label>Conversão<span class="u">% do clique</span></label><input type="number" id="a-convg" value="2.2" step="0.1" min="0.01"></div>
+        </div>
+        <div class="ctl-group">
+          <h4 class="mini">Recompra</h4>
+          <div class="field"><label>Taxa de recompra<span class="u">% em 12 meses</span></label><input type="number" id="a-recomp" value="35" step="5" min="0"></div>
+          <div class="field"><label>Pedidos por recomprador<span class="u">média</span></label><input type="number" id="a-freq" value="1.4" step="0.1" min="1"></div>
+        </div>
+        <div class="ctl-group"><button type="button" class="reset" id="reset-ads">Restaurar valores do estudo</button></div>
+      </form>
+
+      <div>
+        <div class="grid g2" id="ads-cards"></div>
+        <div class="card" style="margin-top:16px">
+          <figure>
+            <div class="chart-head">
+              <h4 class="mini" style="margin:0">Resultado mensal por nível de ROAS</h4>
+              <div class="legend"><span><i style="background:var(--s4)"></i>Resultado após mídia</span><span><i style="background:var(--accent)"></i>Equilíbrio</span></div>
+            </div>
+            <div id="roascurve"></div>
+            <figcaption>Quanto sobra por mês, para a verba definida, em cada nível de ROAS. O cruzamento com a linha zero é o ROAS de equilíbrio. Passe o mouse para ver os valores.</figcaption>
+          </figure>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <h4 class="mini">Economia do cliente em 12 meses</h4>
+          <div id="ltv"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block" style="padding-top:38px">
+    <div class="eyebrow">Recomendação</div>
+    <h2 class="sec">Faça a loja. Só não a alimente com tráfego frio.</h2>
+    <p>Com os números medianos do mercado, a loja própria <strong>perde dinheiro na primeira compra</strong> — e não recupera em doze meses com recompra de 35%. Isso não significa não ter loja. Significa <strong>inverter a ordem dos fatores</strong>:</p>
+    <div class="grid g3" style="margin-top:20px">
+      <div class="card"><h4 class="mini" style="color:var(--crit)">O que não fazer</h4><h3 class="sub">Loja primeiro, tráfego pago depois</h3><p style="font-size:15px">Abrir a loja e ligar campanha de aquisição fria para público que nunca ouviu falar da marca. É onde o CAC de R$&nbsp;90 a R$&nbsp;115 encontra uma margem de R$&nbsp;57 e o caixa evapora.</p></div>
+      <div class="card" style="border-top:3px solid var(--good)"><h4 class="mini" style="color:var(--good)">O que fazer</h4><h3 class="sub">Marketplace primeiro, loja como destino</h3><p style="font-size:15px">Os marketplaces entregam o cliente <em>já pago</em>. Cada pedido sai com um convite físico para recomprar direto — cupom de primeira compra na loja, com prazo. O CAC desse cliente é o custo do cartão impresso.</p></div>
+      <div class="card"><h4 class="mini" style="color:var(--s3)">O multiplicador</h4><h3 class="sub">Mídia só para retargeting e marca</h3><p style="font-size:15px">Reserve a verba para quem já visitou, já comprou ou se parece com quem comprou. O ROAS de retargeting costuma ser 3 a 5 vezes o de prospecção — e é justamente onde o equilíbrio de 2,95× é alcançável.</p></div>
+    </div>
+    <div class="note" style="margin-top:22px">
+      <div class="h">O número que decide</div>
+      <p>Cada kit vendido em marketplace gera <strong>R$&nbsp;27 a R$&nbsp;34 de margem</strong> e — mais importante — um cliente identificado. Se 12% desses clientes recomprarem na loja própria ao longo do ano, a loja própria entrega margem sem CAC e a operação inteira sobe de 18% para <strong>22–24% de margem de contribuição consolidada</strong>. É a diferença entre revender e construir um ativo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 07 CENÁRIOS ══════════════ -->
+<section class="panel" id="p-cenarios" role="tabpanel" aria-labelledby="t-cenarios">
+
+  <div class="block">
+    <div class="eyebrow">Projeção de 12 meses</div>
+    <h2 class="sec">O que acontece se der certo, se der mais ou menos, e se der errado.</h2>
+    <p class="lead">Projeção do cenário recomendado — <strong>Kit Essencial de 3 peças a R$&nbsp;169</strong> — com entrada escalonada nos três marketplaces. As premissas de volume vêm de curvas típicas de rampa de vendedor novo em moda: reputação leva de 90 a 120 dias para maturar, e o volume acelera depois disso.</p>
+  </div>
+
+  <div class="block">
+    <div class="grid g4">
+      <div class="stat" style="--bar:var(--s1)"><div class="k">Faturamento ano 1</div><div class="v">R$ 1,64<small> mi</small></div><div class="d">9.675 kits · 29.025 peças produzidas.</div></div>
+      <div class="stat" style="--bar:var(--s3)"><div class="k">Margem de contribuição</div><div class="v">R$ 298<small> mil</small></div><div class="d">18,2% média ponderada entre os três canais.</div></div>
+      <div class="stat" style="--bar:var(--s2)"><div class="k">Resultado após fixos</div><div class="v">R$ 141<small> mil</small></div><div class="d">Depois de R$&nbsp;13 mil/mês de estrutura.</div></div>
+      <div class="stat" style="--bar:var(--s4)"><div class="k">Investimento inicial</div><div class="v">R$ 154<small> mil</small></div><div class="d">Estoque, conteúdo, sistemas e caixa de mídia.</div></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="card">
+      <figure>
+        <div class="chart-head">
+          <h4 class="mini" style="margin:0">Margem de contribuição mensal × custo fixo</h4>
+          <div class="legend">
+            <span><i style="background:var(--s1)"></i>Mercado Livre</span>
+            <span><i style="background:var(--s2)"></i>Shopee</span>
+            <span><i style="background:var(--s3)"></i>TikTok Shop</span>
+            <span><i style="background:var(--accent)"></i>Custo fixo</span>
+          </div>
+        </div>
+        <div id="proj"></div>
+        <figcaption>Barras empilhadas: margem de contribuição gerada por canal. A linha vermelha é o custo fixo mensal de R$&nbsp;13 mil. O cruzamento no <strong>mês 5</strong> é o ponto de equilíbrio operacional.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="tablewrap">
+      <table>
+        <caption>Projeção mês a mês do cenário-base. Volumes em kits; valores em reais. Resultado acumulado inclui o custo fixo de R$ 13.000/mês desde o mês 1.</caption>
+        <thead><tr><th>Mês</th><th class="n">ML</th><th class="n">Shopee</th><th class="n">TikTok</th><th class="n">Kits</th><th class="n">Faturamento</th><th class="n">MC</th><th class="n">Resultado</th><th class="n">Acumulado</th></tr></thead>
+        <tbody id="projtable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block" style="padding-top:38px">
+    <div class="eyebrow">Sensibilidade</div>
+    <h2 class="sec">Três futuros, um investimento.</h2>
+    <div class="grid g3">
+      <div class="card" style="border-top:3px solid var(--crit)">
+        <h4 class="mini">Conservador · 60% do volume</h4>
+        <div class="stat" style="border:0;padding:0;box-shadow:none"><div class="v" style="font-size:27px">R$ 22 mil</div><div class="d">Resultado no ano 1 — R$ 22.511. O investimento <strong>não se paga dentro do ano 1</strong> e o equilíbrio operacional escorrega para o mês 7. A operação sobrevive, mas não financia crescimento.</div></div>
+        <p style="font-size:14.5px;margin-top:12px;color:var(--ink-3)"><strong>Gatilho:</strong> reputação demora a maturar, anúncio não sai da página 3, foto não converte.</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--good)">
+        <h4 class="mini">Base · premissas do estudo</h4>
+        <div class="stat" style="border:0;padding:0;box-shadow:none"><div class="v" style="font-size:27px;color:var(--good)">R$ 141 mil</div><div class="d">Resultado no ano 1 — R$ 141.518. Equilíbrio operacional no <strong>mês 5</strong>; o caixa acumulado cobre os R$ 154 mil investidos no <strong>mês 13</strong>.</div></div>
+        <p style="font-size:14.5px;margin-top:12px;color:var(--ink-3)"><strong>Requisito:</strong> 8 SKUs bem fotografados, grade completa P–GG, reposição em até 7 dias e resposta a pergunta em menos de 2 horas.</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--s4)">
+        <h4 class="mini">Agressivo · 150% do volume</h4>
+        <div class="stat" style="border:0;padding:0;box-shadow:none"><div class="v" style="font-size:27px">R$ 290 mil</div><div class="d">Resultado no ano 1 — R$ 290.277, com payback no <strong>mês 10</strong> e equilíbrio já no mês 4. Exige capital de giro adicional de R$&nbsp;60 a 80 mil só em estoque.</div></div>
+        <p style="font-size:14.5px;margin-top:12px;color:var(--ink-3)"><strong>Gatilho:</strong> um vídeo de afiliado converte no TikTok Shop, ou o anúncio entra no carrossel de mais vendidos do ML.</p>
+      </div>
+    </div>
+    <div class="note" style="margin-top:22px">
+      <div class="h">O risco que ninguém coloca na planilha</div>
+      <p>No cenário agressivo, <strong>o problema deixa de ser vender e passa a ser produzir e repor</strong>. Ruptura de grade no topo da busca do Mercado Livre derruba a posição do anúncio e leva semanas para recuperar. Antes de acelerar mídia, confirme que a fábrica sustenta 900 peças/semana com grade completa. <em>Vender mais do que se consegue entregar é a forma mais cara de crescer.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 08 PLANO & RISCOS ══════════════ -->
+<section class="panel" id="p-plano" role="tabpanel" aria-labelledby="t-plano">
+
+  <div class="block">
+    <div class="eyebrow">Execução</div>
+    <h2 class="sec">Noventa dias, três fases, uma decisão por vez.</h2>
+    <p class="lead">Nada aqui exige um salto de fé. Cada fase tem um critério objetivo de continuidade — se o critério não for atingido, você para e reavalia, tendo gasto uma fração do capital.</p>
+  </div>
+
+  <div class="block">
+    <div class="phase">
+      <div class="mk"><b>01</b>dias<br>1–30</div>
+      <div>
+        <h3 class="sub">Validar o custo e o preço, sem estoque</h3>
+        <p style="font-size:15.5px">A fase mais barata e a mais importante. Nenhum real em estoque até o fim dela.</p>
+        <ul class="chk">
+          <li>Levantar o <strong>custo real por peça</strong> na fábrica — malha, facção, aviamentos, embalagem — e substituir na calculadora. Definir se a facção é capacidade ociosa ou custo integral.</li>
+          <li>Assinar Nubimetrics e Kalodata por um mês. Extrair volume real e preço praticado dos 20 maiores anúncios de “kit camiseta masculina” no ML e no TikTok Shop.</li>
+          <li>Produzir <strong>60 peças piloto</strong> em 3 cores × grade P–GG na linha Essencial. Custo aproximado: R$&nbsp;1.320.</li>
+          <li>Abrir CNPJ de venda e contas de vendedor nas três plataformas. O processo de verificação leva de 5 a 15 dias — comece agora.</li>
+          <li>Levar a decisão de IBS/CBS ao contador antes de <strong>30 de setembro de 2026</strong>.</li>
+        </ul>
+        <p class="footnote"><strong>Critério para seguir:</strong> custo real por peça ≤ R$ 26 na linha Essencial. Acima disso, refaça o preço antes de investir.</p>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="mk"><b>02</b>dias<br>31–60</div>
+      <div>
+        <h3 class="sub">Provar a conversão em um canal só</h3>
+        <p style="font-size:15.5px">Mercado Livre primeiro, porque é onde a demanda já existe e a leitura é mais rápida.</p>
+        <ul class="chk">
+          <li><strong>Fotografia é o investimento de maior retorno</strong> desta fase. Modelo real, fundo neutro, 7 imagens por SKU, uma foto de detalhe da gola e uma da etiqueta com gramatura. Orçamento: R$&nbsp;6 a 9 mil.</li>
+          <li>Publicar 6 anúncios: kit de 3 em 2 combinações de cor, kit de 5, e 3 avulsas. Testar Clássico contra Premium no mesmo SKU.</li>
+          <li>Ligar Product Ads com ACOS teto de 8%. Sem mídia, anúncio novo não sai da página 4.</li>
+          <li>Responder toda pergunta em menos de 2 horas e despachar em menos de 24 horas — os dois fatores que mais pesam na reputação inicial.</li>
+          <li>Colocar em cada pedido um cartão com cupom de primeira compra na loja própria. O ativo real desta fase é a base de clientes.</li>
+        </ul>
+        <p class="footnote"><strong>Critério para seguir:</strong> 40 kits vendidos no mês, margem de contribuição realizada ≥ 15% e menos de 8% de devolução.</p>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="mk"><b>03</b>dias<br>61–90</div>
+      <div>
+        <h3 class="sub">Abrir os outros dois canais e montar a vitrine própria</h3>
+        <ul class="chk">
+          <li>Replicar o catálogo na Shopee, ajustando o preço para a <strong>faixa de R$&nbsp;100–199,99</strong> (14% + R$&nbsp;20). Abaixo de R$&nbsp;80 a comissão salta para 20% + R$&nbsp;4 e destrói a margem.</li>
+          <li>Entrar no TikTok Shop com <strong>comissão de afiliado em 15%</strong> e uma lista de 30 creators de moda masculina de 10 a 100 mil seguidores. É o canal de maior assimetria hoje.</li>
+          <li>Publicar a loja própria em Nuvemshop. Sem mídia de prospecção — apenas destino dos cupons e do retargeting.</li>
+          <li>Instalar hub de integração para não gerenciar estoque em três painéis. Ruptura por descompasso de estoque é o erro operacional mais caro.</li>
+          <li>Fechar o mês com a calculadora preenchida com dados <strong>reais</strong>, não estimados, e decidir sobre o investimento de escala.</li>
+        </ul>
+        <p class="footnote"><strong>Critério para escalar:</strong> 150 kits/mês somados, margem consolidada ≥ 17% e capacidade fabril confirmada para 900 peças/semana.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block" style="padding-top:38px">
+    <div class="eyebrow">Riscos</div>
+    <h2 class="sec">O que pode dar errado, em ordem de probabilidade.</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Risco</th><th>Probabilidade</th><th>Impacto</th><th>Mitigação</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Devolução por tamanho errado</strong> acima de 12%</td><td><span class="pill no">Alta</span></td><td>Come 4 a 7 pontos de margem</td><td>Tabela de medidas com peça deitada, foto do modelo com altura e tamanho vestido, política de troca simples. Tamanho errado explica mais da metade das devoluções em moda.</td></tr>
+          <tr><td><strong>Guerra de preço</strong> no kit de 5</td><td><span class="pill no">Alta</span></td><td>Zera a margem do canal</td><td>Não competir nessa faixa. O kit de 3 premium existe justamente para sair da comparação direta.</td></tr>
+          <tr><td><strong>Nova alta de taxas</strong> em 2027</td><td><span class="pill wa">Média</span></td><td>2 a 4 pontos</td><td>As três plataformas subiram em 2026. Precifique com 3 pontos de folga e revise a calculadora a cada trimestre.</td></tr>
+          <tr><td><strong>Ruptura de grade</strong> no pico</td><td><span class="pill wa">Média</span></td><td>Perda de posição por semanas</td><td>Estoque mínimo de 3 semanas por SKU/tamanho e alerta de reposição no hub.</td></tr>
+          <tr><td><strong>Capital de giro</strong> preso em estoque</td><td><span class="pill wa">Média</span></td><td>Trava o crescimento</td><td>Repasse do marketplace leva de 14 a 30 dias. Dimensione caixa para 60 dias de ciclo, não 30.</td></tr>
+          <tr><td><strong>Composição declarada</strong> incorreta</td><td><span class="pill nu">Baixa</span></td><td>Remoção de anúncio, multa</td><td>Declarar exatamente a composição real. Nunca usar “algodão egípcio” sem laudo do fornecedor de malha.</td></tr>
+          <tr><td><strong>Reforma tributária</strong> a partir de 2027</td><td><span class="pill nu">Baixa em 2026</span></td><td>Indefinido</td><td>2026 é ano de teste sem impacto no DAS. A decisão de setembro sobre IBS/CBS deve ser tomada com o contador.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block" style="padding-top:38px">
+    <div class="eyebrow">Conclusão</div>
+    <h2 class="sec">O que responder ao Roberto.</h2>
+    <p class="lead"><strong>Sim, é viável — e a fábrica é a razão pela qual é viável.</strong> Um revendedor comprando essas mesmas peças a R$&nbsp;35 não fecha a conta em nenhum dos quatro caminhos deste estudo. Vocês fecham em três deles.</p>
+    <p>Mas três correções precisam ser feitas no plano original:</p>
+    <div class="grid g3" style="margin:22px 0">
+      <div class="card"><h4 class="mini" style="color:var(--crit)">Correção 1</h4><h3 class="sub">O kit de 5 a R$ 99 sai do plano</h3><p style="font-size:15px">Em algodão, dá prejuízo. É a faixa onde só sobrevive quem tem o menor custo de malha do país — e essa não é uma disputa que vocês querem.</p></div>
+      <div class="card"><h4 class="mini" style="color:var(--crit)">Correção 2</h4><h3 class="sub">“Algodão egípcio” sai do rótulo</h3><p style="font-size:15px">A menos que a malha realmente seja, com laudo. <strong>“100% algodão penteado 30.1, 180 g/m²”</strong> é verificável, é honesto e converte mais — porque o comprador de marketplace já aprendeu a desconfiar de adjetivo.</p></div>
+      <div class="card" style="border-top:3px solid var(--good)"><h4 class="mini" style="color:var(--good)">Correção 3</h4><h3 class="sub">O preço sobe, não desce</h3><p style="font-size:15px">Kit de 3 a R$&nbsp;169 (R$&nbsp;56/peça) tem <strong>mais</strong> chance de vender que kit de 5 a R$&nbsp;99 — e é o único que sustenta a promessa de qualidade do briefing.</p></div>
+    </div>
+    <div class="quote">O ativo que vocês estão construindo não é a camiseta. É uma loja com reputação, uma base de clientes identificados e uma fábrica que repõe em sete dias. Isso ninguém copia com preço.</div>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block" style="padding-top:38px">
+    <div class="eyebrow">Metodologia e fontes</div>
+    <h3 class="sub">Como este estudo foi construído</h3>
+    <p style="font-size:15.5px">Todos os dados de taxas, mercado e mídia foram levantados em fontes públicas em <strong>agosto de 2026</strong>. Os custos de fabricação são <strong>estimativas do modelo</strong>, calibradas por consumo de malha e preços de atacado — e devem ser substituídos pelos números reais da fábrica. As projeções de volume são premissas de rampa, não previsões.</p>
+    <div class="grid g2" style="margin-top:18px;gap:20px">
+      <div>
+        <h4 class="mini">Taxas e regras de plataforma</h4>
+        <p class="src">Tabelas de comissão do Mercado Livre 2026 (Ecommerce na Prática, Gestor Shop, GoSmarter, Lider 10) · Nova tabela de comissões da Shopee, março/2026 (Calcularte, Marketize Sales, Virei Vendedor, E-Commerce Brasil) · TikTok Shop Seller University e tabela de 15/jul/2026 (Ge-commerce, Duoke, Wire Consultoria) · Tarifas e regras do Mercado Envios Full 2026 (Tecnospeed, Base, Conect Envios).</p>
+      </div>
+      <div>
+        <h4 class="mini">Mercado e concorrência</h4>
+        <p class="src">Projeção ABComm/Abiacom para o e-commerce brasileiro em 2026 · IEMI — Inteligência de Mercado, varejo de vestuário maio–agosto 2026, via ABIT · TikTok Newsroom, primeiro ano do TikTok Shop no Brasil · Exame, Bloomberg Línea e Startups sobre a Insider · GBL Jeans sobre o reposicionamento da Hering/Azzas 2154 · loja oficial Naraka no Mercado Livre.</p>
+      </div>
+      <div>
+        <h4 class="mini">Mídia e aquisição</h4>
+        <p class="src">Benchmarks de CPM e CPC no Brasil em 2026 (Trafius, Intent Marketing, Nexus Growth) · Estatísticas de custo do Meta Ads no Brasil e repasse tributário de janeiro/2026 · Benchmarks de ROAS e CPA por indústria (Ryze) · Estudos de CAC e recompra no varejo de moda online.</p>
+      </div>
+      <div>
+        <h4 class="mini">Tributário, custos e logística</h4>
+        <p class="src">Tabelas do Simples Nacional 2026, Anexos I e II (Contabilizei, Mentor Fiscal, Contmatic) · Transição da Reforma Tributária e janela de setembro/2026 para IBS e CBS (e-Auditoria, Comsefaz, Conjur) · Preços de malha e camiseta em atacado (Lunfe Malhas, Corte Sul, Têxteis.com.br) · Taxa de devolução em moda no e-commerce brasileiro (Troque e Devolva, Conselho de Logística Reversa do Brasil).</p>
+      </div>
+    </div>
+    <p class="footnote" style="margin-top:20px">Este documento é um estudo de viabilidade comercial. Não constitui consultoria contábil, tributária ou jurídica. As decisões de enquadramento fiscal e de rotulagem de composição têxtil devem ser validadas com os profissionais responsáveis antes da execução.</p>
+  </div>
+</section>
+
+</main>
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<style>
+/* rampa sequencial para composição de custo — cinza com viés índigo */
+:root{--w1:#3F4756;--w2:#525B6B;--w3:#666F7E;--w4:#7B8492;--w5:#9099A6;--w6:#A6AEB9;--w7:#BCC3CC}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--w1:#C2C9D4;--w2:#ACB4C0;--w3:#969FAC;--w4:#818A98;--w5:#6C7583;--w6:#57606F;--w7:#454E5C}}
+:root[data-theme="dark"]{--w1:#C2C9D4;--w2:#ACB4C0;--w3:#969FAC;--w4:#818A98;--w5:#6C7583;--w6:#57606F;--w7:#454E5C}
+.seg-legend{display:flex;flex-wrap:wrap;gap:5px 14px;font-size:10.5px;font-family:'IBM Plex Mono',monospace;color:var(--ink-2)}
+.seg-legend i{display:inline-block;width:9px;height:9px;border-radius:1px;margin-right:5px;vertical-align:-1px}
+.be-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px dashed var(--line);font-family:'IBM Plex Mono',monospace;font-size:12px}
+.be-row:last-child{border-bottom:0}
+.be-row .lb{color:var(--ink-3);display:flex;align-items:center;gap:7px}
+.be-row .lb i{width:8px;height:8px;border-radius:1px;display:inline-block}
+.be-row .vl{font-size:15px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+</style>
+
+
+<style>
+.wf-row{display:grid;grid-template-columns:118px minmax(0,1fr);gap:14px;align-items:center;margin-bottom:14px}
+.wf-row:last-child{margin-bottom:0}
+.wf-lbl{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-2);line-height:1.35;text-align:right}
+.wf-lbl b{display:block;font-size:12px;color:var(--ink);font-weight:600}
+.wf-bar{display:flex;height:30px;border-radius:2px;overflow:hidden;background:var(--sunken);border:1px solid var(--line)}
+.wf-bar span{box-sizing:border-box;border-right:2px solid var(--surface);min-width:0;display:block}
+.wf-bar span:last-child{border-right:0}
+.wf-bar span:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+@media(max-width:560px){.wf-row{grid-template-columns:1fr;gap:5px}.wf-lbl{text-align:left}}
+</style>
+
+<script>
+(function(){
+"use strict";
+const $  = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const nf2 = new Intl.NumberFormat('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const nf1 = new Intl.NumberFormat('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1});
+const nf0 = new Intl.NumberFormat('pt-BR',{maximumFractionDigits:0});
+const brl  = v => 'R$ ' + nf2.format(v);
+const brl0 = v => 'R$ ' + nf0.format(v);
+
+/* ═══════════ TOOLTIP ═══════════ */
+const tip = $('#tip');
+function posTip(cx, cy){
+  const r = tip.getBoundingClientRect();
+  let x = cx + 14, y = cy - r.height - 12;
+  if(x + r.width > window.innerWidth - 10) x = cx - r.width - 14;
+  if(x < 8) x = 8;
+  if(y < 8) y = cy + 20;
+  tip.style.left = x+'px'; tip.style.top = y+'px';
+}
+function showTip(txt, cx, cy){
+  tip.innerHTML = String(txt).split('\n').map(l=>l).join('<br>');
+  tip.setAttribute('data-on',''); posTip(cx, cy);
+}
+function hideTip(){ tip.removeAttribute('data-on'); }
+function bindTips(root){
+  root.querySelectorAll('[data-tip]').forEach(el=>{
+    el.addEventListener('mousemove', e=>showTip(el.dataset.tip, e.clientX, e.clientY));
+    el.addEventListener('mouseleave', hideTip);
+    el.addEventListener('focus', ()=>{ const b=el.getBoundingClientRect(); showTip(el.dataset.tip, b.left+b.width/2, b.top); });
+    el.addEventListener('blur', hideTip);
+  });
+}
+
+/* ═══════════ ABAS ═══════════ */
+const tabs = $$('.tab');
+function selecionar(tab){
+  tabs.forEach(t=>{
+    const on = t === tab;
+    t.setAttribute('aria-selected', on ? 'true' : 'false');
+    const pnl = document.getElementById(t.getAttribute('aria-controls'));
+    if(on) pnl.setAttribute('data-on',''); else pnl.removeAttribute('data-on');
+  });
+  window.scrollTo(0,0);
+  desenharEstaticos();
+}
+tabs.forEach((t,idx)=>{
+  t.addEventListener('click', ()=>selecionar(t));
+  t.addEventListener('keydown', e=>{
+    let j = null;
+    if(e.key==='ArrowRight') j = (idx+1)%tabs.length;
+    else if(e.key==='ArrowLeft') j = (idx-1+tabs.length)%tabs.length;
+    else if(e.key==='Home') j = 0;
+    else if(e.key==='End') j = tabs.length-1;
+    if(j!==null){ e.preventDefault(); tabs[j].focus(); selecionar(tabs[j]); }
+  });
+});
+
+/* ═══════════ MODELO ═══════════ */
+const RUBRICAS = ['CMV','Comissão','Taxa fixa','Frete','Mídia','Imposto','Devolução'];
+const CORW = {CMV:'var(--w1)','Comissão':'var(--w2)','Taxa fixa':'var(--w3)',Frete:'var(--w4)','Mídia':'var(--w5)',Imposto:'var(--w6)','Devolução':'var(--w7)'};
+
+function faixaShopee(p){
+  if(p < 8)   return {c:50, f:0,  lbl:'abaixo de R$ 8'};
+  if(p < 80)  return {c:20, f:4,  lbl:'R$ 8–79,99'};
+  if(p < 100) return {c:14, f:16, lbl:'R$ 80–99,99'};
+  if(p < 200) return {c:14, f:20, lbl:'R$ 100–199,99'};
+  return {c:14, f:26, lbl:'R$ 200+'};
+}
+function faixaTikTok(p){
+  return p < 50 ? {c:10, f:0, lbl:'abaixo de R$ 50'} : {c:6, f:6, lbl:'R$ 50+'};
+}
+
+const PADROES = {'i-custo':22.06,'i-pecas':3,'i-preco':169,'i-aliq':4.5,'i-devol':5,'i-fixo':13000,
+  'i-mlcom':14,'i-mlfrete':19,'i-mlfixo':6.5,'i-mlads':6,'i-shfrete':0,'i-shads':8,
+  'i-ttfrete':6,'i-ttafi':15,'i-ttads':5,'i-lpgw':4.99,'i-lpgwf':0.39,'i-lpfrete':19,'i-lpplat':1.57,'i-lproas':3};
+
+function lerEntradas(){
+  const g = id => { const v = parseFloat(document.getElementById(id).value); return isFinite(v) ? v : 0; };
+  return {
+    custo:Math.max(0,g('i-custo')), pecas:Math.max(1,Math.round(g('i-pecas'))), preco:Math.max(0.01,g('i-preco')),
+    aliq:g('i-aliq'), devol:g('i-devol'), fixo:Math.max(0,g('i-fixo')),
+    mlcom:g('i-mlcom'), mlfrete:g('i-mlfrete'), mlfixo:g('i-mlfixo'), mlads:g('i-mlads'),
+    shfrete:g('i-shfrete'), shads:g('i-shads'), shcamp:$('#i-shcamp').checked,
+    ttfrete:g('i-ttfrete'), ttafi:g('i-ttafi'), ttads:g('i-ttads'),
+    lpgw:g('i-lpgw'), lpgwf:g('i-lpgwf'), lpfrete:g('i-lpfrete'), lpplat:g('i-lpplat'), lproas:Math.max(0.1,g('i-lproas'))
+  };
+}
+
+function canais(i, precoOverride){
+  const p   = precoOverride === undefined ? i.preco : precoOverride;
+  const cmv = i.custo * i.pecas;
+  const imp = p * i.aliq / 100;
+  const dev = p * i.devol / 100;
+  const fs  = faixaShopee(p);
+  const ft  = faixaTikTok(p);
+  const shCom = fs.c + (i.shcamp ? 2.5 : 0);
+
+  const lista = [
+    { id:'ml', nome:'Mercado Livre', cor:'var(--s1)',
+      regra: p >= 79 ? 'Moda '+nf1.format(i.mlcom)+'% · frete grátis obrigatório' : 'Moda '+nf1.format(i.mlcom)+'% · comprador paga frete',
+      itens:{ 'Comissão': p*i.mlcom/100, 'Taxa fixa': p < 79 ? i.mlfixo : 0, 'Frete': p >= 79 ? i.mlfrete : 0,
+              'Mídia': p*i.mlads/100, 'Imposto':imp, 'Devolução':dev, 'CMV':cmv } },
+    { id:'sh', nome:'Shopee', cor:'var(--s2)',
+      regra: 'Faixa '+fs.lbl+' · '+nf1.format(shCom)+'% + '+brl(fs.f),
+      itens:{ 'Comissão': p*shCom/100, 'Taxa fixa': fs.f, 'Frete': i.shfrete,
+              'Mídia': p*i.shads/100, 'Imposto':imp, 'Devolução':dev, 'CMV':cmv } },
+    { id:'tt', nome:'TikTok Shop', cor:'var(--s3)',
+      regra: 'Faixa '+ft.lbl+' · '+ft.c+'% + '+brl(ft.f)+' · afiliado '+nf0.format(i.ttafi)+'%',
+      itens:{ 'Comissão': p*ft.c/100, 'Taxa fixa': ft.f, 'Frete': p*i.ttfrete/100,
+              'Mídia': p*(i.ttafi+i.ttads)/100, 'Imposto':imp, 'Devolução':dev, 'CMV':cmv } },
+    { id:'lp', nome:'Loja própria', cor:'var(--s4)',
+      regra: 'Gateway '+nf1.format(i.lpgw)+'% + '+brl(i.lpgwf)+' · ROAS '+nf1.format(i.lproas)+'×',
+      itens:{ 'Comissão': p*i.lpgw/100 + i.lpgwf, 'Taxa fixa': i.lpplat, 'Frete': i.lpfrete,
+              'Mídia': p/i.lproas, 'Imposto':imp, 'Devolução':dev, 'CMV':cmv } }
+  ];
+  lista.forEach(c=>{
+    c.preco = p;
+    c.custoTotal = RUBRICAS.reduce((s,k)=>s + (c.itens[k]||0), 0);
+    c.mc  = p - c.custoTotal;
+    c.mcp = p > 0 ? c.mc/p*100 : 0;
+  });
+  return lista;
+}
+
+function statusMC(v){
+  if(v < 0)  return {cls:'no', txt:'Prejuízo', cor:'var(--crit)'};
+  if(v < 15) return {cls:'wa', txt:'Apertado', cor:'var(--warn)'};
+  if(v < 25) return {cls:'ok', txt:'Saudável', cor:'var(--good)'};
+  return {cls:'ok', txt:'Forte', cor:'var(--good)'};
+}
+
+/* preço que entrega margem-alvo: resolve P·(1−k−m) = fixo, iterando pelas faixas */
+function precoAlvo(i, canalId, alvo){
+  let p = Math.max(i.preco, 1);
+  for(let n=0; n<60; n++){
+    const a = canais(i, p).find(x=>x.id===canalId);
+    const b = canais(i, p+1).find(x=>x.id===canalId);
+    const k = b.custoTotal - a.custoTotal;      // custo marginal por real de preço
+    const fixo = a.custoTotal - k*p;            // parcela fixa
+    const den = 1 - k - alvo/100;
+    if(den <= 0.005) return null;
+    const novo = fixo/den;
+    if(!isFinite(novo) || novo <= 0) return null;
+    if(Math.abs(novo - p) < 0.01) return novo;
+    p = novo;
+  }
+  return p;
+}
+
+/* ═══════════ CALCULADORA ═══════════ */
+function renderCalc(){
+  const i  = lerEntradas();
+  const cs = canais(i);
+
+  $('#res').innerHTML = cs.map(c=>{
+    const st = statusMC(c.mcp);
+    return '<div class="rescard" style="--c:'+c.cor+'">'
+      + '<div class="plat"><span>'+c.nome+'</span><span class="pill '+st.cls+'">'+st.txt+'</span></div>'
+      + '<div class="mc" style="color:'+st.cor+'">'+brl(c.mc)+'</div>'
+      + '<div class="mcp">'+nf1.format(c.mcp)+'% do preço de venda</div>'
+      + '<div class="brk">'
+      +   ['Comissão','Taxa fixa','Frete','Mídia'].map(k=>'<div><span>'+k+'</span><span>'+brl(c.itens[k]||0)+'</span></div>').join('')
+      +   '<div class="hi"><span style="white-space:nowrap">CMV · '+i.pecas+' pç</span><span>'+brl(c.itens['CMV'])+'</span></div>'
+      + '</div></div>';
+  }).join('');
+
+  $('#lg-waterfall').innerHTML = '<div class="seg-legend">'
+    + RUBRICAS.map(k=>'<span><i style="background:'+CORW[k]+'"></i>'+k+'</span>').join('')
+    + '<span><i style="background:var(--good)"></i>Margem</span></div>';
+
+  $('#waterfall').innerHTML = cs.map(c=>{
+    const denom = Math.max(c.preco, c.custoTotal);
+    const segs = RUBRICAS.filter(k=>(c.itens[k]||0) > 0.0001).map(k=>{
+      const v = c.itens[k];
+      return '<span tabindex="0" style="flex:0 0 '+(v/denom*100).toFixed(3)+'%;background:'+CORW[k]
+           + '" data-tip="'+c.nome+' — '+k+'\n'+brl(v)+' · '+nf1.format(v/c.preco*100)+'% do preço"></span>';
+    });
+    if(c.mc > 0) segs.push('<span tabindex="0" style="flex:0 0 '+(c.mc/denom*100).toFixed(3)
+      +'%;background:var(--good)" data-tip="'+c.nome+' — Margem de contribuição\n'+brl(c.mc)+' · '+nf1.format(c.mcp)+'%"></span>');
+    const st = statusMC(c.mcp);
+    let html = '<div class="wf-row"><div class="wf-lbl"><b>'+c.nome+'</b><span style="color:'+st.cor+'">'
+      + (c.mc>=0?'+':'') + brl(c.mc) + '</span></div><div class="wf-bar">' + segs.join('') + '</div></div>';
+    if(c.mc < 0) html += '<div style="font-family:\'IBM Plex Mono\',monospace;font-size:10.5px;color:var(--crit);margin:-8px 0 14px 132px">'
+      + '▲ os custos excedem o preço em ' + brl(-c.mc) + ' — cada venda consome caixa</div>';
+    return html;
+  }).join('');
+  bindTips($('#waterfall'));
+
+  $('#dre').innerHTML =
+    '<caption>Kit de ' + i.pecas + ' peças a ' + brl(i.preco) + '. As regras de faixa de preço da Shopee e do TikTok Shop são aplicadas automaticamente.</caption>'
+    + '<thead><tr><th>Rubrica</th>' + cs.map(c=>'<th class="n">'+c.nome+'</th>').join('') + '</tr></thead><tbody>'
+    + '<tr class="total"><td>Receita bruta</td>' + cs.map(()=>'<td class="n">'+nf2.format(i.preco)+'</td>').join('') + '</tr>'
+    + RUBRICAS.map(k=>'<tr><td>'+k+(k==='CMV'?' <span style="color:var(--ink-3)">'+i.pecas+' × '+brl(i.custo)+'</span>':'')+'</td>'
+        + cs.map(c=>'<td class="n">'+((c.itens[k]||0) > 0.0001 ? '−'+nf2.format(c.itens[k]) : '—')+'</td>').join('') + '</tr>').join('')
+    + '<tr class="total"><td>Margem de contribuição</td>' + cs.map(c=>'<td class="n" style="color:'+statusMC(c.mcp).cor+'">'+nf2.format(c.mc)+'</td>').join('') + '</tr>'
+    + '<tr class="total"><td>Margem sobre a receita</td>' + cs.map(c=>'<td class="n" style="color:'+statusMC(c.mcp).cor+'">'+nf1.format(c.mcp)+'%</td>').join('') + '</tr>'
+    + '<tr><td style="font-size:12px;color:var(--ink-3)">Regra aplicada</td>'
+        + cs.map(c=>'<td style="font-size:10.5px;color:var(--ink-3);font-family:\'IBM Plex Mono\',monospace;text-align:right">'+c.regra+'</td>').join('') + '</tr>'
+    + '</tbody>';
+
+  $('#breakeven').innerHTML = cs.map(c=>{
+    const q = c.mc > 0 ? Math.ceil(i.fixo/c.mc) : null;
+    return '<div class="be-row"><span class="lb"><i style="background:'+c.cor+'"></i>'+c.nome+'</span>'
+      + '<span class="vl"'+(q===null?' style="color:var(--crit)"':'')+'>'+(q===null?'não atinge':nf0.format(q)+' kits')+'</span></div>';
+  }).join('') + '<p class="footnote" style="margin-top:10px">' + brl0(i.fixo) + '/mês ÷ margem por kit.</p>';
+
+  $('#precomin').innerHTML = cs.map(c=>{
+    const p = precoAlvo(i, c.id, 25);
+    const d = p ? (p - i.preco)/i.preco*100 : null;
+    return '<div class="be-row"><span class="lb"><i style="background:'+c.cor+'"></i>'+c.nome+'</span><span class="vl">'
+      + (p===null ? 'inalcançável' : brl(p) + '<span style="font-size:10.5px;font-weight:400;color:'
+        + (d>0?'var(--warn)':'var(--good)') + '"> ' + (d>0?'+':'') + nf0.format(d) + '%</span>')
+      + '</span></div>';
+  }).join('') + '<p class="footnote" style="margin-top:10px">Preço atual ' + brl(i.preco) + ' · CMV ' + brl(i.custo*i.pecas) + '.</p>';
+
+  const lp = cs.find(c=>c.id==='lp');
+  const mcAntes = (lp.mc + lp.itens['Mídia']) / i.preco * 100;
+  const km = $('#a-mc');
+  if(km && km.dataset.tocado !== '1') km.value = mcAntes.toFixed(1);
+  const kb = $('#k-roasbe');
+  if(kb) kb.textContent = mcAntes > 0 ? nf2.format(100/mcAntes) + '×' : '—';
+  renderAds();
+}
+
+/* ═══════════ GRÁFICOS ESTÁTICOS ═══════════ */
+function svgOpen(w,h,label){
+  return '<svg viewBox="0 0 '+w+' '+h+'" width="100%" style="height:auto" role="img" aria-label="'+label+'">';
+}
+
+/* — régua de preço por peça — */
+function drawRuler(){
+  const el = $('#ruler'); if(!el) return;
+  const W=920, H=250, x0=54, x1=888, yA=134, MAX=300;
+  const X = v => x0 + v/MAX*(x1-x0);
+  const pts = [
+    {v:20,  n:'Kit commodity',  s:'kit de 5 por R$ 99',   c:'var(--s5)', up:1, lev:1, anc:'middle'},
+    {v:49,  n:'Hering · 2026',  s:'reposicionamento B/C', c:'var(--s1)', up:0, lev:1, anc:'end'},
+    {v:56,  n:'Proposta',       s:'kit de 3 por R$ 169',  c:'var(--s3)', up:1, lev:2, anc:'start', big:1},
+    {v:119, n:'Avulsa premium', s:'proposta fibra longa', c:'var(--s3)', up:0, lev:1, anc:'middle', big:1},
+    {v:160, n:'Insider',        s:'média praticada',      c:'var(--s4)', up:1, lev:1, anc:'middle'},
+    {v:249, n:'Pima / egípcio', s:'marcas de fibra longa',c:'var(--s4)', up:0, lev:1, anc:'middle'}
+  ];
+  const LEN = {1:34, 2:82};
+  let s = svgOpen(W,H,'Régua de preço por peça no mercado brasileiro em 2026');
+  s += '<rect x="'+X(15)+'" y="'+(yA-11)+'" width="'+(X(30)-X(15))+'" height="22" fill="var(--grid)" rx="2"></rect>';
+  s += '<line x1="'+x0+'" y1="'+yA+'" x2="'+x1+'" y2="'+yA+'" class="axisline"></line>';
+  let escala = '';
+  [0,50,100,150,200,250,300].forEach(v=>{
+    s += '<line x1="'+X(v)+'" y1="'+(yA-4)+'" x2="'+X(v)+'" y2="'+(yA+4)+'" class="axisline"></line>';
+    escala += '<rect x="'+(X(v)-25)+'" y="'+(yA+6)+'" width="50" height="15" fill="var(--surface)"></rect>'
+            + '<text class="lbl" x="'+X(v)+'" y="'+(yA+17)+'" text-anchor="middle" font-size="10">R$ '+v+'</text>';
+  });
+  pts.forEach(p=>{
+    const x = X(p.v), len = LEN[p.lev], dir = p.up ? -1 : 1;
+    const dx = p.anc==='end' ? -7 : (p.anc==='start' ? 7 : 0);
+    s += '<line x1="'+x+'" y1="'+(yA+dir*6)+'" x2="'+x+'" y2="'+(yA+dir*len)+'" stroke="'+p.c+'" stroke-width="1.5"></line>';
+    s += '<circle cx="'+x+'" cy="'+yA+'" r="'+(p.big?6:4.5)+'" fill="'+p.c+'" stroke="var(--surface)" stroke-width="2"></circle>';
+    const base = yA + dir*len;
+    const yV = p.up ? base-34 : base+18;
+    s += '<text class="val" x="'+(x+dx)+'" y="'+yV+'" text-anchor="'+p.anc+'" font-size="13" font-weight="600" fill="'+(p.big?p.c:'var(--ink)')+'">R$ '+p.v+'</text>';
+    s += '<text class="lbl" x="'+(x+dx)+'" y="'+(yV+14)+'" text-anchor="'+p.anc+'" font-size="11">'+p.n+'</text>';
+    s += '<text class="lbl" x="'+(x+dx)+'" y="'+(yV+26)+'" text-anchor="'+p.anc+'" font-size="10" opacity=".75">'+p.s+'</text>';
+    s += '<rect x="'+(x-16)+'" y="'+Math.min(base,yA)+'" width="32" height="'+Math.abs(base-yA)+'" fill="transparent" data-tip="'+p.n+' — '+p.s+'\nR$ '+p.v+' por peça"></rect>';
+  });
+  el.innerHTML = s + escala + '</svg>';
+  bindTips(el);
+}
+
+/* — participação de mercado — */
+function drawShare(){
+  const el = $('#share'); if(!el) return;
+  const dados = [
+    {n:'Mercado Livre', mid:38.5, lo:35, hi:42, c:'var(--s1)'},
+    {n:'Shopee',        mid:18,   lo:14, hi:25, c:'var(--s2)'},
+    {n:'TikTok Shop',   mid:3,    lo:2,  hi:4,  c:'var(--s3)'},
+    {n:'Amazon',        mid:12.5, lo:10, hi:15, c:'var(--w5)'},
+    {n:'Magalu',        mid:10,   lo:8,  hi:12, c:'var(--w5)'},
+    {n:'Temu',          mid:6,    lo:5,  hi:7,  c:'var(--w5)'},
+    {n:'Shein',         mid:5,    lo:4,  hi:6,  c:'var(--w5)'}
+  ];
+  const W=920, rowH=38, H=dados.length*rowH+34, x0=122, x1=838, MAX=45;
+  const X = v => x0 + v/MAX*(x1-x0);
+  let s = svgOpen(W,H,'Participação estimada no marketplace brasileiro em 2026');
+  [0,10,20,30,40].forEach(v=>{
+    s += '<line x1="'+X(v)+'" y1="6" x2="'+X(v)+'" y2="'+(H-28)+'" class="gridline"></line>';
+    s += '<text class="lbl" x="'+X(v)+'" y="'+(H-10)+'" text-anchor="middle" font-size="9.5">'+v+'%</text>';
+  });
+  dados.sort((a,b)=>b.mid-a.mid);
+  dados.forEach((d,k)=>{
+    const y = 14 + k*rowH, h = 20;
+    s += '<text class="lbl" x="'+(x0-14)+'" y="'+(y+14)+'" text-anchor="end" font-size="11" fill="var(--ink-2)">'+d.n+'</text>';
+    s += '<rect x="'+x0+'" y="'+y+'" width="'+Math.max(2,X(d.mid)-x0)+'" height="'+h+'" fill="'+d.c+'" rx="2"></rect>';
+    s += '<line x1="'+X(d.lo)+'" y1="'+(y+h/2)+'" x2="'+X(d.hi)+'" y2="'+(y+h/2)+'" stroke="var(--ink-3)" stroke-width="1"></line>';
+    ['lo','hi'].forEach(kk=>{ s += '<line x1="'+X(d[kk])+'" y1="'+(y+4)+'" x2="'+X(d[kk])+'" y2="'+(y+h-4)+'" stroke="var(--ink-3)" stroke-width="1"></line>'; });
+    s += '<text class="val" x="'+(X(d.hi)+10)+'" y="'+(y+14)+'" font-size="11">'+nf1.format(d.mid)+'%</text>';
+    s += '<rect x="'+x0+'" y="'+y+'" width="'+(x1-x0)+'" height="'+h+'" fill="transparent"'
+       + ' data-tip="'+d.n+'\nEstimativa central '+nf1.format(d.mid)+'%\nFaixa entre fontes: '+d.lo+'% a '+d.hi+'%"></rect>';
+  });
+  el.innerHTML = s + '</svg>';
+  bindTips(el);
+}
+
+/* — mapa custo × preço — */
+function drawMapa(){
+  const el = $('#mapa'); if(!el) return;
+  const W=920, H=430, x0=64, x1=858, y0=372, y1=26, CX=45, CY=300;
+  const X = v => x0 + v/CX*(x1-x0);
+  const Y = v => y0 - v/CY*(y0-y1);
+  const pts = [
+    {cst:10.95, pr:20,  n:'Kit commodity',   c:'var(--s5)', dx:9,  dy:15},
+    {cst:14,    pr:49,  n:'Hering 2026',     c:'var(--s1)', dx:9,  dy:-10},
+    {cst:22.06, pr:56,  n:'Kit Essencial',   c:'var(--s3)', dx:9,  dy:-9, big:1},
+    {cst:34.71, pr:119, n:'Avulsa premium',  c:'var(--s3)', dx:9,  dy:4,  big:1},
+    {cst:38,    pr:160, n:'Insider',         c:'var(--s4)', dx:-11, dy:-9},
+    {cst:34.71, pr:249, n:'Pima / egípcio',  c:'var(--s4)', dx:9,  dy:4}
+  ];
+  let s = svgOpen(W,H,'Mapa de posicionamento: custo de fabricação contra preço ao consumidor');
+  [0,50,100,150,200,250,300].forEach(v=>{
+    s += '<line x1="'+x0+'" y1="'+Y(v)+'" x2="'+x1+'" y2="'+Y(v)+'" class="gridline"></line>';
+    s += '<text class="lbl" x="'+(x0-10)+'" y="'+(Y(v)+4)+'" text-anchor="end" font-size="9.5">R$ '+v+'</text>';
+  });
+  [0,10,20,30,40].forEach(v=>{
+    s += '<text class="lbl" x="'+X(v)+'" y="'+(y0+20)+'" text-anchor="middle" font-size="9.5">R$ '+v+'</text>';
+  });
+  s += '<line x1="'+x0+'" y1="'+y0+'" x2="'+x1+'" y2="'+y0+'" class="axisline"></line>';
+s += '<line x1="'+X(0)+'" y1="'+Y(0)+'" x2="'+X(CX)+'" y2="'+Y(CX*3)+'" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="5 5"></line>';
+  s += '<text class="lbl" x="'+(X(CX)-6)+'" y="'+(Y(CX*3)-8)+'" text-anchor="end" font-size="10" opacity=".85">markup 3×</text>';
+  s += '<text class="lbl" x="'+((x0+x1)/2)+'" y="'+(y0+40)+'" text-anchor="middle" font-size="10">custo de fabricação por peça →</text>';
+  pts.forEach(p=>{
+    const x=X(p.cst), y=Y(p.pr), r=p.big?9:6.5;
+    s += '<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+p.c+'" fill-opacity="'+(p.big?1:.82)+'" stroke="var(--surface)" stroke-width="2"'
+       + ' data-tip="'+p.n+'\nPreço '+brl(p.pr)+' · custo '+brl(p.cst)+'\nMarkup '+nf1.format(p.pr/p.cst)+'×"></circle>';
+    const anc = p.dx < 0 ? 'end' : 'start';
+    s += '<text class="val" x="'+(x+p.dx)+'" y="'+(y+p.dy)+'" text-anchor="'+anc+'" font-size="11" font-weight="'+(p.big?'600':'500')+'" fill="'+(p.big?p.c:'var(--ink)')+'">'+p.n+'</text>';
+    s += '<text class="lbl" x="'+(x+p.dx)+'" y="'+(y+p.dy+12)+'" text-anchor="'+anc+'" font-size="9.5">'+nf1.format(p.pr/p.cst)+'× sobre o custo</text>';
+  });
+  el.innerHTML = s + '</svg>';
+  bindTips(el);
+}
+
+/* ═══════════ MÍDIA / ADS ═══════════ */
+const PADROES_ADS = {'a-ticket':169,'a-mc':33.9,'a-verba':10000,'a-cpm':22,'a-ctr':1.6,'a-convm':1.5,'a-split':70,'a-cpc':2.5,'a-convg':2.2,'a-recomp':35,'a-freq':1.4};
+
+function renderAds(){
+  if(!$('#ads-cards')) return;
+  const g = id => { const v = parseFloat($('#'+id).value); return isFinite(v) ? v : 0; };
+  const ticket = Math.max(1,g('a-ticket')), mcp = g('a-mc'), verba = Math.max(0,g('a-verba'));
+  const cpm = Math.max(0.01,g('a-cpm')), ctr = g('a-ctr'), convm = g('a-convm');
+  const split = Math.min(100,Math.max(0,g('a-split')));
+  const cpc = Math.max(0.01,g('a-cpc')), convg = g('a-convg');
+  const recomp = g('a-recomp'), freq = g('a-freq');
+
+  const mcUnit = ticket*mcp/100;
+  const roasBE = mcp > 0 ? 100/mcp : Infinity;
+  const vM = verba*split/100, vG = verba - vM;
+
+  const impM = vM/cpm*1000, clkM = impM*ctr/100, pedM = clkM*convm/100;
+  const clkG = vG/cpc,                            pedG = clkG*convg/100;
+  const cacM = pedM > 0 ? vM/pedM : null, cacG = pedG > 0 ? vG/pedG : null;
+  const roasM = vM > 0 ? pedM*ticket/vM : 0, roasG = vG > 0 ? pedG*ticket/vG : 0;
+
+  const pedT = pedM+pedG, recT = pedT*ticket;
+  const roasT = verba > 0 ? recT/verba : 0;
+  const cacT  = pedT > 0 ? verba/pedT : null;
+  const result = pedT*mcUnit - verba;
+
+  const linha = (k,v,destaque) => '<div class="be-row"><span class="lb">'+k+'</span><span class="vl"'
+    + (destaque ? ' style="color:'+destaque+'"' : '') + '>'+v+'</span></div>';
+
+  const cardMeta = '<div class="card" style="border-top:3px solid var(--s1)">'
+    + '<h4 class="mini" style="color:var(--s1)">Meta Ads · '+nf0.format(split)+'% da verba</h4>'
+    + linha('Verba', brl0(vM))
+    + linha('Impressões', nf0.format(impM))
+    + linha('Cliques', nf0.format(clkM))
+    + linha('Pedidos', nf1.format(pedM))
+    + linha('CAC', cacM ? brl(cacM) : '—', cacM && cacM > mcUnit ? 'var(--crit)' : 'var(--good)')
+    + linha('ROAS', nf2.format(roasM)+'×', roasM < roasBE ? 'var(--crit)' : 'var(--good)')
+    + '</div>';
+
+  const cardGoogle = '<div class="card" style="border-top:3px solid var(--s2)">'
+    + '<h4 class="mini" style="color:var(--s2)">Google Ads · '+nf0.format(100-split)+'% da verba</h4>'
+    + linha('Verba', brl0(vG))
+    + linha('Cliques', nf0.format(clkG))
+    + linha('Pedidos', nf1.format(pedG))
+    + linha('CAC', cacG ? brl(cacG) : '—', cacG && cacG > mcUnit ? 'var(--crit)' : 'var(--good)')
+    + linha('ROAS', nf2.format(roasG)+'×', roasG < roasBE ? 'var(--crit)' : 'var(--good)')
+    + '</div>';
+
+  const veredito = result >= 0
+    ? '<span class="pill ok">Mídia se paga</span>'
+    : '<span class="pill no">Mídia não se paga na 1ª compra</span>';
+
+  const cardTotal = '<div class="card" style="grid-column:1/-1;border-top:3px solid var(--s4)">'
+    + '<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px">'
+    +   '<h4 class="mini" style="margin:0">Consolidado do mês</h4>' + veredito + '</div>'
+    + '<div class="grid g4" style="gap:12px">'
+    +   '<div class="stat" style="--bar:var(--s4)"><div class="k">Pedidos</div><div class="v" style="font-size:25px">'+nf0.format(pedT)+'</div></div>'
+    +   '<div class="stat" style="--bar:var(--s4)"><div class="k">CAC médio</div><div class="v" style="font-size:25px">'+(cacT?brl0(cacT):'—')+'</div></div>'
+    +   '<div class="stat" style="--bar:'+(roasT<roasBE?'var(--crit)':'var(--good)')+'"><div class="k">ROAS · equilíbrio '+nf2.format(roasBE)+'×</div><div class="v" style="font-size:25px;color:'+(roasT<roasBE?'var(--crit)':'var(--good)')+'">'+nf2.format(roasT)+'×</div></div>'
+    +   '<div class="stat" style="--bar:'+(result<0?'var(--crit)':'var(--good)')+'"><div class="k">Resultado após mídia</div><div class="v" style="font-size:25px;color:'+(result<0?'var(--crit)':'var(--good)')+'">'+(result>=0?'+':'−')+brl0(Math.abs(result))+'</div></div>'
+    + '</div>'
+    + '<p class="footnote" style="margin-top:14px">Receita de '+brl0(recT)+' com margem unitária de '+brl(mcUnit)+'. '
+    + (result < 0
+        ? 'Faltam <strong>'+nf2.format(roasBE-roasT)+' pontos de ROAS</strong> para o equilíbrio — ou uma taxa de conversão de '+nf1.format(convm*roasBE/Math.max(roasM,0.01))+'% no Meta.'
+        : 'Acima do equilíbrio: cada real adicional de verba gera '+brl(mcUnit/Math.max(cacT,0.01))+' de margem.')
+    + '</p></div>';
+
+  $('#ads-cards').innerHTML = cardMeta + cardGoogle + cardTotal;
+
+  /* LTV */
+  const pedExtra = recomp/100*freq;
+  const ltv = mcUnit*(1+pedExtra);
+  const ratio = cacT ? ltv/cacT : null;
+  $('#ltv').innerHTML =
+      linha('Margem da 1ª compra', brl(mcUnit))
+    + linha('CAC da 1ª compra', cacT ? brl(cacT) : '—')
+    + linha('Resultado da 1ª compra', (cacT ? ((mcUnit-cacT)>=0?'+':'−')+brl(Math.abs(mcUnit-cacT)) : '—'), cacT && mcUnit < cacT ? 'var(--crit)' : 'var(--good)')
+    + linha('Pedidos extras por cliente', nf2.format(pedExtra))
+    + linha('LTV em 12 meses', brl(ltv))
+    + linha('LTV ÷ CAC · meta ≥ 3,0', ratio ? nf2.format(ratio)+'×' : '—', ratio && ratio < 3 ? 'var(--crit)' : 'var(--good)')
+    + '<p class="footnote" style="margin-top:12px">'
+    + (function(){
+        if(!ratio) return 'Defina uma verba para calcular o CAC.';
+        if(ratio >= 3) return 'Relação saudável: a base de clientes financia a aquisição da próxima safra.';
+        const necessaria = (3*cacT/mcUnit - 1)/Math.max(freq,0.1)*100;
+        const ltvMax = mcUnit*(1+freq);
+        if(necessaria <= 100)
+          return 'Abaixo de 3× o negócio depende de capital para crescer. Seriam necessários <strong>'+nf0.format(necessaria)+'%</strong> de recompra para chegar lá, contra os '+nf0.format(recomp)+'% atuais — ou um CAC de <strong>'+brl0(ltv/3)+'</strong>.';
+        return 'Nem com <strong>100% de recompra</strong> este CAC chega a 3× — o teto de LTV seria '+brl0(ltvMax)+'. O caminho não é recompra, é derrubar o CAC para <strong>'+brl0(ltvMax/3)+'</strong>, o que só acontece com público que já conhece a marca.';
+      })()
+    + '</p>';
+
+  drawRoas(verba, mcp, roasBE, roasT);
+}
+
+function drawRoas(verba, mcp, roasBE, roasAtual){
+  const el = $('#roascurve'); if(!el) return;
+  const W=700, H=290, x0=84, x1=676, y0=238, y1=30;
+  const rMin=1, rMax=6;
+  const res = r => verba*(r*mcp/100 - 1);
+  const vals = [];
+  for(let r=rMin; r<=rMax+0.001; r+=0.25) vals.push({r:r, v:res(r)});
+  const lo = Math.min(0, res(rMin)), hi = Math.max(0, res(rMax));
+  const pad = (hi-lo)*0.12 || 1;
+  const Y = v => y0 - (v-(lo-pad))/((hi+pad)-(lo-pad))*(y0-y1);
+  const X = r => x0 + (r-rMin)/(rMax-rMin)*(x1-x0);
+
+  let s = svgOpen(W,H,'Resultado mensal por nível de ROAS');
+  const passo = (hi-lo)/4;
+  for(let k=0;k<=4;k++){
+    const v = lo + passo*k;
+    s += '<line x1="'+x0+'" y1="'+Y(v)+'" x2="'+x1+'" y2="'+Y(v)+'" class="gridline"></line>';
+    s += '<text class="lbl" x="'+(x0-9)+'" y="'+(Y(v)+4)+'" text-anchor="end" font-size="11">'+(v>=0?'':'−')+brl0(Math.abs(v))+'</text>';
+  }
+  s += '<line x1="'+x0+'" y1="'+Y(0)+'" x2="'+x1+'" y2="'+Y(0)+'" stroke="var(--ink-3)" stroke-width="1"></line>';
+  s += '<text class="lbl" x="'+(x0-9)+'" y="'+(Y(0)+4)+'" text-anchor="end" font-size="11" fill="var(--ink-2)">R$ 0</text>';
+  for(let r=rMin;r<=rMax;r++){
+    s += '<text class="lbl" x="'+X(r)+'" y="'+(y0+20)+'" text-anchor="middle" font-size="11">'+r+'×</text>';
+  }
+  s += '<text class="lbl" x="'+((x0+x1)/2)+'" y="'+(y0+42)+'" text-anchor="middle" font-size="11">ROAS · receita ÷ verba →</text>';
+  s += '<path d="'+vals.map((p,k)=>(k?'L':'M')+X(p.r)+' '+Y(p.v)).join(' ')+'" fill="none" stroke="var(--s4)" stroke-width="2" stroke-linejoin="round"></path>';
+
+  if(isFinite(roasBE) && roasBE>=rMin && roasBE<=rMax){
+    s += '<line x1="'+X(roasBE)+'" y1="'+y1+'" x2="'+X(roasBE)+'" y2="'+y0+'" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 4"></line>';
+    s += '<circle cx="'+X(roasBE)+'" cy="'+Y(0)+'" r="5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"></circle>';
+    s += '<text class="val" x="'+(X(roasBE)+8)+'" y="'+(y1+2)+'" font-size="12" fill="var(--accent)" font-weight="600">equilíbrio '+nf2.format(roasBE)+'×</text>';
+  }
+  if(roasAtual>=rMin && roasAtual<=rMax){
+    s += '<circle cx="'+X(roasAtual)+'" cy="'+Y(res(roasAtual))+'" r="6" fill="var(--s4)" stroke="var(--surface)" stroke-width="2"></circle>';
+    const lado = roasAtual > (rMin+rMax)/2 ? 'end' : 'start';
+    s += '<text class="val" x="'+(X(roasAtual)+(lado==='end'?-11:11))+'" y="'+(Y(res(roasAtual))+(roasAtual<roasBE?18:-14))+'" text-anchor="'+lado+'" font-size="12" font-weight="600">atual '+nf2.format(roasAtual)+'×</text>';
+  }
+  vals.forEach(p=>{
+    s += '<rect x="'+(X(p.r)-8)+'" y="'+y1+'" width="16" height="'+(y0-y1)+'" fill="transparent"'
+       + ' data-tip="ROAS '+nf2.format(p.r)+'×\nResultado '+(p.v>=0?'+':'−')+brl0(Math.abs(p.v))+'"></rect>';
+  });
+  el.innerHTML = s + '</svg>';
+  bindTips(el);
+}
+
+/* ═══════════ PROJEÇÃO 12 MESES ═══════════ */
+const VOL = {
+  ml:[40,70,110,170,240,310,380,450,520,600,700,820],
+  sh:[15,30, 55, 90,130,175,220,265,310,355,400,450],
+  tt:[10,25, 50, 85,130,180,230,290,350,410,470,540]
+};
+const MCK   = {ml:33.965, sh:29.585, tt:26.685};
+const CORC  = {ml:'var(--s1)', sh:'var(--s2)', tt:'var(--s3)'};
+const NOMEC = {ml:'Mercado Livre', sh:'Shopee', tt:'TikTok Shop'};
+const FIXO_PROJ = 13000, PRECO_PROJ = 169;
+
+function drawProj(){
+  const el = $('#proj'); if(!el) return;
+  const W=920, H=340, x0=78, x1=884, y0=280, y1=22;
+  const mensal = [];
+  for(let m=0;m<12;m++){
+    const p = {ml:VOL.ml[m]*MCK.ml, sh:VOL.sh[m]*MCK.sh, tt:VOL.tt[m]*MCK.tt};
+    p.total = p.ml+p.sh+p.tt;
+    mensal.push(p);
+  }
+  const MAX = 60000;
+  const Y = v => y0 - v/MAX*(y0-y1);
+  const bw = (x1-x0)/12, barW = bw*0.6;
+
+  let s = svgOpen(W,H,'Margem de contribuição mensal por canal contra o custo fixo');
+  [0,15000,30000,45000,60000].forEach(v=>{
+    s += '<line x1="'+x0+'" y1="'+Y(v)+'" x2="'+x1+'" y2="'+Y(v)+'" class="gridline"></line>';
+    s += '<text class="lbl" x="'+(x0-10)+'" y="'+(Y(v)+4)+'" text-anchor="end" font-size="9.5">'+(v?nf0.format(v/1000)+' mil':'0')+'</text>';
+  });
+  s += '<line x1="'+x0+'" y1="'+y0+'" x2="'+x1+'" y2="'+y0+'" class="axisline"></line>';
+
+  mensal.forEach((p,m)=>{
+    const cx = x0 + bw*m + bw/2, bx = cx - barW/2;
+    let acum = 0;
+    ['ml','sh','tt'].forEach(k=>{
+      const h = p[k]/MAX*(y0-y1);
+      const yTop = Y(acum + p[k]);
+      s += '<rect x="'+bx+'" y="'+yTop+'" width="'+barW+'" height="'+Math.max(0,h-2)+'" fill="'+CORC[k]+'" rx="1"'
+         + ' data-tip="Mês '+(m+1)+' · '+NOMEC[k]+'\n'+nf0.format(VOL[k][m])+' kits · '+brl0(p[k])+' de margem"></rect>';
+      acum += p[k];
+    });
+    s += '<text class="lbl" x="'+cx+'" y="'+(y0+18)+'" text-anchor="middle" font-size="9.5">'+(m+1)+'</text>';
+    if(m===11 || m===4){
+      s += '<text class="val" x="'+cx+'" y="'+(Y(p.total)-9)+'" text-anchor="middle" font-size="10.5">'+brl0(p.total).replace('R$ ','')+'</text>';
+    }
+  });
+
+  s += '<line x1="'+x0+'" y1="'+Y(FIXO_PROJ)+'" x2="'+x1+'" y2="'+Y(FIXO_PROJ)+'" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 4"></line>';
+  s += '<text class="val" x="'+(x0+6)+'" y="'+(Y(FIXO_PROJ)-9)+'" text-anchor="start" font-size="10.5" fill="var(--accent)" font-weight="600">custo fixo · R$ 13 mil/mês</text>';
+  const cx5 = x0 + bw*4 + bw/2;
+  s += '<text class="lbl" x="'+cx5+'" y="'+(y0+34)+'" text-anchor="middle" font-size="9.5" fill="var(--accent)">equilíbrio</text>';
+  s += '<text class="lbl" x="'+((x0+x1)/2)+'" y="'+(H-4)+'" text-anchor="middle" font-size="10">mês de operação →</text>';
+  el.innerHTML = s + '</svg>';
+  bindTips(el);
+}
+
+function drawProjTable(){
+  const tb = $('#projtable'); if(!tb) return;
+  let acum = 0, html = '', tk=0, tf=0, tm=0;
+  for(let m=0;m<12;m++){
+    const kits = VOL.ml[m]+VOL.sh[m]+VOL.tt[m];
+    const fat  = kits*PRECO_PROJ;
+    const mc   = VOL.ml[m]*MCK.ml + VOL.sh[m]*MCK.sh + VOL.tt[m]*MCK.tt;
+    const res  = mc - FIXO_PROJ;
+    acum += res; tk += kits; tf += fat; tm += mc;
+    const virou = acum >= 0 && (acum - res) < 0;
+    html += '<tr'+(virou?' style="background:var(--good-bg)"':'')+'>'
+      + '<td>'+(m+1)+(virou?' <span class="pill ok" style="margin-left:4px">caixa positivo</span>':'')+'</td>'
+      + '<td class="n">'+VOL.ml[m]+'</td><td class="n">'+VOL.sh[m]+'</td><td class="n">'+VOL.tt[m]+'</td>'
+      + '<td class="n">'+nf0.format(kits)+'</td><td class="n">'+brl0(fat)+'</td><td class="n">'+brl0(mc)+'</td>'
+      + '<td class="n" style="color:'+(res<0?'var(--crit)':'var(--good)')+'">'+(res>=0?'+':'−')+brl0(Math.abs(res))+'</td>'
+      + '<td class="n" style="color:'+(acum<0?'var(--crit)':'var(--good)')+'">'+(acum>=0?'+':'−')+brl0(Math.abs(acum))+'</td></tr>';
+  }
+  html += '<tr class="total"><td>Ano 1</td><td class="n">'+nf0.format(VOL.ml.reduce((a,b)=>a+b))+'</td>'
+    + '<td class="n">'+nf0.format(VOL.sh.reduce((a,b)=>a+b))+'</td><td class="n">'+nf0.format(VOL.tt.reduce((a,b)=>a+b))+'</td>'
+    + '<td class="n">'+nf0.format(tk)+'</td><td class="n">'+brl0(tf)+'</td><td class="n">'+brl0(tm)+'</td>'
+    + '<td class="n">—</td><td class="n" style="color:var(--good)">+'+brl0(tm-FIXO_PROJ*12)+'</td></tr>';
+  tb.innerHTML = html;
+}
+
+/* ═══════════ WIRING ═══════════ */
+function desenharEstaticos(){
+  drawRuler(); drawShare(); drawMapa(); drawProj(); drawProjTable();
+}
+
+$$('#ctl input, #ctl select').forEach(el=>{
+  el.addEventListener('input', renderCalc);
+  el.addEventListener('change', renderCalc);
+});
+$$('#ctl-ads input').forEach(el=>{
+  el.addEventListener('input', ()=>{ if(el.id==='a-mc') el.dataset.tocado='1'; renderAds(); });
+});
+
+$$('#ctl [data-preset]').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    $$('#ctl [data-preset]').forEach(o=>o.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true');
+    $('#i-custo').value = b.dataset.preset;
+    renderCalc();
+  });
+});
+$$('#ctl [data-ml]').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    $$('#ctl [data-ml]').forEach(o=>o.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true');
+    $('#i-mlcom').value = b.dataset.ml;
+    renderCalc();
+  });
+});
+$('#i-custo').addEventListener('input', ()=>{
+  const v = $('#i-custo').value;
+  $$('#ctl [data-preset]').forEach(o=>o.setAttribute('aria-pressed', o.dataset.preset === v ? 'true' : 'false'));
+});
+
+$('#reset').addEventListener('click', ()=>{
+  Object.keys(PADROES).forEach(k=>{ const el = document.getElementById(k); if(el) el.value = PADROES[k]; });
+  $('#i-shcamp').checked = false;
+  $$('#ctl [data-preset]').forEach(o=>o.setAttribute('aria-pressed', o.dataset.preset === '22.06' ? 'true' : 'false'));
+  $$('#ctl [data-ml]').forEach(o=>o.setAttribute('aria-pressed', o.dataset.ml === '14' ? 'true' : 'false'));
+  renderCalc();
+});
+$('#reset-ads').addEventListener('click', ()=>{
+  Object.keys(PADROES_ADS).forEach(k=>{ const el = document.getElementById(k); if(el){ el.value = PADROES_ADS[k]; delete el.dataset.tocado; } });
+  renderCalc();
+});
+
+let redraw;
+window.addEventListener('resize', ()=>{ clearTimeout(redraw); redraw = setTimeout(desenharEstaticos, 180); });
+window.addEventListener('scroll', hideTip, {passive:true});
+
+renderCalc();
+desenharEstaticos();
+})();
+</script>
