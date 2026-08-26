@@ -75,6 +75,9 @@ ninguém pode pagar por engano numa prévia. O rótulo diz isso embaixo do códi
 4. **Preços reais.** Os do protótipo são ilustrativos.
 5. **Depoimentos.** Trocar pelos reais do Google, com autorização de quem assina.
 6. **Mapa.** Entra depois que o pin do Google estiver corrigido.
+7. **Título da aba.** Está só `Casa do Marceneiro Tatuapé`, que é o nome. Na
+   versão no ar vale acrescentar o que a oficina faz e onde — é o que aparece
+   como linha azul no resultado do Google.
 
 ## Defeitos encontrados na conferência e corrigidos
 
