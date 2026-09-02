@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8">
+<style>
+@import url("../../proposta-marcenaria-tatuape/fontes-embutidas.css");
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:630px;overflow:hidden;position:relative;
+  background:radial-gradient(120% 100% at 50% -20%,#3A2817 0%,#1A120C 62%);
+  font-family:"Barlow",sans-serif;color:#F4E9D8}
+.grain{position:absolute;inset:0;opacity:.17}
+.inner{position:relative;z-index:1;height:100%;padding:64px 72px;display:flex;flex-direction:column;justify-content:space-between}
+.marca{display:flex;align-items:center;gap:18px}
+.selo{width:64px;height:64px;border:2px solid #E09A3A;border-radius:50%;display:grid;place-items:center;color:#E09A3A}
+.marca .txt{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.17em;font-size:21px;color:#C0A88C;line-height:1.4}
+.marca .txt b{display:block;color:#F4E9D8;font-weight:700;font-size:24px;letter-spacing:.15em}
+h1{font-family:"Fraunces",Georgia,serif;font-weight:900;font-variation-settings:"SOFT" 60,"WONK" 1;
+  font-size:76px;line-height:1.06;letter-spacing:-.018em;max-width:17ch}
+h1 .luz{color:#E09A3A}
+.pe{display:flex;align-items:center;gap:34px;font-family:"Barlow Condensed",sans-serif;
+  text-transform:uppercase;letter-spacing:.13em;font-size:22px;color:#96806A;
+  border-top:1px solid #4A3527;padding-top:22px}
+.pe b{color:#F5C15C;font-weight:700}
+</style></head><body>
+<svg class="grain" viewBox="0 0 1200 630" preserveAspectRatio="none">
+<defs>
+<filter id="w" x="-6%" y="-6%" width="112%" height="112%">
+<feTurbulence type="fractalNoise" baseFrequency="0.0035 0.055" numOctaves="4" seed="17" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G"/></filter>
+<pattern id="a" width="1200" height="17" patternUnits="userSpaceOnUse">
+<rect width="1200" height="1.7" y="5" fill="#B47A3A"/><rect width="1200" height="0.9" y="11" fill="#8A5A2C"/></pattern>
+</defs><rect width="1200" height="630" fill="url(#a)" filter="url(#w)"/></svg>
+<div class="inner">
+  <div class="marca">
+    <span class="selo"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 16 16 4l4 4L8 20l-4-4Z"/><path d="m4 16 2 2"/></svg></span>
+    <span class="txt"><b>Casa do Marceneiro Tatuapé</b>Fase 2 · Loja e vitrine de venda</span>
+  </div>
+  <h1>A marcenaria que responde em <span class="luz">dois minutos</span>.</h1>
+  <div class="pe"><span>Protótipo funcional</span><span><b>6 referências</b> estudadas</span><span>Loja + orçamento na hora</span></div>
+</div>
+</body></html>

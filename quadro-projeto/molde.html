@@ -1,0 +1,69 @@
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<g id="q-serra" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M4 16 16 4l4 4L8 20l-4-4Z"/><path d="m4 16 2 2"/></g>
+<g id="q-check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8.4 3.4 3.4L13 4.6"/></g>
+<g id="q-alerta" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.4 15.1 13.6H.9L8 2.4Z"/><path d="M8 6.6v3.1M8 11.7v.05"/></g>
+<g id="q-chave" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.4" cy="10.6" r="3"/><path d="m7.6 8.4 6-6M11.2 4.8l1.6 1.6M9.6 6.4l1.6 1.6"/></g>
+</defs></svg>
+
+<header class="topo">
+  <svg class="grao" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="q-veio" x="-6%" y="-6%" width="112%" height="112%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.0032 0.05" numOctaves="4" seed="11" result="r"/>
+        <feDisplacementMap in="SourceGraphic" in2="r" scale="46" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <pattern id="q-aneis" width="1200" height="18" patternUnits="userSpaceOnUse">
+        <rect width="1200" height="1.7" y="5" fill="#B47A3A"/><rect width="1200" height="0.9" y="11" fill="#8A5A2C"/>
+      </pattern>
+    </defs>
+    <rect width="1200" height="300" fill="#150F0A"/>
+    <g filter="url(#q-veio)" opacity="0.5"><rect width="1200" height="300" fill="url(#q-aneis)"/></g>
+  </svg>
+  <div class="env">
+    <div class="linha">
+      <div>
+        <span class="rot">Casa do Marceneiro Tatuapé</span>
+        <h1>Quadro do projeto</h1>
+        <p class="sub">O que já saiu da bancada, o que está na serra hoje e o que ainda espera na fila.
+          Toque num item para mudar o estado — a marcação fica salva.</p>
+      </div>
+      <div class="medidor" id="medidor"></div>
+    </div>
+  </div>
+</header>
+
+<main class="env">
+  <section class="hoje" aria-labelledby="t-hoje">
+    <div class="cab">
+      <span class="rot">Hoje · na casa do Gabriel</span>
+      <h2 id="t-hoje">Roteiro da visita, na ordem</h2>
+      <p>A ordem importa: quem aponta o domínio antes de saber de quem ele é, aponta o domínio de outra pessoa.</p>
+      <p class="conta-hoje" id="conta-hoje"></p>
+    </div>
+    <ol class="passos" id="passos"></ol>
+    <div class="nota dica">
+      <svg viewBox="0 0 16 16"><use href="#q-chave"/></svg>
+      <p><b>O ponto do dia é posse.</b> Todas as contas que nascerem hoje — Registro.br, Nuvemshop,
+        Google, o que for — precisam nascer no e-mail do Gabriel e no CNPJ dele. Foi a falta disso que
+        deixou um primo cancelar a conta de anúncios em janeiro.</p>
+    </div>
+    <div class="nota aviso">
+      <svg viewBox="0 0 16 16"><use href="#q-alerta"/></svg>
+      <p><b>Não ligue anúncio pago hoje.</b> A conta de Ads foi cancelada em 19/01 e tem três violações
+        que ninguém abriu até agora. Abrir conta nova para escapar da penalidade é, ela mesma, uma violação —
+        e o desfecho é banimento permanente. O tráfego de hoje é o orgânico: Google Meu Negócio atualizado,
+        Instagram e o WhatsApp de quem já é cliente.</p>
+    </div>
+  </section>
+
+  <div class="quadro" id="quadro"></div>
+</main>
+
+<footer class="pe">
+  <div class="env">
+    <span>Quadro vivo — atualize à vontade, ele guarda sozinho.</span>
+    <span class="estado-sinc" id="sinc"><i></i><span>carregando…</span></span>
+  </div>
+</footer>
+
+<div class="torradas" id="torradas" role="status" aria-live="polite"></div>
