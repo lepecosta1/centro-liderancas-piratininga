@@ -48,6 +48,14 @@
     return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]; }); }
   function ic(id){ return '<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#' + id + '"/></svg>'; }
 
+  /* Data local, não UTC. new Date().toISOString() em São Paulo às 21h30
+     já devolve o dia seguinte — e este quadro passou a comparar datas. */
+  function hojeISO(){
+    var d = new Date(), z = function(n){ return ("0" + n).slice(-2); };
+    return d.getFullYear() + "-" + z(d.getMonth() + 1) + "-" + z(d.getDate());
+  }
+  function diaBr(iso){ var p = String(iso).split("-"); return p[2] + "/" + p[1]; }
+
   function torrada(txt, ruim){
     var caixa = document.getElementById("torradas");
     if (!caixa) return;
@@ -86,6 +94,70 @@
     return { feitos:feitos, total:lista.length };
   }
 
+  /* O marco não guarda estado próprio: ele soma os cartões que carrega.
+     Assim a linha do tempo não tem como discordar das colunas. */
+  function estadoMarco(m){
+    var mapa = {};
+    (estado.itens || []).forEach(function(i){ mapa[i.id] = i.estado; });
+    var feitos = 0, tocados = 0, total = 0;
+    (m.itens || []).forEach(function(id){
+      var e = mapa[id];
+      if (!e) return;                       /* id que não existe mais não conta */
+      total++;
+      if (e === "feito") { feitos++; tocados++; }
+      else if (e === "fazendo") tocados++;
+    });
+    return {
+      estado: (total && feitos === total) ? "feito" : (tocados ? "fazendo" : "afazer"),
+      feitos: feitos, total: total
+    };
+  }
+
+  function linhaAgora(hoje){
+    return '<li class="agora"><span class="pino" aria-hidden="true"><i></i></span>' +
+      '<span class="txt">hoje · ' + esc(diaBr(hoje)) + '</span></li>';
+  }
+
+  function desenharMarcos(){
+    var alvo = document.getElementById("marcos");
+    if (!alvo) return;
+    var lista = estado.marcos || [], hoje = hojeISO(), prontos = 0, html = "", k;
+
+    /* a linha do "hoje" entra antes do primeiro marco que ainda está por vir;
+       se todos já passaram, ela vai para o fim */
+    var pos = -1;
+    for (k = 0; k < lista.length; k++) if (lista[k].ate && lista[k].ate >= hoje) { pos = k; break; }
+    if (pos < 0) for (k = 0; k < lista.length; k++) if (!lista[k].ate) { pos = k; break; }
+    if (pos < 0) pos = lista.length;
+
+    lista.forEach(function(m, idx){
+      if (idx === pos) html += linhaAgora(hoje);
+      var c = estadoMarco(m);
+      var atrasado = !!(m.ate && m.ate < hoje && c.estado !== "feito");
+      if (c.estado === "feito") prontos++;
+      html += '<li class="marco m-' + c.estado + (atrasado ? " atrasado" : "") + '">' +
+        '<span class="no" aria-hidden="true">' +
+          (c.estado === "feito" ? '<svg viewBox="0 0 16 16"><use href="#q-check"/></svg>' : (idx + 1)) +
+        '</span>' +
+        '<span class="corpo">' +
+          '<span class="alto"><b>' + esc(m.rot) + '</b>' +
+            '<span class="quando">' + esc(m.quando) + '</span>' +
+            (atrasado ? '<span class="tarja">atrasado</span>' : '') +
+          '</span>' +
+          '<span class="entrega">' + esc(m.entrega) + '</span>' +
+          '<span class="andamento">' +
+            '<span class="tira"><i style="width:' + (c.total ? (c.feitos / c.total) * 100 : 0) + '%"></i></span>' +
+            '<span class="frac">' + c.feitos + ' de ' + c.total + '</span>' +
+          '</span>' +
+        '</span></li>';
+    });
+    if (pos >= lista.length) html += linhaAgora(hoje);
+    alvo.innerHTML = html;
+
+    var cont = document.getElementById("conta-tempo");
+    if (cont) cont.innerHTML = '<b>' + prontos + ' de ' + lista.length + '</b> marcos concluídos';
+  }
+
   function desenharMedidor(){
     var c = contas();
     var pct = c.total ? Math.round((c.feito / c.total) * 100) : 0;
@@ -108,6 +180,11 @@
   function desenharRoteiro(){
     var alvo = document.getElementById("passos");
     if (!alvo) return;
+    var rv = document.getElementById("rot-visita"), v = estado.visita, hj = hojeISO();
+    if (rv) rv.textContent = !v ? "Na casa do Gabriel"
+      : v === hj ? "Hoje · na casa do Gabriel"
+      : v < hj ? "Visita de " + diaBr(v) + " · na casa do Gabriel"
+      : "Em " + diaBr(v) + " · na casa do Gabriel";
     var r = contaRoteiro();
     var cont = document.getElementById("conta-hoje");
     if (cont) {
@@ -153,6 +230,7 @@
 
   function desenhar(){
     desenharMedidor();
+    desenharMarcos();
     desenharRoteiro();
     desenharQuadro();
   }
@@ -176,7 +254,7 @@
   });
 
   function mudou(){
-    estado.atualizado = new Date().toISOString().slice(0, 10);
+    estado.atualizado = hojeISO();
     desenhar();
     guardarLocal();
     agendarPublicacao();

@@ -171,6 +171,68 @@ button{font:inherit;color:inherit}
 .legenda span{display:inline-flex;align-items:center;gap:5px}
 .legenda i{width:9px;height:9px;border-radius:2px;display:block}
 
+/* ---------- linha do tempo ---------- */
+/* O trilho é a régua do marceneiro: cada marco é um corte marcado nela,
+   e a linha tracejada do "hoje" separa o que ficou para trás do que vem
+   pela frente. O estado de cada marco é derivado dos cartões do quadro
+   (ver estadoMarco no app), nunca digitado à parte — foi assim que o
+   medidor passou a dizer "Fazendo 19" ao lado de uma coluna com 8. */
+.linha-tempo{background:var(--bancada);border:1px solid var(--veio2);border-radius:11px;overflow:hidden;
+  margin:clamp(24px,4vw,38px) 0}
+.linha-tempo .cab{padding:20px 22px 16px;border-bottom:1px solid var(--veio);background:var(--bancada2)}
+.linha-tempo .cab p{color:var(--mut);font-size:15.5px;margin-top:7px;max-width:70ch}
+.conta-tempo{margin-top:12px;font-family:var(--f-util);letter-spacing:.05em;font-size:14px;color:var(--mut2)}
+.conta-tempo b{color:var(--mel);font-family:var(--f-body);font-variant-numeric:tabular-nums;font-weight:700}
+
+.trilho{--pad:20px;list-style:none;margin:0;padding:18px var(--pad) 22px;position:relative}
+.trilho::before{content:"";position:absolute;left:calc(var(--pad) + 12px);top:30px;bottom:34px;width:2px;
+  border-radius:2px;background:linear-gradient(var(--veio2),var(--veio))}
+
+.marco,.agora{display:grid;grid-template-columns:26px 1fr;gap:0 18px;padding-bottom:20px}
+.marco{align-items:start}
+.agora{align-items:center}
+.marco:last-child,.agora:last-child{padding-bottom:0}
+
+.marco .no{position:relative;z-index:1;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+  background:var(--nogueira);border:1.6px solid var(--veio2);color:var(--mut);
+  font-family:var(--f-util);font-weight:700;font-size:13.5px;line-height:1}
+.marco .no svg{width:12px;height:12px}
+.m-feito .no{background:var(--folha);border-color:var(--folha);color:#12210C}
+.m-fazendo .no{border-color:var(--cera);color:var(--mel);box-shadow:0 0 0 4px var(--cera-fraca)}
+.marco.atrasado .no{border-color:var(--brasa);color:var(--brasa);box-shadow:0 0 0 4px var(--brasa-fraca)}
+
+.marco .corpo{min-width:0}
+.marco .alto{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px 12px}
+.marco .alto b{font-family:var(--f-disp);font-variation-settings:"SOFT" 40,"WONK" 1;letter-spacing:-.012em;
+  font-size:18.5px;font-weight:600;color:var(--serragem);line-height:1.2}
+.m-feito .alto b{color:var(--mut)}
+.marco .quando{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.12em;font-size:12px;
+  color:var(--mut2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.m-fazendo .quando{color:var(--mel)}
+.marco.atrasado .quando{color:var(--brasa)}
+.marco .tarja{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.11em;font-size:10.5px;
+  font-weight:600;color:#2A1108;background:var(--brasa);border-radius:20px;padding:1.5px 9px;
+  white-space:nowrap}
+.marco .entrega{display:block;color:var(--mut);font-size:14.5px;line-height:1.5;margin-top:5px;max-width:68ch}
+.m-feito .entrega{color:var(--mut2)}
+.marco .andamento{display:flex;align-items:center;gap:10px;margin-top:10px}
+.marco .tira{width:118px;max-width:38vw;height:5px;border-radius:4px;background:var(--nogueira);
+  overflow:hidden;display:block}
+.marco .tira i{display:block;height:100%;background:var(--mut2);transition:width .35s ease}
+.m-feito .tira i{background:var(--folha)}
+.m-fazendo .tira i{background:var(--cera)}
+.marco.atrasado .tira i{background:var(--brasa)}
+.marco .frac{font-family:var(--f-util);font-size:12.5px;letter-spacing:.06em;color:var(--mut2);
+  font-variant-numeric:tabular-nums}
+
+.agora .pino{position:relative;z-index:1;width:26px;height:26px;display:grid;place-items:center}
+.agora .pino i{width:11px;height:11px;border-radius:50%;background:var(--verniz);
+  box-shadow:0 0 0 4px rgba(224,154,58,.2)}
+.agora .txt{display:flex;align-items:center;gap:12px;font-family:var(--f-util);text-transform:uppercase;
+  letter-spacing:.15em;font-size:11.5px;color:var(--verniz);font-variant-numeric:tabular-nums}
+.agora .txt::after{content:"";flex:1;height:1px;opacity:.5;
+  background:repeating-linear-gradient(90deg,var(--verniz) 0 5px,transparent 5px 11px)}
+
 /* ---------- roteiro de hoje ---------- */
 .hoje{background:var(--bancada);border:1px solid var(--veio2);border-radius:11px;overflow:hidden;
   margin:clamp(24px,4vw,38px) 0}
@@ -282,6 +344,9 @@ button{font:inherit;color:inherit}
 @media (max-width:520px){
   body{font-size:15.5px}
   .env{padding:0 15px}
+  .trilho{--pad:14px}
+  .marco .tira{width:86px}
+  .marco .alto b{font-size:17px}
   .topo .linha{gap:16px}
   .medidor{width:100%}
   .passo{padding:11px 8px}
@@ -292,7 +357,7 @@ button{font:inherit;color:inherit}
 </style>
 </head>
 <body>
-<script type="application/json" id="estado">{"versao":1,"titulo":"Quadro do Projeto Marceneiro","atualizado":"2026-09-02","roteiro":[{"id":"r1","feito":false,"t":"Abrir o Registro.br antes de pagar qualquer coisa","d":"Olhar três campos: em nome de quem o domínio está, se está pago ou vencido, e qual e-mail é o de contato. .com.br não se registra na HostGator — quem manda é o Registro.br."},{"id":"r2","feito":false,"t":"Passar o domínio para o CNPJ do Gabriel","d":"Se o titular for o primo, a Sandra ou qualquer outro, transferir hoje. É a raiz de tudo que deu errado: sem posse, qualquer um cancela."},{"id":"r3","feito":false,"t":"Criar o e-mail dono, que só o Gabriel acessa","d":"Um endereço para ser titular de todas as contas novas. Nunca o do primo, nunca o da mãe."},{"id":"r4","feito":false,"t":"Ligar verificação em duas etapas e travar o domínio","d":"2FA no e-mail primeiro, depois em cada conta criada hoje. E o domain lock no Registro.br, que impede transferência sem autorização."},{"id":"r5","feito":false,"t":"Decidir se a HostGator é mesmo necessária","d":"A Nuvemshop já hospeda a loja — não se sobe arquivo em servidor. A HostGator só se paga se ele quiser e-mail @marceneirotatuape.com.br ou um site separado da loja."},{"id":"r6","feito":false,"t":"Criar a loja na Nuvemshop","d":"Plano grátis para começar. Conta no e-mail dele, CNPJ dele, cartão dele — nada em nome de terceiro."},{"id":"r7","feito":false,"t":"Apontar o domínio para a loja","d":"DNS no Registro.br apontando para a Nuvemshop. A propagação leva de minutos a 24 h; não prometer que fica pronto na hora."},{"id":"r8","feito":false,"t":"Conferir o cadeado antes de comemorar","d":"Só considerar no ar quando o https carregar sem aviso do navegador. Mandar gente para site sem cadeado queima a primeira impressão."},{"id":"r9","feito":false,"t":"Atualizar o Google Meu Negócio","d":"Endereço, horário, telefone e categoria iguais, letra por letra, ao que ficar no site e no Instagram. É esse casamento que faz a oficina aparecer para quem está a dois quarteirões."},{"id":"r10","feito":false,"t":"Fotografar enquanto está lá","d":"Oficina, peças prontas, projetos entregues, o Gabriel trabalhando. É o que trava o site — sair de lá com as fotos, não com a promessa delas."},{"id":"r11","feito":false,"t":"Anotar o que ficou faltando","d":"Voltar com lista escrita. Memória de fim de visita perde metade."}],"itens":[{"id":"f1","estado":"feito","frente":"Diagnóstico","t":"Diagnóstico dos quatro problemas e dos onze pontos cegos","d":"A cadeia causal completa: hospedagem vencida derruba o site, site fora do ar invalida o destino do anúncio, e o anúncio inválido vira violação."},{"id":"f2","estado":"feito","frente":"Fase 1","t":"Proposta comercial da Fase 1","d":"Documento com abas mais PDF de 38 páginas, plano semana a semana e avaliação de riscos."},{"id":"f3","estado":"feito","frente":"Fase 1","t":"Mensagem curta de WhatsApp para o Gabriel"},{"id":"f4","estado":"feito","frente":"Fase 1","t":"Página hospedada para ele abrir em qualquer celular"},{"id":"f5","estado":"feito","frente":"Google","t":"Endereço do Google Meu Negócio editado e enviado","d":"Correção do descasamento entre o endereço escrito e o pino do mapa. Enviado — falta a aprovação do Google."},{"id":"f6","estado":"feito","frente":"Fase 2","t":"Benchmark de seis lojas de madeira e marcenaria","d":"A conclusão contrariou o pedido original: quem vende madeira online no Brasil não vende catálogo, vende cálculo."},{"id":"f7","estado":"feito","frente":"Fase 2","t":"Proposta da loja, com sete abas e PDF de 25 páginas","d":"Três balcões: Prateleira, Balcão e Bancada."},{"id":"f8","estado":"feito","frente":"Fase 2","t":"Site novo inteiro, funcional e testado","d":"Loja, carrinho, frete por CEP, checkout em três passos e configurador. 89 asserções passando."},{"id":"f9","estado":"feito","frente":"Comercial","t":"Proposta aceita verbalmente pelo Gabriel"},{"id":"h1","estado":"fazendo","frente":"Domínio","trava":true,"t":"Titularidade do domínio no Registro.br","d":"Enquanto o domínio não estiver no CNPJ dele, tudo que for construído em cima fica emprestado."},{"id":"h2","estado":"fazendo","frente":"Segurança","t":"E-mail dono e verificação em duas etapas"},{"id":"h3","estado":"fazendo","frente":"Hospedagem","t":"Decisão sobre a HostGator","d":"Contratar só o que a loja não cobre: e-mail profissional ou site separado."},{"id":"h4","estado":"fazendo","frente":"Loja","t":"Loja criada na Nuvemshop"},{"id":"h5","estado":"fazendo","frente":"Domínio","t":"Domínio apontado para a loja, com cadeado"},{"id":"h6","estado":"fazendo","frente":"Google","t":"Google Meu Negócio atualizado e conferido"},{"id":"h7","estado":"fazendo","frente":"Conteúdo","trava":true,"t":"Fotos e vídeos do acervo","d":"Caminho crítico. Sem elas o site não sobe — os desenhos de chapa são provisórios e existem para mostrar onde a foto entra."},{"id":"h8","estado":"fazendo","frente":"Tráfego","t":"Tráfego orgânico, aos poucos","d":"Google Meu Negócio, Instagram e WhatsApp de quem já é cliente. Pago fica para depois da penalidade resolvida."},{"id":"a1","estado":"afazer","frente":"Segurança","trava":true,"t":"Revogar o acesso do primo em tudo","d":"Foi ele quem cancelou a conta de anúncios em janeiro. Enquanto o acesso existir, o risco existe."},{"id":"a2","estado":"afazer","frente":"Segurança","t":"Reunião de 40 minutos só de acessos","d":"Sentar com o Gabriel e passar conta por conta, com ele digitando as senhas."},{"id":"a3","estado":"afazer","frente":"Segurança","t":"Inventário por escrito: quem é dono de quê","d":"Domínio, hospedagem, loja, Google, Instagram, Ads. Uma linha por ativo, com titular e e-mail de recuperação."},{"id":"a4","estado":"afazer","frente":"Ads","trava":true,"t":"Ler as três violações do Google Ads","d":"Nunca foram abertas. Sem saber o que dizem, não há como saber se a conta é recuperável."},{"id":"a5","estado":"afazer","frente":"Ads","t":"Decidir os R$ 300 parados desde 2024","d":"O reembolso foi pedido. Se a intenção é voltar a anunciar, vale reconsiderar — sacar fecha uma porta."},{"id":"a6","estado":"afazer","frente":"Ads","t":"Resolver a penalidade na conta atual, sem abrir outra","d":"Conta nova para escapar de penalidade é violação por si só, e o desfecho é banimento permanente."},{"id":"a7","estado":"afazer","frente":"Ads","t":"Ligar anúncio só com a loja no ar e testada"},{"id":"a8","estado":"afazer","frente":"Conteúdo","t":"Preços reais no lugar dos ilustrativos","d":"Os do protótipo servem para validar o fluxo, não para vender."},{"id":"a9","estado":"afazer","frente":"Conteúdo","t":"Depoimentos reais do Google, com autorização de quem assina"},{"id":"a10","estado":"afazer","frente":"Conteúdo","trava":true,"t":"Telefone, endereço e CNPJ verdadeiros no site","d":"Hoje estão como 000. Precisam bater letra por letra com o Google Meu Negócio."},{"id":"a11","estado":"afazer","frente":"Loja","t":"Cadastrar o catálogo real"},{"id":"a12","estado":"afazer","frente":"Loja","t":"Checkout transparente e antifraude ligados","d":"O cartão vai cifrado direto para o adquirente. É o que tira a marcenaria de quase todo o peso de PCI DSS."},{"id":"a13","estado":"afazer","frente":"Loja","t":"Teste fechado com três a cinco pessoas antes de abrir","d":"Comprar de verdade, com cartão de verdade, e cancelar depois. É o único jeito de descobrir o que quebra."},{"id":"a14","estado":"afazer","frente":"Loja","t":"Política de troca e devolução publicada","d":"O Código de Defesa do Consumidor dá sete dias para arrependimento em compra online. Melhor estar escrito."},{"id":"a15","estado":"afazer","frente":"Instagram","t":"Repaginar o @casadomarceneirotatuape"},{"id":"a16","estado":"afazer","frente":"Instagram","t":"Bio com o link da loja e o mesmo endereço do Google"},{"id":"a17","estado":"afazer","frente":"Comercial","t":"Definir o preço da Fase 2","d":"Recomendei R$ 3.200 em 4×, contra uma faixa de mercado de R$ 6.600 a R$ 13.000. A decisão é sua."},{"id":"a18","estado":"afazer","frente":"Comercial","t":"Decidir loja na raiz ou site institucional separado","d":"Um lugar só para manter e uma autoridade de busca só, contra dois de tudo."}]}</script>
+<script type="application/json" id="estado">{"versao":1,"titulo":"Quadro do Projeto Marceneiro","atualizado":"2026-09-15","visita":"2026-09-15","marcos":[{"id":"m1","rot":"Diagnóstico e Fase 1","quando":"26/08","ate":"2026-08-26","entrega":"A cadeia causal dos quatro problemas, a proposta comercial e a página que o Gabriel abre no celular.","itens":["f1","f2","f3","f4","f5"]},{"id":"m2","rot":"Fase 2: a loja e o site novo","quando":"26/08 a 02/09","ate":"2026-09-02","entrega":"Benchmark, proposta da loja e o site inteiro funcionando — para testar antes de subir e antes do primeiro real de anúncio.","itens":["f6","f7","f8","f9"]},{"id":"m3","rot":"Com o Gabriel na sala","quando":"ter 15/09","ate":"2026-09-15","entrega":"O que só se resolve com ele presente: domínio no CNPJ dele, o primo fora de tudo, e três decisões fechadas — preço, loja na raiz e HostGator.","itens":["h1","h2","h3","a1","a2","a3","a17","a18"]},{"id":"m4","rot":"Endereço no ar","quando":"até sex 18/09","ate":"2026-09-18","entrega":"marceneirotatuape.com.br abre a loja com cadeado, de qualquer celular. Contar até 24 h de propagação do DNS.","itens":["h4","h5"]},{"id":"m5","rot":"Encontrável","quando":"até ter 22/09","ate":"2026-09-22","entrega":"Site, Google Meu Negócio e Instagram dizendo a mesma coisa, letra por letra. É esse casamento que faz a oficina aparecer para quem está a dois quarteirões.","itens":["h6","a10","a16"]},{"id":"m6","rot":"Vitrine real","quando":"até ter 29/09","ate":"2026-09-29","entrega":"As fotos do Gabriel no lugar dos desenhos de chapa, com preço que se pode cobrar e catálogo cadastrado. É o marco que depende só dele.","itens":["h7","a8","a9","a11"]},{"id":"m7","rot":"Venda testada","quando":"até ter 06/10","ate":"2026-10-06","entrega":"Uma compra de verdade, com cartão de verdade, feita e cancelada — antes de qualquer cliente passar por ali.","itens":["a12","a13","a14"]},{"id":"m8","rot":"Abrir a porta","quando":"a partir de qua 07/10","ate":"2026-10-07","entrega":"Loja pública e tráfego orgânico aos poucos: Google Meu Negócio, Instagram e o WhatsApp de quem já é cliente.","itens":["h8","a15"]},{"id":"m9","rot":"Anúncio pago","quando":"sem data — depende do Google","ate":null,"entrega":"Não tem data porque não depende de nós: só depois de ler as três violações e resolver a penalidade na conta que já existe. Prometer prazo aqui seria inventar.","itens":["a4","a5","a6","a7"]}],"roteiro":[{"id":"r1","feito":false,"t":"Abrir o Registro.br antes de pagar qualquer coisa","d":"Olhar três campos: em nome de quem o domínio está, se está pago ou vencido, e qual e-mail é o de contato. .com.br não se registra na HostGator — quem manda é o Registro.br."},{"id":"r2","feito":false,"t":"Passar o domínio para o CNPJ do Gabriel","d":"Se o titular for o primo, a Sandra ou qualquer outro, transferir hoje. É a raiz de tudo que deu errado: sem posse, qualquer um cancela."},{"id":"r3","feito":false,"t":"Criar o e-mail dono, que só o Gabriel acessa","d":"Um endereço para ser titular de todas as contas novas. Nunca o do primo, nunca o da mãe."},{"id":"r4","feito":false,"t":"Ligar verificação em duas etapas e travar o domínio","d":"2FA no e-mail primeiro, depois em cada conta criada hoje. E o domain lock no Registro.br, que impede transferência sem autorização."},{"id":"r5","feito":false,"t":"Decidir se a HostGator é mesmo necessária","d":"A Nuvemshop já hospeda a loja — não se sobe arquivo em servidor. A HostGator só se paga se ele quiser e-mail @marceneirotatuape.com.br ou um site separado da loja."},{"id":"r6","feito":false,"t":"Criar a loja na Nuvemshop","d":"Plano grátis para começar. Conta no e-mail dele, CNPJ dele, cartão dele — nada em nome de terceiro."},{"id":"r7","feito":false,"t":"Apontar o domínio para a loja","d":"DNS no Registro.br apontando para a Nuvemshop. A propagação leva de minutos a 24 h; não prometer que fica pronto na hora."},{"id":"r8","feito":false,"t":"Conferir o cadeado antes de comemorar","d":"Só considerar no ar quando o https carregar sem aviso do navegador. Mandar gente para site sem cadeado queima a primeira impressão."},{"id":"r9","feito":false,"t":"Atualizar o Google Meu Negócio","d":"Endereço, horário, telefone e categoria iguais, letra por letra, ao que ficar no site e no Instagram. É esse casamento que faz a oficina aparecer para quem está a dois quarteirões."},{"id":"r10","feito":false,"t":"Fotografar enquanto está lá","d":"Oficina, peças prontas, projetos entregues, o Gabriel trabalhando. É o que trava o site — sair de lá com as fotos, não com a promessa delas."},{"id":"r11","feito":false,"t":"Anotar o que ficou faltando","d":"Voltar com lista escrita. Memória de fim de visita perde metade."}],"itens":[{"id":"f1","estado":"feito","frente":"Diagnóstico","t":"Diagnóstico dos quatro problemas e dos onze pontos cegos","d":"A cadeia causal completa: hospedagem vencida derruba o site, site fora do ar invalida o destino do anúncio, e o anúncio inválido vira violação."},{"id":"f2","estado":"feito","frente":"Fase 1","t":"Proposta comercial da Fase 1","d":"Documento com abas mais PDF de 38 páginas, plano semana a semana e avaliação de riscos."},{"id":"f3","estado":"feito","frente":"Fase 1","t":"Mensagem curta de WhatsApp para o Gabriel"},{"id":"f4","estado":"feito","frente":"Fase 1","t":"Página hospedada para ele abrir em qualquer celular"},{"id":"f5","estado":"feito","frente":"Google","t":"Endereço do Google Meu Negócio editado e enviado","d":"Correção do descasamento entre o endereço escrito e o pino do mapa. Enviado — falta a aprovação do Google."},{"id":"f6","estado":"feito","frente":"Fase 2","t":"Benchmark de seis lojas de madeira e marcenaria","d":"A conclusão contrariou o pedido original: quem vende madeira online no Brasil não vende catálogo, vende cálculo."},{"id":"f7","estado":"feito","frente":"Fase 2","t":"Proposta da loja, com sete abas e PDF de 25 páginas","d":"Três balcões: Prateleira, Balcão e Bancada."},{"id":"f8","estado":"feito","frente":"Fase 2","t":"Site novo inteiro, funcional e testado","d":"Loja, carrinho, frete por CEP, checkout em três passos e configurador. 89 asserções passando."},{"id":"f9","estado":"feito","frente":"Comercial","t":"Proposta aceita verbalmente pelo Gabriel"},{"id":"h1","estado":"fazendo","frente":"Domínio","trava":true,"t":"Titularidade do domínio no Registro.br","d":"Enquanto o domínio não estiver no CNPJ dele, tudo que for construído em cima fica emprestado."},{"id":"h2","estado":"fazendo","frente":"Segurança","t":"E-mail dono e verificação em duas etapas"},{"id":"h3","estado":"fazendo","frente":"Hospedagem","t":"Decisão sobre a HostGator","d":"Contratar só o que a loja não cobre: e-mail profissional ou site separado."},{"id":"h4","estado":"fazendo","frente":"Loja","t":"Loja criada na Nuvemshop"},{"id":"h5","estado":"fazendo","frente":"Domínio","t":"Domínio apontado para a loja, com cadeado"},{"id":"h6","estado":"fazendo","frente":"Google","t":"Google Meu Negócio atualizado e conferido"},{"id":"h7","estado":"fazendo","frente":"Conteúdo","trava":true,"t":"Fotos e vídeos do acervo","d":"Caminho crítico. Sem elas o site não sobe — os desenhos de chapa são provisórios e existem para mostrar onde a foto entra."},{"id":"h8","estado":"fazendo","frente":"Tráfego","t":"Tráfego orgânico, aos poucos","d":"Google Meu Negócio, Instagram e WhatsApp de quem já é cliente. Pago fica para depois da penalidade resolvida."},{"id":"a1","estado":"afazer","frente":"Segurança","trava":true,"t":"Revogar o acesso do primo em tudo","d":"Foi ele quem cancelou a conta de anúncios em janeiro. Enquanto o acesso existir, o risco existe."},{"id":"a2","estado":"afazer","frente":"Segurança","t":"Reunião de 40 minutos só de acessos","d":"Sentar com o Gabriel e passar conta por conta, com ele digitando as senhas."},{"id":"a3","estado":"afazer","frente":"Segurança","t":"Inventário por escrito: quem é dono de quê","d":"Domínio, hospedagem, loja, Google, Instagram, Ads. Uma linha por ativo, com titular e e-mail de recuperação."},{"id":"a4","estado":"afazer","frente":"Ads","trava":true,"t":"Ler as três violações do Google Ads","d":"Nunca foram abertas. Sem saber o que dizem, não há como saber se a conta é recuperável."},{"id":"a5","estado":"afazer","frente":"Ads","t":"Decidir os R$ 300 parados desde 2024","d":"O reembolso foi pedido. Se a intenção é voltar a anunciar, vale reconsiderar — sacar fecha uma porta."},{"id":"a6","estado":"afazer","frente":"Ads","t":"Resolver a penalidade na conta atual, sem abrir outra","d":"Conta nova para escapar de penalidade é violação por si só, e o desfecho é banimento permanente."},{"id":"a7","estado":"afazer","frente":"Ads","t":"Ligar anúncio só com a loja no ar e testada"},{"id":"a8","estado":"afazer","frente":"Conteúdo","t":"Preços reais no lugar dos ilustrativos","d":"Os do protótipo servem para validar o fluxo, não para vender."},{"id":"a9","estado":"afazer","frente":"Conteúdo","t":"Depoimentos reais do Google, com autorização de quem assina"},{"id":"a10","estado":"afazer","frente":"Conteúdo","trava":true,"t":"Telefone, endereço e CNPJ verdadeiros no site","d":"Hoje estão como 000. Precisam bater letra por letra com o Google Meu Negócio."},{"id":"a11","estado":"afazer","frente":"Loja","t":"Cadastrar o catálogo real"},{"id":"a12","estado":"afazer","frente":"Loja","t":"Checkout transparente e antifraude ligados","d":"O cartão vai cifrado direto para o adquirente. É o que tira a marcenaria de quase todo o peso de PCI DSS."},{"id":"a13","estado":"afazer","frente":"Loja","t":"Teste fechado com três a cinco pessoas antes de abrir","d":"Comprar de verdade, com cartão de verdade, e cancelar depois. É o único jeito de descobrir o que quebra."},{"id":"a14","estado":"afazer","frente":"Loja","t":"Política de troca e devolução publicada","d":"O Código de Defesa do Consumidor dá sete dias para arrependimento em compra online. Melhor estar escrito."},{"id":"a15","estado":"afazer","frente":"Instagram","t":"Repaginar o @casadomarceneirotatuape"},{"id":"a16","estado":"afazer","frente":"Instagram","t":"Bio com o link da loja e o mesmo endereço do Google"},{"id":"a17","estado":"afazer","frente":"Comercial","t":"Definir o preço da Fase 2","d":"Recomendei R$ 3.200 em 4×, contra uma faixa de mercado de R$ 6.600 a R$ 13.000. A decisão é sua."},{"id":"a18","estado":"afazer","frente":"Comercial","t":"Decidir loja na raiz ou site institucional separado","d":"Um lugar só para manter e uma autoridade de busca só, contra dois de tudo."}]}</script>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
 <g id="q-serra" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M4 16 16 4l4 4L8 20l-4-4Z"/><path d="m4 16 2 2"/></g>
 <g id="q-check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8.4 3.4 3.4L13 4.6"/></g>
@@ -328,9 +393,21 @@ button{font:inherit;color:inherit}
 </header>
 
 <main class="env">
+  <section class="linha-tempo" aria-labelledby="t-tempo">
+    <div class="cab">
+      <span class="rot">Linha do tempo</span>
+      <h2 id="t-tempo">Do diagnóstico à primeira venda</h2>
+      <p>Cada marco é um corte marcado na régua: só se passa para o seguinte quando o anterior está inteiro.
+        O estado de cada um é somado dos cartões do quadro lá embaixo, então a linha do tempo nunca
+        diz um número e a coluna outro.</p>
+      <p class="conta-tempo" id="conta-tempo"></p>
+    </div>
+    <ol class="trilho" id="marcos"></ol>
+  </section>
+
   <section class="hoje" aria-labelledby="t-hoje">
     <div class="cab">
-      <span class="rot">Hoje · na casa do Gabriel</span>
+      <span class="rot" id="rot-visita">Na casa do Gabriel</span>
       <h2 id="t-hoje">Roteiro da visita, na ordem</h2>
       <p>A ordem importa: quem aponta o domínio antes de saber de quem ele é, aponta o domínio de outra pessoa.</p>
       <p class="conta-hoje" id="conta-hoje"></p>
@@ -398,9 +475,21 @@ button{font:inherit;color:inherit}
 </header>
 
 <main class="env">
+  <section class="linha-tempo" aria-labelledby="t-tempo">
+    <div class="cab">
+      <span class="rot">Linha do tempo</span>
+      <h2 id="t-tempo">Do diagnóstico à primeira venda</h2>
+      <p>Cada marco é um corte marcado na régua: só se passa para o seguinte quando o anterior está inteiro.
+        O estado de cada um é somado dos cartões do quadro lá embaixo, então a linha do tempo nunca
+        diz um número e a coluna outro.</p>
+      <p class="conta-tempo" id="conta-tempo"></p>
+    </div>
+    <ol class="trilho" id="marcos"></ol>
+  </section>
+
   <section class="hoje" aria-labelledby="t-hoje">
     <div class="cab">
-      <span class="rot">Hoje · na casa do Gabriel</span>
+      <span class="rot" id="rot-visita">Na casa do Gabriel</span>
       <h2 id="t-hoje">Roteiro da visita, na ordem</h2>
       <p>A ordem importa: quem aponta o domínio antes de saber de quem ele é, aponta o domínio de outra pessoa.</p>
       <p class="conta-hoje" id="conta-hoje"></p>
@@ -482,6 +571,14 @@ button{font:inherit;color:inherit}
     return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]; }); }
   function ic(id){ return '<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#' + id + '"/></svg>'; }
 
+  /* Data local, não UTC. new Date().toISOString() em São Paulo às 21h30
+     já devolve o dia seguinte — e este quadro passou a comparar datas. */
+  function hojeISO(){
+    var d = new Date(), z = function(n){ return ("0" + n).slice(-2); };
+    return d.getFullYear() + "-" + z(d.getMonth() + 1) + "-" + z(d.getDate());
+  }
+  function diaBr(iso){ var p = String(iso).split("-"); return p[2] + "/" + p[1]; }
+
   function torrada(txt, ruim){
     var caixa = document.getElementById("torradas");
     if (!caixa) return;
@@ -520,6 +617,70 @@ button{font:inherit;color:inherit}
     return { feitos:feitos, total:lista.length };
   }
 
+  /* O marco não guarda estado próprio: ele soma os cartões que carrega.
+     Assim a linha do tempo não tem como discordar das colunas. */
+  function estadoMarco(m){
+    var mapa = {};
+    (estado.itens || []).forEach(function(i){ mapa[i.id] = i.estado; });
+    var feitos = 0, tocados = 0, total = 0;
+    (m.itens || []).forEach(function(id){
+      var e = mapa[id];
+      if (!e) return;                       /* id que não existe mais não conta */
+      total++;
+      if (e === "feito") { feitos++; tocados++; }
+      else if (e === "fazendo") tocados++;
+    });
+    return {
+      estado: (total && feitos === total) ? "feito" : (tocados ? "fazendo" : "afazer"),
+      feitos: feitos, total: total
+    };
+  }
+
+  function linhaAgora(hoje){
+    return '<li class="agora"><span class="pino" aria-hidden="true"><i></i></span>' +
+      '<span class="txt">hoje · ' + esc(diaBr(hoje)) + '</span></li>';
+  }
+
+  function desenharMarcos(){
+    var alvo = document.getElementById("marcos");
+    if (!alvo) return;
+    var lista = estado.marcos || [], hoje = hojeISO(), prontos = 0, html = "", k;
+
+    /* a linha do "hoje" entra antes do primeiro marco que ainda está por vir;
+       se todos já passaram, ela vai para o fim */
+    var pos = -1;
+    for (k = 0; k < lista.length; k++) if (lista[k].ate && lista[k].ate >= hoje) { pos = k; break; }
+    if (pos < 0) for (k = 0; k < lista.length; k++) if (!lista[k].ate) { pos = k; break; }
+    if (pos < 0) pos = lista.length;
+
+    lista.forEach(function(m, idx){
+      if (idx === pos) html += linhaAgora(hoje);
+      var c = estadoMarco(m);
+      var atrasado = !!(m.ate && m.ate < hoje && c.estado !== "feito");
+      if (c.estado === "feito") prontos++;
+      html += '<li class="marco m-' + c.estado + (atrasado ? " atrasado" : "") + '">' +
+        '<span class="no" aria-hidden="true">' +
+          (c.estado === "feito" ? '<svg viewBox="0 0 16 16"><use href="#q-check"/></svg>' : (idx + 1)) +
+        '</span>' +
+        '<span class="corpo">' +
+          '<span class="alto"><b>' + esc(m.rot) + '</b>' +
+            '<span class="quando">' + esc(m.quando) + '</span>' +
+            (atrasado ? '<span class="tarja">atrasado</span>' : '') +
+          '</span>' +
+          '<span class="entrega">' + esc(m.entrega) + '</span>' +
+          '<span class="andamento">' +
+            '<span class="tira"><i style="width:' + (c.total ? (c.feitos / c.total) * 100 : 0) + '%"></i></span>' +
+            '<span class="frac">' + c.feitos + ' de ' + c.total + '</span>' +
+          '</span>' +
+        '</span></li>';
+    });
+    if (pos >= lista.length) html += linhaAgora(hoje);
+    alvo.innerHTML = html;
+
+    var cont = document.getElementById("conta-tempo");
+    if (cont) cont.innerHTML = '<b>' + prontos + ' de ' + lista.length + '</b> marcos concluídos';
+  }
+
   function desenharMedidor(){
     var c = contas();
     var pct = c.total ? Math.round((c.feito / c.total) * 100) : 0;
@@ -542,6 +703,11 @@ button{font:inherit;color:inherit}
   function desenharRoteiro(){
     var alvo = document.getElementById("passos");
     if (!alvo) return;
+    var rv = document.getElementById("rot-visita"), v = estado.visita, hj = hojeISO();
+    if (rv) rv.textContent = !v ? "Na casa do Gabriel"
+      : v === hj ? "Hoje · na casa do Gabriel"
+      : v < hj ? "Visita de " + diaBr(v) + " · na casa do Gabriel"
+      : "Em " + diaBr(v) + " · na casa do Gabriel";
     var r = contaRoteiro();
     var cont = document.getElementById("conta-hoje");
     if (cont) {
@@ -587,6 +753,7 @@ button{font:inherit;color:inherit}
 
   function desenhar(){
     desenharMedidor();
+    desenharMarcos();
     desenharRoteiro();
     desenharQuadro();
   }
@@ -610,7 +777,7 @@ button{font:inherit;color:inherit}
   });
 
   function mudou(){
-    estado.atualizado = new Date().toISOString().slice(0, 10);
+    estado.atualizado = hojeISO();
     desenhar();
     guardarLocal();
     agendarPublicacao();
@@ -736,6 +903,14 @@ button{font:inherit;color:inherit}
     return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]; }); }
   function ic(id){ return '<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#' + id + '"/></svg>'; }
 
+  /* Data local, não UTC. new Date().toISOString() em São Paulo às 21h30
+     já devolve o dia seguinte — e este quadro passou a comparar datas. */
+  function hojeISO(){
+    var d = new Date(), z = function(n){ return ("0" + n).slice(-2); };
+    return d.getFullYear() + "-" + z(d.getMonth() + 1) + "-" + z(d.getDate());
+  }
+  function diaBr(iso){ var p = String(iso).split("-"); return p[2] + "/" + p[1]; }
+
   function torrada(txt, ruim){
     var caixa = document.getElementById("torradas");
     if (!caixa) return;
@@ -774,6 +949,70 @@ button{font:inherit;color:inherit}
     return { feitos:feitos, total:lista.length };
   }
 
+  /* O marco não guarda estado próprio: ele soma os cartões que carrega.
+     Assim a linha do tempo não tem como discordar das colunas. */
+  function estadoMarco(m){
+    var mapa = {};
+    (estado.itens || []).forEach(function(i){ mapa[i.id] = i.estado; });
+    var feitos = 0, tocados = 0, total = 0;
+    (m.itens || []).forEach(function(id){
+      var e = mapa[id];
+      if (!e) return;                       /* id que não existe mais não conta */
+      total++;
+      if (e === "feito") { feitos++; tocados++; }
+      else if (e === "fazendo") tocados++;
+    });
+    return {
+      estado: (total && feitos === total) ? "feito" : (tocados ? "fazendo" : "afazer"),
+      feitos: feitos, total: total
+    };
+  }
+
+  function linhaAgora(hoje){
+    return '<li class="agora"><span class="pino" aria-hidden="true"><i></i></span>' +
+      '<span class="txt">hoje · ' + esc(diaBr(hoje)) + '</span></li>';
+  }
+
+  function desenharMarcos(){
+    var alvo = document.getElementById("marcos");
+    if (!alvo) return;
+    var lista = estado.marcos || [], hoje = hojeISO(), prontos = 0, html = "", k;
+
+    /* a linha do "hoje" entra antes do primeiro marco que ainda está por vir;
+       se todos já passaram, ela vai para o fim */
+    var pos = -1;
+    for (k = 0; k < lista.length; k++) if (lista[k].ate && lista[k].ate >= hoje) { pos = k; break; }
+    if (pos < 0) for (k = 0; k < lista.length; k++) if (!lista[k].ate) { pos = k; break; }
+    if (pos < 0) pos = lista.length;
+
+    lista.forEach(function(m, idx){
+      if (idx === pos) html += linhaAgora(hoje);
+      var c = estadoMarco(m);
+      var atrasado = !!(m.ate && m.ate < hoje && c.estado !== "feito");
+      if (c.estado === "feito") prontos++;
+      html += '<li class="marco m-' + c.estado + (atrasado ? " atrasado" : "") + '">' +
+        '<span class="no" aria-hidden="true">' +
+          (c.estado === "feito" ? '<svg viewBox="0 0 16 16"><use href="#q-check"/></svg>' : (idx + 1)) +
+        '</span>' +
+        '<span class="corpo">' +
+          '<span class="alto"><b>' + esc(m.rot) + '</b>' +
+            '<span class="quando">' + esc(m.quando) + '</span>' +
+            (atrasado ? '<span class="tarja">atrasado</span>' : '') +
+          '</span>' +
+          '<span class="entrega">' + esc(m.entrega) + '</span>' +
+          '<span class="andamento">' +
+            '<span class="tira"><i style="width:' + (c.total ? (c.feitos / c.total) * 100 : 0) + '%"></i></span>' +
+            '<span class="frac">' + c.feitos + ' de ' + c.total + '</span>' +
+          '</span>' +
+        '</span></li>';
+    });
+    if (pos >= lista.length) html += linhaAgora(hoje);
+    alvo.innerHTML = html;
+
+    var cont = document.getElementById("conta-tempo");
+    if (cont) cont.innerHTML = '<b>' + prontos + ' de ' + lista.length + '</b> marcos concluídos';
+  }
+
   function desenharMedidor(){
     var c = contas();
     var pct = c.total ? Math.round((c.feito / c.total) * 100) : 0;
@@ -796,6 +1035,11 @@ button{font:inherit;color:inherit}
   function desenharRoteiro(){
     var alvo = document.getElementById("passos");
     if (!alvo) return;
+    var rv = document.getElementById("rot-visita"), v = estado.visita, hj = hojeISO();
+    if (rv) rv.textContent = !v ? "Na casa do Gabriel"
+      : v === hj ? "Hoje · na casa do Gabriel"
+      : v < hj ? "Visita de " + diaBr(v) + " · na casa do Gabriel"
+      : "Em " + diaBr(v) + " · na casa do Gabriel";
     var r = contaRoteiro();
     var cont = document.getElementById("conta-hoje");
     if (cont) {
@@ -841,6 +1085,7 @@ button{font:inherit;color:inherit}
 
   function desenhar(){
     desenharMedidor();
+    desenharMarcos();
     desenharRoteiro();
     desenharQuadro();
   }
@@ -864,7 +1109,7 @@ button{font:inherit;color:inherit}
   });
 
   function mudou(){
-    estado.atualizado = new Date().toISOString().slice(0, 10);
+    estado.atualizado = hojeISO();
     desenhar();
     guardarLocal();
     agendarPublicacao();

@@ -33,9 +33,21 @@
 </header>
 
 <main class="env">
+  <section class="linha-tempo" aria-labelledby="t-tempo">
+    <div class="cab">
+      <span class="rot">Linha do tempo</span>
+      <h2 id="t-tempo">Do diagnóstico à primeira venda</h2>
+      <p>Cada marco é um corte marcado na régua: só se passa para o seguinte quando o anterior está inteiro.
+        O estado de cada um é somado dos cartões do quadro lá embaixo, então a linha do tempo nunca
+        diz um número e a coluna outro.</p>
+      <p class="conta-tempo" id="conta-tempo"></p>
+    </div>
+    <ol class="trilho" id="marcos"></ol>
+  </section>
+
   <section class="hoje" aria-labelledby="t-hoje">
     <div class="cab">
-      <span class="rot">Hoje · na casa do Gabriel</span>
+      <span class="rot" id="rot-visita">Na casa do Gabriel</span>
       <h2 id="t-hoje">Roteiro da visita, na ordem</h2>
       <p>A ordem importa: quem aponta o domínio antes de saber de quem ele é, aponta o domínio de outra pessoa.</p>
       <p class="conta-hoje" id="conta-hoje"></p>

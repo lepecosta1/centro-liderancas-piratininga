@@ -1,7 +1,45 @@
 {
   "versao": 1,
   "titulo": "Quadro do Projeto Marceneiro",
-  "atualizado": "2026-09-02",
+  "atualizado": "2026-09-15",
+  "visita": "2026-09-15",
+  "marcos": [
+    { "id":"m1", "rot":"Diagnóstico e Fase 1", "quando":"26/08", "ate":"2026-08-26",
+      "entrega":"A cadeia causal dos quatro problemas, a proposta comercial e a página que o Gabriel abre no celular.",
+      "itens":["f1","f2","f3","f4","f5"] },
+
+    { "id":"m2", "rot":"Fase 2: a loja e o site novo", "quando":"26/08 a 02/09", "ate":"2026-09-02",
+      "entrega":"Benchmark, proposta da loja e o site inteiro funcionando — para testar antes de subir e antes do primeiro real de anúncio.",
+      "itens":["f6","f7","f8","f9"] },
+
+    { "id":"m3", "rot":"Com o Gabriel na sala", "quando":"ter 15/09", "ate":"2026-09-15",
+      "entrega":"O que só se resolve com ele presente: domínio no CNPJ dele, o primo fora de tudo, e três decisões fechadas — preço, loja na raiz e HostGator.",
+      "itens":["h1","h2","h3","a1","a2","a3","a17","a18"] },
+
+    { "id":"m4", "rot":"Endereço no ar", "quando":"até sex 18/09", "ate":"2026-09-18",
+      "entrega":"marceneirotatuape.com.br abre a loja com cadeado, de qualquer celular. Contar até 24 h de propagação do DNS.",
+      "itens":["h4","h5"] },
+
+    { "id":"m5", "rot":"Encontrável", "quando":"até ter 22/09", "ate":"2026-09-22",
+      "entrega":"Site, Google Meu Negócio e Instagram dizendo a mesma coisa, letra por letra. É esse casamento que faz a oficina aparecer para quem está a dois quarteirões.",
+      "itens":["h6","a10","a16"] },
+
+    { "id":"m6", "rot":"Vitrine real", "quando":"até ter 29/09", "ate":"2026-09-29",
+      "entrega":"As fotos do Gabriel no lugar dos desenhos de chapa, com preço que se pode cobrar e catálogo cadastrado. É o marco que depende só dele.",
+      "itens":["h7","a8","a9","a11"] },
+
+    { "id":"m7", "rot":"Venda testada", "quando":"até ter 06/10", "ate":"2026-10-06",
+      "entrega":"Uma compra de verdade, com cartão de verdade, feita e cancelada — antes de qualquer cliente passar por ali.",
+      "itens":["a12","a13","a14"] },
+
+    { "id":"m8", "rot":"Abrir a porta", "quando":"a partir de qua 07/10", "ate":"2026-10-07",
+      "entrega":"Loja pública e tráfego orgânico aos poucos: Google Meu Negócio, Instagram e o WhatsApp de quem já é cliente.",
+      "itens":["h8","a15"] },
+
+    { "id":"m9", "rot":"Anúncio pago", "quando":"sem data — depende do Google", "ate":null,
+      "entrega":"Não tem data porque não depende de nós: só depois de ler as três violações e resolver a penalidade na conta que já existe. Prometer prazo aqui seria inventar.",
+      "itens":["a4","a5","a6","a7"] }
+  ],
   "roteiro": [
     { "id":"r1", "feito":false, "t":"Abrir o Registro.br antes de pagar qualquer coisa",
       "d":"Olhar três campos: em nome de quem o domínio está, se está pago ou vencido, e qual e-mail é o de contato. .com.br não se registra na HostGator — quem manda é o Registro.br." },
