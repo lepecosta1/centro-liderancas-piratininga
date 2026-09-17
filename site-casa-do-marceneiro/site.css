@@ -62,6 +62,12 @@ a{color:var(--acento-forte);text-underline-offset:3px}
 b,strong{font-weight:600;color:inherit}
 button{font:inherit;color:inherit}
 :focus-visible{outline:2.5px solid var(--acento);outline-offset:2px;border-radius:3px}
+/* A troca de rota manda o foco para o título da tela, para o leitor de
+   telas anunciar onde parou. Título não é controle: o anel desenhado em
+   volta dele não informa nada a quem enxerga e vira uma caixa solta no
+   meio da página. Some só nesses; todo controle de verdade mantém o anel. */
+h1[tabindex="-1"]:focus-visible,h2[tabindex="-1"]:focus-visible,
+h3[tabindex="-1"]:focus-visible,h4[tabindex="-1"]:focus-visible{outline:none}
 
 .pular{position:absolute;left:-9999px;top:0;z-index:99;background:var(--acento-forte);color:#FFF8EC;
   padding:11px 18px;border-radius:0 0 6px 0;font-family:var(--f-util);text-transform:uppercase;letter-spacing:.1em}
@@ -215,8 +221,9 @@ button{font:inherit;color:inherit}
 .foto svg.peca-linha{width:44%;max-width:130px;height:auto;color:rgba(36,26,18,.34);
   stroke-width:1.15;filter:drop-shadow(0 1px 0 rgba(255,255,255,.28))}
 .foto .slot{position:absolute;left:9px;bottom:9px;font-family:var(--f-util);font-size:10.5px;
-  letter-spacing:.11em;text-transform:uppercase;color:rgba(36,26,18,.5);
-  background:rgba(255,255,255,.5);border-radius:3px;padding:2px 7px;backdrop-filter:blur(2px)}
+  letter-spacing:.11em;text-transform:uppercase;color:#241A12;font-weight:600;
+  background:rgba(255,255,255,.93);border-radius:3px;padding:2.5px 8px;
+  box-shadow:0 1px 3px rgba(36,26,18,.18)}
 .foto .tag{position:absolute;left:9px;top:9px;font-family:var(--f-util);font-size:11px;font-weight:600;
   letter-spacing:.1em;text-transform:uppercase;background:var(--nogueira);color:var(--mel);
   border-radius:3px;padding:3px 9px}
@@ -608,6 +615,67 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
   .item .dir{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between;width:100%}
   .item .foto{width:54px;height:48px}
 }
+/* ---------- credo: missão, visão e valores ---------- */
+/* A ficha técnica é o coração desta página. Uma marcenaria de 1980 se
+   define tanto pelo que usa quanto pelo que recusa, e a recusa do MDP é
+   a linha mais afiada do site — por isso mora na faixa escura, sozinha,
+   em duas colunas que se leem como a especificação de material que são. */
+[data-anos]{font-style:normal}
+
+.credo{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:clamp(24px,3.5vw,38px)}
+.credo-bloco{background:var(--cartao);border:1px solid var(--linha);border-radius:var(--raio);
+  padding:26px 26px 28px;position:relative}
+.credo-rot{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.2em;font-size:12.5px;
+  font-weight:600;color:var(--acento-forte);display:block;margin-bottom:12px}
+.credo-bloco p{font-family:var(--f-disp);font-variation-settings:"SOFT" 40,"WONK" 1;
+  font-size:clamp(18px,2.1vw,21px);line-height:1.42;color:var(--tinta);margin:0;text-wrap:pretty}
+
+/* cinco valores em três colunas: o último ocupa o vão que sobraria,
+   e vira o fecho da leitura em vez de uma célula vazia ao lado */
+.valores{grid-template-columns:repeat(3,1fr)}
+.valores .balcao:last-child{grid-column:span 2}
+
+/* cinco compromissos: a grade fecha em toda largura, em vez de deixar o
+   quinto cartão sozinho e esticado numa linha só dele */
+.garantias{grid-template-columns:repeat(5,1fr)}
+@media (max-width:1100px){
+  .garantias{grid-template-columns:repeat(3,1fr)}
+  .garantias .balcao:last-child{grid-column:span 2}
+}
+@media (max-width:760px){
+  .garantias{grid-template-columns:1fr}
+  .garantias .balcao:last-child{grid-column:auto}
+}
+
+/* ---------- ficha técnica ---------- */
+.ficha{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ficha-col{border:1px solid var(--veio);border-radius:var(--raio);padding:24px 24px 26px;
+  background:rgba(0,0,0,.18)}
+.ficha-col h3{display:flex;align-items:center;gap:10px;font-family:var(--f-util);text-transform:uppercase;
+  letter-spacing:.16em;font-size:14px;font-weight:600;margin:0 0 18px;padding-bottom:14px;
+  border-bottom:1px solid var(--veio)}
+.ficha-col h3 svg{width:15px;height:15px;flex:none;padding:5px;border-radius:50%;box-sizing:content-box}
+.ficha-col.sim{border-color:rgba(132,185,107,.34)}
+.ficha-col.sim h3{color:var(--verde-vivo);border-bottom-color:rgba(132,185,107,.26)}
+.ficha-col.sim h3 svg{background:rgba(132,185,107,.16)}
+.ficha-col.nao{border-color:rgba(224,103,77,.34)}
+.ficha-col.nao h3{color:#E0674D;border-bottom-color:rgba(224,103,77,.26)}
+.ficha-col.nao h3 svg{background:rgba(224,103,77,.16)}
+.ficha-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:17px}
+.ficha-col li b{display:block;color:var(--claro);font-size:16px;font-weight:600;line-height:1.3}
+.ficha-col li span{display:block;color:var(--claro-mut);font-size:14.5px;line-height:1.5;margin-top:3px;
+  max-width:46ch}
+
+@media (max-width:980px){
+  .credo{grid-template-columns:1fr}
+  .ficha{grid-template-columns:1fr}
+  .valores{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:760px){
+  .valores{grid-template-columns:1fr}
+  .valores .balcao:last-child{grid-column:auto}
+}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
 }

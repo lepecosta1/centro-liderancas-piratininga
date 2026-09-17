@@ -153,6 +153,12 @@
       "d": "A Nuvemshop já hospeda a loja — não se sobe arquivo em servidor. A HostGator só se paga se ele quiser e-mail @marceneirotatuape.com.br ou um site separado da loja."
     },
     {
+      "id": "r12",
+      "feito": false,
+      "t": "Salvar o portfólio do site antigo antes de mexer em DNS",
+      "d": "marceneirotatuape.com.br/portfolio/ já tem projetos fotografados. Baixar tudo em alta hoje, para uma pasta que fique com o Gabriel. Se a hospedagem vencer ou o DNS apontar para outro lugar no meio da migração, esse acervo some junto com o site — e é o mesmo acervo que está travando a loja."
+    },
+    {
       "id": "r6",
       "feito": false,
       "t": "Criar a loja na Nuvemshop",
@@ -295,7 +301,7 @@
       "frente": "Conteúdo",
       "trava": true,
       "t": "Fotos e vídeos do acervo",
-      "d": "Caminho crítico. Sem elas o site não sobe — os desenhos de chapa são provisórios e existem para mostrar onde a foto entra."
+      "d": "Caminho crítico. Sem elas o site não sobe — os desenhos de chapa são provisórios e existem para mostrar onde a foto entra. O portfólio do site antigo é a primeira fonte: baixar antes de mexer em hospedagem, e completar com foto nova da oficina."
     },
     {
       "id": "h8",

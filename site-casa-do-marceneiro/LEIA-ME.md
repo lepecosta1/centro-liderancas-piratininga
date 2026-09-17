@@ -43,6 +43,29 @@ tem link que se manda por WhatsApp e o botão voltar do celular se comporta.
 Nada sai do aparelho. Não há servidor, não há pagamento, não há dado gravado
 fora do `localStorage` do próprio navegador.
 
+## A parte institucional
+
+A empresa é familiar e trabalha **desde 1980**. A idade não está escrita à mão em
+lugar nenhum: os elementos com `data-anos` recebem `anoAtual − 1980` na partida,
+para o site não anunciar um número vencido em 1º de janeiro.
+
+A página da oficina tem três blocos novos:
+
+- **História** — empresa familiar, estilo artesanal, ofício passado de uma geração
+  para a outra, parceria com escritório de arquitetura.
+- **Missão, visão e valores** — cinco valores, cada um com um comportamento
+  concreto em vez de um adjetivo. O quinto ocupa duas colunas, porque cinco
+  cartões em três colunas deixariam uma célula vazia.
+- **Ficha técnica** — duas colunas, o que entra e o que não entra. É o bloco mais
+  afiado da página, e por isso mora na faixa escura, sozinho. **MDP não entra**:
+  é a primeira linha da coluna da recusa, e a recusa aparece de novo nos valores.
+  Uma marcenaria se define tanto pelo que usa quanto pelo que recusa.
+
+**Números inventados saíram.** A capa anunciava "+800 projetos" e "4,9 no Google",
+que eram invenção minha de protótipo. No lugar entraram três fatos que vêm da
+própria empresa: a idade, a recusa do MDP e a garantia com assistência técnica.
+A nota real do Google entra quando existir avaliação para citar.
+
 ## Decisões que valem explicar
 
 **As fotos que não existem.** O acervo do Gabriel ainda não chegou. Em vez de
