@@ -1,0 +1,198 @@
+
+/* ============================================================
+   A VITRINE — sistema claro, aninhado no documento escuro.
+   Decisão deliberada: o documento é a oficina; a loja é o
+   balcão sob luz de dia. Numa loja de madeira quem carrega a
+   cor é o produto, então a interface recua para papel e tinta.
+   Tokens próprios, prefixados --l-, sem vazar para o documento.
+   ============================================================ */
+.moldura{border:1px solid var(--veio);border-radius:10px;overflow:hidden;background:var(--nogueira2);
+  box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.moldura .barra{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bancada);
+  border-bottom:1px solid var(--veio)}
+.moldura .bolas{display:flex;gap:6px}
+.moldura .bolas i{width:10px;height:10px;border-radius:50%;background:var(--veio2)}
+.moldura .url{flex:1;display:flex;align-items:center;gap:8px;background:var(--nogueira2);border:1px solid var(--veio);
+  border-radius:20px;padding:5px 14px;font-family:var(--f-util);font-size:13px;color:var(--mut2);letter-spacing:.04em}
+.moldura .url svg{width:12px;height:12px;color:var(--folha);flex:none}
+.moldura .etiqueta{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.12em;font-size:11px;
+  color:var(--verniz);border:1px solid var(--veio2);border-radius:3px;padding:3px 8px;white-space:nowrap}
+
+.loja{
+  --l-papel:#FBF7F0; --l-cartao:#FFFFFF; --l-linha:#E6DBC8; --l-linha2:#D3C3A6;
+  --l-tinta:#241A12; --l-mut:#6E5A45; --l-mut2:#806B55;   /* calibrado por contraste: 5,06:1 no branco e 4,74:1 no papel */
+  --l-acento:#A66A15; --l-acento-forte:#7F4F0E; --l-acento-fraco:#FDF4E5;
+  --l-verde:#3D6B2F; --l-verde-fraco:#EFF5EA;
+  background:var(--l-papel);color:var(--l-tinta);font-family:var(--f-body);
+  font-size:15px;line-height:1.55;position:relative;isolation:isolate}
+.loja *{box-sizing:border-box}
+.loja h3,.loja h4,.loja h5{font-family:var(--f-disp);font-variation-settings:"SOFT" 40,"WONK" 1;color:var(--l-tinta);letter-spacing:-.01em}
+.loja a{color:var(--l-acento-forte)}
+/* O documento é escuro e pinta b/strong em creme claro; dentro da loja
+   isso desaparece no branco. Reancorado aqui, na fronteira dos dois mundos. */
+.loja b,.loja strong{color:inherit;font-weight:600}
+.l-carrinho .painel{padding:0}
+.loja :focus-visible{outline:2px solid var(--l-acento);outline-offset:2px}
+
+/* topo da loja */
+.l-topo{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--l-cartao);
+  border-bottom:1px solid var(--l-linha);position:sticky;top:0;z-index:5}
+.l-marca{display:flex;align-items:center;gap:10px;margin-right:auto;min-width:0}
+.l-marca .s{width:34px;height:34px;flex:none;border:1.5px solid var(--l-acento);border-radius:50%;
+  display:grid;place-items:center;color:var(--l-acento)}
+.l-marca b{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.12em;font-size:13px;color:var(--l-tinta);
+  display:block;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.l-marca span{font-family:var(--f-util);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--l-mut2)}
+.l-btn{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--l-linha2);background:var(--l-cartao);
+  color:var(--l-tinta);border-radius:5px;padding:8px 13px;cursor:pointer;font-family:var(--f-util);font-weight:600;
+  text-transform:uppercase;letter-spacing:.08em;font-size:12.5px;transition:background .16s,border-color .16s}
+.l-btn:hover{background:var(--l-acento-fraco);border-color:var(--l-acento)}
+.l-btn svg{width:15px;height:15px}
+.l-btn.forte{background:var(--l-acento-forte);border-color:var(--l-acento-forte);color:#FFF8EC}
+.l-btn.forte:hover{background:var(--l-acento)}
+.l-btn.zap{background:var(--l-verde);border-color:var(--l-verde);color:#F3F8EF}
+.l-btn.zap:hover{filter:brightness(1.12)}
+.l-btn[disabled]{opacity:.45;cursor:not-allowed}
+.l-cart-n{background:var(--l-acento-forte);color:#FFF8EC;border-radius:20px;min-width:19px;height:19px;
+  display:grid;place-items:center;font-size:11.5px;font-weight:700;padding:0 5px;font-variant-numeric:tabular-nums}
+.l-topo .l-btn.forte .l-cart-n{background:#FFF8EC;color:var(--l-acento-forte)}
+
+/* navegação interna da loja */
+.l-nav{display:flex;gap:4px;padding:12px 18px 0;background:var(--l-papel)}
+.l-nav button{flex:1;border:1px solid var(--l-linha);border-bottom:0;background:transparent;color:var(--l-mut);
+  border-radius:6px 6px 0 0;padding:11px 12px;cursor:pointer;font-family:var(--f-util);font-weight:600;
+  text-transform:uppercase;letter-spacing:.09em;font-size:13px}
+.l-nav button[aria-selected="true"]{background:var(--l-cartao);color:var(--l-tinta);border-color:var(--l-linha2);
+  box-shadow:inset 0 3px 0 var(--l-acento)}
+.l-tela{display:none;padding:20px 18px 26px;background:var(--l-cartao);border-top:1px solid var(--l-linha2)}
+.l-tela.on{display:block}
+
+/* filtros */
+.l-filtros{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:16px;scrollbar-width:none}
+.l-filtros::-webkit-scrollbar{display:none}
+.l-filtros button{flex:0 0 auto;border:1px solid var(--l-linha2);background:var(--l-papel);color:var(--l-mut);
+  border-radius:20px;padding:6px 14px;cursor:pointer;font-family:var(--f-util);font-weight:600;font-size:12.5px;
+  text-transform:uppercase;letter-spacing:.07em;white-space:nowrap}
+.l-filtros button[aria-pressed="true"]{background:var(--l-acento-forte);border-color:var(--l-acento-forte);color:#FFF8EC}
+
+/* vitrine */
+.l-vitrine{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+.l-prod{border:1px solid var(--l-linha);border-radius:8px;background:var(--l-cartao);overflow:hidden;
+  display:flex;flex-direction:column;transition:border-color .16s,transform .16s,box-shadow .16s}
+.l-prod:hover{border-color:var(--l-linha2);transform:translateY(-2px);box-shadow:0 8px 22px rgba(60,40,20,.10)}
+.l-foto{aspect-ratio:4/3;display:grid;place-items:center;position:relative;
+  background:linear-gradient(150deg,var(--t1c),var(--t2c));border-bottom:1px solid var(--l-linha)}
+.l-foto svg{width:56%;height:56%;color:rgba(36,26,18,.62)}
+.l-foto .tag{position:absolute;top:8px;left:8px;font-family:var(--f-util);font-size:10.5px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.09em;background:rgba(255,252,246,.94);color:var(--l-acento-forte);
+  border-radius:3px;padding:3px 7px}
+.l-prod .corpo{padding:12px 13px 13px;display:flex;flex-direction:column;gap:4px;flex:1}
+.l-prod h5{font-size:15.5px;font-weight:600;line-height:1.25}
+.l-prod .cat{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--l-mut2)}
+.l-preco{font-family:var(--f-disp);font-size:20px;font-weight:700;color:var(--l-acento-forte);
+  font-variant-numeric:tabular-nums;margin-top:auto;padding-top:8px}
+.l-preco small{font-family:var(--f-body);font-size:12.5px;font-weight:500;color:var(--l-mut2);letter-spacing:0}
+.l-prod .l-btn{width:100%;justify-content:center;margin-top:9px}
+
+/* ficha do produto */
+.l-ficha[hidden]{display:none}
+.l-ficha{position:fixed;inset:0;z-index:80;background:rgba(26,18,12,.72);
+  display:grid;place-items:center;padding:18px;backdrop-filter:blur(3px)}
+.l-ficha .caixa{background:var(--l-cartao);border-radius:10px;max-width:760px;width:100%;max-height:88vh;
+  overflow-y:auto;display:grid;grid-template-columns:1fr 1fr}
+.l-ficha .visual{background:linear-gradient(150deg,var(--t1c),var(--t2c));display:grid;place-items:center;min-height:230px}
+.l-ficha .visual svg{width:50%;height:50%;color:rgba(36,26,18,.62)}
+.l-ficha .dados{padding:22px}
+.l-ficha h4{font-size:23px;margin-bottom:4px}
+.l-ficha .cat{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.11em;font-size:11.5px;color:var(--l-mut2);margin-bottom:12px}
+.l-ficha .desc{font-size:14.5px;color:var(--l-mut);margin-bottom:16px}
+.l-opc{margin-bottom:14px}
+.l-opc h6{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.1em;font-size:11.5px;
+  color:var(--l-acento-forte);margin-bottom:7px;font-weight:600}
+.l-opc .escolhas{display:flex;flex-wrap:wrap;gap:7px}
+.l-opc button{border:1px solid var(--l-linha2);background:var(--l-papel);color:var(--l-tinta);border-radius:5px;
+  padding:7px 12px;cursor:pointer;font-size:13.5px;font-family:var(--f-body);display:flex;align-items:center;gap:7px}
+.l-opc button[aria-pressed="true"]{border-color:var(--l-acento-forte);background:var(--l-acento-fraco);
+  box-shadow:inset 0 0 0 1px var(--l-acento-forte)}
+.l-opc button i{width:13px;height:13px;border-radius:3px;border:1px solid rgba(36,26,18,.22);display:inline-block}
+.l-opc .delta{font-size:12px;color:var(--l-mut2);font-variant-numeric:tabular-nums}
+.l-total{border-top:1px solid var(--l-linha);padding-top:14px;margin-top:4px;
+  display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.l-total .v{font-family:var(--f-disp);font-size:30px;font-weight:800;color:var(--l-acento-forte);font-variant-numeric:tabular-nums}
+.l-total .parc{font-size:13px;color:var(--l-mut2)}
+.l-fechar{position:absolute;top:14px;right:14px;border:0;background:rgba(255,252,246,.92);border-radius:50%;
+  width:32px;height:32px;cursor:pointer;font-size:19px;line-height:1;color:var(--l-tinta)}
+
+/* carrinho */
+.l-carrinho[hidden]{display:none}
+.l-carrinho{position:fixed;inset:0;z-index:85;background:rgba(26,18,12,.72);display:flex;justify-content:flex-end}
+.l-carrinho .painel{background:var(--l-cartao);width:min(400px,100%);height:100%;display:flex;flex-direction:column}
+.l-carrinho .cab{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--l-linha)}
+.l-carrinho .cab h4{font-size:19px}
+.l-carrinho .itens{flex:1;overflow-y:auto;padding:14px 18px;display:grid;gap:12px;align-content:start}
+.l-item{display:grid;grid-template-columns:52px 1fr auto;gap:11px;align-items:start;
+  border-bottom:1px solid var(--l-linha);padding-bottom:12px}
+.l-item .mini{width:52px;height:52px;border-radius:5px;display:grid;place-items:center;
+  background:linear-gradient(150deg,var(--t1c),var(--t2c))}
+.l-item .mini svg{width:26px;height:26px;color:rgba(36,26,18,.6)}
+.l-item .nm{font-size:14.5px;font-weight:600;line-height:1.3}
+.l-item .op{font-size:12.5px;color:var(--l-mut2);line-height:1.35}
+.l-item .pr{font-family:var(--f-disp);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--l-acento-forte)}
+.l-item .qtd{display:flex;align-items:center;gap:6px;margin-top:6px}
+.l-item .qtd button{width:24px;height:24px;border:1px solid var(--l-linha2);background:var(--l-papel);
+  border-radius:4px;cursor:pointer;font-size:15px;line-height:1;color:var(--l-tinta)}
+.l-item .qtd span{font-variant-numeric:tabular-nums;font-size:13.5px;min-width:18px;text-align:center}
+.l-item .tirar{border:0;background:none;color:var(--l-mut2);cursor:pointer;font-size:12px;
+  text-decoration:underline;padding:0;margin-top:4px;font-family:var(--f-body)}
+.l-vazio{text-align:center;color:var(--l-mut2);padding:44px 20px;font-size:14.5px}
+.l-resumo{border-top:1px solid var(--l-linha2);padding:16px 18px;display:grid;gap:9px;background:var(--l-papel)}
+.l-linha{display:flex;justify-content:space-between;font-size:14px;color:var(--l-mut);font-variant-numeric:tabular-nums}
+.l-linha.total{font-family:var(--f-disp);font-size:21px;font-weight:800;color:var(--l-tinta);
+  border-top:1px solid var(--l-linha2);padding-top:10px;margin-top:2px}
+.l-resumo .l-btn{width:100%;justify-content:center}
+.l-selos{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:4px;
+  font-family:var(--f-util);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--l-mut2)}
+.l-selos span{display:inline-flex;align-items:center;gap:5px}
+.l-selos svg{width:12px;height:12px;color:var(--l-verde)}
+
+/* configurador de orçamento */
+.l-cfg{display:grid;gap:18px}
+.l-cfg .campo h6{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.1em;font-size:11.5px;
+  color:var(--l-acento-forte);margin-bottom:8px;font-weight:600}
+.l-cfg .opcoes{display:flex;flex-wrap:wrap;gap:8px}
+.l-cfg .opcoes button{border:1px solid var(--l-linha2);background:var(--l-papel);color:var(--l-tinta);
+  border-radius:6px;padding:9px 14px;cursor:pointer;font-size:14px;font-family:var(--f-body);display:flex;gap:8px;align-items:center}
+.l-cfg .opcoes button[aria-pressed="true"]{border-color:var(--l-acento-forte);background:var(--l-acento-fraco);
+  box-shadow:inset 0 0 0 1px var(--l-acento-forte);font-weight:600}
+.l-cfg .opcoes button svg{width:17px;height:17px;color:var(--l-acento-forte)}
+.l-cfg input[type=range]{width:100%;accent-color:var(--l-acento-forte);height:26px}
+.l-metros{display:flex;align-items:baseline;gap:8px;font-family:var(--f-disp);font-size:26px;font-weight:700;
+  color:var(--l-acento-forte);font-variant-numeric:tabular-nums}
+.l-metros small{font-family:var(--f-body);font-size:14px;color:var(--l-mut2);font-weight:400}
+.l-estimativa{background:var(--l-acento-fraco);border:1px solid var(--l-acento);border-radius:8px;padding:20px}
+.l-estimativa .rot{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.11em;font-size:11.5px;color:var(--l-acento-forte);font-weight:600}
+.l-estimativa .faixa{font-family:var(--f-disp);font-size:clamp(26px,5vw,36px);font-weight:800;line-height:1.1;
+  margin:8px 0 4px;font-variant-numeric:tabular-nums;color:var(--l-tinta)}
+.l-estimativa .obs{font-size:13.5px;color:var(--l-mut);line-height:1.5}
+.l-estimativa .l-btn{margin-top:14px;width:100%;justify-content:center}
+.l-passos{display:flex;gap:0;margin-top:14px;font-family:var(--f-util);font-size:11.5px;text-transform:uppercase;
+  letter-spacing:.07em;color:var(--l-mut2)}
+.l-passos div{flex:1;text-align:center;border-top:3px solid var(--l-linha2);padding-top:8px}
+.l-passos div.feito{border-top-color:var(--l-acento-forte);color:var(--l-acento-forte);font-weight:600}
+
+/* aviso de protótipo */
+.l-aviso{background:var(--l-tinta);color:#F4E9D8;padding:9px 18px;font-family:var(--f-util);font-size:12px;
+  text-transform:uppercase;letter-spacing:.09em;display:flex;align-items:center;gap:9px;justify-content:center;text-align:center}
+.l-aviso svg{width:14px;height:14px;flex:none;color:var(--mel)}
+
+@media(max-width:640px){
+  .l-ficha .caixa{grid-template-columns:1fr}
+  .l-vitrine{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .moldura .etiqueta{display:none}
+}
+@media print{
+  .moldura{box-shadow:none;break-inside:avoid}
+  .l-ficha,.l-carrinho{display:none !important}
+  .l-tela{display:block !important}
+  .l-nav button[aria-selected="false"]{opacity:.5}
+}

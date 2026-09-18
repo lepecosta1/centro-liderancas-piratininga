@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8">
+<!-- as fontes vêm embutidas da Fase 1: a rede desta máquina não alcança o Google Fonts -->
+<link rel="stylesheet" href="../../proposta-marcenaria-tatuape/fontes-embutidas.css">
+<style>
+*{margin:0;box-sizing:border-box}
+body{width:1200px;height:630px;overflow:hidden;background:#1A120C;position:relative;
+  font-family:"Barlow",sans-serif;color:#F4E9D8}
+.grao{position:absolute;inset:0;opacity:.5}
+.env{position:relative;height:100%;padding:64px 72px;display:flex;flex-direction:column;justify-content:space-between}
+.topo{display:flex;align-items:center;gap:18px}
+.selo{width:76px;height:76px;border:2.4px solid #E09A3A;border-radius:50%;display:grid;place-items:center;color:#F5C15C}
+.topo b{display:block;font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.15em;
+  font-size:29px;line-height:1.15}
+.topo span{display:block;font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.13em;
+  font-size:19px;color:#C0A88C}
+h1{font-family:"Fraunces",serif;font-size:74px;font-weight:600;line-height:1.06;letter-spacing:-.02em;max-width:19ch}
+h1 em{font-style:normal;color:#F5C15C}
+.sub{font-size:25px;color:#C0A88C;margin-top:20px;max-width:44ch;line-height:1.42}
+.pe{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.chip{border:1.4px solid #4A3527;background:#2A1E15;border-radius:5px;padding:9px 17px;
+  font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:18px;color:#C0A88C}
+.chip.forte{background:#E09A3A;border-color:#E09A3A;color:#1A120C;font-weight:600}
+</style></head><body>
+<svg class="grao" viewBox="0 0 1200 630" preserveAspectRatio="none">
+<defs><filter id="f" x="-6%" y="-6%" width="112%" height="112%">
+<feTurbulence type="fractalNoise" baseFrequency="0.0032 0.05" numOctaves="4" seed="17" result="r"/>
+<feDisplacementMap in="SourceGraphic" in2="r" scale="52" xChannelSelector="R" yChannelSelector="G"/></filter>
+<pattern id="a" width="1200" height="19" patternUnits="userSpaceOnUse">
+<rect width="1200" height="1.8" y="6" fill="#B47A3A"/><rect width="1200" height="0.9" y="12" fill="#8A5A2C"/></pattern></defs>
+<rect width="1200" height="630" fill="#1A120C"/>
+<g filter="url(#f)" opacity="0.5"><rect width="1200" height="630" fill="url(#a)"/></g></svg>
+<div class="env">
+  <div class="topo">
+    <span class="selo"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.4" stroke-linejoin="round"><path d="M4 16 16 4l4 4L8 20l-4-4Z"/><path d="m4 16 2 2"/></svg></span>
+    <span><b>Casa do Marceneiro</b><span>Tatuapé · São Paulo</span></span>
+  </div>
+  <div>
+    <h1>A madeira certa, <em>cortada para o seu espaço.</em></h1>
+    <p class="sub">Peças prontas com preço fechado, corte de chapa na medida e projeto sob medida
+      com visita técnica.</p>
+  </div>
+  <div class="pe">
+    <span class="chip forte">Prévia do novo site</span>
+    <span class="chip">Loja</span><span class="chip">Sob medida</span>
+    <span class="chip">Projetos</span><span class="chip">Oficina aberta</span>
+  </div>
+</div></body></html>
