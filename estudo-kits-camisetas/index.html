@@ -307,6 +307,16 @@ table.top td{vertical-align:middle}
 table.top td.lesson{font-size:13.5px;color:var(--ink-2);min-width:210px}
 table.top td:nth-child(2){min-width:150px}
 table.top td:nth-child(7){min-width:170px}
+/* sellers de entrada */
+table.ent{min-width:900px}
+table.ent th{white-space:normal;vertical-align:bottom}
+table.ent td{vertical-align:middle;font-size:13.5px}
+table.ent td:nth-child(1){min-width:150px}
+table.ent td:nth-child(2){min-width:140px}
+table.ent td:nth-child(5){min-width:150px}
+table.ent td .det{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-3);margin-top:3px}
+table.ent td .alvo{display:block;font-size:11px;margin-top:2px;white-space:nowrap}
+table.ent .mc{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
 
 /* matriz de viabilidade */
 table.matrix{min-width:760px}
@@ -438,7 +448,7 @@ body.pres .lead{font-size:21px}
   <div class="block">
     <div class="eyebrow">Veredito em uma frase</div>
     <h2 class="sec">Sim, dá margem. Em dois tamanhos de kit, não em quatro.</h2>
-    <p class="lead">A pergunta de agosto foi se um kit de 5 camisetas de algodão a R$&nbsp;90–100 fecha nos marketplaces. Não fecha: dá 3,0% de margem no melhor caso, com malha popular, e prejuízo em algodão penteado. Nesta revisão refizemos a conta para kits de 1, 3, 5 e 10 peças, nas três linhas de produto, contra 34 preços reais praticados em setembro de 2026, com uma exigência fixa: <strong>15% de margem de contribuição no mínimo</strong>.</p>
+    <p class="lead">A pergunta de agosto foi se um kit de 5 camisetas de algodão a R$&nbsp;90–100 fecha nos marketplaces. Não fecha: dá 3,0% de margem no melhor caso, com malha popular, e prejuízo em algodão penteado. Nesta revisão refizemos a conta para kits de 1, 3, 5 e 10 peças, nas três linhas de produto, contra 37 preços reais praticados em setembro de 2026, com uma exigência fixa: <strong>15% de margem de contribuição no mínimo</strong>.</p>
     <p class="lead">A fábrica ganha dinheiro na avulsa e no kit de 3. Nos kits de 5 e 10 o mercado paga R$&nbsp;20 a R$&nbsp;25 por peça. Para chegar a 15% nesse preço, a peça teria de sair da fábrica por <strong>R$&nbsp;9,86</strong>, abaixo até da linha Popular.</p>
   </div>
 
@@ -492,7 +502,7 @@ body.pres .lead{font-size:21px}
         <div class="legend"><span><i class="dot" style="background:var(--w4)"></i>Commodity</span><span><i class="dot" style="background:var(--s1)"></i>Básico com marca</span><span><i class="dot" style="background:var(--s2)"></i>Premium</span><span><i class="dot" style="background:var(--s3)"></i>Proposta da fábrica</span></div>
       </div>
       <div class="chartbox wide"><div id="ruler"></div></div>
-      <figcaption>Preço ao consumidor dividido pelo número de peças do kit. A faixa cinza (R$&nbsp;15 a R$&nbsp;30) é a zona de commodity, onde o preço é a única variável de decisão. Fontes na aba 03 e na lista de fontes da aba 12.</figcaption>
+      <figcaption>Preço ao consumidor dividido pelo número de peças do kit. A faixa cinza (R$&nbsp;15 a R$&nbsp;30) é a zona de commodity em algodão, onde o preço é a única variável de decisão; em poliéster dry fit ela desce a R$&nbsp;10 (aba 03). Fontes na aba 03 e na lista de fontes da aba 12.</figcaption>
     </figure>
   </div>
 
@@ -667,7 +677,7 @@ body.pres .lead{font-size:21px}
   <div class="block">
     <div class="eyebrow">Quem lidera em cada canal</div>
     <div class="grid g4">
-      <div class="card" style="border-top:3px solid var(--s1)"><h4 class="mini" style="color:var(--s1)">Mercado Livre</h4><p class="small"><strong>Zaroc, Hering, Old Rules, Malwee.</strong> Kit 5 a R$&nbsp;22–35 por peça e kit 3 com marca a R$&nbsp;47–52. Anúncios do topo com dezenas de milhares de avaliações.</p></div>
+      <div class="card" style="border-top:3px solid var(--s1)"><h4 class="mini" style="color:var(--s1)">Mercado Livre</h4><p class="small"><strong>Zaroc, Hering, Old Rules, Malwee.</strong> Kit 5 a R$&nbsp;22–35 por peça e kit 3 com marca a R$&nbsp;47–52. Em volume, lideram os kits dry fit da Veronz e da Sandrini, a R$&nbsp;10–15 por peça.</p></div>
       <div class="card" style="border-top:3px solid var(--s2)"><h4 class="mini" style="color:var(--s2)">Shopee</h4><p class="small"><strong>Lojas sem marca e Old Rules.</strong> Kit 3 a R$&nbsp;58,99 com 161 vendas por mês num anúncio. Preço decide; kit 10 aparece como "atacado revenda".</p></div>
       <div class="card" style="border-top:3px solid var(--s3)"><h4 class="mini" style="color:var(--s3)">TikTok Shop</h4><p class="small"><strong>Minimal Club e os kits "egípcio" e "peruano".</strong> Kit 4 a R$&nbsp;179,90 com 16 mil+ vendidos. Vende quem tem vídeo e afiliado.</p></div>
       <div class="card" style="border-top:3px solid var(--s4)"><h4 class="mini" style="color:var(--s4)">Loja própria</h4><p class="small"><strong>Insider, Minimal Club, Hering.</strong> Marca, garantia e recompra. Kits de 4 e 6 peças a R$&nbsp;115–128 por peça, com cupom no Pix.</p></div>
@@ -682,14 +692,52 @@ body.pres .lead{font-size:21px}
   <hr class="stitch">
 
   <div class="block pt">
+    <div class="eyebrow">Quem entra pelo preço</div>
+    <h2 class="sec">Cinco sellers de entrada, cada um com mais de 10 mil kits vendidos.</h2>
+    <p class="lead">O Top 10 mostra quem define o preço. Esta lista mostra quem leva o volume pela porta mais barata: os cinco anúncios de kit com prova pública de mais de 10 mil kits vendidos. A prova é o contador de vendidos do próprio anúncio ou o número de avaliações, que no Mercado Livre só quem comprou pode deixar.</p>
+
+    <div class="grid g3" style="margin:22px 0">
+      <div class="stat" style="--bar:var(--w4)"><div class="k">Kits vendidos, no mínimo</div><div class="v">220<small> mil</small></div><div class="d">Nos cinco anúncios somados, perto de 1 milhão de peças. Três dos cinco vendem poliéster, não algodão.</div></div>
+      <div class="stat" style="--bar:var(--w4)"><div class="k">Faturamento acumulado mínimo</div><div class="v">R$ 14<small> mi</small></div><div class="d">Kits vendidos × preço de setembro. É ordem de grandeza, não balanço.</div></div>
+      <div class="stat" style="--bar:var(--accent)"><div class="k">Custo máximo da peça da fábrica</div><div class="v">R$ 3,90<small> a 11,04</small></div><div class="d">Para vender ao preço deles com 15% no Mercado Livre. A linha Popular custa R$&nbsp;10,43.</div></div>
+    </div>
+
+    <div class="tablewrap">
+      <table class="ent">
+        <caption>Consulta entre 1º e 23 de setembro de 2026. Prova de volume: contador público de vendidos ou número de avaliações do anúncio. Faturamento mínimo = kits vendidos (piso) × preço de setembro. Custo máximo da peça = quanto a peça da fábrica poderia custar para vender o mesmo kit, ao mesmo preço, no Mercado Livre Clássico e ainda deixar 15%, com as premissas-padrão do estudo e a embalagem e o peso da linha Popular. A última coluna mostra a margem da Popular vendida a esse preço. Barras de R$ por peça na mesma escala do Top 10.</caption>
+        <thead><tr><th>Seller</th><th>Kit que puxa o volume</th><th class="n">Preço</th><th>R$ por peça</th><th>Prova de volume</th><th class="n">Faturamento mínimo</th><th class="n">Custo máximo da peça</th><th>A Popular a esse preço</th></tr></thead>
+        <tbody id="entrada-body"></tbody>
+      </table>
+    </div>
+
+    <figure style="margin:26px 0 8px">
+      <div class="chart-head">
+        <h4 class="mini" style="margin:0">Custo máximo por peça para 15% no ML, ao preço de cada seller de entrada</h4>
+        <div class="legend"><span><i style="background:var(--w3)"></i>Custo máximo</span><span><i class="ln dash" style="border-top-color:var(--ink-3)"></i>Custo estimado das linhas</span></div>
+      </div>
+      <div class="chartbox wide"><div id="entrada-alvo"></div></div>
+      <figcaption>A mesma conta da aba 04, aplicada ao preço de cada seller: (preço × 85% − comissão, mídia, imposto, devolução e custo logístico do kit − embalagem do kit) ÷ peças. Abaixo de R$&nbsp;79, o Mercado Livre cobra custo operacional por peso no lugar do frete. Kit de 4 peças usa a embalagem do kit de 3, a mesma regra da planilha.</figcaption>
+    </figure>
+
+    <div class="note" style="margin-top:18px">
+      <div class="h">O que isso diz para a fábrica</div>
+      <p>A porta de entrada é a maior em volume e a mais estreita em custo. <strong>Os dois líderes vendem poliéster a R$&nbsp;10–15 por peça.</strong> Para acompanhar esse preço com 15%, a peça da fábrica teria que custar R$&nbsp;3,90 (Veronz) ou R$&nbsp;6,35 (Sandrini), menos do que só a malha da camiseta Essencial. Nos kits de algodão da SHEIN e da Old Rules, perto de R$&nbsp;20 por peça, a Popular fica em 5%. <strong>Só no preço da Seven Line, R$&nbsp;24,63 por peça, a Popular passa de 15%</strong>, e é o mesmo degrau do kit 3 Popular a R$&nbsp;74,90 sugerido na aba 05.</p>
+      <p>A fábrica não entra pelo preço. Disputar esse volume seria outra decisão: uma linha dry fit de poliéster com a peça custando de R$&nbsp;4 a R$&nbsp;6. Se o Roberto quiser abrir essa porta, ela merece um estudo próprio.</p>
+    </div>
+    <p class="footnote">Fontes: Mais vendidos do Mercado Livre em Camisetas e Regatas e anúncios das lojas Veronz, Sandrini, Seven Line e Old Rules; perfil da Veronz no Threads (MercadoLíder Platinum, 250 mil+ vendas); Grupo Sandrini (site e LinkedIn); cnpj.biz (Old Rules Roupas, Arapongas/PR); Radar de Produtos Almeida Bueno, 20/08/2026 (SHEIN). Contadores e preços mudam todo dia: os números são o retrato da consulta.</p>
+  </div>
+
+  <hr class="stitch">
+
+  <div class="block pt">
     <div class="eyebrow">O campo de batalha</div>
     <h2 class="sec">Você não compete com uma marca. Compete com três mercados diferentes.</h2>
     <p>"Camiseta básica de algodão" parece uma categoria, mas são três mercados que quase não se tocam, com clientes, canais e lógicas econômicas distintas. Entrar sem escolher um deles é a forma mais rápida de perder dinheiro.</p>
     <div class="grid g3" style="margin-top:20px">
       <div class="card" style="border-top:3px solid var(--w4)">
         <h4 class="mini">Mercado 1 · Commodity</h4>
-        <h3 class="sub">R$ 15 a R$ 30 por peça</h3>
-        <p class="small">Kits de 3 a 10 peças por R$&nbsp;47–150 (SHEIN, lojas da Shopee, UP Básico) e avulsa de R$&nbsp;15 a R$&nbsp;40. Foto em manequim, título com 12 palavras-chave. Decisão 100% por preço e frete.</p>
+        <h3 class="sub">R$ 10 a R$ 30 por peça</h3>
+        <p class="small">Kits de algodão de 3 a 10 peças por R$&nbsp;47–196 (SHEIN, Old Rules, lojas da Shopee, UP Básico), kits dry fit de poliéster por R$&nbsp;50–60 (Veronz, Sandrini) e avulsa de R$&nbsp;15 a R$&nbsp;40. Foto em manequim, título com 12 palavras-chave. Decisão 100% por preço e frete.</p>
         <p class="small"><strong>Quem ganha:</strong> quem produz a peça por menos de R$&nbsp;9. <strong>A fábrica não vence aqui.</strong></p>
       </div>
       <div class="card" style="border-top:3px solid var(--s1)">
@@ -767,7 +815,7 @@ body.pres .lead{font-size:21px}
   <div class="block">
     <div class="eyebrow">Análise fria · preço × quantidade</div>
     <h2 class="sec">Cada tamanho de kit é um cliente diferente.</h2>
-    <p class="lead">O kit não é desconto por volume. É um formato que escolhe o comprador. Quem compra uma peça está experimentando; quem compra três está montando a semana; quem compra cinco está caçando preço; quem compra dez, quase sempre, vai revender. Cada um aceita pagar um preço diferente por peça, e os 34 preços coletados em setembro mostram exatamente onde fica cada degrau.</p>
+    <p class="lead">O kit não é desconto por volume. É um formato que escolhe o comprador. Quem compra uma peça está experimentando; quem compra três está montando a semana; quem compra cinco está caçando preço; quem compra dez, quase sempre, vai revender. Cada um aceita pagar um preço diferente por peça, e os 37 preços coletados em setembro mostram exatamente onde fica cada degrau.</p>
   </div>
 
   <div class="block">
@@ -787,8 +835,8 @@ body.pres .lead{font-size:21px}
       <div class="persona">
         <div class="kitn">5<span>peças</span></div>
         <h3>O caçador de preço</h3>
-        <div class="rng">Mercado: R$ 22–35/peça com marca · R$ 8–13 no sintético</div>
-        <p>O preço por peça cai pela metade. Quem ganha é a escala: Zaroc a R$&nbsp;24,60 e a própria Hering a R$&nbsp;22 no Pix.</p>
+        <div class="rng">Mercado: R$ 22–35/peça com marca · R$ 8–15 no sintético</div>
+        <p>O preço por peça cai pela metade. Quem ganha é a escala: Zaroc a R$&nbsp;24,60 e a própria Hering a R$&nbsp;22 no Pix. No sintético, Veronz e Sandrini somam mais de 150 mil kits a R$&nbsp;10–15 por peça.</p>
       </div>
       <div class="persona">
         <div class="kitn">10<span>peças</span></div>
@@ -818,7 +866,7 @@ body.pres .lead{font-size:21px}
         </div>
       </div>
       <div class="chartbox wide"><div id="kitschart"></div></div>
-      <figcaption>Pontos: preço praticado ÷ peças, 34 ofertas de setembro de 2026 (kits de 4 e 6 peças aparecem na posição real). Duas ofertas premium ficam acima da escala (We Basic Pima a R$&nbsp;298 e Calvin Klein a R$&nbsp;329, avulsas). Linhas: piso de 15% no Mercado Livre Clássico com as premissas-padrão do estudo (as mesmas da aba 09 ao abrir a página). Passe o mouse para ver cada oferta.</figcaption>
+      <figcaption>Pontos: preço praticado ÷ peças, 37 ofertas de setembro de 2026 (kits de 4 e 6 peças aparecem na posição real). Duas ofertas premium ficam acima da escala (We Basic Pima a R$&nbsp;298 e Calvin Klein a R$&nbsp;329, avulsas). Linhas: piso de 15% no Mercado Livre Clássico com as premissas-padrão do estudo (as mesmas da aba 09 ao abrir a página). Passe o mouse para ver cada oferta.</figcaption>
     </figure>
   </div>
 
@@ -1755,7 +1803,7 @@ body.pres .lead{font-size:21px}
       </div>
       <div>
         <h4 class="mini">Preços e sellers · setembro de 2026</h4>
-        <p class="src">Hering: hering.com.br, InfoMoney, Bloomberg Línea, FFW, Revista Business, Money Report · Lojas oficiais e revendas no Mercado Livre (Zaroc, Old Rules, Malwee, Hering, Polo Wear) · Magazine Luiza, Zattini, Dafiti, Netshoes e Amazon · Insider (insiderstore.com.br, Exame, Bloomberg Línea) · Minimal Club (minimalclub.com.br, Exame, Startups) · Riachuelo · Radar de Produtos Almeida Bueno, 20/08/2026 (SHEIN e Shopee) · TikTok Shop · UP Básico · Upurbano · ofertas registradas no Pelando e no Vupt.</p>
+        <p class="src">Hering: hering.com.br, InfoMoney, Bloomberg Línea, FFW, Revista Business, Money Report · Lojas oficiais e revendas no Mercado Livre (Zaroc, Old Rules, Malwee, Hering, Polo Wear) · Magazine Luiza, Zattini, Dafiti, Netshoes e Amazon · Insider (insiderstore.com.br, Exame, Bloomberg Línea) · Minimal Club (minimalclub.com.br, Exame, Startups) · Riachuelo · Radar de Produtos Almeida Bueno, 20/08/2026 (SHEIN e Shopee) · TikTok Shop · UP Básico · Upurbano · ofertas registradas no Pelando e no Vupt · Mais vendidos do Mercado Livre em Camisetas e Regatas e lojas Veronz, Sandrini e Seven Line · perfil da Veronz no Threads · Grupo Sandrini (site e LinkedIn) · cnpj.biz (Old Rules Roupas, Arapongas/PR).</p>
       </div>
       <div>
         <h4 class="mini">Mercado e contexto</h4>
@@ -1772,7 +1820,7 @@ body.pres .lead{font-size:21px}
     <h3 class="sub">O que mudou da Rev. 01 (agosto) para a Rev. 02 (outubro)</h3>
     <ul class="chk">
       <li>Kits de 1, 3, 5 e 10 peças para as três linhas, com o preço mínimo de 15% em cada canal e o preço de prateleira sugerido (abas 04 e 05).</li>
-      <li>Benchmark com 34 preços reais de setembro de 2026 e os 10 nomes que definem o preço (aba 03).</li>
+      <li>Benchmark com 37 preços reais de setembro de 2026, os 10 nomes que definem o preço e os 5 sellers de entrada com mais de 10 mil kits vendidos cada (aba 03).</li>
       <li>Cartela de cores com núcleo, tendência e o lote de lançamento por cor e tamanho (aba 06); ficha de modelagem com desenho técnico, tabela de medidas e grade de produção (aba 07).</li>
       <li>Embalagem separada em individual (na peça) e do kit (no pedido): o custo por peça da Essencial passa de R$&nbsp;22,06 para R$&nbsp;20,52, mais R$&nbsp;1,50 a R$&nbsp;7,50 de embalagem por kit.</li>
       <li>Frete do Mercado Livre pela tabela de reputação verde de 2026, por peso do pacote e faixa de preço, no lugar dos R$&nbsp;19 fixos. É por isso que o kit de 5 a R$&nbsp;99 passa de −3,9% para +3,0%: continua muito abaixo de 15%.</li>
@@ -1844,7 +1892,9 @@ const PERDAS = 3;
 Object.values(LINHAS).forEach(l=>{ l.custo = r2((l.kg*l.rkg + l.aviam + l.faccao + l.embInd)*(1+PERDAS/100)); });
 const KITS = [1,3,5,10];
 const EMB_PESO = {1:0.03,3:0.08,5:0.10,10:0.14};
-const embPeso = n => EMB_PESO[n] !== undefined ? EMB_PESO[n] : (n<=1?0.03 : n<=3?0.08 : n<=5?0.10 : 0.14);
+const kitPadrao = n => KITS.filter(k=>k<=n).pop() || 1;   // kit fora de 1, 3, 5 e 10: usa o tamanho padrão imediatamente menor, como a planilha
+const embPeso = n => EMB_PESO[kitPadrao(n)];
+const embKitDe = (L, n) => L.embKit[kitPadrao(n)];
 
 const PESO_FX  = [0.3,0.5,1,1.5,2,3];
 const PESO_LBL = ['até 0,3 kg','0,3–0,5 kg','0,5–1 kg','1–1,5 kg','1,5–2 kg','2–3 kg'];
@@ -1877,7 +1927,7 @@ const PADRAO = { aliq:4.5, devol:5, fixo:13000, mlcom:14, mlads:6, shfrete:0, sh
 function entrada(linha, n, preco, base, extra){
   const L = LINHAS[linha];
   return Object.assign({}, base || PADRAO,
-    {custo:L.custo, pecas:n, embKit:L.embKit[n], preco:preco, peso:r2(n*L.peso + embPeso(n)),
+    {custo:L.custo, pecas:n, embKit:embKitDe(L, n), preco:preco, peso:r2(n*L.peso + embPeso(n)),
      autoMlFrete:true, autoMlFixo:true, autoLpFrete:true}, extra||{});
 }
 
@@ -1960,6 +2010,7 @@ const BENCH = [
   {n:3,p:49.59,t:'m',m:'Hering kit 3 slim',c:'Mercado Livre',s:'oferta registrada'},
   {n:3,p:58.99,t:'c',m:'Kit 3 loja Shopee',c:'Shopee',s:'161 vendas/mês'},
   {n:3,p:59.90,t:'c',m:'SHEIN kit 3',c:'SHEIN',s:'1º mais vendido, 10 mil+'},
+  {n:3,p:59.90,t:'c',m:'Sandrini kit 3 algodão',c:'Mercado Livre',s:'+10 mil vendidos'},
   {n:3,p:69.90,t:'c',m:'Old Rules kit 3 lisa',c:'Mercado Livre',s:'loja oficial'},
   {n:3,p:70.00,t:'m',m:'Hering kit 3 slim',c:'Mercado Livre',s:'oferta registrada'},
   {n:3,p:99.98,t:'m',m:'Upurbano kit 3',c:'Loja própria',s:'algodão premium'},
@@ -1968,6 +2019,8 @@ const BENCH = [
   {n:3,p:156.99,t:'m',m:'Malwee kit 3',c:'Mercado Livre',s:'100% algodão'},
   {n:3,p:166.36,t:'p',m:'Insider kit 3',c:'Loja própria',s:'Pix com cupom'},
   {n:5,p:38.86,t:'c',m:'Kit 5 "não amassa"',c:'Mercado Livre',s:'poliéster, oferta'},
+  {n:5,p:49.70,t:'c',m:'Veronz kit 5 dry fit',c:'Mercado Livre',s:'1º mais vendido da categoria'},
+  {n:4,p:59.99,t:'c',m:'Sandrini kit 4 dry fit',c:'Mercado Livre',s:'+50 mil vendidos'},
   {n:5,p:63.00,t:'c',m:'Kit 5 100% algodão',c:'Mercado Livre',s:'oferta registrada'},
   {n:4,p:68.00,t:'c',m:'Kit 4 algodão premium',c:'Amazon',s:'oferta registrada'},
   {n:5,p:109.99,t:'m',m:'Hering kit 5',c:'Magalu, Zattini',s:'Pix'},
@@ -2105,7 +2158,7 @@ function aplicarPreset(){
   const n = Math.max(1, Math.round(num('i-pecas')));
   const L = LINHAS[linhaAtual];
   $('#i-custo').value = L.custo.toFixed(2);
-  if(L.embKit[n] !== undefined) $('#i-emb').value = L.embKit[n].toFixed(2);
+  $('#i-emb').value = embKitDe(L, n).toFixed(2);
   AUTO.forEach(id=>{ delete document.getElementById(id).dataset.manual; });
   const t = precoDeTabela(linhaAtual, n);
   if(t.p){ $('#i-preco').value = t.p.toFixed(2); $('#u-preco').textContent = t.lbl; }
@@ -2491,6 +2544,71 @@ function drawKitsChart(){
   bindTips(el);
 }
 
+/* 03 · sellers de entrada com mais de 10 mil kits */
+const ENTRADA = [
+  {s:'Veronz',     q:'Loja oficial · MercadoLíder Platinum, 250 mil+ vendas', k:'kit 5 dry fit', o:'Kit 5 dry fit', f:'100% poliéster',             c:'ML', n:5,  p:49.70,  v:100000, prova:'1º mais vendido da categoria · até 102 mil avaliações por anúncio'},
+  {s:'Sandrini',   q:'São João da Boa Vista/SP · melhor loja de roupas do ML em 2022', k:'kit 4 dry fit', o:'Kit 4 dry fit', f:'100% poliéster',             c:'ML', n:4,  p:59.99,  v:50000,  prova:'+50 mil vendidos · 21 mil avaliações'},
+  {s:'Seven Line', q:'Loja oficial no Mercado Livre',                         k:'kit 3 térmica', o:'Kit 3 térmica segunda pele', f:'93% poliéster, 7% elastano', c:'ML', n:3,  p:73.90,  v:50000,  prova:'Mais vendido · 54,7 mil avaliações'},
+  {s:'SHEIN',      q:'Marca própria no app da SHEIN',                         k:'kit 3 algodão', o:'Kit 3 masculino', f:'algodão',                    c:'SHEIN',         n:3,  p:59.90,  v:10000,  prova:'1º mais vendido da categoria · 10 mil+ vendidos'},
+  {s:'Old Rules',  q:'Fábrica própria em Arapongas/PR, desde 2020',          k:'kit 10 algodão', o:'Kit 10', f:'100% algodão 30.1',          c:'ML', n:10, p:195.63, v:10000,  prova:'+10 mil vendidos · nota 4,6'}
+];
+function calcEntrada(e){
+  const L = LINHAS.pop;
+  const i = entrada('pop', e.n, e.p, null, {embKit:embKitDe(L, e.n)});
+  const ch = canal(i, 'ml', e.p);
+  const nao = ch.custoTotal - ch.itens['CMV'];
+  return {alvo:(e.p*0.85 - nao - i.embKit)/e.n, eq:(e.p - nao - i.embKit)/e.n, mcp:ch.mcp, fat:e.v*e.p};
+}
+const brlMi = v => 'R$ ' + nf1.format(v/1e6) + ' mi';
+function renderEntrada(){
+  const tb = $('#entrada-body'); if(!tb) return;
+  let kits = 0, pecas = 0, fat = 0;
+  tb.innerHTML = ENTRADA.map(e=>{
+    const r = calcEntrada(e), pp = e.p/e.n, st = statusMC(r.mcp), d = r.alvo - LINHAS.pop.custo;
+    kits += e.v; pecas += e.v*e.n; fat += r.fat;
+    return '<tr><td><div class="who">'+e.s+'<small>'+e.q+'</small></div></td>'
+      + '<td>'+e.o+'<span class="det">'+e.f+' · '+e.c+'</span></td>'
+      + '<td class="n">'+nf2.format(e.p)+'</td>'
+      + '<td><div class="ibar" style="--c:var(--w4)"><i style="width:'+Math.max(2,Math.round(pp*0.75))+'px"></i>'+nf2.format(pp)+'</div></td>'
+      + '<td>'+e.prova+'</td>'
+      + '<td class="n">'+brlMi(r.fat)+'</td>'
+      + '<td class="n"><strong>'+brl(r.alvo)+'</strong><span class="alvo" style="color:'+(d>=0?'var(--good)':'var(--crit)')+'">'+(d>=0?'folga de ':'faltam ')+brl(Math.abs(d))+'</span></td>'
+      + '<td><div class="mc"><span class="pill '+st.cls+'">'+st.txt+'</span><span class="mono" style="font-size:12px">'+(r.mcp<0?'−':'')+nf1.format(Math.abs(r.mcp))+'%</span></div></td></tr>';
+  }).join('')
+  + '<tr class="total"><td>Os cinco anúncios</td><td colspan="3">'+nf0.format(pecas/1000)+' mil peças, no mínimo</td><td>'+nf0.format(kits/1000)+' mil kits vendidos, no mínimo</td><td class="n">'+brlMi(fat)+'</td><td class="n">—</td><td>—</td></tr>';
+}
+function drawEntrada(){
+  const el = $('#entrada-alvo'); if(!el) return;
+  const casos = ENTRADA.map(e=>Object.assign({}, e, calcEntrada(e)));
+  const W=920, rowH=52, top=40, H=top+casos.length*rowH+18, x0=230, x1=880, MAX=25;
+  const X = v => x0 + Math.max(0,v)/MAX*(x1-x0);
+  let s = svgOpen(W,H,'Custo máximo por peça para a fábrica vender ao preço de cada seller de entrada com 15% de margem');
+  [0,5,10,15,20,25].forEach(v=>{ s += '<line x1="'+X(v)+'" y1="'+(top-6)+'" x2="'+X(v)+'" y2="'+(H-14)+'" class="gridline"></line><text class="lbl" x="'+X(v)+'" y="'+(H-2)+'" text-anchor="middle" font-size="10">R$ '+v+'</text>'; });
+  let rotulos = '', alvos = '';
+  const custo = LINHAS.pop.custo;
+  casos.forEach((c,k)=>{
+    const y = top + k*rowH + 10, h = 22;
+    rotulos += '<text class="val" x="'+(x0-14)+'" y="'+(y+9)+'" text-anchor="end" font-size="12" font-weight="600">'+c.s+'</text>';
+    rotulos += '<text class="lbl" x="'+(x0-14)+'" y="'+(y+23)+'" text-anchor="end" font-size="10">'+c.k+' · '+brl(c.p)+'</text>';
+    s += '<rect x="'+x0+'" y="'+y+'" width="'+Math.max(2,X(c.alvo)-x0)+'" height="'+h+'" fill="var(--w3)" rx="2"></rect>';
+    const d = c.alvo - custo;
+    const txt = (d>=0?'✓ folga de ':'✗ faltam ')+brl(Math.abs(d))+(d>=0?' sobre a Popular':' para a Popular');
+    const tx = X(c.alvo)+8, wBox = Math.max(brl(c.alvo).length*7.4, txt.length*6.2)+8;
+    alvos += '<rect x="'+(tx-4)+'" y="'+(y-3)+'" width="'+wBox+'" height="30" fill="var(--ground)" rx="2"></rect>';
+    alvos += '<text class="val" x="'+tx+'" y="'+(y+10)+'" font-size="12" font-weight="600">'+brl(c.alvo)+'</text>';
+    alvos += '<text class="lbl" x="'+tx+'" y="'+(y+23)+'" font-size="10" fill="'+(d>=0?'var(--good)':'var(--crit)')+'">'+txt+'</text>';
+    alvos += '<rect x="'+x0+'" y="'+y+'" width="'+(x1-x0)+'" height="'+h+'" fill="transparent" data-tip="'+c.s+' · '+c.o+' a '+brl(c.p)+'\nCusto máximo por peça para 15%: '+brl(c.alvo)+'\nCusto para empatar (margem zero): '+brl(c.eq)+'\nPopular a esse preço: '+nf1.format(c.mcp)+'% de margem"></rect>';
+  });
+  ['pop','ess'].forEach(l=>{
+    const x = X(LINHAS[l].custo);
+    s += '<line x1="'+x+'" y1="'+(top-4)+'" x2="'+x+'" y2="'+(H-14)+'" stroke="var(--ink-3)" stroke-width="1.2" stroke-dasharray="4 4"></line>';
+    s += '<text class="lbl" x="'+x+'" y="'+(top-12)+'" text-anchor="middle" font-size="10" fill="var(--ink-2)">'+LINHAS[l].nome+' '+nf2.format(LINHAS[l].custo)+'</text>';
+  });
+  s += rotulos + alvos;
+  el.innerHTML = s + '</svg>';
+  bindTips(el);
+}
+
 /* 04 · matriz de viabilidade */
 const REFS = {
   pop:{1:{nome:'Old Rules avulsa', p:33.55}, 3:{nome:'Old Rules kit 3 lisa', p:69.90}, 5:{nome:'Zaroc kit 5', p:123.01}, 10:{nome:'Old Rules kit 10', p:224.99}},
@@ -2714,7 +2832,7 @@ function drawProjTable(){
 
 /* ═══════════ LIGAÇÕES ═══════════ */
 function desenharEstaticos(){
-  drawRuler(); drawShare(); drawMapa(); drawKitsChart(); drawMatriz(); drawAlvo(); drawDegrau(); drawLote(); drawGrade(); drawProj(); drawProjTable();
+  drawRuler(); drawShare(); drawMapa(); drawKitsChart(); renderEntrada(); drawEntrada(); drawMatriz(); drawAlvo(); drawDegrau(); drawLote(); drawGrade(); drawProj(); drawProjTable();
 }
 
 $$('#ctl input').forEach(el=>{
