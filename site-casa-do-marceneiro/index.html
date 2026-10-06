@@ -4,22 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#1A120C">
-  <meta name="description" content="Marcenaria propria no Tatuape desde 2009: pecas prontas com preco fechado, corte de chapa na medida e projeto sob medida com visita tecnica.">
+  <meta name="description" content="Marcenaria familiar no Tatuapé desde 1980: peças prontas com preço fechado, corte de chapa na medida e projeto sob medida com visita técnica. Madeira maciça e MDF, nunca MDP.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="Casa do Marceneiro Tatuapé">
   <meta property="og:title" content="Casa do Marceneiro Tatuapé">
-  <meta property="og:description" content="Marcenaria propria no Tatuape desde 2009: pecas prontas com preco fechado, corte de chapa na medida e projeto sob medida com visita tecnica.">
+  <meta property="og:description" content="Marcenaria familiar no Tatuapé desde 1980: peças prontas com preço fechado, corte de chapa na medida e projeto sob medida com visita técnica. Madeira maciça e MDF, nunca MDP.">
   <meta property="og:url" content="https://lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/">
-  <meta property="og:image" content="https://lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/capa-link.png">
+  <meta property="og:image" content="https://lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/capa-link.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/capa-link.png">
-  <link rel="icon" type="image/png" href="../proposta-marcenaria-tatuape/icone.png">
-  <link rel="apple-touch-icon" href="../proposta-marcenaria-tatuape/icone.png">
+  <meta name="twitter:image" content="https://lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/capa-link.jpg">
+  <link rel="preload" as="image" href="fotos/capa-1600.webp" imagesrcset="fotos/capa-960.webp 960w, fotos/capa-1600.webp 1600w, fotos/capa-2400.webp 2400w" imagesizes="(orientation: portrait) and (min-width: 761px) 150vh, 100vw" fetchpriority="high">
+  <link rel="icon" type="image/svg+xml" href="marca/icone.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="marca/favicon-32.png">
+  <link rel="apple-touch-icon" href="marca/apple-touch-icon.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FurnitureStore", "name": "Casa do Marceneiro Tatuapé", "description": "Marcenaria familiar no Tatuapé desde 1980: peças prontas com preço fechado, corte de chapa na medida e projeto sob medida com visita técnica. Madeira maciça e MDF, nunca MDP.", "url": "https://lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/", "logo": "https://lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/marca/icone-512.png", "image": "https://lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/capa-link.jpg", "telephone": "+55 11 94752-3961", "email": "contato@marceneirotatuape.com.br", "foundingDate": "1980", "address": {"@type": "PostalAddress", "streetAddress": "Rua Tuiuti, 2530, cj. 42", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR"}, "areaServed": "São Paulo"}</script>
   <title>Casa do Marceneiro Tatuapé</title>
 <style>
 /* Fontes embutidas: Fraunces (display), Barlow (texto), Barlow Condensed (etiquetas) */
@@ -146,6 +149,8 @@
 
   /* apoios */
   --verde:#3D6B2F;   --verde-fraco:#EFF5EA;  --verde-vivo:#84B96B;
+  /* verde do WhatsApp, escurecido até o texto claro passar de 5:1 */
+  --zap:#1C7C43;     --zap-forte:#166A37;
   --brasa:#A33A22;   --brasa-fraca:#FBEDE9;
 
   --f-disp:"Fraunces",Georgia,"Times New Roman",serif;
@@ -218,8 +223,8 @@ h3[tabindex="-1"]:focus-visible,h4[tabindex="-1"]:focus-visible{outline:none}
 .btn svg{width:17px;height:17px;flex:none}
 .btn.forte{background:var(--acento-forte);border-color:var(--acento-forte);color:#FFF8EC}
 .btn.forte:hover{background:var(--acento);border-color:var(--acento)}
-.btn.zap{background:var(--verde);border-color:var(--verde);color:#F3F8EF}
-.btn.zap:hover{background:#487d37;border-color:#487d37}
+.btn.zap{background:var(--zap);border-color:var(--zap);color:#F3FBF6}
+.btn.zap:hover{background:var(--zap-forte);border-color:var(--zap-forte)}
 .btn.vazado{background:transparent;border-color:var(--veio2);color:var(--claro)}
 .btn.vazado:hover{background:rgba(244,233,216,.09);border-color:var(--mel);color:var(--mel)}
 .btn.peq{padding:8px 13px;font-size:13px}
@@ -241,23 +246,26 @@ h3[tabindex="-1"]:focus-visible,h4[tabindex="-1"]:focus-visible{outline:none}
 .aviso button:hover{color:var(--claro)}
 
 /* ---------- topo ---------- */
-.topo{position:sticky;top:0;z-index:40;background:rgba(251,247,240,.94);
-  backdrop-filter:saturate(1.5) blur(9px);border-bottom:1px solid var(--linha)}
-.topo .env{display:flex;align-items:center;gap:16px;padding-top:12px;padding-bottom:12px}
-.marca{display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit;margin-right:auto;min-width:0}
-.marca .selo{width:40px;height:40px;flex:none;border:1.6px solid var(--acento);border-radius:50%;
-  display:grid;place-items:center;color:var(--acento-forte);background:var(--acento-fraco)}
-.marca b{display:block;font-family:var(--f-util);text-transform:uppercase;letter-spacing:.13em;
-  font-size:15px;line-height:1.2;color:var(--tinta);font-weight:600;white-space:nowrap}
-.marca .sub-marca{display:block;font-family:var(--f-util);text-transform:uppercase;letter-spacing:.11em;
-  font-size:11.5px;color:var(--mut2)}
+/* o logo da casa é madeira clara sobre fundo escuro: o topo veste a nogueira para recebê-lo */
+.topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(26,18,12,.96);
+  backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid rgba(244,233,216,.09)}
+.topo .env{display:flex;align-items:center;gap:16px;padding-top:10px;padding-bottom:10px}
+.marca{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;margin-right:auto;flex:none}
+.marca .logo{display:block;height:50px;width:auto;flex:none}
+.marca .sub-marca{display:block;font-family:var(--f-util);text-transform:uppercase;letter-spacing:.13em;
+  font-size:11.5px;line-height:1.35;color:var(--claro-mut);padding-left:14px;border-left:1px solid var(--veio)}
 .nav{display:flex;gap:2px}
-.nav a{position:relative;padding:9px 13px;border-radius:5px;text-decoration:none;color:var(--mut);
+.nav a{position:relative;padding:9px 12px;border-radius:5px;text-decoration:none;color:var(--claro-mut);
   font-family:var(--f-util);font-weight:600;text-transform:uppercase;letter-spacing:.09em;font-size:14.5px}
-.nav a:hover{color:var(--tinta);background:var(--acento-fraco)}
-.nav a[aria-current="page"]{color:var(--tinta)}
-.nav a[aria-current="page"]::after{content:"";position:absolute;left:13px;right:13px;bottom:2px;
-  height:2px;background:var(--acento);border-radius:2px}
+.nav a:hover{color:var(--claro);background:rgba(244,233,216,.07)}
+.nav a[aria-current="page"]{color:var(--claro)}
+.nav a[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;
+  height:2px;background:var(--mel);border-radius:2px}
+.topo .btn{background:transparent;border-color:var(--veio2);color:var(--claro)}
+.topo .btn:hover{background:rgba(244,233,216,.08);border-color:var(--mel);color:var(--mel)}
+.topo .btn.bzap{background:var(--zap);border-color:var(--zap);color:#F3FBF6}
+.topo .btn.bzap:hover{background:var(--zap-forte);border-color:var(--zap-forte);color:#fff}
+.bzap svg{width:18px;height:18px}
 .acoes{display:flex;align-items:center;gap:8px}
 .bcart{position:relative}
 .bcart .n{position:absolute;top:-6px;right:-6px;background:var(--brasa);color:#FFF4F0;border-radius:20px;
@@ -278,6 +286,12 @@ h3[tabindex="-1"]:focus-visible,h4[tabindex="-1"]:focus-visible{outline:none}
   font-family:var(--f-util);text-transform:uppercase;letter-spacing:.1em;font-size:17px;font-weight:600;
   border-bottom:1px solid var(--linha)}
 .gaveta-menu .corpo a:hover{background:var(--acento-fraco)}
+.gaveta-menu .corpo a.gav-zap{margin-top:auto;display:flex;align-items:center;gap:12px;border:0;
+  background:var(--zap);color:#F3FBF6;border-radius:9px;padding:13px 16px;text-transform:none;letter-spacing:0;
+  font-family:var(--f-body);font-size:16px;font-weight:600;line-height:1.25}
+.gaveta-menu .corpo a.gav-zap:hover{background:var(--zap-forte)}
+.gaveta-menu .corpo a.gav-zap svg{width:26px;height:26px;flex:none}
+.gaveta-menu .corpo a.gav-zap small{display:block;font-weight:500;font-size:14px;opacity:.9}
 .gaveta-menu .topo-gav{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
 .gaveta-menu .topo-gav b{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.14em;
   font-size:13px;color:var(--mut2)}
@@ -291,33 +305,56 @@ h3[tabindex="-1"]:focus-visible,h4[tabindex="-1"]:focus-visible{outline:none}
 @keyframes entra{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
 
 /* ---------- capa ---------- */
-.capa{position:relative;background:var(--nogueira);color:var(--claro);overflow:hidden;
-  padding:clamp(56px,9vw,104px) 0 clamp(48px,7vw,84px)}
-.capa .grao{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
-.capa .env{position:relative}
-.capa .grade{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,60px);align-items:center}
-.capa h1{color:var(--claro);text-wrap:balance}
+/* A capa é a foto. O texto mora no escuro da esquerda, que o degradê
+   cria por cima da imagem; a legenda diz o que se vê, e que é 3D. */
+.capa{position:relative;isolation:isolate;overflow:hidden;background:var(--nogueira);color:var(--claro);
+  min-height:clamp(540px,74vh,760px);display:flex;align-items:center;
+  padding:clamp(64px,9vw,112px) 0 clamp(88px,10vw,120px)}
+.capa-foto{position:absolute;inset:0;z-index:-2;display:block}
+.capa-foto img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:62% 55%;display:block;
+  animation:assenta 2.2s cubic-bezier(.16,.7,.2,1) both}
+@keyframes assenta{from{transform:scale(1.07);filter:brightness(.7)}to{transform:none;filter:none}}
+.capa::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:
+  linear-gradient(90deg,rgba(18,12,8,.94) 0%,rgba(18,12,8,.86) 30%,rgba(18,12,8,.5) 52%,rgba(18,12,8,.08) 74%,rgba(18,12,8,0) 100%),
+  linear-gradient(0deg,rgba(18,12,8,.7) 0%,rgba(18,12,8,0) 34%)}
+.capa .env{position:relative;width:100%}
+.capa-txt{max-width:600px;animation:sobe-txt .9s .25s cubic-bezier(.2,.7,.2,1) both}
+@keyframes sobe-txt{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.capa h1{color:var(--claro);text-wrap:balance;font-size:clamp(38px,6vw,66px);letter-spacing:-.022em}
 .capa h1 em{font-style:normal;color:var(--mel)}
-.capa .sub{color:var(--claro-mut);font-size:clamp(16.5px,1.9vw,19.5px)}
+.capa .rotulo{color:var(--mel)}
+.capa .sub{color:#DCCBB3;font-size:clamp(16.5px,1.9vw,19.5px);max-width:52ch}
 .capa .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.capa .provas{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:32px;padding-top:24px;
-  border-top:1px solid var(--veio)}
+.capa .btn.vazado{border-color:rgba(244,233,216,.42);background:rgba(18,12,8,.35);backdrop-filter:blur(4px)}
+.capa-zap{display:flex;align-items:center;gap:9px;margin:18px 0 0;font-size:15.5px;color:var(--claro-mut)}
+.capa-zap svg{width:19px;height:19px;color:#5FD08E;flex:none}
+.capa-zap a{color:var(--claro);font-weight:600;text-decoration:underline;text-decoration-color:rgba(244,233,216,.4);
+  text-underline-offset:3px}
+.capa-zap a:hover{color:var(--mel);text-decoration-color:var(--mel)}
+.capa .provas{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:34px;padding-top:24px;
+  border-top:1px solid rgba(244,233,216,.18)}
 .capa .provas div{display:flex;align-items:center;gap:9px;font-family:var(--f-util);font-size:14.5px;
-  letter-spacing:.06em;color:var(--claro-mut)}
+  letter-spacing:.06em;color:#CDB79B}
 .capa .provas svg{width:16px;height:16px;color:var(--verde-vivo);flex:none}
 .capa .provas b{display:block;color:var(--claro);font-size:19px;line-height:1.1;font-family:var(--f-body);
   font-variant-numeric:tabular-nums}
+/* no alto, à direita: embaixo ela brigaria com o botão do WhatsApp */
+.capa-legenda{position:absolute;right:clamp(16px,3vw,36px);top:clamp(16px,2.4vw,28px);margin:0;
+  display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:right;
+  font-family:var(--f-util);letter-spacing:.09em;text-transform:uppercase;font-size:12px;color:#E9DCC7;
+  background:rgba(18,12,8,.78);backdrop-filter:blur(6px);border:1px solid rgba(244,233,216,.14);
+  border-radius:6px;padding:8px 12px}
+.capa-legenda b{font-weight:600;color:var(--claro);font-size:12.5px}
+.capa-legenda span{color:var(--mel)}
 
-/* peça de vitrine na capa */
+/* peça de vitrine (página da oficina) */
 .peca{border:1px solid var(--veio);border-radius:12px;overflow:hidden;background:var(--bancada);
   box-shadow:var(--sombra-alta)}
-.peca .foto{aspect-ratio:4/3.2}
+.peca .foto{aspect-ratio:4/3}
 .peca .pe{padding:16px 18px;display:flex;align-items:center;gap:12px}
 .peca .pe b{font-family:var(--f-disp);font-size:18px;color:var(--claro);display:block}
 .peca .pe span{font-family:var(--f-util);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--claro-mut)}
-.peca .pe .v{margin-left:auto;text-align:right;font-family:var(--f-body);font-weight:700;font-size:20px;
-  color:var(--mel);font-variant-numeric:tabular-nums;white-space:nowrap}
 
 /* ---------- foto: lugar da foto do Gabriel ---------- */
 /* As fotos ainda não existem. Em vez de caixa cinza quebrada, uma
@@ -334,10 +371,18 @@ h3[tabindex="-1"]:focus-visible,h4[tabindex="-1"]:focus-visible{outline:none}
   box-shadow:inset 0 0 0 1px rgba(36,26,18,.09),inset 0 -30px 50px -30px rgba(36,26,18,.35)}
 .foto svg.peca-linha{width:44%;max-width:130px;height:auto;color:rgba(36,26,18,.34);
   stroke-width:1.15;filter:drop-shadow(0 1px 0 rgba(255,255,255,.28))}
-.foto .slot{position:absolute;left:9px;bottom:9px;font-family:var(--f-util);font-size:10.5px;
+.foto .slot{position:absolute;left:9px;bottom:9px;font-family:var(--f-util);font-size:11.5px;
   letter-spacing:.11em;text-transform:uppercase;color:#241A12;font-weight:600;
   background:rgba(255,255,255,.93);border-radius:3px;padding:2.5px 8px;
   box-shadow:0 1px 3px rgba(36,26,18,.18)}
+.foto.com-img{display:block}
+.foto.com-img img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block;
+  transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.foto.com-img::after{box-shadow:inset 0 0 0 1px rgba(36,26,18,.08)}
+.foto .selo3d{position:absolute;right:9px;bottom:9px;z-index:1;font-family:var(--f-util);font-size:11.5px;
+  letter-spacing:.11em;text-transform:uppercase;font-weight:600;color:#F4E9D8;background:rgba(26,18,12,.74);
+  border-radius:3px;padding:2.5px 8px}
+.foto .tag{z-index:1}
 .foto .tag{position:absolute;left:9px;top:9px;font-family:var(--f-util);font-size:11px;font-weight:600;
   letter-spacing:.1em;text-transform:uppercase;background:var(--nogueira);color:var(--mel);
   border-radius:3px;padding:3px 9px}
@@ -360,12 +405,12 @@ h3[tabindex="-1"]:focus-visible,h4[tabindex="-1"]:focus-visible{outline:none}
 .ferramentas{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:20px}
 .busca{position:relative;flex:1;min-width:210px}
 .busca input{width:100%;border:1.5px solid var(--linha2);border-radius:6px;background:var(--cartao);
-  padding:11px 13px 11px 40px;font-family:var(--f-body);font-size:15.5px;color:var(--tinta)}
+  padding:11px 13px 11px 40px;font-family:var(--f-body);font-size:16px;color:var(--tinta)}
 .busca input::placeholder{color:var(--mut2)}
 .busca svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:16px;height:16px;
   color:var(--mut2);pointer-events:none}
 .ordena{border:1.5px solid var(--linha2);border-radius:6px;background:var(--cartao);color:var(--tinta);
-  padding:11px 13px;font-family:var(--f-util);font-size:14.5px;font-weight:600;letter-spacing:.05em;cursor:pointer}
+  padding:11px 13px;font-family:var(--f-util);font-size:16px;font-weight:600;letter-spacing:.05em;cursor:pointer}
 .filtros{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px;margin-bottom:18px;scrollbar-width:none}
 .filtros::-webkit-scrollbar{display:none}
 .filtros button{flex:0 0 auto;border:1.5px solid var(--linha2);background:var(--cartao);color:var(--mut);
@@ -379,6 +424,7 @@ h3[tabindex="-1"]:focus-visible,h4[tabindex="-1"]:focus-visible{outline:none}
   display:flex;flex-direction:column;text-align:left;cursor:pointer;padding:0;
   transition:transform .16s,box-shadow .16s,border-color .16s}
 .prod:hover{transform:translateY(-3px);box-shadow:var(--sombra);border-color:var(--linha2)}
+.prod:hover .foto.com-img img{transform:scale(1.045)}
 .prod .foto{aspect-ratio:4/3}
 .prod .txt{padding:14px 15px 16px;display:flex;flex-direction:column;gap:5px;flex:1}
 .prod .cat{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.11em;font-size:11.5px;color:var(--mut2)}
@@ -401,7 +447,12 @@ h3[tabindex="-1"]:focus-visible,h4[tabindex="-1"]:focus-visible{outline:none}
 @keyframes sobe{from{transform:translateY(26px);opacity:0}to{transform:none;opacity:1}}
 .modal .fechar{position:absolute;top:12px;right:12px;z-index:3;background:rgba(255,255,255,.92)}
 .ficha-g{display:grid;grid-template-columns:1fr 1fr}
-.ficha-g .foto{min-height:290px;height:100%}
+.ficha-foto{position:relative;min-height:290px}
+.ficha-foto .foto{position:absolute;inset:0;height:100%}
+.ficha-foto .na-foto{position:absolute;left:12px;bottom:12px;z-index:2;display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.94);color:var(--tinta);border-radius:20px;padding:5px 12px 5px 6px;
+  font-family:var(--f-util);font-size:13px;font-weight:600;letter-spacing:.04em;box-shadow:0 2px 8px rgba(26,18,12,.18)}
+.ficha-foto .na-foto i{width:16px;height:16px;border-radius:50%;border:1px solid rgba(36,26,18,.25);display:block}
 .ficha-txt{padding:26px 26px 24px;display:flex;flex-direction:column;gap:14px}
 .ficha-txt .cat{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--mut2)}
 .ficha-txt p{color:var(--mut);font-size:15.5px}
@@ -480,7 +531,7 @@ h3[tabindex="-1"]:focus-visible,h4[tabindex="-1"]:focus-visible{outline:none}
 .campo label{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.1em;font-size:12px;
   font-weight:600;color:var(--mut2)}
 .campo input,.campo select,.campo textarea{border:1.5px solid var(--linha2);border-radius:6px;
-  background:var(--cartao);padding:11px 13px;font-family:var(--f-body);font-size:15.5px;color:var(--tinta);
+  background:var(--cartao);padding:11px 13px;font-family:var(--f-body);font-size:16px;color:var(--tinta);
   width:100%}
 .campo textarea{min-height:104px;resize:vertical}
 .campo input::placeholder,.campo textarea::placeholder{color:#9C8770}
@@ -626,7 +677,7 @@ input[type=range]{width:100%;accent-color:var(--acento-forte);height:26px}
   color:var(--mut2);font-weight:600}
 .faixa.escura .nap b{color:var(--claro-mut)}
 .nap span{font-size:16px}
-.nap a{color:inherit}
+.nap a{color:inherit;overflow-wrap:anywhere}
 .numeros{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px;padding-top:22px;
   border-top:1px solid var(--veio)}
 .numeros div b{display:block;font-size:clamp(26px,3.4vw,34px);font-weight:700;color:var(--mel);line-height:1.1;
@@ -635,7 +686,7 @@ input[type=range]{width:100%;accent-color:var(--acento-forte);height:26px}
   color:var(--claro-mut)}
 
 /* ---------- rodapé ---------- */
-.rodape{background:var(--nogueira);color:var(--claro-mut);padding:clamp(40px,5vw,60px) 0 26px;
+.rodape{background:var(--nogueira);color:var(--claro-mut);padding:clamp(40px,5vw,60px) 0 96px;
   border-top:1px solid var(--veio)}
 .rodape h4{color:var(--claro);font-family:var(--f-util);text-transform:uppercase;letter-spacing:.13em;
   font-size:13px;margin-bottom:13px;font-weight:600}
@@ -643,9 +694,7 @@ input[type=range]{width:100%;accent-color:var(--acento-forte);height:26px}
 .rodape ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
 .rodape a{color:var(--claro-mut);text-decoration:none;font-size:15px}
 .rodape a:hover{color:var(--mel);text-decoration:underline}
-.rodape .marca .selo{border-color:var(--veio2);background:var(--bancada);color:var(--mel)}
-.rodape .marca b{color:var(--claro)}
-.rodape .marca .sub-marca{color:var(--claro-mut)}
+.rodape .logo-rod{display:block;width:210px;height:auto}
 .rodape .diz{font-size:14.5px;margin-top:14px;max-width:36ch;line-height:1.55}
 .pagam{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
 .pagam i{font-style:normal;font-family:var(--f-util);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
@@ -657,11 +706,11 @@ input[type=range]{width:100%;accent-color:var(--acento-forte);height:26px}
 .rod-fim .dir{margin-left:auto}
 
 /* ---------- flutuantes ---------- */
-.zap-flut{position:fixed;right:16px;bottom:16px;z-index:50;width:56px;height:56px;border-radius:50%;
-  background:var(--verde);color:#F3F8EF;border:0;cursor:pointer;display:grid;place-items:center;
-  box-shadow:0 8px 22px rgba(26,18,12,.32);text-decoration:none}
-.zap-flut:hover{background:#487d37;transform:scale(1.05)}
-.zap-flut svg{width:27px;height:27px}
+.zap-flut{position:fixed;right:16px;bottom:16px;z-index:50;height:56px;border-radius:30px;padding:0 20px 0 16px;
+  background:var(--zap);color:#F3FBF6;border:0;cursor:pointer;display:flex;align-items:center;gap:10px;
+  box-shadow:0 8px 22px rgba(26,18,12,.32);text-decoration:none;font-weight:600;font-size:15.5px}
+.zap-flut:hover{background:var(--zap-forte);transform:translateY(-1px)}
+.zap-flut svg{width:27px;height:27px;flex:none}
 
 .torradas{position:fixed;left:50%;transform:translateX(-50%);bottom:22px;z-index:90;display:flex;
   flex-direction:column;gap:8px;align-items:center;pointer-events:none;width:min(94vw,420px)}
@@ -697,13 +746,25 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
   .balcoes{grid-template-columns:1fr}
   .vozes{grid-template-columns:1fr}
   .ficha-g{grid-template-columns:1fr}
-  .ficha-g .foto{min-height:210px;aspect-ratio:16/9}
+  .ficha-foto{min-height:0;aspect-ratio:4/3}
 }
+/* tela de toque, de qualquer tamanho (e todo celular): alvos do tamanho do dedo */
+@media (pointer:coarse), (max-width:760px){
+  .topo .btn.peq{min-width:44px;min-height:44px;padding:0 11px}
+  .btn.peq{min-height:42px}
+  .filtros button{min-height:42px}
+  input[type=range]{height:40px}
+}
+/* topo em tablet: primeiro sai o subtítulo, depois os rótulos dos botões, depois o menu vira gaveta */
+@media (max-width:1180px){ .marca .sub-marca{display:none} }
+@media (max-width:1100px){ .rot-cart,.rot-zap{display:none} .nav a{padding:9px 10px} }
+@media (max-width:980px){ .nav{display:none} .bmenu{display:inline-flex} }
 @media (max-width:760px){
   .nav{display:none}
   .bmenu{display:inline-flex}
   .marca .sub-marca{display:none}
-  .marca b{font-size:14px}
+  .marca .logo{height:42px}
+  .rot-zap{display:none}
   .ordena{width:100%}
   .rot-cart{display:none}
   .grade3{grid-template-columns:1fr}
@@ -724,7 +785,8 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
   .env{padding:0 15px}
   .capa .provas{gap:8px 18px}
   .numeros{grid-template-columns:1fr;gap:12px}
-  .zap-flut{width:50px;height:50px;right:12px;bottom:12px}
+  .zap-flut{width:56px;height:56px;padding:0;justify-content:center;border-radius:50%;right:12px;bottom:12px}
+  .zap-flut .rot{display:none}
   .item{grid-template-columns:54px 1fr}
   .item .dir{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between;width:100%}
   .item .foto{width:54px;height:48px}
@@ -794,6 +856,114 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
 }
 
+/* ============================================================
+   FOTOGRAFIA — o redesenho de outubro
+   ------------------------------------------------------------
+   As imagens são projetos 3D renderizados para a apresentação
+   (gerador/fotos). Toda imagem de ambiente leva o selo "3D
+   ilustrativo": o site não vende como entregue o que não foi.
+   ============================================================ */
+
+/* três balcões com foto no alto do cartão */
+.balcao.com-foto{padding-top:0}
+.balcao.com-foto::before{z-index:2}
+.balcao .ft{margin:0 -24px 6px;aspect-ratio:16/10;overflow:hidden;position:relative;background:var(--papel2)}
+.balcao .ft img,.quadro-foto .ft img,.cfg-foto img,.mosaico img{width:100%;height:100%;max-width:none;object-fit:cover;display:block}
+.balcao .ft img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.balcao.com-foto:hover .ft img{transform:scale(1.04)}
+
+/* cabeçalho de faixa com ação à direita */
+.cab-linha{display:flex;align-items:flex-end;justify-content:space-between;gap:18px 28px;flex-wrap:wrap}
+.cab-linha h2{max-width:22ch;text-wrap:balance}
+
+/* mosaico de ambientes */
+.mosaico{display:grid;grid-template-columns:7fr 5fr;grid-template-rows:1fr 1fr;gap:16px;
+  height:clamp(420px,46vw,600px)}
+.mosaico .tela{position:relative;overflow:hidden;border-radius:var(--raio);display:block;color:var(--claro);
+  text-decoration:none;background:var(--bancada);box-shadow:var(--sombra)}
+.mosaico .tela.grande{grid-row:1 / 3}
+.mosaico .tela img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.mosaico .tela:hover img{transform:scale(1.04)}
+.mosaico .tela::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(0deg,rgba(18,12,8,.82) 0%,rgba(18,12,8,.25) 32%,rgba(18,12,8,0) 52%)}
+.mosaico .leg{position:absolute;left:18px;right:18px;bottom:16px;z-index:1;display:flex;flex-direction:column;gap:3px}
+.mosaico .leg b{font-family:var(--f-disp);font-size:clamp(18px,2vw,23px);font-weight:600;line-height:1.2;color:var(--claro)}
+.mosaico .leg span{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.1em;font-size:12px;color:#E2CFB3}
+.nota-3d{margin:16px 0 0;font-size:14.5px;color:var(--mut2);max-width:70ch}
+
+/* faixa da oficina: foto emoldurada e endereço numa linha */
+.quadro-foto{margin:0;border-radius:12px;overflow:hidden;border:1px solid var(--veio);background:var(--bancada);
+  box-shadow:var(--sombra-alta)}
+.quadro-foto .ft{aspect-ratio:4/3;overflow:hidden}
+.quadro-foto figcaption{display:flex;flex-direction:column;gap:2px;padding:13px 16px}
+.quadro-foto figcaption b{font-family:var(--f-disp);font-size:18px;color:var(--claro);font-weight:600}
+.quadro-foto figcaption span{font-family:var(--f-util);font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--claro-mut)}
+.nap-linha{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:clamp(28px,4vw,44px);
+  padding-top:clamp(22px,3vw,30px);border-top:1px solid var(--veio)}
+.nap-linha li span{min-width:0}
+
+/* configurador: o ambiente escolhido aparece no alto do preço */
+.cfg-cartao{overflow:hidden}
+.cfg-foto{position:relative;margin:-22px -22px 22px;aspect-ratio:16/9;overflow:hidden;background:var(--bancada)}
+.cfg-foto .selo3d{position:absolute;left:12px;bottom:12px;font-family:var(--f-util);font-size:11.5px;letter-spacing:.1em;
+  text-transform:uppercase;font-weight:600;color:var(--claro);background:rgba(18,12,8,.74);border-radius:4px;padding:4px 10px}
+.cfg-foto img{animation:troca .45s ease-out both}
+@keyframes troca{from{opacity:.25}to{opacity:1}}
+
+/* projetos: a foto manda */
+.galeria{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.proj .foto{aspect-ratio:4/3}
+.proj:hover .foto.com-img img{transform:scale(1.04)}
+
+/* flutuantes acima da barra do sistema no celular */
+.zap-flut{bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+.lgpd{bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+.torradas{bottom:calc(22px + env(safe-area-inset-bottom,0px))}
+
+@media (max-width:980px){
+  .nap-linha{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  /* no celular a foto fica em cima e o texto embaixo, no escuro */
+  .capa{display:block;min-height:0;padding:min(58vw,330px) 0 34px}
+  .capa-foto{bottom:auto;height:min(78vw,440px)}
+  .capa::before{background:linear-gradient(180deg,rgba(18,12,8,.05) 0%,rgba(18,12,8,.2) min(36vw,200px),
+    var(--nogueira) min(78vw,440px))}
+  .capa-legenda{top:12px;right:12px;font-size:11.5px;padding:6px 10px}
+  .capa-legenda b{font-size:12px}
+  .mosaico{grid-template-columns:1fr;grid-template-rows:none;height:auto}
+  .mosaico .tela,.mosaico .tela.grande{grid-row:auto;aspect-ratio:4/3}
+  .cab-linha{align-items:flex-start}
+}
+@media (max-width:520px){
+  .nap-linha{grid-template-columns:1fr}
+  .numeros{grid-template-columns:repeat(3,1fr);gap:10px}
+  .zap-flut{bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+  .galeria{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .capa-foto img,.capa-txt,.cfg-foto img{animation:none}
+}
+
+/* ---------- como chegar ---------- */
+.chegar{margin-top:20px;display:flex;gap:16px;align-items:flex-start}
+.chegar .ic-grande{width:48px;height:48px;border-radius:10px;background:var(--acento-fraco);color:var(--acento-forte);
+  display:grid;place-items:center;flex:none}
+.chegar .ic-grande svg{width:24px;height:24px}
+.chegar h3{font-size:20px;margin-bottom:6px}
+.chegar p{color:var(--mut);margin-bottom:12px}
+.chegar .bts{display:flex;gap:8px;flex-wrap:wrap}
+
+/* ficha no celular estreito: o selo "3D" e a madeira escolhida não cabem lado a lado */
+@media (max-width:520px){ .ficha-foto .na-foto{bottom:40px} }
+/* tela baixa (iPhone SE, celular deitado): o carrinho rola inteiro, para o item não sumir atrás do total */
+@media (max-height:720px){
+  .gaveta .corpo{overflow-y:auto}
+  .gaveta .itens{flex:none;overflow:visible}
+}
+/* no celular o aviso desce do topo: embaixo ele cobria o botão de finalizar */
+@media (max-width:760px){ .torradas{bottom:auto;top:calc(72px + env(safe-area-inset-top,0px))} }
+
 </style>
 </head>
 <body>
@@ -808,7 +978,8 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
 <g id="i-moeda" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M10.1 5.9a2.1 2.1 0 0 0-3.9.7c0 2.1 3.9 1.2 3.9 3.1a2.1 2.1 0 0 1-3.9.6M8 4.1v7.8"/></g>
 <g id="i-cadeado" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="6.8" width="10.8" height="7.4" rx="1.6"/><path d="M5.2 6.8V4.6a2.8 2.8 0 0 1 5.6 0v2.2"/></g>
 <g id="i-alerta" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.4 15.1 13.6H.9L8 2.4Z"/><path d="M8 6.6v3.1M8 11.7v.05"/></g>
-<g id="i-zap" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7.7a6 6 0 0 1-8.9 5.3L2 14l1.1-3.1A6 6 0 1 1 14 7.7Z"/></g>
+<g id="i-whats"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></g>
+<g id="i-email" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1.8" y="3.2" width="12.4" height="9.6" rx="1.6"/><path d="m2.4 4.2 5.6 4.6 5.6-4.6"/></g>
 <g id="i-menu" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/></g>
 <g id="i-pin" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 14.5s5-4.2 5-8a5 5 0 0 0-10 0c0 3.8 5 8 5 8Z"/><circle cx="8" cy="6.4" r="1.9"/></g>
 <g id="i-relogio" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6.2"/><path d="M8 4.3V8l2.6 1.6"/></g>
@@ -844,19 +1015,16 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
 <div class="aviso" id="aviso">
   <div class="env">
     <svg viewBox="0 0 16 16"><use href="#i-alerta"/></svg>
-    <p><b>Prévia</b><span class="longo"> — protótipo do novo site para aprovação. As peças e os preços são ilustrativos e nenhum pagamento é processado.</span><span class="curto"> — preços ilustrativos, nada é cobrado.</span></p>
+    <p><b>Prévia</b><span class="longo"> — protótipo do novo site para aprovação. Peças, preços e imagens em 3D são ilustrativos e nenhum pagamento é processado.</span><span class="curto"> — imagens 3D e preços ilustrativos.</span></p>
     <button type="button" id="fecha-aviso" aria-label="Fechar aviso">&times;</button>
   </div>
 </div>
 
 <header class="topo">
   <div class="env">
-    <a class="marca" href="#/" data-ir="inicio">
-      <span class="selo"><svg width="21" height="21" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-serra"/></svg></span>
-      <span class="nome">
-        <b>Casa do Marceneiro</b>
-        <span class="sub-marca">Tatuapé · São Paulo</span>
-      </span>
+    <a class="marca" href="#/" data-ir="inicio" aria-label="Casa do Marceneiro Tatuapé — início">
+      <img class="logo" src="marca/logo-site.svg" width="360" height="131" alt="Casa do Marceneiro">
+      <span class="sub-marca">Tatuapé<br>São Paulo</span>
     </a>
     <nav class="nav" id="nav" aria-label="Principal">
       <a href="#/" data-ir="inicio">Início</a>
@@ -867,6 +1035,9 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
       <a href="#/contato" data-ir="contato">Contato</a>
     </nav>
     <div class="acoes">
+      <a class="btn peq bzap" id="zap-topo" href="https://wa.me/5511947523961" data-zap="topo" target="_blank" rel="noopener" aria-label="WhatsApp (11) 94752-3961">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg><span class="rot-zap">WhatsApp</span>
+      </a>
       <button class="btn peq bcart" id="abre-cart" type="button" aria-label="Abrir carrinho">
         <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-carrinho"/></svg>
         <span class="rot-cart">Carrinho</span>
@@ -885,45 +1056,36 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
 <section class="rota on" data-rota="inicio" aria-label="Início">
 
   <div class="capa">
-    <svg class="grao" viewBox="0 0 1200 620" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-      <defs>
-        <filter id="veio-f" x="-6%" y="-6%" width="112%" height="112%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.0032 0.05" numOctaves="4" seed="17" result="ruido"/>
-          <feDisplacementMap in="SourceGraphic" in2="ruido" scale="52" xChannelSelector="R" yChannelSelector="G"/>
-        </filter>
-        <pattern id="aneis" width="1200" height="19" patternUnits="userSpaceOnUse">
-          <rect width="1200" height="1.8" y="6" fill="#B47A3A"/>
-          <rect width="1200" height="0.9" y="12" fill="#8A5A2C"/>
-        </pattern>
-      </defs>
-      <rect width="1200" height="620" fill="#1A120C"/>
-      <g filter="url(#veio-f)" opacity="0.5"><rect width="1200" height="620" fill="url(#aneis)"/></g>
-    </svg>
+    <picture class="capa-foto">
+      <img src="fotos/capa-1600.webp" srcset="fotos/capa-960.webp 960w, fotos/capa-1600.webp 1600w, fotos/capa-2400.webp 2400w"
+        sizes="(orientation: portrait) and (min-width: 761px) 150vh, 100vw" width="2400" height="1350" alt="Cozinha em U com armários em MDF amadeirado, torre quente e tampo contínuo de freijó maciço, iluminada pelo sol da tarde"
+        fetchpriority="high" decoding="async">
+    </picture>
 
     <div class="env">
-      <div class="grade">
-        <div>
-          <span class="rotulo">Marcenaria familiar no Tatuapé desde 1980</span>
-          <h1>A madeira certa, <em>cortada para o seu espaço</em>.</h1>
-          <p class="sub">Peças prontas que saem hoje da oficina, corte de chapa na medida que você mandar
-            e projeto sob medida com visita técnica. Tudo feito na nossa oficina — sem terceirizar, sem intermediário.</p>
-          <div class="cta">
-            <a class="btn forte" href="#/loja" data-ir="loja">
-              <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-carrinho"/></svg>Ver a loja
-            </a>
-            <a class="btn vazado" href="#/sob-medida" data-ir="sob-medida">
-              <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-regua"/></svg>Simular meu projeto
-            </a>
-          </div>
-          <div class="provas">
-            <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b><i data-anos>46</i> anos</b>de oficina própria</span></div>
-            <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b>Madeira e MDF</b>nunca MDP</span></div>
-            <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b>Garantia</b>com assistência técnica</span></div>
-          </div>
+      <div class="capa-txt">
+        <span class="rotulo">Marcenaria familiar no Tatuapé desde 1980</span>
+        <h1>A madeira certa, <em>cortada para o seu espaço</em>.</h1>
+        <p class="sub">Peças prontas que saem hoje da oficina, corte de chapa na medida que você mandar
+          e projeto sob medida com visita técnica. Tudo feito na nossa oficina — sem terceirizar, sem intermediário.</p>
+        <div class="cta">
+          <a class="btn forte" href="#/loja" data-ir="loja">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-carrinho"/></svg>Ver a loja
+          </a>
+          <a class="btn vazado" href="#/sob-medida" data-ir="sob-medida">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-regua"/></svg>Simular meu projeto
+          </a>
         </div>
-        <div class="peca" id="peca-capa"></div>
+        <p class="capa-zap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg><span>Prefere conversar? <a href="https://wa.me/5511947523961" data-zap="capa" target="_blank" rel="noopener">Chame no WhatsApp: (11)&nbsp;94752&#8209;3961</a></span></p>
+        <div class="provas">
+          <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b><i data-anos>46</i> anos</b>de oficina própria</span></div>
+          <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b>Madeira e MDF</b>nunca MDP</span></div>
+          <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b>Garantia</b>com assistência técnica</span></div>
+        </div>
       </div>
     </div>
+
+    <p class="capa-legenda"><b>Cozinha em U · tampo contínuo em freijó maciço</b><span>Projeto 3D ilustrativo</span></p>
   </div>
 
   <div class="faixa">
@@ -935,24 +1097,24 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
           que sim perde o cliente na primeira visita. Por isso a loja tem três balcões.</p>
       </div>
       <div class="balcoes">
-        <div class="balcao" style="--cor:#3D6B2F">
-          <span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-carrinho"/></svg></span>
+        <div class="balcao com-foto" style="--cor:#3D6B2F">
+          <div class="ft" data-foto="prateleira" data-alt="Prateleiras flutuantes de freijó com livros e vasos"></div>
           <span class="quando">Preço fechado · compra na hora</span>
           <h3>Prateleira</h3>
           <p>Peças prontas com medida padrão: nicho, prateleira, tábua, banqueta. Escolhe a madeira,
             o acabamento e o tamanho, e o preço aparece na hora. Retira na oficina ou recebe em casa.</p>
           <a class="btn" href="#/loja" data-ir="loja">Ver peças<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
         </div>
-        <div class="balcao" style="--cor:#A66A15">
-          <span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-regua"/></svg></span>
+        <div class="balcao com-foto" style="--cor:#A66A15">
+          <div class="ft" data-foto="bancada" data-alt="Ilha de cozinha com tampo maciço de freijó e base branca"></div>
           <span class="quando">Faixa na hora · fecha por WhatsApp</span>
           <h3>Balcão</h3>
           <p>Ambiente definido, medida sua. Você diz o cômodo, os metros e o padrão de acabamento,
             e o site devolve a faixa de investimento antes de qualquer conversa. Sem enrolação, sem “depende”.</p>
           <a class="btn" href="#/sob-medida" data-ir="sob-medida">Simular agora<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
         </div>
-        <div class="balcao" style="--cor:#7F4F0E">
-          <span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-martelo"/></svg></span>
+        <div class="balcao com-foto" style="--cor:#7F4F0E">
+          <div class="ft" data-foto="closet" data-alt="Closet aberto em carvalho com cabideiros, gaveteiro e sapateira"></div>
           <span class="quando">Visita técnica · projeto e execução</span>
           <h3>Bancada</h3>
           <p>Obra sob medida de verdade: cozinha, closet, marcenaria de apartamento inteiro.
@@ -979,6 +1141,21 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
   </div>
 
   <div class="faixa">
+    <div class="env">
+      <div class="cab cab-linha">
+        <div>
+          <span class="rotulo">Bancada · obra sob medida</span>
+          <h2>Ambientes desenhados para a casa de quem pediu</h2>
+        </div>
+        <a class="btn" href="#/projetos" data-ir="projetos">Ver os projetos<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
+      </div>
+      <div class="mosaico" id="mosaico"></div>
+      <p class="nota-3d">As imagens desta prévia são projetos 3D ilustrativos, feitos para a apresentação.
+        Na versão final entram as fotos do acervo da oficina.</p>
+    </div>
+  </div>
+
+  <div class="faixa creme">
     <div class="env">
       <div class="cab meio">
         <span class="rotulo">Quem já recebeu</span>
@@ -1020,22 +1197,26 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
           <p class="sub">Não somos revenda nem representante. A chapa entra aqui, é cortada, colada, lixada
             e finalizada aqui, e sai daqui para a sua casa. Se quiser conferir antes de fechar, é só marcar.</p>
           <div class="numeros">
-            <div><b>16</b><span>anos de casa</span></div>
-            <div><b>800+</b><span>projetos</span></div>
-            <div><b>22</b><span>dias, prazo médio</span></div>
+            <div><b>1980</b><span>ano da fundação</span></div>
+            <div><b data-anos>46</b><span>anos de oficina</span></div>
+            <div><b>0</b><span>chapas de MDP</span></div>
           </div>
         </div>
-        <ul class="nap">
-          <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span><b>Endereço</b><span id="nap-end">Rua da oficina, 000 — Tatuapé, São Paulo/SP</span></span></li>
-          <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-relogio"/></svg></span>
-            <span><b>Horário</b><span>Segunda a sexta, 8h às 18h · Sábado, 8h às 12h</span></span></li>
-          <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-zap"/></svg></span>
-            <span><b>WhatsApp</b><span id="nap-tel">(11) 90000-0000</span></span></li>
-          <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-insta"/></svg></span>
-            <span><b>Instagram</b><span>@casadomarceneirotatuape</span></span></li>
-          </ul>
+        <figure class="quadro-foto">
+          <div class="ft" data-foto="oficina" data-alt="Oficina de marcenaria com bancada central, estante de madeira bruta, chapas de MDF e serra de mesa"></div>
+          <figcaption><b>A oficina</b><span>Corte, colagem e acabamento no mesmo endereço · imagem 3D ilustrativa</span></figcaption>
+        </figure>
       </div>
+      <ul class="nap nap-linha">
+        <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-pin"/></svg></span>
+          <span><b>Endereço</b><span id="nap-end">Rua Tuiuti, 2530, cj. 42<br>São Paulo/SP</span></span></li>
+        <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-relogio"/></svg></span>
+          <span><b>Horário</b><span>Seg a sex, 8h às 18h · Sáb, 8h às 12h</span></span></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg></span>
+          <span><b>WhatsApp</b><a id="nap-tel" href="https://wa.me/5511947523961" data-zap="oficina" target="_blank" rel="noopener">(11) 94752-3961</a></span></li>
+        <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-email"/></svg></span>
+          <span><b>E-mail</b><a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a></span></li>
+      </ul>
     </div>
   </div>
 
@@ -1083,7 +1264,8 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
           guardado — a conta roda no seu próprio celular.</p>
       </div>
       <div class="cfg">
-        <div class="cartao">
+        <div class="cartao cfg-cartao">
+          <div class="cfg-foto" id="cfg-foto"></div>
           <div class="cfg-bloco">
             <b>1. Qual ambiente</b>
             <div class="cfg-op" id="cfg-amb" role="group" aria-label="Ambiente"></div>
@@ -1112,7 +1294,7 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
             <li><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span>Garantia de 3 anos na estrutura</span></li>
           </ul>
           <a class="btn zap larga" id="cfg-zap" href="#" target="_blank" rel="noopener">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-zap"/></svg>Enviar pelo WhatsApp
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>Enviar pelo WhatsApp
           </a>
           <p class="obs" style="margin-top:12px">A faixa é estimativa de orientação. O valor fechado sai depois
             da medição, por escrito, e só vale com assinatura.</p>
@@ -1130,7 +1312,8 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
         <span class="rotulo">Bancada · obra sob medida</span>
         <h2>Projetos entregues</h2>
         <p class="sub">Cada um desses começou com uma medição e terminou com a chave na mão do cliente.
-          As fotos definitivas entram quando o Gabriel enviar o acervo da oficina.</p>
+          Nesta prévia, projetos e imagens são ilustrativos — renderizações 3D feitas para a apresentação.
+          As fotos definitivas entram quando o acervo da oficina chegar.</p>
       </div>
       <div class="galeria" id="galeria"></div>
     </div>
@@ -1223,7 +1406,7 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
           <span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-escudo"/></svg></span>
           <h3>A relação não acaba na entrega</h3>
           <p>Assistência técnica e garantia continuam depois de o móvel estar instalado. Quem compra aqui
-            fica com alguém para chamar — e o endereço é o mesmo há mais de quatro décadas.</p>
+            fica com alguém para chamar: a mesma família atende desde 1980.</p>
         </div>
       </div>
     </div>
@@ -1286,7 +1469,7 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
       <div class="cab">
         <span class="rotulo">Fale com a oficina</span>
         <h2>Contato</h2>
-        <p class="sub">Resposta em até 2 horas úteis. Se for urgente, o WhatsApp é o caminho mais rápido.</p>
+        <p class="sub">Escreva do jeito que preferir. A mensagem chega direto na oficina, pelo WhatsApp ou por e-mail.</p>
       </div>
       <div class="oficina-g" style="align-items:start">
         <form class="cartao" id="form-contato" novalidate>
@@ -1331,8 +1514,8 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
             </label>
             <span class="erro" data-erro="c-lgpd"></span>
             <div style="display:flex;gap:10px;flex-wrap:wrap">
-              <button class="btn forte" type="submit"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg>Enviar</button>
-              <a class="btn zap" id="zap-contato" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-zap"/></svg>Ir direto pro WhatsApp</a>
+              <button class="btn zap" type="submit" value="zap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>Enviar pelo WhatsApp</button>
+              <button class="btn" type="submit" value="email"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-email"/></svg>Enviar por e-mail</button>
             </div>
           </div>
         </form>
@@ -1340,25 +1523,27 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
         <div>
           <ul class="nap">
             <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-pin"/></svg></span>
-              <span><b>Oficina</b><span>Rua da oficina, 000 — Tatuapé, São Paulo/SP, 03000-000</span></span></li>
+              <span><b>Endereço</b><span>Rua Tuiuti, 2530, cj. 42 — São Paulo/SP</span></span></li>
             <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-relogio"/></svg></span>
               <span><b>Atendimento</b><span>Segunda a sexta, 8h às 18h · Sábado, 8h às 12h</span></span></li>
-            <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-zap"/></svg></span>
-              <span><b>WhatsApp</b><span>(11) 90000-0000</span></span></li>
-            <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-tel"/></svg></span>
-              <span><b>Telefone</b><span>(11) 0000-0000</span></span></li>
+            <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg></span>
+              <span><b>WhatsApp</b><a href="https://wa.me/5511947523961" data-zap="contato" target="_blank" rel="noopener">(11) 94752-3961</a></span></li>
+            <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-email"/></svg></span>
+              <span><b>E-mail</b><a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a></span></li>
             <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-insta"/></svg></span>
               <span><b>Instagram</b><span>@casadomarceneirotatuape</span></span></li>
           </ul>
-          <div class="cartao" style="margin-top:20px;padding:0;overflow:hidden">
-            <div class="foto" style="--a:#E3D6BE;--b:#B49B72;aspect-ratio:16/10" data-mapa>
-              <svg class="peca-linha" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg>
-              <span class="slot">Mapa entra aqui quando o pin do Google estiver corrigido</span>
+          <div class="cartao chegar">
+            <span class="ic-grande"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-pin"/></svg></span>
+            <div>
+              <h3>Como chegar</h3>
+              <p>Rua Tuiuti, 2530, cj. 42<br>São Paulo/SP</p>
+              <div class="bts">
+                <a class="btn peq" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Tuiuti%2C%202530%2C%20S%C3%A3o%20Paulo%20-%20SP" target="_blank" rel="noopener">Abrir no Google Maps</a>
+                <a class="btn peq" href="https://waze.com/ul?q=Rua%20Tuiuti%2C%202530%2C%20S%C3%A3o%20Paulo&amp;navigate=yes" target="_blank" rel="noopener">Ir com o Waze</a>
+              </div>
             </div>
           </div>
-          <p style="font-size:14.5px;color:var(--mut2);margin-top:12px">
-            O endereço acima precisa bater, letra por letra, com o do Google Meu Negócio e com o do Instagram.
-            É esse casamento que faz a oficina aparecer na busca de quem está a dois quarteirões.</p>
         </div>
       </div>
     </div>
@@ -1586,13 +1771,13 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
                 <div id="resumo-final" style="width:100%"></div>
                 <div class="nota-seg" style="text-align:left">
                   <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-alerta"/></svg>
-                  <span><b>Isto é uma prévia.</b> Nenhum pagamento foi processado, nenhum dado saiu deste
-                    aparelho e nenhum pedido chegou à oficina.</span>
+                  <span><b>Isto é uma prévia.</b> Nenhum pagamento foi processado e nenhum dado saiu deste
+                    aparelho. O botão do WhatsApp avisa a oficina, e a mensagem já diz que é pedido de teste.</span>
                 </div>
                 <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
                   <button class="btn forte" type="button" data-ir="loja">Voltar para a loja</button>
                   <a class="btn zap" id="zap-pedido" href="#" target="_blank" rel="noopener">
-                    <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-zap"/></svg>Falar com a oficina</a>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>Falar com a oficina</a>
                 </div>
               </div>
             </div>
@@ -1611,10 +1796,7 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
   <div class="env">
     <div class="rod-g">
       <div>
-        <div class="marca">
-          <span class="selo"><svg width="21" height="21" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-serra"/></svg></span>
-          <span class="nome"><b>Casa do Marceneiro</b><span class="sub-marca">Tatuapé · São Paulo</span></span>
-        </div>
+        <img class="logo-rod" src="marca/logo-site.svg" width="360" height="131" alt="Casa do Marceneiro" loading="lazy">
         <p class="diz">Marcenaria familiar desde 1980. A chapa entra aqui, é cortada aqui e sai daqui
           para a sua casa.</p>
         <div class="pagam">
@@ -1642,9 +1824,10 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
       <div>
         <h4>Contato</h4>
         <ul>
-          <li>Rua da oficina, 000<br>Tatuapé — São Paulo/SP</li>
+          <li>Rua Tuiuti, 2530, cj. 42<br>São Paulo/SP</li>
           <li>Seg a sex 8h–18h · Sáb 8h–12h</li>
-          <li><a href="#/contato" data-ir="contato">(11) 90000-0000</a></li>
+          <li><a href="https://wa.me/5511947523961" data-zap="rodape" target="_blank" rel="noopener">WhatsApp (11) 94752-3961</a></li>
+          <li><a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a></li>
           <li><a href="#/contato" data-ir="contato">@casadomarceneirotatuape</a></li>
         </ul>
       </div>
@@ -1658,8 +1841,8 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
   </div>
 </footer>
 
-<a class="zap-flut" id="zap-flut" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-  <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-zap"/></svg>
+<a class="zap-flut" id="zap-flut" href="https://wa.me/5511947523961" data-zap="flutuante" target="_blank" rel="noopener" aria-label="Falar no WhatsApp: (11) 94752-3961">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg><span class="rot">Fale no WhatsApp</span>
 </a>
 
 <!-- ficha do produto -->
@@ -1698,6 +1881,7 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
     <a href="#/projetos" data-ir="projetos">Projetos</a>
     <a href="#/oficina" data-ir="oficina">A oficina</a>
     <a href="#/contato" data-ir="contato">Contato</a>
+    <a class="gav-zap" href="https://wa.me/5511947523961" data-zap="menu" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg><span>Fale no WhatsApp<small>(11) 94752-3961</small></span></a>
   </div>
 </div>
 
@@ -1722,7 +1906,8 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
      em qualquer celular, sem servidor e sem conta criada.
      ============================================================ */
 
-  var TEL = "5511900000000";        /* ← trocar pelo WhatsApp real do Gabriel */
+  var TEL = "5511947523961";        /* WhatsApp da oficina: (11) 94752-3961 */
+  var EMAIL = "contato@marceneirotatuape.com.br";
 
   var GRUPOS = {
     madeira: { rot:"Madeira", itens:[
@@ -1779,22 +1964,22 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
   ];
 
   var PROJETOS = [
-    { t:"Cozinha em U com torre quente", onde:"Vila Formosa", icone:"p-cozinha", tons:["#D9BE94","#A87C48"],
+    { t:"Cozinha em U com torre quente", img:"cozinha", onde:"Vila Formosa", icone:"p-cozinha", tons:["#D9BE94","#A87C48"],
       d:"Marcenaria de piso a teto em MDF amadeirado, com nicho de forno e micro-ondas e bancada em maciço.",
       meta:["4,2 m lineares","22 dias","Padrão intermediário"] },
-    { t:"Closet aberto do casal", onde:"Anália Franco", icone:"p-closet", tons:["#E0CDA9","#B7955F"],
+    { t:"Closet aberto do casal", img:"closet", onde:"Anália Franco", icone:"p-closet", tons:["#E0CDA9","#B7955F"],
       d:"Estrutura modular com cabideiro duplo, gaveteiro interno e iluminação embutida em perfil de alumínio.",
       meta:["5,0 m lineares","26 dias","Padrão premium"] },
-    { t:"Home office em nicho de sala", onde:"Tatuapé", icone:"p-home", tons:["#D3B387","#9E7440"],
+    { t:"Home office em nicho de sala", img:"escritorio", onde:"Tatuapé", icone:"p-home", tons:["#D3B387","#9E7440"],
       d:"Aproveitamento de vão morto: bancada de trabalho, prateleiras e passagem de fiação escondida.",
       meta:["2,4 m lineares","14 dias","Padrão essencial"] },
-    { t:"Painel ripado com rack suspenso", onde:"Jardim Anália", icone:"p-painel", tons:["#CBA476","#8F6335"],
+    { t:"Painel ripado com rack suspenso", img:"painel", onde:"Jardim Anália", icone:"p-painel", tons:["#CBA476","#8F6335"],
       d:"Ripado de freijó com rack flutuante e caixa de tomadas acessível por trás, sem furar a parede duas vezes.",
       meta:["3,1 m lineares","11 dias","Padrão intermediário"] },
-    { t:"Cozinha compacta de apartamento", onde:"Carrão", icone:"p-cozinha", tons:["#E3D2B4","#B08A55"],
+    { t:"Cozinha compacta de apartamento", img:"compacta", onde:"Carrão", icone:"p-cozinha", tons:["#E3D2B4","#B08A55"],
       d:"Projeto para 32 m²: armário até o teto, portas de correr e mesa retrátil embutida no balcão.",
       meta:["3,4 m lineares","19 dias","Padrão essencial"] },
-    { t:"Marcenaria completa de dormitório", onde:"Vila Regente Feijó", icone:"p-closet", tons:["#D5B384","#96693A"],
+    { t:"Marcenaria completa de dormitório", img:"dormitorio", onde:"Vila Regente Feijó", icone:"p-closet", tons:["#D5B384","#96693A"],
       d:"Guarda-roupa, cabeceira estofada com moldura de madeira e criados-mudos suspensos, tudo do mesmo lote.",
       meta:["6,8 m lineares","31 dias","Padrão premium"] }
   ];
@@ -1816,11 +2001,11 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
   ];
 
   var AMBIENTES = [
-    { n:"Cozinha",      m:1.25, ic:"p-cozinha" },
-    { n:"Closet",       m:1,    ic:"p-closet" },
-    { n:"Home office",  m:0.9,  ic:"p-home" },
-    { n:"Painel de TV", m:0.62, ic:"p-painel" },
-    { n:"Banheiro",     m:0.85, ic:"p-nicho" }
+    { n:"Cozinha",      m:1.25, ic:"p-cozinha", img:"cozinha",    alt:"Cozinha em U com tampo de freijó" },
+    { n:"Closet",       m:1,    ic:"p-closet",  img:"closet",     alt:"Closet aberto em carvalho" },
+    { n:"Home office",  m:0.9,  ic:"p-home",    img:"escritorio", alt:"Home office em nicho com bancada de freijó" },
+    { n:"Painel de TV", m:0.62, ic:"p-painel",  img:"painel",     alt:"Painel ripado de freijó com rack suspenso" },
+    { n:"Banheiro",     m:0.85, ic:"p-nicho",   img:"banheiro",   alt:"Gabinete suspenso de banheiro em freijó com cuba de apoio" }
   ];
   var PADROES = [
     { n:"Essencial",     m:1,    d:"MDF branco, ferragem nacional" },
@@ -1843,11 +2028,33 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
     return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]; }); }
   function ic(id, cls){ return '<svg viewBox="0 0 16 16" ' + (cls || "") + ' aria-hidden="true"><use href="#' + id + '"/></svg>'; }
 
-  /* A foto que ainda não existe: chapa desenhada + peça em linha.
-     Ver a decisão em LEIA-ME.md — caixa cinza vazia faria o site
-     parecer quebrado numa reunião de aprovação. */
+  /* Imagens: cada uma existe em duas larguras, e o navegador escolhe
+     pelo tamanho em que ela vai aparecer — o celular não baixa 1280 px
+     para um cartão de 170. A capa tem três larguras e carrega primeiro;
+     o resto só carrega quando chega perto da tela. */
+  var FOTOS = "fotos/";
+  var LARGURA = { capa:2400, cozinha:1280, closet:1280, escritorio:1280, painel:1280, compacta:1280,
+    dormitorio:1280, oficina:1280, banheiro:1280 };   /* o resto é peça da loja, 1200 px */
+  function larguraDe(nome){ return LARGURA[nome] || 1200; }
+
+  function imagem(nome, alt, sizes, ansioso){
+    var w = larguraDe(nome), h = Math.round(w * 3 / 4);
+    return '<img src="' + FOTOS + nome + '-640.webp" srcset="' + FOTOS + nome + '-640.webp 640w, ' +
+      FOTOS + nome + '.webp ' + w + 'w" sizes="' + (sizes || "(max-width: 760px) 100vw, 420px") + '" width="' + w +
+      '" height="' + h + '" alt="' + esc(alt || "") + '"' + (ansioso ? '' : ' loading="lazy"') + ' decoding="async">';
+  }
+
+  /* Sem imagem (o mapa, por enquanto), a moldura continua sendo a chapa
+     desenhada com a peça em linha — ver LEIA-ME.md. */
   function foto(o, opc){
     opc = opc || {};
+    if (o.img) {
+      return '<div class="foto com-img" style="--a:' + (o.tons ? o.tons[0] : "#D9BE94") + ';--b:' + (o.tons ? o.tons[1] : "#A87C48") + '">' +
+        imagem(o.img, o.alt || o.nome || "", opc.sizes) +
+        (o.tag && !opc.semTag ? '<span class="tag">' + esc(o.tag) + '</span>' : '') +
+        (opc.selo ? '<span class="selo3d">' + esc(opc.selo) + '</span>' : '') +
+        '</div>';
+    }
     return '<div class="foto" style="--a:' + o.tons[0] + ';--b:' + o.tons[1] + '">' +
       (o.tag && !opc.semTag ? '<span class="tag">' + esc(o.tag) + '</span>' : '') +
       '<svg class="peca-linha" viewBox="0 0 24 24" aria-hidden="true"><use href="#' + o.icone + '"/></svg>' +
@@ -1937,7 +2144,7 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
   function cartaoProduto(p){
     var parc = p.base / 3;
     return '<button class="prod" type="button" data-prod="' + p.id + '">' +
-      foto(p) +
+      foto(p, { sizes:"(max-width: 520px) 50vw, (max-width: 980px) 33vw, 290px" }) +
       '<span class="txt">' +
         '<span class="cat">' + esc(p.cat) + '</span>' +
         '<h4>' + esc(p.nome) + '</h4>' +
@@ -1954,6 +2161,8 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
   function planificar(s){
     return String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
+  PRODUTOS.forEach(function(p){ p.img = p.id; p.alt = p.nome + " — " + p.desc.split(".")[0].toLowerCase(); });
+
   PRODUTOS.forEach(function(p){
     var opcoes = p.grupos.map(function(g){
       return GRUPOS[g].rot + " " + GRUPOS[g].itens.map(function(i){ return i.n; }).join(" ");
@@ -2020,7 +2229,11 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
     var tons = madeira ? [madeira.cor, p.tons[1]] : p.tons;
 
     $("#ficha-g").innerHTML =
-      foto({ tons:tons, icone:p.icone, tag:p.tag }, { slot:"Foto do acervo" }) +
+      '<div class="ficha-foto">' +
+        foto({ img:p.img, alt:p.alt, tons:tons, icone:p.icone, tag:p.tag },
+          { selo:"Imagem 3D ilustrativa", sizes:"(max-width: 980px) 100vw, 460px" }) +
+        (madeira ? '<span class="na-foto"><i style="background:' + madeira.cor + '"></i>Sua escolha: ' + esc(madeira.n) + '</span>' : '') +
+      '</div>' +
       '<div class="ficha-txt">' +
         '<span class="cat">' + esc(p.cat) + '</span>' +
         '<h3 id="ficha-nome">' + esc(p.nome) + '</h3>' +
@@ -2101,7 +2314,7 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
     else {
       var madeira = p.grupos.indexOf("madeira") >= 0 ? GRUPOS.madeira.itens[escolhas.madeira].cor : p.tons[0];
       cesta.push({ assinatura:assinatura, id:p.id, nome:p.nome, op:rotulo, un:p.un,
-        v:Math.round(v), q:quantos, icone:p.icone, tons:[madeira, p.tons[1]] });
+        v:Math.round(v), q:quantos, icone:p.icone, tons:[madeira, p.tons[1]], img:p.img });
     }
     salvar(); pintarCarrinho(); fecharFicha();
     torrada(quantos > 1 ? quantos + " peças adicionadas ao carrinho" : "Peça adicionada ao carrinho");
@@ -2128,7 +2341,7 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
 
     itens.innerHTML = cesta.map(function(it, i){
       return '<div class="item">' +
-        foto({ tons:it.tons, icone:it.icone }, { semSlot:true, semTag:true }) +
+        foto({ img:it.img, alt:it.nome, tons:it.tons, icone:it.icone }, { semSlot:true, semTag:true, sizes:"66px" }) +
         '<div><b>' + esc(it.nome) + '</b><span class="op">' + esc(it.op) + '</span>' +
           '<span class="qtd" style="margin-top:7px">' +
             '<button type="button" data-menos="' + i + '" aria-label="Diminuir">−</button>' +
@@ -2396,7 +2609,7 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
     caixa.innerHTML =
       '<h3 style="font-size:19px;margin-bottom:10px">Resumo do pedido</h3>' +
       cesta.map(function(it){
-        return '<div class="mini">' + foto({ tons:it.tons, icone:it.icone }, { semSlot:true, semTag:true }) +
+        return '<div class="mini">' + foto({ img:it.img, alt:it.nome, tons:it.tons, icone:it.icone }, { semSlot:true, semTag:true, sizes:"46px" }) +
           '<span><b>' + esc(it.nome) + '</b><span>' + it.q + '× · ' + esc(it.op) + '</span></span>' +
           '<span class="v">' + reais(it.v * it.q) + '</span></div>';
       }).join("") +
@@ -2566,7 +2779,7 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
       '</div>';
 
     $("#zap-pedido").href = zapLink(
-      "Olá! Fiz o pedido " + n + " no site da Casa do Marceneiro.\n" +
+      "Olá! Fiz um pedido de teste (" + n + ") na prévia do novo site da Casa do Marceneiro.\n" +
       "Peças: " + totalItens() + "\n" +
       "Pagamento: " + forma + "\n" +
       entrega + "\n" +
@@ -2596,7 +2809,14 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
 
   function centroCfg(){ return BASE_METRO * AMBIENTES[cfg.amb].m * PADROES[cfg.pad].m * cfg.metros; }
 
+  var cfgFotoAtual = "";
   function pintarCfg(){
+    var amb = AMBIENTES[cfg.amb];
+    if (cfgFotoAtual !== amb.img) {
+      cfgFotoAtual = amb.img;
+      $("#cfg-foto").innerHTML = imagem(amb.img, amb.alt, "(max-width: 980px) 100vw, 480px") +
+        '<span class="selo3d">' + esc(amb.n) + ' · 3D ilustrativo</span>';
+    }
     botoesCfg($("#cfg-amb"), AMBIENTES, "amb");
     botoesCfg($("#cfg-pad"), PADROES, "pad");
     $("#cfg-m").textContent = cfg.metros.toFixed(1).replace(".", ",");
@@ -2634,8 +2854,20 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
     ok &= erro("c-msg", $("#c-msg").value.trim().length >= 10 ? "" : "Conte um pouco mais — ao menos uma frase.");
     ok &= erro("c-lgpd", $("#c-lgpd").checked ? "" : "Precisamos da sua autorização para responder.");
     if (!ok) { torrada("Confira os campos marcados.", true); return; }
-    torrada("Mensagem pronta. Nesta prévia ela não é enviada.");
-    $("#form-contato").reset();
+    // sem servidor: a mensagem sai pronta no WhatsApp ou no e-mail de quem escreve
+    var via = e.submitter && e.submitter.value === "email" ? "email" : "zap";
+    var assunto = $("#c-assunto").value;
+    var corpo = "Olá! Meu nome é " + $("#c-nome").value.trim() + ".\n" +
+      "Assunto: " + assunto + "\n\n" + $("#c-msg").value.trim() + "\n\n" +
+      "Telefone: " + $("#c-tel").value.trim() + "\nE-mail: " + $("#c-email").value.trim();
+    var a = document.createElement("a");
+    a.target = "_blank"; a.rel = "noopener";
+    a.href = via === "email"
+      ? "mailto:" + EMAIL + "?subject=" + encodeURIComponent(assunto + " — pelo site") + "&body=" + encodeURIComponent(corpo)
+      : zapLink(corpo);
+    document.body.appendChild(a); a.click(); a.remove();
+    torrada(via === "email" ? "Abrimos o seu e-mail com a mensagem pronta. É só enviar."
+                            : "Abrimos o WhatsApp com a mensagem pronta. É só tocar em enviar.");
   });
 
   /* ============================================================
@@ -2675,7 +2907,8 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
     .slice(0, 4).map(cartaoProduto).join("");
 
   $("#galeria").innerHTML = PROJETOS.map(function(p){
-    return '<article class="proj">' + foto({ tons:p.tons, icone:p.icone }, { slot:"Foto do projeto" }) +
+    return '<article class="proj">' + foto({ img:p.img, alt:p.t + " — " + p.d, tons:p.tons, icone:p.icone },
+        { selo:"3D ilustrativo", sizes:"(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 380px" }) +
       '<div class="txt"><span class="onde">' + esc(p.onde) + '</span><h4>' + esc(p.t) + '</h4>' +
       '<p>' + esc(p.d) + '</p><div class="meta">' +
       p.meta.map(function(m){ return "<span>" + esc(m) + "</span>"; }).join("") +
@@ -2695,17 +2928,28 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
       '<p>' + esc(g.d) + '</p></div>';
   }).join("");
 
-  $("#peca-capa").innerHTML = foto({ tons:["#D9BE94","#8F6335"], icone:"p-cozinha", tag:"Projeto entregue" },
-    { slot:"Foto principal do Gabriel entra aqui" }) +
-    '<div class="pe"><span><b>Cozinha em U · Vila Formosa</b><span>4,2 m lineares · 22 dias</span></span>' +
-    '<span class="v">R$ 7.9 mil</span></div>';
+  /* mosaico da página inicial: três ambientes, o maior à esquerda */
+  $("#mosaico").innerHTML = ["closet", "painel", "dormitorio"].map(function(nome, i){
+    var p = PROJETOS.filter(function(x){ return x.img === nome; })[0];
+    return '<a class="tela' + (i === 0 ? ' grande' : '') + '" href="#/projetos" data-ir="projetos">' +
+      imagem(p.img, p.t + " — " + p.d, i === 0 ? "(max-width: 760px) 100vw, 680px" : "(max-width: 760px) 100vw, 480px") +
+      '<span class="leg"><b>' + esc(p.t) + '</b><span>' + esc(p.meta[2]) + ' · 3D ilustrativo</span></span></a>';
+  }).join("");
 
-  $("#peca-oficina").innerHTML = foto({ tons:["#C9A06A","#7E5227"], icone:"p-corte", tag:"A oficina" },
-    { slot:"Foto da oficina entra aqui" }) +
-    '<div class="pe"><span><b>Oficina no Tatuapé</b><span>Corte, colagem e acabamento no mesmo endereço</span></span></div>';
+  /* fotos fixas do HTML: cartões dos três balcões e a faixa da oficina */
+  $$("[data-foto]").forEach(function(el){
+    el.innerHTML = imagem(el.dataset.foto, el.dataset.alt,
+      el.closest(".quadro-foto") ? "(max-width: 980px) 100vw, 560px" : "(max-width: 980px) 100vw, 380px");
+  });
 
-  $("#zap-flut").href = zapLink("Olá! Vim pelo site da Casa do Marceneiro e queria falar sobre um projeto.");
-  $("#zap-contato").href = zapLink("Olá! Vim pelo site da Casa do Marceneiro.");
+  $("#peca-oficina").innerHTML = foto({ img:"corte", alt:"Chapas de MDF cortadas na medida sobre a bancada, com trena, lápis e esquadro", tag:"A oficina" },
+    { selo:"3D ilustrativo", sizes:"(max-width: 980px) 100vw, 560px" }) +
+    '<div class="pe"><span><b>Chapa cortada na medida</b><span>Corte, fita de borda e acabamento no mesmo endereço</span></span></div>';
+
+  // todo link de WhatsApp já nasce com o número no HTML; aqui ganha a primeira frase pronta
+  $$("[data-zap]").forEach(function(a){
+    a.href = zapLink("Olá! Vim pelo site da Casa do Marceneiro e queria falar sobre um projeto.");
+  });
 
   /* A idade vem do ano de fundação, não escrita à mão: em 1º de janeiro
      o site se corrige sozinho, em vez de anunciar um número vencido. */

@@ -12,8 +12,11 @@ testado antes de subir e antes do primeiro real de anúncio.
 | `corpo.html` | Fonte única — conteúdo, marcação e toda a lógica. |
 | `site.css` | Sistema visual. |
 | `montar.py` | Gera `index.html` e `artifact.html` a partir da fonte. |
-| `capa-link.png` | Cartão de prévia do link, para o WhatsApp. |
+| `capa-link.jpg` | Cartão de prévia do link, para o WhatsApp. |
 | `gerador/cartao.html` | Fonte do cartão. |
+| `gerador/cartao.js` | Fotografa o cartão em 1200 × 630. |
+| `marca/` | O logo em vetor, HD e 4K, ícones e foto de perfil (ver "O logo"). |
+| `gerador/logo/` | Desenho, textura e exportação do logo. |
 
 `artifact.html` é saída de build e fica fora do versionamento.
 
@@ -68,16 +71,25 @@ A nota real do Google entra quando existir avaliação para citar.
 
 ## Decisões que valem explicar
 
-**As fotos que não existem.** O acervo do Gabriel ainda não chegou. Em vez de
-caixa cinza vazia — que faz o site parecer quebrado numa reunião de aprovação —
-cada imagem é uma chapa de madeira desenhada por gradiente, com a peça em linha
-por cima e uma etiqueta discreta dizendo o que entra ali. O site parece pronto e
-o buraco fica visível para quem produz. **Esse é o caminho crítico da fase.**
+**As imagens são projetos 3D, e o site diz isso.** O acervo do Gabriel ainda não
+chegou, e foto de banco de imagem numa marcenaria é pior que nenhuma: o cliente
+acha que é trabalho da casa. O meio-termo honesto é o que toda marcenaria já mostra
+na venda, o projeto em 3D. As 17 imagens do site foram renderizadas no Blender a
+partir de `gerador/fotos/`, com madeira gerada por fórmula: nada baixado de
+terceiros, direito de uso total. Toda imagem de ambiente leva o selo
+**"3D ilustrativo"**, e a página de projetos explica isso por escrito. Quando as
+fotos reais chegarem, basta salvar com o mesmo nome em `fotos/` (ver abaixo) e
+tirar o selo.
+
+O desenho de chapa por gradiente continua existindo como reserva: aparece onde
+ainda não há imagem e enquanto a foto carrega.
 
 **Um visual só, claro.** Sem tema escuro. É uma vitrine que o Gabriel vai abrir
 na frente do cliente, na oficina, sob luz de dia; uma segunda aparência para
 manter não vende mais um armário. Nogueira escura entra só nas faixas
-estruturais — capa, rodapé, chamada de preço.
+estruturais — topo, capa, rodapé, chamada de preço. O topo é escuro porque o
+logo da casa é madeira clara sobre fundo escuro, e é assim que ele foi desenhado
+para aparecer.
 
 **Veio horizontal.** A primeira versão listrava na vertical e lia como cortina,
 não como chapa. Ângulo corrigido para 2°.
@@ -88,17 +100,39 @@ Ninguém deve confundir isto com a loja no ar.
 **QR de demonstração.** O padrão desenhado não é um QR válido, de propósito:
 ninguém pode pagar por engano numa prévia. O rótulo diz isso embaixo do código.
 
-## O que precisa ser preenchido antes de subir
+## Dados da empresa
 
-1. **WhatsApp.** `TEL` em `corpo.html` está em `5511900000000`. Trocar pelo real.
-2. **Endereço, telefone e CNPJ.** Estão como `000`. Precisam bater **letra por
-   letra** com o Google Meu Negócio e com o Instagram — é esse casamento que faz
-   a oficina aparecer na busca de quem está a dois quarteirões.
-3. **Fotos e vídeos.** Peças, ambientes entregues e a oficina.
-4. **Preços reais.** Os do protótipo são ilustrativos.
-5. **Depoimentos.** Trocar pelos reais do Google, com autorização de quem assina.
-6. **Mapa.** Entra depois que o pin do Google estiver corrigido.
-7. **Título da aba.** Está só `Casa do Marceneiro Tatuapé`, que é o nome. Na
+Tirados do site atual da casa, e iguais em todo lugar onde aparecem (topo,
+capa, faixa da oficina, contato, rodapé, ficha do Google em `index.html`):
+
+| Dado | Valor |
+|---|---|
+| WhatsApp | (11) 94752-3961 — `TEL` em `corpo.html`; todo link `wa.me` já nasce com ele no HTML |
+| Endereço | Rua Tuiuti, 2530, cj. 42 — São Paulo/SP |
+| E-mail | contato@marceneirotatuape.com.br |
+
+O formulário de contato envia de verdade, sem servidor: abre o WhatsApp da
+oficina (ou o e-mail de quem escreve) com a mensagem já montada. O pedido de
+teste do checkout também avisa a oficina pelo WhatsApp, e a mensagem diz que é
+teste.
+
+O endereço precisa bater **letra por letra** com o Google Meu Negócio e com o
+Instagram — é esse casamento que faz a oficina aparecer na busca de quem está a
+dois quarteirões.
+
+## O que ainda falta confirmar antes de subir
+
+1. **Desde 1980.** O site segue a fundação informada, 1980 (46 anos). O texto
+   antigo da casa diz "há mais de 25 anos no mercado" e precisa ser corrigido onde
+   ainda estiver no ar (site atual, Instagram), para a empresa não ter duas idades.
+2. **Horário de atendimento.** Seg a sex 8h–18h, sáb 8h–12h é do protótipo.
+3. **Instagram.** `@casadomarceneirotatuape` é do protótipo.
+4. **CNPJ.** Está como `00.000.000/0001-00`.
+5. **Fotos reais.** O portfólio do site atual tem as fotos das obras; entram no
+   lugar dos renders com o mesmo nome (ver "As imagens").
+6. **Preços reais.** Os do protótipo são ilustrativos.
+7. **Depoimentos.** Trocar pelos reais do Google, com autorização de quem assina.
+8. **Título da aba.** Está só `Casa do Marceneiro Tatuapé`, que é o nome. Na
    versão no ar vale acrescentar o que a oficina faz e onde — é o que aparece
    como linha azul no resultado do Google.
 
@@ -123,7 +157,22 @@ A ordenação estava certa; corrigi o teste, não o código.
 
 ## Verificação
 
-89 asserções com Playwright dirigindo o site de verdade em celular emulado:
+**154 conferências** de ponta a ponta (desktop 1440 e Pixel 7) e **335 de
+celular** em sete aparelhos: Galaxy de 320 px, iPhone SE, iPhone 13, iPhone 14
+Pro Max, Pixel 7, iPad Mini e iPhone deitado. No celular, por tela: nada rola
+para o lado, nenhum elemento sai da tela, nenhum alvo de toque abaixo de 24 px
+(os do topo têm 44), nenhum campo abaixo de 16 px (o iPhone dá zoom ao tocar),
+nenhuma letra abaixo de 11 px, nenhuma imagem esticada além da resolução; e o
+fluxo de compra inteiro (ficha, carrinho, checkout, menu) em tela estreita.
+
+A revisão de celular achou e corrigiu: campos a 15,5 px que davam zoom no
+iPhone e no iPad; botões do topo com 35 px; selo "3D ilustrativo" a 10,5 px; o
+logo espremido pelo menu no iPad (o menu agora vira gaveta abaixo de 980 px);
+a foto da capa sem resolução no iPad em pé; a escolha de madeira encavalada no
+selo da foto em 320 px; o item do carrinho escondido atrás do total no iPhone
+SE; e o aviso de "peça adicionada" tapando o botão de finalizar.
+
+Da primeira rodada, 89 asserções com Playwright dirigindo o site de verdade em celular emulado:
 navegação por rota e por menu, filtro, busca, ordenação, cadeia de preço na
 ficha, carrinho somando e persistindo, frete por três faixas de CEP, checkout
 recusando CPF e cartão inválidos e aceitando os válidos, relógio do PIX
@@ -132,3 +181,51 @@ e três padrões do configurador dando faixas distintas, formulário de contato,
 `Escape` fechando sobreposições, aviso de LGPD com memória. Sem estouro
 horizontal em 360, 375, 393, 412, 768, 1280 e 1440 px. Zero erro de JavaScript.
 Todo texto passa no piso de contraste WCAG AA, medido cor a cor.
+
+## As imagens
+
+| Arquivo em `fotos/` | Onde aparece |
+|---|---|
+| `capa-2400/1600/960.webp` | Capa do site (cozinha em U, quadro panorâmico) |
+| `nicho`, `prateleira`, `tabua`, `ripado`, `banqueta`, `cabeceira`, `corte`, `bancada` | Peça da loja de mesmo nome |
+| `cozinha`, `closet`, `escritorio`, `painel`, `compacta`, `dormitorio` | Projetos, mosaico da página inicial, simulador |
+| `banheiro` | Simulador, ambiente Banheiro |
+| `oficina` | Faixa "Oficina aberta" da página inicial |
+
+Cada imagem tem duas larguras: `<nome>.webp` (1200 ou 1280 px) e `<nome>-640.webp`,
+e o navegador escolhe pela largura em que ela aparece. Para trocar por foto real:
+mesma proporção 4:3, mesmo nome, e rodar `python3 montar.py`.
+
+Para refazer os renders (precisa do pacote `bpy`, o Blender como módulo Python):
+
+```
+python gerador/fotos/produtos.py nicho saida.png 40 75     # peça da loja
+python gerador/fotos/ambientes.py cozinha saida.png 48 80   # ambiente
+python gerador/fotos/otimizar.py <pasta-dos-png> fotos/     # PNG → WebP
+```
+
+## O logo
+
+Redesenhado em vetor a partir do arquivo de 421 × 162 px que a casa usa hoje,
+em geometria pura: cada reta, arco e curva foi medido no original ampliado 8
+vezes e ajustado por sobreposição. O redesenho cobre 99,3% do telhado e 98,3%
+de MARCENEIRO; o que sobra é o antisserrilhado do original. A madeira clara é
+gerada por fórmula (`gerador/logo/textura.py`), de veio vertical como no
+original. Nada baixado, nenhuma fonte de terceiros.
+
+| Arquivo em `marca/` | Para quê |
+|---|---|
+| `logo-madeira.svg` | O logo oficial: vetor com a madeira por baixo. Amplia sem perder nada |
+| `logo-creme.svg`, `logo-escuro.svg` | Vetor de uma cor só: gráfica, adesivo, bordado, corte a laser, fundo claro |
+| `logo-madeira-4k.png` (3840 px), `logo-madeira-hd.png` (1920 px) | Fundo transparente |
+| `logo-escuro-4k.png` | Fundo transparente, para papel e fundo claro |
+| `logo-4k-fundo.png` (3840 × 2160), `logo-hd-fundo.png` (1920 × 1080) | No degradê escuro do original: TV, apresentação, tela de fundo |
+| `perfil-1080.png` | Foto de perfil do WhatsApp Business e do Instagram (cabe no círculo) |
+| `icone.svg`, `icone-512.png`, `apple-touch-icon.png`, `favicon-32.png` | Símbolo: aba do navegador, atalho na tela do celular |
+| `logo-site.svg` | O do topo e do rodapé do site, com textura leve embutida |
+
+Para refazer tudo (numpy, Pillow e Node com Playwright):
+
+```
+python gerador/logo/exportar.py
+```

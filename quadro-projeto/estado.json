@@ -1,8 +1,8 @@
 {
   "versao": 1,
   "titulo": "Quadro do Projeto Marceneiro",
-  "atualizado": "2026-09-17",
-  "visita": "2026-09-17",
+  "atualizado": "2026-10-06",
+  "visita": "2026-10-06",
   "marcos": [
     {
       "id": "m1",
@@ -45,7 +45,8 @@
         "a2",
         "a3",
         "a17",
-        "a18"
+        "a18",
+        "a19"
       ]
     },
     {
@@ -78,6 +79,10 @@
       "ate": "2026-10-01",
       "entrega": "As fotos do Gabriel no lugar dos desenhos de chapa, com preço que se pode cobrar e catálogo cadastrado. É o marco que depende só dele.",
       "itens": [
+        "f10",
+        "f11",
+        "f12",
+        "f13",
         "h7",
         "a8",
         "a9",
@@ -122,6 +127,18 @@
     }
   ],
   "roteiro": [
+    {
+      "id": "r13",
+      "feito": false,
+      "t": "Mostrar o site novo no celular dele",
+      "d": "Abrir o link na frente do Gabriel, passar pela loja e simular a cozinha de um cliente real no simulador. Dizer com todas as letras que as imagens são 3D até as fotos dele chegarem — e pedir o acervo ali mesmo."
+    },
+    {
+      "id": "r14",
+      "feito": false,
+      "t": "Mostrar o logo novo e mandar o kit para ele",
+      "d": "Abrir o logo 4K na TV ou no celular, mostrar a foto de perfil pronta para o WhatsApp Business e mandar a pasta marca/. Confirmar ali mesmo horário, Instagram e CNPJ, e combinar a troca do “mais de 25 anos” onde ainda estiver no ar."
+    },
     {
       "id": "r1",
       "feito": false,
@@ -257,6 +274,34 @@
       "t": "Proposta aceita verbalmente pelo Gabriel"
     },
     {
+      "id": "f10",
+      "estado": "feito",
+      "frente": "Fase 2",
+      "t": "Site redesenhado com 17 imagens 3D próprias",
+      "d": "Capa panorâmica, loja, projetos, oficina e simulador com imagem. Renderizadas no Blender a partir de cena escrita em código, sem banco de imagem nem direito de terceiros; toda imagem de ambiente leva o selo “3D ilustrativo”. Conferências passando no computador e no celular. Feito em 06/10, para a apresentação ao Gabriel."
+    },
+    {
+      "id": "f11",
+      "estado": "feito",
+      "frente": "Marca",
+      "t": "Logo redesenhado em vetor, com kit em HD e 4K",
+      "d": "Redesenho em geometria pura a partir do arquivo de 421 px que a casa usa hoje: cobre 99,3% do telhado e 98,3% de MARCENEIRO; o que sobra é o antisserrilhado do original. Madeira clara gerada por fórmula. Saem SVG (madeira, creme e escuro), PNG transparente em 1920 e 3840 px, versão 4K no degradê do original, foto de perfil do WhatsApp e ícones. Tudo em site-casa-do-marceneiro/marca/. Feito em 06/10."
+    },
+    {
+      "id": "f12",
+      "estado": "feito",
+      "frente": "Fase 2",
+      "t": "WhatsApp, endereço e e-mail reais no site",
+      "d": "(11) 94752-3961 no topo, na capa, no botão flutuante, no menu do celular, no contato e no rodapé; Rua Tuiuti, 2530, cj. 42; contato@marceneirotatuape.com.br. O formulário de contato agora envia de verdade, pelo WhatsApp ou por e-mail, com a mensagem montada. O pedido de teste avisa a oficina e diz que é teste. Feito em 06/10."
+    },
+    {
+      "id": "f13",
+      "estado": "feito",
+      "frente": "Fase 2",
+      "t": "Revisão de celular em sete aparelhos",
+      "d": "335 conferências do Galaxy de 320 px ao iPad, com o celular deitado: nada rola para o lado, alvo de toque do tamanho do dedo, campo que não dá zoom no iPhone, letra legível, foto com resolução, compra inteira na tela estreita. Achou e corrigiu nove defeitos. Mais 154 conferências de ponta a ponta. Feito em 06/10."
+    },
+    {
       "id": "h1",
       "estado": "fazendo",
       "frente": "Domínio",
@@ -301,7 +346,7 @@
       "frente": "Conteúdo",
       "trava": true,
       "t": "Fotos e vídeos do acervo",
-      "d": "Caminho crítico. Sem elas o site não sobe — os desenhos de chapa são provisórios e existem para mostrar onde a foto entra. O portfólio do site antigo é a primeira fonte: baixar antes de mexer em hospedagem, e completar com foto nova da oficina."
+      "d": "Caminho crítico. O site já tem imagem em todas as telas, mas são projetos 3D marcados como ilustrativos: a foto real entra no lugar com o mesmo nome de arquivo. O portfólio do site antigo é a primeira fonte — a rede do ambiente de trabalho não alcança marceneirotatuape.com.br, então as fotos precisam vir por anexo, Google Drive ou liberando o domínio — e completar com foto nova da oficina."
     },
     {
       "id": "h8",
@@ -375,11 +420,11 @@
     },
     {
       "id": "a10",
-      "estado": "afazer",
+      "estado": "fazendo",
       "frente": "Conteúdo",
       "trava": true,
-      "t": "Telefone, endereço e CNPJ verdadeiros no site",
-      "d": "Hoje estão como 000. Precisam bater letra por letra com o Google Meu Negócio."
+      "t": "CNPJ verdadeiro no site",
+      "d": "WhatsApp, endereço e e-mail já são os reais e batem em todo o site. Falta o CNPJ, que está como 00.000.000/0001-00. Tudo precisa bater letra por letra com o Google Meu Negócio."
     },
     {
       "id": "a11",
@@ -433,6 +478,13 @@
       "frente": "Comercial",
       "t": "Decidir loja na raiz ou site institucional separado",
       "d": "Um lugar só para manter e uma autoridade de busca só, contra dois de tudo."
+    },
+    {
+      "id": "a19",
+      "estado": "afazer",
+      "frente": "Conteúdo",
+      "t": "Confirmar com o Gabriel o que o site afirma",
+      "d": "O site segue 1980 (46 anos); o texto antigo diz “há mais de 25 anos” e precisa ser corrigido onde ainda estiver no ar. Horário de atendimento, @ do Instagram e CNPJ ainda são do protótipo."
     }
   ]
 }

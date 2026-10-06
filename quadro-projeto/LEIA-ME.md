@@ -6,7 +6,7 @@ marcação fica salva.
 
 Três leituras da mesma coisa, da mais resumida para a mais detalhada: a
 **linha do tempo** com os nove marcos datados, o **roteiro da visita** à
-oficina, e o **quadro** de três colunas com os 35 cartões.
+oficina, e o **quadro** de três colunas com os 40 cartões.
 
 ## Como funciona a persistência
 

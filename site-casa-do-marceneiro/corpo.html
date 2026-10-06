@@ -15,7 +15,8 @@
 <g id="i-moeda" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M10.1 5.9a2.1 2.1 0 0 0-3.9.7c0 2.1 3.9 1.2 3.9 3.1a2.1 2.1 0 0 1-3.9.6M8 4.1v7.8"/></g>
 <g id="i-cadeado" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="6.8" width="10.8" height="7.4" rx="1.6"/><path d="M5.2 6.8V4.6a2.8 2.8 0 0 1 5.6 0v2.2"/></g>
 <g id="i-alerta" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.4 15.1 13.6H.9L8 2.4Z"/><path d="M8 6.6v3.1M8 11.7v.05"/></g>
-<g id="i-zap" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7.7a6 6 0 0 1-8.9 5.3L2 14l1.1-3.1A6 6 0 1 1 14 7.7Z"/></g>
+<g id="i-whats"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></g>
+<g id="i-email" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1.8" y="3.2" width="12.4" height="9.6" rx="1.6"/><path d="m2.4 4.2 5.6 4.6 5.6-4.6"/></g>
 <g id="i-menu" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/></g>
 <g id="i-pin" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 14.5s5-4.2 5-8a5 5 0 0 0-10 0c0 3.8 5 8 5 8Z"/><circle cx="8" cy="6.4" r="1.9"/></g>
 <g id="i-relogio" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6.2"/><path d="M8 4.3V8l2.6 1.6"/></g>
@@ -51,19 +52,16 @@
 <div class="aviso" id="aviso">
   <div class="env">
     <svg viewBox="0 0 16 16"><use href="#i-alerta"/></svg>
-    <p><b>Prévia</b><span class="longo"> — protótipo do novo site para aprovação. As peças e os preços são ilustrativos e nenhum pagamento é processado.</span><span class="curto"> — preços ilustrativos, nada é cobrado.</span></p>
+    <p><b>Prévia</b><span class="longo"> — protótipo do novo site para aprovação. Peças, preços e imagens em 3D são ilustrativos e nenhum pagamento é processado.</span><span class="curto"> — imagens 3D e preços ilustrativos.</span></p>
     <button type="button" id="fecha-aviso" aria-label="Fechar aviso">&times;</button>
   </div>
 </div>
 
 <header class="topo">
   <div class="env">
-    <a class="marca" href="#/" data-ir="inicio">
-      <span class="selo"><svg width="21" height="21" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-serra"/></svg></span>
-      <span class="nome">
-        <b>Casa do Marceneiro</b>
-        <span class="sub-marca">Tatuapé · São Paulo</span>
-      </span>
+    <a class="marca" href="#/" data-ir="inicio" aria-label="Casa do Marceneiro Tatuapé — início">
+      <img class="logo" src="marca/logo-site.svg" width="360" height="131" alt="Casa do Marceneiro">
+      <span class="sub-marca">Tatuapé<br>São Paulo</span>
     </a>
     <nav class="nav" id="nav" aria-label="Principal">
       <a href="#/" data-ir="inicio">Início</a>
@@ -74,6 +72,9 @@
       <a href="#/contato" data-ir="contato">Contato</a>
     </nav>
     <div class="acoes">
+      <a class="btn peq bzap" id="zap-topo" href="https://wa.me/5511947523961" data-zap="topo" target="_blank" rel="noopener" aria-label="WhatsApp (11) 94752-3961">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg><span class="rot-zap">WhatsApp</span>
+      </a>
       <button class="btn peq bcart" id="abre-cart" type="button" aria-label="Abrir carrinho">
         <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-carrinho"/></svg>
         <span class="rot-cart">Carrinho</span>
@@ -92,45 +93,36 @@
 <section class="rota on" data-rota="inicio" aria-label="Início">
 
   <div class="capa">
-    <svg class="grao" viewBox="0 0 1200 620" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-      <defs>
-        <filter id="veio-f" x="-6%" y="-6%" width="112%" height="112%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.0032 0.05" numOctaves="4" seed="17" result="ruido"/>
-          <feDisplacementMap in="SourceGraphic" in2="ruido" scale="52" xChannelSelector="R" yChannelSelector="G"/>
-        </filter>
-        <pattern id="aneis" width="1200" height="19" patternUnits="userSpaceOnUse">
-          <rect width="1200" height="1.8" y="6" fill="#B47A3A"/>
-          <rect width="1200" height="0.9" y="12" fill="#8A5A2C"/>
-        </pattern>
-      </defs>
-      <rect width="1200" height="620" fill="#1A120C"/>
-      <g filter="url(#veio-f)" opacity="0.5"><rect width="1200" height="620" fill="url(#aneis)"/></g>
-    </svg>
+    <picture class="capa-foto">
+      <img src="fotos/capa-1600.webp" srcset="fotos/capa-960.webp 960w, fotos/capa-1600.webp 1600w, fotos/capa-2400.webp 2400w"
+        sizes="(orientation: portrait) and (min-width: 761px) 150vh, 100vw" width="2400" height="1350" alt="Cozinha em U com armários em MDF amadeirado, torre quente e tampo contínuo de freijó maciço, iluminada pelo sol da tarde"
+        fetchpriority="high" decoding="async">
+    </picture>
 
     <div class="env">
-      <div class="grade">
-        <div>
-          <span class="rotulo">Marcenaria familiar no Tatuapé desde 1980</span>
-          <h1>A madeira certa, <em>cortada para o seu espaço</em>.</h1>
-          <p class="sub">Peças prontas que saem hoje da oficina, corte de chapa na medida que você mandar
-            e projeto sob medida com visita técnica. Tudo feito na nossa oficina — sem terceirizar, sem intermediário.</p>
-          <div class="cta">
-            <a class="btn forte" href="#/loja" data-ir="loja">
-              <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-carrinho"/></svg>Ver a loja
-            </a>
-            <a class="btn vazado" href="#/sob-medida" data-ir="sob-medida">
-              <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-regua"/></svg>Simular meu projeto
-            </a>
-          </div>
-          <div class="provas">
-            <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b><i data-anos>46</i> anos</b>de oficina própria</span></div>
-            <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b>Madeira e MDF</b>nunca MDP</span></div>
-            <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b>Garantia</b>com assistência técnica</span></div>
-          </div>
+      <div class="capa-txt">
+        <span class="rotulo">Marcenaria familiar no Tatuapé desde 1980</span>
+        <h1>A madeira certa, <em>cortada para o seu espaço</em>.</h1>
+        <p class="sub">Peças prontas que saem hoje da oficina, corte de chapa na medida que você mandar
+          e projeto sob medida com visita técnica. Tudo feito na nossa oficina — sem terceirizar, sem intermediário.</p>
+        <div class="cta">
+          <a class="btn forte" href="#/loja" data-ir="loja">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-carrinho"/></svg>Ver a loja
+          </a>
+          <a class="btn vazado" href="#/sob-medida" data-ir="sob-medida">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-regua"/></svg>Simular meu projeto
+          </a>
         </div>
-        <div class="peca" id="peca-capa"></div>
+        <p class="capa-zap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg><span>Prefere conversar? <a href="https://wa.me/5511947523961" data-zap="capa" target="_blank" rel="noopener">Chame no WhatsApp: (11)&nbsp;94752&#8209;3961</a></span></p>
+        <div class="provas">
+          <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b><i data-anos>46</i> anos</b>de oficina própria</span></div>
+          <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b>Madeira e MDF</b>nunca MDP</span></div>
+          <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b>Garantia</b>com assistência técnica</span></div>
+        </div>
       </div>
     </div>
+
+    <p class="capa-legenda"><b>Cozinha em U · tampo contínuo em freijó maciço</b><span>Projeto 3D ilustrativo</span></p>
   </div>
 
   <div class="faixa">
@@ -142,24 +134,24 @@
           que sim perde o cliente na primeira visita. Por isso a loja tem três balcões.</p>
       </div>
       <div class="balcoes">
-        <div class="balcao" style="--cor:#3D6B2F">
-          <span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-carrinho"/></svg></span>
+        <div class="balcao com-foto" style="--cor:#3D6B2F">
+          <div class="ft" data-foto="prateleira" data-alt="Prateleiras flutuantes de freijó com livros e vasos"></div>
           <span class="quando">Preço fechado · compra na hora</span>
           <h3>Prateleira</h3>
           <p>Peças prontas com medida padrão: nicho, prateleira, tábua, banqueta. Escolhe a madeira,
             o acabamento e o tamanho, e o preço aparece na hora. Retira na oficina ou recebe em casa.</p>
           <a class="btn" href="#/loja" data-ir="loja">Ver peças<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
         </div>
-        <div class="balcao" style="--cor:#A66A15">
-          <span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-regua"/></svg></span>
+        <div class="balcao com-foto" style="--cor:#A66A15">
+          <div class="ft" data-foto="bancada" data-alt="Ilha de cozinha com tampo maciço de freijó e base branca"></div>
           <span class="quando">Faixa na hora · fecha por WhatsApp</span>
           <h3>Balcão</h3>
           <p>Ambiente definido, medida sua. Você diz o cômodo, os metros e o padrão de acabamento,
             e o site devolve a faixa de investimento antes de qualquer conversa. Sem enrolação, sem “depende”.</p>
           <a class="btn" href="#/sob-medida" data-ir="sob-medida">Simular agora<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
         </div>
-        <div class="balcao" style="--cor:#7F4F0E">
-          <span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-martelo"/></svg></span>
+        <div class="balcao com-foto" style="--cor:#7F4F0E">
+          <div class="ft" data-foto="closet" data-alt="Closet aberto em carvalho com cabideiros, gaveteiro e sapateira"></div>
           <span class="quando">Visita técnica · projeto e execução</span>
           <h3>Bancada</h3>
           <p>Obra sob medida de verdade: cozinha, closet, marcenaria de apartamento inteiro.
@@ -186,6 +178,21 @@
   </div>
 
   <div class="faixa">
+    <div class="env">
+      <div class="cab cab-linha">
+        <div>
+          <span class="rotulo">Bancada · obra sob medida</span>
+          <h2>Ambientes desenhados para a casa de quem pediu</h2>
+        </div>
+        <a class="btn" href="#/projetos" data-ir="projetos">Ver os projetos<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
+      </div>
+      <div class="mosaico" id="mosaico"></div>
+      <p class="nota-3d">As imagens desta prévia são projetos 3D ilustrativos, feitos para a apresentação.
+        Na versão final entram as fotos do acervo da oficina.</p>
+    </div>
+  </div>
+
+  <div class="faixa creme">
     <div class="env">
       <div class="cab meio">
         <span class="rotulo">Quem já recebeu</span>
@@ -227,22 +234,26 @@
           <p class="sub">Não somos revenda nem representante. A chapa entra aqui, é cortada, colada, lixada
             e finalizada aqui, e sai daqui para a sua casa. Se quiser conferir antes de fechar, é só marcar.</p>
           <div class="numeros">
-            <div><b>16</b><span>anos de casa</span></div>
-            <div><b>800+</b><span>projetos</span></div>
-            <div><b>22</b><span>dias, prazo médio</span></div>
+            <div><b>1980</b><span>ano da fundação</span></div>
+            <div><b data-anos>46</b><span>anos de oficina</span></div>
+            <div><b>0</b><span>chapas de MDP</span></div>
           </div>
         </div>
-        <ul class="nap">
-          <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span><b>Endereço</b><span id="nap-end">Rua da oficina, 000 — Tatuapé, São Paulo/SP</span></span></li>
-          <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-relogio"/></svg></span>
-            <span><b>Horário</b><span>Segunda a sexta, 8h às 18h · Sábado, 8h às 12h</span></span></li>
-          <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-zap"/></svg></span>
-            <span><b>WhatsApp</b><span id="nap-tel">(11) 90000-0000</span></span></li>
-          <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-insta"/></svg></span>
-            <span><b>Instagram</b><span>@casadomarceneirotatuape</span></span></li>
-          </ul>
+        <figure class="quadro-foto">
+          <div class="ft" data-foto="oficina" data-alt="Oficina de marcenaria com bancada central, estante de madeira bruta, chapas de MDF e serra de mesa"></div>
+          <figcaption><b>A oficina</b><span>Corte, colagem e acabamento no mesmo endereço · imagem 3D ilustrativa</span></figcaption>
+        </figure>
       </div>
+      <ul class="nap nap-linha">
+        <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-pin"/></svg></span>
+          <span><b>Endereço</b><span id="nap-end">Rua Tuiuti, 2530, cj. 42<br>São Paulo/SP</span></span></li>
+        <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-relogio"/></svg></span>
+          <span><b>Horário</b><span>Seg a sex, 8h às 18h · Sáb, 8h às 12h</span></span></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg></span>
+          <span><b>WhatsApp</b><a id="nap-tel" href="https://wa.me/5511947523961" data-zap="oficina" target="_blank" rel="noopener">(11) 94752-3961</a></span></li>
+        <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-email"/></svg></span>
+          <span><b>E-mail</b><a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a></span></li>
+      </ul>
     </div>
   </div>
 
@@ -290,7 +301,8 @@
           guardado — a conta roda no seu próprio celular.</p>
       </div>
       <div class="cfg">
-        <div class="cartao">
+        <div class="cartao cfg-cartao">
+          <div class="cfg-foto" id="cfg-foto"></div>
           <div class="cfg-bloco">
             <b>1. Qual ambiente</b>
             <div class="cfg-op" id="cfg-amb" role="group" aria-label="Ambiente"></div>
@@ -319,7 +331,7 @@
             <li><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span>Garantia de 3 anos na estrutura</span></li>
           </ul>
           <a class="btn zap larga" id="cfg-zap" href="#" target="_blank" rel="noopener">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-zap"/></svg>Enviar pelo WhatsApp
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>Enviar pelo WhatsApp
           </a>
           <p class="obs" style="margin-top:12px">A faixa é estimativa de orientação. O valor fechado sai depois
             da medição, por escrito, e só vale com assinatura.</p>
@@ -337,7 +349,8 @@
         <span class="rotulo">Bancada · obra sob medida</span>
         <h2>Projetos entregues</h2>
         <p class="sub">Cada um desses começou com uma medição e terminou com a chave na mão do cliente.
-          As fotos definitivas entram quando o Gabriel enviar o acervo da oficina.</p>
+          Nesta prévia, projetos e imagens são ilustrativos — renderizações 3D feitas para a apresentação.
+          As fotos definitivas entram quando o acervo da oficina chegar.</p>
       </div>
       <div class="galeria" id="galeria"></div>
     </div>
@@ -430,7 +443,7 @@
           <span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-escudo"/></svg></span>
           <h3>A relação não acaba na entrega</h3>
           <p>Assistência técnica e garantia continuam depois de o móvel estar instalado. Quem compra aqui
-            fica com alguém para chamar — e o endereço é o mesmo há mais de quatro décadas.</p>
+            fica com alguém para chamar: a mesma família atende desde 1980.</p>
         </div>
       </div>
     </div>
@@ -493,7 +506,7 @@
       <div class="cab">
         <span class="rotulo">Fale com a oficina</span>
         <h2>Contato</h2>
-        <p class="sub">Resposta em até 2 horas úteis. Se for urgente, o WhatsApp é o caminho mais rápido.</p>
+        <p class="sub">Escreva do jeito que preferir. A mensagem chega direto na oficina, pelo WhatsApp ou por e-mail.</p>
       </div>
       <div class="oficina-g" style="align-items:start">
         <form class="cartao" id="form-contato" novalidate>
@@ -538,8 +551,8 @@
             </label>
             <span class="erro" data-erro="c-lgpd"></span>
             <div style="display:flex;gap:10px;flex-wrap:wrap">
-              <button class="btn forte" type="submit"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg>Enviar</button>
-              <a class="btn zap" id="zap-contato" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-zap"/></svg>Ir direto pro WhatsApp</a>
+              <button class="btn zap" type="submit" value="zap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>Enviar pelo WhatsApp</button>
+              <button class="btn" type="submit" value="email"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-email"/></svg>Enviar por e-mail</button>
             </div>
           </div>
         </form>
@@ -547,25 +560,27 @@
         <div>
           <ul class="nap">
             <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-pin"/></svg></span>
-              <span><b>Oficina</b><span>Rua da oficina, 000 — Tatuapé, São Paulo/SP, 03000-000</span></span></li>
+              <span><b>Endereço</b><span>Rua Tuiuti, 2530, cj. 42 — São Paulo/SP</span></span></li>
             <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-relogio"/></svg></span>
               <span><b>Atendimento</b><span>Segunda a sexta, 8h às 18h · Sábado, 8h às 12h</span></span></li>
-            <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-zap"/></svg></span>
-              <span><b>WhatsApp</b><span>(11) 90000-0000</span></span></li>
-            <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-tel"/></svg></span>
-              <span><b>Telefone</b><span>(11) 0000-0000</span></span></li>
+            <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg></span>
+              <span><b>WhatsApp</b><a href="https://wa.me/5511947523961" data-zap="contato" target="_blank" rel="noopener">(11) 94752-3961</a></span></li>
+            <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-email"/></svg></span>
+              <span><b>E-mail</b><a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a></span></li>
             <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-insta"/></svg></span>
               <span><b>Instagram</b><span>@casadomarceneirotatuape</span></span></li>
           </ul>
-          <div class="cartao" style="margin-top:20px;padding:0;overflow:hidden">
-            <div class="foto" style="--a:#E3D6BE;--b:#B49B72;aspect-ratio:16/10" data-mapa>
-              <svg class="peca-linha" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg>
-              <span class="slot">Mapa entra aqui quando o pin do Google estiver corrigido</span>
+          <div class="cartao chegar">
+            <span class="ic-grande"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-pin"/></svg></span>
+            <div>
+              <h3>Como chegar</h3>
+              <p>Rua Tuiuti, 2530, cj. 42<br>São Paulo/SP</p>
+              <div class="bts">
+                <a class="btn peq" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Tuiuti%2C%202530%2C%20S%C3%A3o%20Paulo%20-%20SP" target="_blank" rel="noopener">Abrir no Google Maps</a>
+                <a class="btn peq" href="https://waze.com/ul?q=Rua%20Tuiuti%2C%202530%2C%20S%C3%A3o%20Paulo&amp;navigate=yes" target="_blank" rel="noopener">Ir com o Waze</a>
+              </div>
             </div>
           </div>
-          <p style="font-size:14.5px;color:var(--mut2);margin-top:12px">
-            O endereço acima precisa bater, letra por letra, com o do Google Meu Negócio e com o do Instagram.
-            É esse casamento que faz a oficina aparecer na busca de quem está a dois quarteirões.</p>
         </div>
       </div>
     </div>
@@ -793,13 +808,13 @@
                 <div id="resumo-final" style="width:100%"></div>
                 <div class="nota-seg" style="text-align:left">
                   <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-alerta"/></svg>
-                  <span><b>Isto é uma prévia.</b> Nenhum pagamento foi processado, nenhum dado saiu deste
-                    aparelho e nenhum pedido chegou à oficina.</span>
+                  <span><b>Isto é uma prévia.</b> Nenhum pagamento foi processado e nenhum dado saiu deste
+                    aparelho. O botão do WhatsApp avisa a oficina, e a mensagem já diz que é pedido de teste.</span>
                 </div>
                 <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
                   <button class="btn forte" type="button" data-ir="loja">Voltar para a loja</button>
                   <a class="btn zap" id="zap-pedido" href="#" target="_blank" rel="noopener">
-                    <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-zap"/></svg>Falar com a oficina</a>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>Falar com a oficina</a>
                 </div>
               </div>
             </div>
@@ -818,10 +833,7 @@
   <div class="env">
     <div class="rod-g">
       <div>
-        <div class="marca">
-          <span class="selo"><svg width="21" height="21" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-serra"/></svg></span>
-          <span class="nome"><b>Casa do Marceneiro</b><span class="sub-marca">Tatuapé · São Paulo</span></span>
-        </div>
+        <img class="logo-rod" src="marca/logo-site.svg" width="360" height="131" alt="Casa do Marceneiro" loading="lazy">
         <p class="diz">Marcenaria familiar desde 1980. A chapa entra aqui, é cortada aqui e sai daqui
           para a sua casa.</p>
         <div class="pagam">
@@ -849,9 +861,10 @@
       <div>
         <h4>Contato</h4>
         <ul>
-          <li>Rua da oficina, 000<br>Tatuapé — São Paulo/SP</li>
+          <li>Rua Tuiuti, 2530, cj. 42<br>São Paulo/SP</li>
           <li>Seg a sex 8h–18h · Sáb 8h–12h</li>
-          <li><a href="#/contato" data-ir="contato">(11) 90000-0000</a></li>
+          <li><a href="https://wa.me/5511947523961" data-zap="rodape" target="_blank" rel="noopener">WhatsApp (11) 94752-3961</a></li>
+          <li><a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a></li>
           <li><a href="#/contato" data-ir="contato">@casadomarceneirotatuape</a></li>
         </ul>
       </div>
@@ -865,8 +878,8 @@
   </div>
 </footer>
 
-<a class="zap-flut" id="zap-flut" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-  <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-zap"/></svg>
+<a class="zap-flut" id="zap-flut" href="https://wa.me/5511947523961" data-zap="flutuante" target="_blank" rel="noopener" aria-label="Falar no WhatsApp: (11) 94752-3961">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg><span class="rot">Fale no WhatsApp</span>
 </a>
 
 <!-- ficha do produto -->
@@ -905,6 +918,7 @@
     <a href="#/projetos" data-ir="projetos">Projetos</a>
     <a href="#/oficina" data-ir="oficina">A oficina</a>
     <a href="#/contato" data-ir="contato">Contato</a>
+    <a class="gav-zap" href="https://wa.me/5511947523961" data-zap="menu" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg><span>Fale no WhatsApp<small>(11) 94752-3961</small></span></a>
   </div>
 </div>
 
@@ -929,7 +943,8 @@
      em qualquer celular, sem servidor e sem conta criada.
      ============================================================ */
 
-  var TEL = "5511900000000";        /* ← trocar pelo WhatsApp real do Gabriel */
+  var TEL = "5511947523961";        /* WhatsApp da oficina: (11) 94752-3961 */
+  var EMAIL = "contato@marceneirotatuape.com.br";
 
   var GRUPOS = {
     madeira: { rot:"Madeira", itens:[
@@ -986,22 +1001,22 @@
   ];
 
   var PROJETOS = [
-    { t:"Cozinha em U com torre quente", onde:"Vila Formosa", icone:"p-cozinha", tons:["#D9BE94","#A87C48"],
+    { t:"Cozinha em U com torre quente", img:"cozinha", onde:"Vila Formosa", icone:"p-cozinha", tons:["#D9BE94","#A87C48"],
       d:"Marcenaria de piso a teto em MDF amadeirado, com nicho de forno e micro-ondas e bancada em maciço.",
       meta:["4,2 m lineares","22 dias","Padrão intermediário"] },
-    { t:"Closet aberto do casal", onde:"Anália Franco", icone:"p-closet", tons:["#E0CDA9","#B7955F"],
+    { t:"Closet aberto do casal", img:"closet", onde:"Anália Franco", icone:"p-closet", tons:["#E0CDA9","#B7955F"],
       d:"Estrutura modular com cabideiro duplo, gaveteiro interno e iluminação embutida em perfil de alumínio.",
       meta:["5,0 m lineares","26 dias","Padrão premium"] },
-    { t:"Home office em nicho de sala", onde:"Tatuapé", icone:"p-home", tons:["#D3B387","#9E7440"],
+    { t:"Home office em nicho de sala", img:"escritorio", onde:"Tatuapé", icone:"p-home", tons:["#D3B387","#9E7440"],
       d:"Aproveitamento de vão morto: bancada de trabalho, prateleiras e passagem de fiação escondida.",
       meta:["2,4 m lineares","14 dias","Padrão essencial"] },
-    { t:"Painel ripado com rack suspenso", onde:"Jardim Anália", icone:"p-painel", tons:["#CBA476","#8F6335"],
+    { t:"Painel ripado com rack suspenso", img:"painel", onde:"Jardim Anália", icone:"p-painel", tons:["#CBA476","#8F6335"],
       d:"Ripado de freijó com rack flutuante e caixa de tomadas acessível por trás, sem furar a parede duas vezes.",
       meta:["3,1 m lineares","11 dias","Padrão intermediário"] },
-    { t:"Cozinha compacta de apartamento", onde:"Carrão", icone:"p-cozinha", tons:["#E3D2B4","#B08A55"],
+    { t:"Cozinha compacta de apartamento", img:"compacta", onde:"Carrão", icone:"p-cozinha", tons:["#E3D2B4","#B08A55"],
       d:"Projeto para 32 m²: armário até o teto, portas de correr e mesa retrátil embutida no balcão.",
       meta:["3,4 m lineares","19 dias","Padrão essencial"] },
-    { t:"Marcenaria completa de dormitório", onde:"Vila Regente Feijó", icone:"p-closet", tons:["#D5B384","#96693A"],
+    { t:"Marcenaria completa de dormitório", img:"dormitorio", onde:"Vila Regente Feijó", icone:"p-closet", tons:["#D5B384","#96693A"],
       d:"Guarda-roupa, cabeceira estofada com moldura de madeira e criados-mudos suspensos, tudo do mesmo lote.",
       meta:["6,8 m lineares","31 dias","Padrão premium"] }
   ];
@@ -1023,11 +1038,11 @@
   ];
 
   var AMBIENTES = [
-    { n:"Cozinha",      m:1.25, ic:"p-cozinha" },
-    { n:"Closet",       m:1,    ic:"p-closet" },
-    { n:"Home office",  m:0.9,  ic:"p-home" },
-    { n:"Painel de TV", m:0.62, ic:"p-painel" },
-    { n:"Banheiro",     m:0.85, ic:"p-nicho" }
+    { n:"Cozinha",      m:1.25, ic:"p-cozinha", img:"cozinha",    alt:"Cozinha em U com tampo de freijó" },
+    { n:"Closet",       m:1,    ic:"p-closet",  img:"closet",     alt:"Closet aberto em carvalho" },
+    { n:"Home office",  m:0.9,  ic:"p-home",    img:"escritorio", alt:"Home office em nicho com bancada de freijó" },
+    { n:"Painel de TV", m:0.62, ic:"p-painel",  img:"painel",     alt:"Painel ripado de freijó com rack suspenso" },
+    { n:"Banheiro",     m:0.85, ic:"p-nicho",   img:"banheiro",   alt:"Gabinete suspenso de banheiro em freijó com cuba de apoio" }
   ];
   var PADROES = [
     { n:"Essencial",     m:1,    d:"MDF branco, ferragem nacional" },
@@ -1050,11 +1065,33 @@
     return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]; }); }
   function ic(id, cls){ return '<svg viewBox="0 0 16 16" ' + (cls || "") + ' aria-hidden="true"><use href="#' + id + '"/></svg>'; }
 
-  /* A foto que ainda não existe: chapa desenhada + peça em linha.
-     Ver a decisão em LEIA-ME.md — caixa cinza vazia faria o site
-     parecer quebrado numa reunião de aprovação. */
+  /* Imagens: cada uma existe em duas larguras, e o navegador escolhe
+     pelo tamanho em que ela vai aparecer — o celular não baixa 1280 px
+     para um cartão de 170. A capa tem três larguras e carrega primeiro;
+     o resto só carrega quando chega perto da tela. */
+  var FOTOS = "fotos/";
+  var LARGURA = { capa:2400, cozinha:1280, closet:1280, escritorio:1280, painel:1280, compacta:1280,
+    dormitorio:1280, oficina:1280, banheiro:1280 };   /* o resto é peça da loja, 1200 px */
+  function larguraDe(nome){ return LARGURA[nome] || 1200; }
+
+  function imagem(nome, alt, sizes, ansioso){
+    var w = larguraDe(nome), h = Math.round(w * 3 / 4);
+    return '<img src="' + FOTOS + nome + '-640.webp" srcset="' + FOTOS + nome + '-640.webp 640w, ' +
+      FOTOS + nome + '.webp ' + w + 'w" sizes="' + (sizes || "(max-width: 760px) 100vw, 420px") + '" width="' + w +
+      '" height="' + h + '" alt="' + esc(alt || "") + '"' + (ansioso ? '' : ' loading="lazy"') + ' decoding="async">';
+  }
+
+  /* Sem imagem (o mapa, por enquanto), a moldura continua sendo a chapa
+     desenhada com a peça em linha — ver LEIA-ME.md. */
   function foto(o, opc){
     opc = opc || {};
+    if (o.img) {
+      return '<div class="foto com-img" style="--a:' + (o.tons ? o.tons[0] : "#D9BE94") + ';--b:' + (o.tons ? o.tons[1] : "#A87C48") + '">' +
+        imagem(o.img, o.alt || o.nome || "", opc.sizes) +
+        (o.tag && !opc.semTag ? '<span class="tag">' + esc(o.tag) + '</span>' : '') +
+        (opc.selo ? '<span class="selo3d">' + esc(opc.selo) + '</span>' : '') +
+        '</div>';
+    }
     return '<div class="foto" style="--a:' + o.tons[0] + ';--b:' + o.tons[1] + '">' +
       (o.tag && !opc.semTag ? '<span class="tag">' + esc(o.tag) + '</span>' : '') +
       '<svg class="peca-linha" viewBox="0 0 24 24" aria-hidden="true"><use href="#' + o.icone + '"/></svg>' +
@@ -1144,7 +1181,7 @@
   function cartaoProduto(p){
     var parc = p.base / 3;
     return '<button class="prod" type="button" data-prod="' + p.id + '">' +
-      foto(p) +
+      foto(p, { sizes:"(max-width: 520px) 50vw, (max-width: 980px) 33vw, 290px" }) +
       '<span class="txt">' +
         '<span class="cat">' + esc(p.cat) + '</span>' +
         '<h4>' + esc(p.nome) + '</h4>' +
@@ -1161,6 +1198,8 @@
   function planificar(s){
     return String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
+  PRODUTOS.forEach(function(p){ p.img = p.id; p.alt = p.nome + " — " + p.desc.split(".")[0].toLowerCase(); });
+
   PRODUTOS.forEach(function(p){
     var opcoes = p.grupos.map(function(g){
       return GRUPOS[g].rot + " " + GRUPOS[g].itens.map(function(i){ return i.n; }).join(" ");
@@ -1227,7 +1266,11 @@
     var tons = madeira ? [madeira.cor, p.tons[1]] : p.tons;
 
     $("#ficha-g").innerHTML =
-      foto({ tons:tons, icone:p.icone, tag:p.tag }, { slot:"Foto do acervo" }) +
+      '<div class="ficha-foto">' +
+        foto({ img:p.img, alt:p.alt, tons:tons, icone:p.icone, tag:p.tag },
+          { selo:"Imagem 3D ilustrativa", sizes:"(max-width: 980px) 100vw, 460px" }) +
+        (madeira ? '<span class="na-foto"><i style="background:' + madeira.cor + '"></i>Sua escolha: ' + esc(madeira.n) + '</span>' : '') +
+      '</div>' +
       '<div class="ficha-txt">' +
         '<span class="cat">' + esc(p.cat) + '</span>' +
         '<h3 id="ficha-nome">' + esc(p.nome) + '</h3>' +
@@ -1308,7 +1351,7 @@
     else {
       var madeira = p.grupos.indexOf("madeira") >= 0 ? GRUPOS.madeira.itens[escolhas.madeira].cor : p.tons[0];
       cesta.push({ assinatura:assinatura, id:p.id, nome:p.nome, op:rotulo, un:p.un,
-        v:Math.round(v), q:quantos, icone:p.icone, tons:[madeira, p.tons[1]] });
+        v:Math.round(v), q:quantos, icone:p.icone, tons:[madeira, p.tons[1]], img:p.img });
     }
     salvar(); pintarCarrinho(); fecharFicha();
     torrada(quantos > 1 ? quantos + " peças adicionadas ao carrinho" : "Peça adicionada ao carrinho");
@@ -1335,7 +1378,7 @@
 
     itens.innerHTML = cesta.map(function(it, i){
       return '<div class="item">' +
-        foto({ tons:it.tons, icone:it.icone }, { semSlot:true, semTag:true }) +
+        foto({ img:it.img, alt:it.nome, tons:it.tons, icone:it.icone }, { semSlot:true, semTag:true, sizes:"66px" }) +
         '<div><b>' + esc(it.nome) + '</b><span class="op">' + esc(it.op) + '</span>' +
           '<span class="qtd" style="margin-top:7px">' +
             '<button type="button" data-menos="' + i + '" aria-label="Diminuir">−</button>' +
@@ -1603,7 +1646,7 @@
     caixa.innerHTML =
       '<h3 style="font-size:19px;margin-bottom:10px">Resumo do pedido</h3>' +
       cesta.map(function(it){
-        return '<div class="mini">' + foto({ tons:it.tons, icone:it.icone }, { semSlot:true, semTag:true }) +
+        return '<div class="mini">' + foto({ img:it.img, alt:it.nome, tons:it.tons, icone:it.icone }, { semSlot:true, semTag:true, sizes:"46px" }) +
           '<span><b>' + esc(it.nome) + '</b><span>' + it.q + '× · ' + esc(it.op) + '</span></span>' +
           '<span class="v">' + reais(it.v * it.q) + '</span></div>';
       }).join("") +
@@ -1773,7 +1816,7 @@
       '</div>';
 
     $("#zap-pedido").href = zapLink(
-      "Olá! Fiz o pedido " + n + " no site da Casa do Marceneiro.\n" +
+      "Olá! Fiz um pedido de teste (" + n + ") na prévia do novo site da Casa do Marceneiro.\n" +
       "Peças: " + totalItens() + "\n" +
       "Pagamento: " + forma + "\n" +
       entrega + "\n" +
@@ -1803,7 +1846,14 @@
 
   function centroCfg(){ return BASE_METRO * AMBIENTES[cfg.amb].m * PADROES[cfg.pad].m * cfg.metros; }
 
+  var cfgFotoAtual = "";
   function pintarCfg(){
+    var amb = AMBIENTES[cfg.amb];
+    if (cfgFotoAtual !== amb.img) {
+      cfgFotoAtual = amb.img;
+      $("#cfg-foto").innerHTML = imagem(amb.img, amb.alt, "(max-width: 980px) 100vw, 480px") +
+        '<span class="selo3d">' + esc(amb.n) + ' · 3D ilustrativo</span>';
+    }
     botoesCfg($("#cfg-amb"), AMBIENTES, "amb");
     botoesCfg($("#cfg-pad"), PADROES, "pad");
     $("#cfg-m").textContent = cfg.metros.toFixed(1).replace(".", ",");
@@ -1841,8 +1891,20 @@
     ok &= erro("c-msg", $("#c-msg").value.trim().length >= 10 ? "" : "Conte um pouco mais — ao menos uma frase.");
     ok &= erro("c-lgpd", $("#c-lgpd").checked ? "" : "Precisamos da sua autorização para responder.");
     if (!ok) { torrada("Confira os campos marcados.", true); return; }
-    torrada("Mensagem pronta. Nesta prévia ela não é enviada.");
-    $("#form-contato").reset();
+    // sem servidor: a mensagem sai pronta no WhatsApp ou no e-mail de quem escreve
+    var via = e.submitter && e.submitter.value === "email" ? "email" : "zap";
+    var assunto = $("#c-assunto").value;
+    var corpo = "Olá! Meu nome é " + $("#c-nome").value.trim() + ".\n" +
+      "Assunto: " + assunto + "\n\n" + $("#c-msg").value.trim() + "\n\n" +
+      "Telefone: " + $("#c-tel").value.trim() + "\nE-mail: " + $("#c-email").value.trim();
+    var a = document.createElement("a");
+    a.target = "_blank"; a.rel = "noopener";
+    a.href = via === "email"
+      ? "mailto:" + EMAIL + "?subject=" + encodeURIComponent(assunto + " — pelo site") + "&body=" + encodeURIComponent(corpo)
+      : zapLink(corpo);
+    document.body.appendChild(a); a.click(); a.remove();
+    torrada(via === "email" ? "Abrimos o seu e-mail com a mensagem pronta. É só enviar."
+                            : "Abrimos o WhatsApp com a mensagem pronta. É só tocar em enviar.");
   });
 
   /* ============================================================
@@ -1882,7 +1944,8 @@
     .slice(0, 4).map(cartaoProduto).join("");
 
   $("#galeria").innerHTML = PROJETOS.map(function(p){
-    return '<article class="proj">' + foto({ tons:p.tons, icone:p.icone }, { slot:"Foto do projeto" }) +
+    return '<article class="proj">' + foto({ img:p.img, alt:p.t + " — " + p.d, tons:p.tons, icone:p.icone },
+        { selo:"3D ilustrativo", sizes:"(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 380px" }) +
       '<div class="txt"><span class="onde">' + esc(p.onde) + '</span><h4>' + esc(p.t) + '</h4>' +
       '<p>' + esc(p.d) + '</p><div class="meta">' +
       p.meta.map(function(m){ return "<span>" + esc(m) + "</span>"; }).join("") +
@@ -1902,17 +1965,28 @@
       '<p>' + esc(g.d) + '</p></div>';
   }).join("");
 
-  $("#peca-capa").innerHTML = foto({ tons:["#D9BE94","#8F6335"], icone:"p-cozinha", tag:"Projeto entregue" },
-    { slot:"Foto principal do Gabriel entra aqui" }) +
-    '<div class="pe"><span><b>Cozinha em U · Vila Formosa</b><span>4,2 m lineares · 22 dias</span></span>' +
-    '<span class="v">R$ 7.9 mil</span></div>';
+  /* mosaico da página inicial: três ambientes, o maior à esquerda */
+  $("#mosaico").innerHTML = ["closet", "painel", "dormitorio"].map(function(nome, i){
+    var p = PROJETOS.filter(function(x){ return x.img === nome; })[0];
+    return '<a class="tela' + (i === 0 ? ' grande' : '') + '" href="#/projetos" data-ir="projetos">' +
+      imagem(p.img, p.t + " — " + p.d, i === 0 ? "(max-width: 760px) 100vw, 680px" : "(max-width: 760px) 100vw, 480px") +
+      '<span class="leg"><b>' + esc(p.t) + '</b><span>' + esc(p.meta[2]) + ' · 3D ilustrativo</span></span></a>';
+  }).join("");
 
-  $("#peca-oficina").innerHTML = foto({ tons:["#C9A06A","#7E5227"], icone:"p-corte", tag:"A oficina" },
-    { slot:"Foto da oficina entra aqui" }) +
-    '<div class="pe"><span><b>Oficina no Tatuapé</b><span>Corte, colagem e acabamento no mesmo endereço</span></span></div>';
+  /* fotos fixas do HTML: cartões dos três balcões e a faixa da oficina */
+  $$("[data-foto]").forEach(function(el){
+    el.innerHTML = imagem(el.dataset.foto, el.dataset.alt,
+      el.closest(".quadro-foto") ? "(max-width: 980px) 100vw, 560px" : "(max-width: 980px) 100vw, 380px");
+  });
 
-  $("#zap-flut").href = zapLink("Olá! Vim pelo site da Casa do Marceneiro e queria falar sobre um projeto.");
-  $("#zap-contato").href = zapLink("Olá! Vim pelo site da Casa do Marceneiro.");
+  $("#peca-oficina").innerHTML = foto({ img:"corte", alt:"Chapas de MDF cortadas na medida sobre a bancada, com trena, lápis e esquadro", tag:"A oficina" },
+    { selo:"3D ilustrativo", sizes:"(max-width: 980px) 100vw, 560px" }) +
+    '<div class="pe"><span><b>Chapa cortada na medida</b><span>Corte, fita de borda e acabamento no mesmo endereço</span></span></div>';
+
+  // todo link de WhatsApp já nasce com o número no HTML; aqui ganha a primeira frase pronta
+  $$("[data-zap]").forEach(function(a){
+    a.href = zapLink("Olá! Vim pelo site da Casa do Marceneiro e queria falar sobre um projeto.");
+  });
 
   /* A idade vem do ano de fundação, não escrita à mão: em 1º de janeiro
      o site se corrige sozinho, em vez de anunciar um número vencido. */
