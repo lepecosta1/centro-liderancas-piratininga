@@ -34,14 +34,28 @@
     (estado.itens || []).forEach(function(i){
       if (over.itens && over.itens[i.id]) i.estado = over.itens[i.id];
     });
+    lugares().forEach(function(l){
+      if (over.fotos && over.fotos[l.id]) l.estado = over.fotos[l.id];
+    });
+    parcelas().forEach(function(p){
+      if (over.parcelas && Object.prototype.hasOwnProperty.call(over.parcelas, p.id)) p.pago = !!over.parcelas[p.id];
+    });
   }
 
   function guardarLocal(){
-    var over = { versao:estado.versao, roteiro:{}, itens:{} };
+    var over = { versao:estado.versao, roteiro:{}, itens:{}, fotos:{}, parcelas:{} };
     (estado.roteiro || []).forEach(function(p){ over.roteiro[p.id] = !!p.feito; });
     (estado.itens || []).forEach(function(i){ over.itens[i.id] = i.estado; });
+    lugares().forEach(function(l){ over.fotos[l.id] = l.estado; });
+    parcelas().forEach(function(p){ over.parcelas[p.id] = !!p.pago; });
     try { localStorage.setItem(CHAVE, JSON.stringify(over)); } catch (e) {}
   }
+
+  /* As seções novas são opcionais no estado: o financeiro só existe no
+     artifact privado (ver montar.py), e uma versão antiga do documento
+     pode não ter fotos. Nada aqui pode quebrar por falta delas. */
+  function lugares(){ return (estado.fotos && estado.fotos.lugares) || []; }
+  function parcelas(){ return (estado.financeiro && estado.financeiro.linhas) || []; }
 
   /* ---------- ferramentas ---------- */
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
@@ -124,9 +138,11 @@
     var lista = estado.marcos || [], hoje = hojeISO(), prontos = 0, html = "", k;
 
     /* a linha do "hoje" entra antes do primeiro marco que ainda está por vir;
-       se todos já passaram, ela vai para o fim */
+       se todos já passaram, ela vai para o fim. Marco com a data de hoje que
+       já está concluído fica do lado de trás da linha, não da frente. */
     var pos = -1;
-    for (k = 0; k < lista.length; k++) if (lista[k].ate && lista[k].ate >= hoje) { pos = k; break; }
+    for (k = 0; k < lista.length; k++)
+      if (lista[k].ate && lista[k].ate >= hoje && !(lista[k].ate === hoje && estadoMarco(lista[k]).estado === "feito")) { pos = k; break; }
     if (pos < 0) for (k = 0; k < lista.length; k++) if (!lista[k].ate) { pos = k; break; }
     if (pos < 0) pos = lista.length;
 
@@ -142,6 +158,7 @@
         '<span class="corpo">' +
           '<span class="alto"><b>' + esc(m.rot) + '</b>' +
             '<span class="quando">' + esc(m.quando) + '</span>' +
+            (m.antes ? '<span class="era">era ' + esc(m.antes) + '</span>' : '') +
             (atrasado ? '<span class="tarja">atrasado</span>' : '') +
           '</span>' +
           '<span class="entrega">' + esc(m.entrega) + '</span>' +
@@ -156,6 +173,8 @@
 
     var cont = document.getElementById("conta-tempo");
     if (cont) cont.innerHTML = '<b>' + prontos + ' de ' + lista.length + '</b> marcos concluídos';
+    var rp = document.getElementById("replano");
+    if (rp) { rp.hidden = !estado.replanejado; rp.textContent = estado.replanejado || ""; }
   }
 
   function desenharMedidor(){
@@ -228,10 +247,111 @@
       '</span></button>';
   }
 
+  function texto(id, valor){
+    var el = document.getElementById(id);
+    if (el) el.textContent = valor || "";
+  }
+  function lista(itens){
+    return '<ul>' + (itens || []).map(function(t){ return '<li>' + esc(t) + '</li>'; }).join("") + '</ul>';
+  }
+
+  function desenharProximas(){
+    var alvo = document.getElementById("etapas"), px = estado.proximas;
+    var sec = document.getElementById("s-proximas");
+    if (sec) sec.hidden = !px;
+    if (!alvo || !px) return;
+    texto("proximas-intro", px.intro);
+    alvo.innerHTML = (px.etapas || []).map(function(e, i){
+      return '<li class="etapa">' +
+        '<div class="alto"><span class="n">' + (i + 1) + '</span>' +
+          '<span><b>' + esc(e.t) + '</b><span class="sub2">' + esc(e.sub) + '</span></span></div>' +
+        '<p class="porque">' + esc(e.porque) + '</p>' +
+        '<div class="quem"><h3>O Leandro faz</h3>' + lista(e.leandro) + '</div>' +
+        '<div class="quem gab"><h3>O Gabriel faz</h3>' + lista(e.gabriel) + '</div>' +
+        '<p class="quando2">' + ic("q-chave") + '<span>' + esc(e.quando) + '</span></p>' +
+        '</li>';
+    }).join("");
+  }
+
+  function desenharCrescimento(){
+    var alvo = document.getElementById("formas"), cr = estado.crescimento;
+    var sec = document.getElementById("s-crescer");
+    if (sec) sec.hidden = !cr;
+    if (!alvo || !cr) return;
+    texto("crescer-intro", cr.intro);
+    alvo.innerHTML = (cr.itens || []).map(function(f, i){
+      return '<li class="forma"><span class="n">' + (i + 1) + '</span><div>' +
+        '<b>' + esc(f.t) + '</b>' +
+        '<span class="selos"><span class="s-para">' + esc(f.para) + '</span>' +
+          '<span>custo: ' + esc(f.custo) + '</span><span>efeito: ' + esc(f.prazo) + '</span></span>' +
+        '<p>' + esc(f.d) + '</p></div></li>';
+    }).join("");
+    var o = document.getElementById("crescer-ordem");
+    if (o) { o.hidden = !cr.ordem; o.querySelector("p").innerHTML = '<b>Por onde começar.</b> ' + esc(cr.ordem || ""); }
+  }
+
+  /* O lugar da foto tem três estados, no mesmo ciclo dos cartões. */
+  var ROT_FOTO = { afazer:"3D no lugar", fazendo:"foto escolhida", feito:"foto real no site" };
+  function desenharFotos(){
+    var alvo = document.getElementById("lugares"), fo = estado.fotos;
+    var sec = document.getElementById("s-fotos");
+    if (sec) sec.hidden = !fo;
+    if (!alvo || !fo) return;
+    texto("fotos-intro", fo.intro);
+    var ls = lugares(), reais = ls.filter(function(l){ return l.estado === "feito"; }).length;
+    var cont = document.getElementById("conta-fotos");
+    if (cont) cont.innerHTML = '<b>' + reais + ' de ' + ls.length + '</b> lugares com foto real';
+    alvo.innerHTML = ls.map(function(l){
+      var busca = "https://br.pinterest.com/search/pins/?q=" + encodeURIComponent(l.q);
+      return '<li class="lugar f-' + esc(l.estado) + '">' +
+        '<button type="button" class="estado-foto" data-foto="' + esc(l.id) + '" aria-label="' + esc(l.t) +
+          ': ' + esc(ROT_FOTO[l.estado] || "") + ' — avançar estado">' +
+          '<i aria-hidden="true"></i><span>' + esc(ROT_FOTO[l.estado] || "") + '</span></button>' +
+        '<div class="dados"><b>' + esc(l.t) + '</b><span>' + esc(l.onde) + ' · <code>' + esc(l.arquivo) + '</code></span></div>' +
+        '<a class="pin" href="' + esc(busca) + '" target="_blank" rel="noopener">Ver referências no Pinterest</a>' +
+        '</li>';
+    }).join("");
+  }
+
+  function reais(v){
+    return "R$ " + Number(v).toLocaleString("pt-BR", { minimumFractionDigits:0, maximumFractionDigits:2 });
+  }
+  function desenharInvest(){
+    var fin = estado.financeiro;
+    var sec = document.getElementById("s-invest"), at = document.getElementById("atalho-invest");
+    if (sec) sec.hidden = !fin;
+    if (at) at.hidden = !fin;
+    var alvo = document.getElementById("contas");
+    if (!fin || !alvo) return;
+    texto("invest-intro", fin.intro);
+    texto("invest-depois", fin.depois);
+    var ls = parcelas(), total = 0, pago = 0;
+    ls.forEach(function(p){ total += p.v; if (p.pago) pago += p.v; });
+    alvo.innerHTML =
+      '<div class="resumo-inv">' +
+        '<div><span>Pago</span><b class="v-pago">' + reais(pago) + '</b></div>' +
+        '<div><span>Falta</span><b class="v-falta">' + reais(total - pago) + '</b></div>' +
+        '<div><span>Total</span><b>' + reais(total) + '</b></div>' +
+      '</div>' +
+      '<span class="tira-inv" role="img" aria-label="' + Math.round(total ? pago / total * 100 : 0) + ' por cento pago">' +
+        '<i style="width:' + (total ? pago / total * 100 : 0) + '%"></i></span>' +
+      '<ul class="parcelas">' + ls.map(function(p){
+        return '<li><button type="button" class="parcela' + (p.pago ? " ok" : "") + '" data-parcela="' + esc(p.id) + '"' +
+          ' aria-pressed="' + (p.pago ? "true" : "false") + '">' +
+          '<span class="bolha" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#q-check"/></svg></span>' +
+          '<span class="txt"><b>' + esc(p.t) + '</b><span>' + esc(p.pago ? (p.recebido || "Pago.") : p.nota) + '</span></span>' +
+          '<span class="v">' + reais(p.v) + '</span></button></li>';
+      }).join("") + '</ul>';
+  }
+
   function desenhar(){
     desenharMedidor();
     desenharMarcos();
     desenharRoteiro();
+    desenharProximas();
+    desenharCrescimento();
+    desenharFotos();
+    desenharInvest();
     desenharQuadro();
   }
 
@@ -249,6 +369,18 @@
     var bi = e.target.closest("[data-item]");
     if (bi) {
       (estado.itens || []).forEach(function(i){ if (i.id === bi.dataset.item) i.estado = CICLO[i.estado] || "afazer"; });
+      mudou();
+      return;
+    }
+    var bf = e.target.closest("[data-foto]");
+    if (bf) {
+      lugares().forEach(function(l){ if (l.id === bf.dataset.foto) l.estado = CICLO[l.estado] || "afazer"; });
+      mudou();
+      return;
+    }
+    var bpa = e.target.closest("[data-parcela]");
+    if (bpa) {
+      parcelas().forEach(function(p){ if (p.id === bpa.dataset.parcela) p.pago = !p.pago; });
       mudou();
     }
   });

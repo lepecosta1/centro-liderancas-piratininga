@@ -5,8 +5,22 @@ serra hoje e o que espera na fila. Um toque num item muda o estado, e a
 marcação fica salva.
 
 Três leituras da mesma coisa, da mais resumida para a mais detalhada: a
-**linha do tempo** com os nove marcos datados, o **roteiro da visita** à
-oficina, e o **quadro** de três colunas com os 40 cartões.
+**linha do tempo** com os doze marcos datados, o **roteiro da visita** à
+oficina, e o **quadro** de três colunas com os 54 cartões.
+
+Entre o roteiro e o quadro ficam as seções da próxima etapa, escritas para
+apresentar ao Gabriel:
+
+- **Google Meu Negócio, Google Ads e campanha**: as três frentes, nesta ordem,
+  com o que o Leandro faz, o que o Gabriel faz e quando.
+- **Como a oficina atrai cliente**: nove formas, das que custam zero e trazem
+  resultado em dias às que demoram e duram, e a ordem recomendada.
+- **Fotos do site**: os 17 lugares de imagem, com o arquivo de cada um e uma
+  busca do Pinterest como referência de estilo. Um toque avança o lugar de
+  "3D no lugar" para "foto escolhida" e "foto real no site". Foto do Pinterest
+  é de outra oficina e nunca vai para o site.
+- **Investimento**: o que foi pago e o que falta. Só existe no artifact
+  privado — ver abaixo.
 
 ## Como funciona a persistência
 
@@ -23,11 +37,23 @@ difere da primeira em **1 byte**.
 Sem o Artifact — arquivo aberto solto no celular, ou visitante sem permissão de
 escrita — cai para o `localStorage`, e o rodapé diz em qual dos dois modos está.
 
+## O que é público e o que não é
+
+O repositório e o GitHub Pages são **públicos**; o artifact é privado. Por isso
+o financeiro mora em `privado.json`, que fica **fora do Git**, e o `montar.py`
+só o junta ao `artifact.html`. O `index.html` sai sem ele, e o build se recusa
+a terminar se algum campo de `privado.json` aparecer no `index.html`.
+
+Numa cópia nova do repositório, `privado.json` não existe: o artifact continua
+guardando o financeiro no próprio estado, e o arquivo se recria a partir do
+bloco `financeiro` do JSON publicado.
+
 ## Arquivos
 
 | Arquivo | Papel |
 |---|---|
-| `estado.json` | Os marcos, o roteiro e os itens. É aqui que se edita conteúdo. |
+| `estado.json` | Os marcos, o roteiro, os itens e as seções da próxima etapa. É aqui que se edita conteúdo. |
+| `privado.json` | O financeiro. Fora do Git; entra só no artifact. |
 | `molde.html` | Marcação estática (cabeçalho, roteiro, colunas, rodapé). |
 | `app.js` | Desenho, ciclo de estado e republicação. |
 | `quadro.css` | Sistema visual. |
@@ -57,6 +83,10 @@ em curso quando algum foi tocado. Assim a linha do tempo não tem como discordar
 das colunas — foi exatamente esse tipo de divergência que produziu o "Fazendo 19"
 ao lado de uma coluna com 8. O `montar.py` não valida essa cobertura; quem
 editar `estado.json` deve conferir que todo cartão aparece em algum marco.
+
+**Replanejar sem apagar.** Em 20/10 as datas de setembro, que dependiam dos
+acessos do Gabriel, passaram a contar da visita de 21/10. Cada marco mudado
+guarda a data antiga em `antes`, e ela aparece riscada ao lado da nova.
 
 **Data sem prazo é honesta.** O marco do anúncio pago tem `ate: null` e diz
 por quê: depende de o Google responder às três violações, não de nós. Inventar
@@ -95,6 +125,20 @@ parava no primeiro fundo não transparente e tratava `rgba(...,.13)` como cor
 sólida, sem compor com o que estava atrás. Corrigi o medidor, não o CSS.
 
 ## Verificação
+
+Em 20/10, 80 conferências em desktop de 1440 px, Pixel 7 e celular de 320 px,
+no artifact e no `index.html` público: contagens batendo com o JSON, data antiga
+em seis marcos e nenhum atrasado, a linha do "hoje" entre a prévia e a visita,
+as 17 buscas do Pinterest, investimento visível no artifact e ausente do
+público (nem na tela, nem no HTML), parcela e foto mudando de estado, três
+gerações de republicação com o financeiro e as marcações intactos e sem o
+documento inchar, marcação guardada no navegador sem Artifact, nada saindo
+para o lado, nenhuma letra abaixo de 11 px, nenhum alvo de toque abaixo de
+24 px e contraste de pelo menos 4,5:1 nas seções novas. Zero erro de
+JavaScript. A conferência achou a etiqueta dos cartões a 10,5 px, que subiu
+para 11,5.
+
+Antes, na primeira versão:
 
 66 asserções com Playwright em celular emulado — 50 do quadro mais 16 da
 linha do tempo (contagem dos marcos, posição da linha do "hoje" entre passado

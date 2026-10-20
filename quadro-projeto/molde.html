@@ -29,23 +29,33 @@
       </div>
       <div class="medidor" id="medidor"></div>
     </div>
+    <nav class="atalhos" aria-label="Seções do quadro">
+      <a href="#s-tempo">Linha do tempo</a>
+      <a href="#s-visita">Visita</a>
+      <a href="#s-proximas">Google e campanha</a>
+      <a href="#s-crescer">Clientes</a>
+      <a href="#s-fotos">Fotos</a>
+      <a href="#s-invest" id="atalho-invest" hidden>Investimento</a>
+      <a href="#s-quadro">Feito, fazendo, a fazer</a>
+    </nav>
   </div>
 </header>
 
 <main class="env">
-  <section class="linha-tempo" aria-labelledby="t-tempo">
+  <section class="linha-tempo" id="s-tempo" aria-labelledby="t-tempo">
     <div class="cab">
       <span class="rot">Linha do tempo</span>
       <h2 id="t-tempo">Do diagnóstico à primeira venda</h2>
       <p>Cada marco é um corte marcado na régua: só se passa para o seguinte quando o anterior está inteiro.
         O estado de cada um é somado dos cartões do quadro lá embaixo, então a linha do tempo nunca
         diz um número e a coluna outro.</p>
+      <p class="replano" id="replano" hidden></p>
       <p class="conta-tempo" id="conta-tempo"></p>
     </div>
     <ol class="trilho" id="marcos"></ol>
   </section>
 
-  <section class="hoje" aria-labelledby="t-hoje">
+  <section class="hoje" id="s-visita" aria-labelledby="t-hoje">
     <div class="cab">
       <span class="rot" id="rot-visita">Na casa do Gabriel</span>
       <h2 id="t-hoje">Roteiro da visita, na ordem</h2>
@@ -68,7 +78,56 @@
     </div>
   </section>
 
-  <div class="quadro" id="quadro"></div>
+  <section class="bloco" id="s-proximas" aria-labelledby="t-proximas">
+    <div class="cab">
+      <span class="rot">Próxima etapa · gestão do Leandro</span>
+      <h2 id="t-proximas">Google Meu Negócio, Google Ads e campanha</h2>
+      <p id="proximas-intro"></p>
+    </div>
+    <ol class="etapas" id="etapas"></ol>
+  </section>
+
+  <section class="bloco" id="s-crescer" aria-labelledby="t-crescer">
+    <div class="cab">
+      <span class="rot">Clientes novos e antigos</span>
+      <h2 id="t-crescer">Como a oficina atrai cliente</h2>
+      <p id="crescer-intro"></p>
+    </div>
+    <ol class="formas" id="formas"></ol>
+    <div class="nota dica" id="crescer-ordem" hidden>
+      <svg viewBox="0 0 16 16"><use href="#q-serra"/></svg>
+      <p></p>
+    </div>
+  </section>
+
+  <section class="bloco" id="s-fotos" aria-labelledby="t-fotos">
+    <div class="cab">
+      <span class="rot">Fotos do site</span>
+      <h2 id="t-fotos">Lugar por lugar, para escolher com o Gabriel</h2>
+      <p id="fotos-intro"></p>
+      <p class="conta-fotos" id="conta-fotos"></p>
+    </div>
+    <ul class="lugares" id="lugares"></ul>
+  </section>
+
+  <section class="bloco invest" id="s-invest" aria-labelledby="t-invest" hidden>
+    <div class="cab">
+      <span class="rot">Investimento</span>
+      <h2 id="t-invest">O que foi pago e o que falta</h2>
+      <p id="invest-intro"></p>
+    </div>
+    <div class="contas" id="contas"></div>
+    <p class="depois" id="invest-depois"></p>
+  </section>
+
+  <section class="bloco-quadro" id="s-quadro" aria-labelledby="t-quadro">
+    <div class="cab-quadro">
+      <span class="rot">O quadro</span>
+      <h2 id="t-quadro">Feito, fazendo e a fazer</h2>
+      <p>Um toque no cartão avança o estado: a fazer, fazendo, feito.</p>
+    </div>
+    <div class="quadro" id="quadro"></div>
+  </section>
 </main>
 
 <footer class="pe">

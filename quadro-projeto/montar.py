@@ -24,22 +24,37 @@ for nome, texto in (("molde.html", molde), ("app.js", app)):
     if "</script" in texto.lower():
         raise SystemExit(f"{nome} contém </script>, o que fecharia o bloco de texto cedo demais")
 
-estado = json.dumps(json.loads((base / "estado.json").read_text(encoding="utf-8")),
-                    ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
+publico = json.loads((base / "estado.json").read_text(encoding="utf-8"))
+
+# O financeiro mora em privado.json, fora do Git: o repositório e o GitHub
+# Pages são públicos, o artifact não. Só o artifact recebe esses campos.
+privado = {}
+if (base / "privado.json").exists():
+    privado = json.loads((base / "privado.json").read_text(encoding="utf-8"))
+    choque = set(privado) & set(publico)
+    if choque:
+        raise SystemExit(f"privado.json repete campos do estado público: {sorted(choque)}")
 
 A, F = "<scr" + "ipt", "</scr" + "ipt>"
-corpo = (corpo
-         .replace("/*CSS*/", fontes + "\n" + css)
-         .replace("<!--ESTADO-->", f'{A} type="application/json" id="estado">{estado}{F}')
-         .replace("<!--MOLDE-->", molde + "\n\n" + f'{A} type="text/plain" id="molde">{molde}{F}')
-         .replace("<!--FONTE-->", f'{A} type="text/plain" id="fonte">{app}{F}')
-         .replace("<!--APP-->", f"{A}>{app}{F}"))
 
-(base / "artifact.html").write_text(corpo.strip() + "\n", encoding="utf-8")
+def montar(estado):
+    texto = json.dumps(estado, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
+    return (corpo
+            .replace("/*CSS*/", fontes + "\n" + css)
+            .replace("<!--ESTADO-->", f'{A} type="application/json" id="estado">{texto}{F}')
+            .replace("<!--MOLDE-->", molde + "\n\n" + f'{A} type="text/plain" id="molde">{molde}{F}')
+            .replace("<!--FONTE-->", f'{A} type="text/plain" id="fonte">{app}{F}')
+            .replace("<!--APP-->", f"{A}>{app}{F}"))
 
+(base / "artifact.html").write_text(montar({**publico, **privado}).strip() + "\n", encoding="utf-8")
+
+corpo = montar(publico)
 titulo = re.search(r"<title>.*?</title>", corpo, re.S | re.I).group(0)
 estilo = re.search(r'<style id="folha">.*?</style>', corpo, re.S | re.I).group(0)
 miolo = corpo.replace(titulo, "").replace(estilo, "").strip()
+for campo in privado:
+    if f'"{campo}"' in miolo:
+        raise SystemExit(f"o campo privado {campo!r} vazou para o index.html público")
 
 (base / "index.html").write_text(f"""<!DOCTYPE html>
 <html lang="pt-BR">
@@ -59,3 +74,4 @@ miolo = corpo.replace(titulo, "").replace(estilo, "").strip()
 
 for nome in ("artifact.html", "index.html"):
     print(f"{nome:<16} {(base / nome).stat().st_size / 1024:>7.0f} KB")
+print("privado.json     " + ("montado só no artifact" if privado else "ausente — artifact sem financeiro"))
