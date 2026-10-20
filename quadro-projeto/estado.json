@@ -1,0 +1,931 @@
+{
+  "versao": 2,
+  "titulo": "Quadro do Projeto Marceneiro",
+  "atualizado": "2026-10-20",
+  "visita": "2026-10-21",
+  "marcos": [
+    {
+      "id": "m1",
+      "rot": "Diagnóstico e Fase 1",
+      "quando": "26/08",
+      "ate": "2026-08-26",
+      "entrega": "A cadeia causal dos quatro problemas, a proposta comercial e a página que o Gabriel abre no celular.",
+      "itens": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ]
+    },
+    {
+      "id": "m2",
+      "rot": "Fase 2: a loja e o site novo",
+      "quando": "26/08 a 02/09",
+      "ate": "2026-09-02",
+      "entrega": "Benchmark, proposta da loja e o site inteiro funcionando — para testar antes de subir e antes do primeiro real de anúncio.",
+      "itens": [
+        "f6",
+        "f7",
+        "f8",
+        "f9"
+      ]
+    },
+    {
+      "id": "m10",
+      "rot": "Site novo, logo e dados reais",
+      "quando": "06/10",
+      "ate": "2026-10-06",
+      "entrega": "Imagem em todas as telas, o logo redesenhado em vetor com kit 4K, WhatsApp, endereço e e-mail reais, e a revisão de celular em sete aparelhos.",
+      "itens": [
+        "f10",
+        "f11",
+        "f12",
+        "f13"
+      ]
+    },
+    {
+      "id": "m11",
+      "rot": "Prévia no ar e plano da próxima etapa",
+      "quando": "ter 20/10",
+      "ate": "2026-10-20",
+      "entrega": "O site abre em qualquer celular, sem login, e o plano de Google, campanha e clientes está escrito com quem faz o quê.",
+      "itens": [
+        "f14",
+        "f15"
+      ]
+    },
+    {
+      "id": "m3",
+      "rot": "Com o Gabriel na sala",
+      "quando": "qua 21/10",
+      "ate": "2026-10-21",
+      "entrega": "O que só se resolve com ele presente: domínio no CNPJ dele, o primo fora de tudo, Google Meu Negócio e Google Ads no nome dele com o Leandro de administrador, e as decisões que faltam — preço da Fase 2 e loja na raiz ou site separado. A HostGator já saiu.",
+      "itens": [
+        "h1",
+        "h2",
+        "h3",
+        "a1",
+        "a2",
+        "a3",
+        "a17",
+        "a18",
+        "a19",
+        "g1"
+      ],
+      "antes": "17/09"
+    },
+    {
+      "id": "m4",
+      "rot": "Endereço no ar",
+      "quando": "até qua 28/10",
+      "ate": "2026-10-28",
+      "entrega": "marceneirotatuape.com.br abre com cadeado, de qualquer celular. Contar até 24 h de propagação do DNS — e, se o domínio estiver no nome de outra pessoa, o prazo passa a ser o da transferência no Registro.br.",
+      "itens": [
+        "h4",
+        "h5"
+      ],
+      "antes": "21/09"
+    },
+    {
+      "id": "m5",
+      "rot": "Encontrável",
+      "quando": "até sex 30/10",
+      "ate": "2026-10-30",
+      "entrega": "Site, Google Meu Negócio e Instagram dizendo a mesma coisa, letra por letra. É esse casamento que faz a oficina aparecer para quem está a dois quarteirões.",
+      "itens": [
+        "h6",
+        "a10",
+        "a16",
+        "g2",
+        "g3"
+      ],
+      "antes": "24/09"
+    },
+    {
+      "id": "m6",
+      "rot": "Vitrine real",
+      "quando": "até sex 06/11",
+      "ate": "2026-11-06",
+      "entrega": "As fotos do Gabriel no lugar dos desenhos de chapa, com preço que se pode cobrar e catálogo cadastrado. É o marco que depende só dele.",
+      "itens": [
+        "h7",
+        "a8",
+        "a9",
+        "a11"
+      ],
+      "antes": "01/10"
+    },
+    {
+      "id": "m7",
+      "rot": "Venda testada",
+      "quando": "até sex 13/11",
+      "ate": "2026-11-13",
+      "entrega": "Uma compra de verdade, com cartão de verdade, feita e cancelada — antes de qualquer cliente passar por ali.",
+      "itens": [
+        "a12",
+        "a13",
+        "a14"
+      ],
+      "antes": "08/10"
+    },
+    {
+      "id": "m8",
+      "rot": "Abrir a porta",
+      "quando": "a partir de seg 16/11",
+      "ate": "2026-11-16",
+      "entrega": "Loja pública e cliente chegando sem pagar clique: Google Meu Negócio vivo, reencontro com os clientes antigos, indicação premiada, arquitetos, Instagram e Pinterest.",
+      "itens": [
+        "h8",
+        "a15",
+        "g4",
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5"
+      ],
+      "antes": "09/10"
+    },
+    {
+      "id": "m9",
+      "rot": "Anúncio pago",
+      "quando": "sem data — depende do Google",
+      "ate": null,
+      "entrega": "Não tem data porque não depende de nós: só depois de ler as três violações e resolver a penalidade na conta que já existe. A campanha sai pronta antes — no dia em que a conta for liberada, liga.",
+      "itens": [
+        "a4",
+        "a5",
+        "a6",
+        "a7",
+        "ad1",
+        "ad2"
+      ]
+    },
+    {
+      "id": "m12",
+      "rot": "Gestão mensal, com o Leandro",
+      "quando": "todo mês, a partir do 1º anúncio",
+      "ate": null,
+      "entrega": "Relatório de uma página por mês com o que importa: verba gasta, conversas no WhatsApp, orçamentos e obras fechadas. Ajuste toda semana no primeiro mês, a cada quinze dias depois.",
+      "itens": [
+        "ad3"
+      ]
+    }
+  ],
+  "roteiro": [
+    {
+      "id": "r13",
+      "feito": false,
+      "t": "Mostrar o site no ar, no celular dele",
+      "d": "Abrir lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/ no celular do Gabriel, passar pela loja e simular a cozinha de um cliente real. Dizer com todas as letras que as imagens são 3D até as fotos dele chegarem."
+    },
+    {
+      "id": "r14",
+      "feito": false,
+      "t": "Mostrar o logo novo e mandar o kit para ele",
+      "d": "Abrir o logo 4K na TV ou no celular, mostrar a foto de perfil pronta para o WhatsApp Business e mandar a pasta marca/. Confirmar ali mesmo horário, Instagram e CNPJ, e combinar a troca do “mais de 25 anos” onde ainda estiver no ar."
+    },
+    {
+      "id": "r15",
+      "feito": false,
+      "t": "Escolher a foto de cada lugar do site",
+      "d": "Seção Fotos, abaixo: cada lugar tem uma busca do Pinterest com o estilo dele. O Gabriel aponta o que quer mostrar e diz qual obra dele parece com aquilo. A referência fica de inspiração; no site entra a obra dele."
+    },
+    {
+      "id": "r1",
+      "feito": false,
+      "t": "Abrir o Registro.br antes de pagar qualquer coisa",
+      "d": "Olhar três campos: em nome de quem o domínio está, se está pago ou vencido, e qual e-mail é o de contato. .com.br não se registra na HostGator — quem manda é o Registro.br."
+    },
+    {
+      "id": "r2",
+      "feito": false,
+      "t": "Passar o domínio para o CNPJ do Gabriel",
+      "d": "Se o titular for o primo, a Sandra ou qualquer outro, transferir hoje. É a raiz de tudo que deu errado: sem posse, qualquer um cancela."
+    },
+    {
+      "id": "r3",
+      "feito": false,
+      "t": "Criar o e-mail dono, que só o Gabriel acessa",
+      "d": "Um endereço para ser titular de todas as contas novas. Nunca o do primo, nunca o da mãe."
+    },
+    {
+      "id": "r4",
+      "feito": false,
+      "t": "Ligar verificação em duas etapas e travar o domínio",
+      "d": "2FA no e-mail primeiro, depois em cada conta criada hoje. E o domain lock no Registro.br, que impede transferência sem autorização."
+    },
+    {
+      "id": "r5",
+      "feito": true,
+      "t": "Decidir se a HostGator é mesmo necessária",
+      "d": "A Nuvemshop já hospeda a loja — não se sobe arquivo em servidor. A HostGator só se paga se ele quiser e-mail @marceneirotatuape.com.br ou um site separado da loja."
+    },
+    {
+      "id": "r9",
+      "feito": false,
+      "t": "Google Meu Negócio no nome dele, com o Leandro de administrador",
+      "d": "Conferir quem é o proprietário principal; se não for o Gabriel, transferir. Adicionar o Leandro como administrador. Endereço, horário, telefone e categoria iguais, letra por letra, ao site."
+    },
+    {
+      "id": "r16",
+      "feito": false,
+      "t": "Abrir o Google Ads juntos e ler as três violações",
+      "d": "Ele faz o login, o Leandro vira administrador e os três avisos são lidos ali, na tela. Ninguém liga anúncio hoje: primeiro se sabe o que o Google quer."
+    },
+    {
+      "id": "r12",
+      "feito": false,
+      "t": "Salvar o portfólio do site antigo antes de mexer em DNS",
+      "d": "marceneirotatuape.com.br/portfolio/ já tem projetos fotografados. Baixar tudo em alta hoje, para a pasta Marceneiro Tatuapé do Google Drive, que fica com o Gabriel. Se a hospedagem vencer ou o DNS apontar para outro lugar no meio da migração, esse acervo some junto com o site — e é o mesmo acervo que está travando a loja."
+    },
+    {
+      "id": "r10",
+      "feito": false,
+      "t": "Fotografar enquanto está lá",
+      "d": "Fachada (o Google pede), a oficina com luz do dia, três peças prontas e o Gabriel trabalhando, se ele topar. Celular na horizontal, lente limpa, sem zoom, sem bagunça no fundo. Tudo para a pasta do Drive — é o que trava o site: sair de lá com as fotos, não com a promessa delas."
+    },
+    {
+      "id": "r17",
+      "feito": false,
+      "t": "Começar a lista dos clientes antigos",
+      "d": "Vinte nomes de quem ficou satisfeito, com o móvel que a oficina fez para cada um. É a lista do reencontro — o canal mais barato que existe."
+    },
+    {
+      "id": "r18",
+      "feito": false,
+      "t": "Apresentar a próxima etapa e a gestão",
+      "d": "Mostrar as três frentes — Google Meu Negócio, Google Ads e campanha —, o que fica com o Leandro e o que fica com o Gabriel, e combinar como segue a gestão mensal."
+    },
+    {
+      "id": "r6",
+      "feito": false,
+      "t": "Criar a loja na Nuvemshop",
+      "d": "Plano grátis para começar. Conta no e-mail dele, CNPJ dele, cartão dele — nada em nome de terceiro."
+    },
+    {
+      "id": "r7",
+      "feito": false,
+      "t": "Apontar o domínio para a loja",
+      "d": "DNS no Registro.br apontando para a Nuvemshop. A propagação leva de minutos a 24 h; não prometer que fica pronto na hora."
+    },
+    {
+      "id": "r8",
+      "feito": false,
+      "t": "Conferir o cadeado antes de comemorar",
+      "d": "Só considerar no ar quando o https carregar sem aviso do navegador. Mandar gente para site sem cadeado queima a primeira impressão."
+    },
+    {
+      "id": "r11",
+      "feito": false,
+      "t": "Anotar o que ficou faltando",
+      "d": "Voltar com lista escrita. Memória de fim de visita perde metade."
+    }
+  ],
+  "itens": [
+    {
+      "id": "f1",
+      "estado": "feito",
+      "frente": "Diagnóstico",
+      "t": "Diagnóstico dos quatro problemas e dos onze pontos cegos",
+      "d": "A cadeia causal completa: hospedagem vencida derruba o site, site fora do ar invalida o destino do anúncio, e o anúncio inválido vira violação."
+    },
+    {
+      "id": "f2",
+      "estado": "feito",
+      "frente": "Fase 1",
+      "t": "Proposta comercial da Fase 1",
+      "d": "Documento com abas mais PDF de 38 páginas, plano semana a semana e avaliação de riscos."
+    },
+    {
+      "id": "f3",
+      "estado": "feito",
+      "frente": "Fase 1",
+      "t": "Mensagem curta de WhatsApp para o Gabriel"
+    },
+    {
+      "id": "f4",
+      "estado": "feito",
+      "frente": "Fase 1",
+      "t": "Página hospedada para ele abrir em qualquer celular"
+    },
+    {
+      "id": "f5",
+      "estado": "feito",
+      "frente": "Google",
+      "t": "Endereço do Google Meu Negócio editado e enviado",
+      "d": "Correção do descasamento entre o endereço escrito e o pino do mapa. Enviado — falta a aprovação do Google."
+    },
+    {
+      "id": "f6",
+      "estado": "feito",
+      "frente": "Fase 2",
+      "t": "Benchmark de seis lojas de madeira e marcenaria",
+      "d": "A conclusão contrariou o pedido original: quem vende madeira online no Brasil não vende catálogo, vende cálculo."
+    },
+    {
+      "id": "f7",
+      "estado": "feito",
+      "frente": "Fase 2",
+      "t": "Proposta da loja, com sete abas e PDF de 25 páginas",
+      "d": "Três balcões: Prateleira, Balcão e Bancada."
+    },
+    {
+      "id": "f8",
+      "estado": "feito",
+      "frente": "Fase 2",
+      "t": "Site novo inteiro, funcional e testado",
+      "d": "Loja, carrinho, frete por CEP, checkout em três passos e configurador. 89 asserções passando."
+    },
+    {
+      "id": "f9",
+      "estado": "feito",
+      "frente": "Comercial",
+      "t": "Proposta aceita verbalmente pelo Gabriel"
+    },
+    {
+      "id": "f10",
+      "estado": "feito",
+      "frente": "Fase 2",
+      "t": "Site redesenhado com 17 imagens 3D próprias",
+      "d": "Capa panorâmica, loja, projetos, oficina e simulador com imagem. Renderizadas no Blender a partir de cena escrita em código, sem banco de imagem nem direito de terceiros; toda imagem de ambiente leva o selo “3D ilustrativo”. Conferências passando no computador e no celular. Feito em 06/10, para a apresentação ao Gabriel."
+    },
+    {
+      "id": "f11",
+      "estado": "feito",
+      "frente": "Marca",
+      "t": "Logo redesenhado em vetor, com kit em HD e 4K",
+      "d": "Redesenho em geometria pura a partir do arquivo de 421 px que a casa usa hoje: cobre 99,3% do telhado e 98,3% de MARCENEIRO; o que sobra é o antisserrilhado do original. Madeira clara gerada por fórmula. Saem SVG (madeira, creme e escuro), PNG transparente em 1920 e 3840 px, versão 4K no degradê do original, foto de perfil do WhatsApp e ícones. Tudo em site-casa-do-marceneiro/marca/. Feito em 06/10."
+    },
+    {
+      "id": "f12",
+      "estado": "feito",
+      "frente": "Fase 2",
+      "t": "WhatsApp, endereço e e-mail reais no site",
+      "d": "(11) 94752-3961 no topo, na capa, no botão flutuante, no menu do celular, no contato e no rodapé; Rua Tuiuti, 2530, cj. 42; contato@marceneirotatuape.com.br. O formulário de contato agora envia de verdade, pelo WhatsApp ou por e-mail, com a mensagem montada. O pedido de teste avisa a oficina e diz que é teste. Feito em 06/10."
+    },
+    {
+      "id": "f13",
+      "estado": "feito",
+      "frente": "Fase 2",
+      "t": "Revisão de celular em sete aparelhos",
+      "d": "335 conferências do Galaxy de 320 px ao iPad, com o celular deitado: nada rola para o lado, alvo de toque do tamanho do dedo, campo que não dá zoom no iPhone, letra legível, foto com resolução, compra inteira na tela estreita. Achou e corrigiu nove defeitos. Mais 154 conferências de ponta a ponta. Feito em 06/10."
+    },
+    {
+      "id": "f14",
+      "estado": "feito",
+      "frente": "Fase 2",
+      "t": "Prévia do site publicada na internet",
+      "d": "Abre em qualquer celular, sem login: lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/ Fica fora da busca do Google e com o aviso de prévia até as fotos e os preços reais entrarem; o endereço definitivo é marceneirotatuape.com.br. Publicada em 20/10."
+    },
+    {
+      "id": "f15",
+      "estado": "feito",
+      "frente": "Planejamento",
+      "t": "Plano da próxima etapa: Google, campanha e clientes",
+      "d": "As três frentes — Google Meu Negócio, Google Ads e campanha —, quem faz o quê em cada uma, e nove formas de atrair cliente novo e trazer de volta o antigo, na ordem recomendada. Neste quadro, abaixo do roteiro. Feito em 20/10."
+    },
+    {
+      "id": "h1",
+      "estado": "fazendo",
+      "frente": "Domínio",
+      "trava": true,
+      "t": "Titularidade do domínio no Registro.br",
+      "d": "Enquanto o domínio não estiver no CNPJ dele, tudo que for construído em cima fica emprestado."
+    },
+    {
+      "id": "h2",
+      "estado": "fazendo",
+      "frente": "Segurança",
+      "t": "E-mail dono e verificação em duas etapas"
+    },
+    {
+      "id": "h3",
+      "estado": "feito",
+      "frente": "Hospedagem",
+      "t": "Decisão sobre a HostGator",
+      "d": "Resolvida em 17/09. Falta anotar aqui o que ficou decidido — contratada ou não, e para quê. Sem isso o inventário de acessos nasce com um buraco."
+    },
+    {
+      "id": "h4",
+      "estado": "fazendo",
+      "frente": "Loja",
+      "t": "Loja criada na Nuvemshop"
+    },
+    {
+      "id": "h5",
+      "estado": "fazendo",
+      "frente": "Domínio",
+      "t": "Domínio apontado para a loja, com cadeado"
+    },
+    {
+      "id": "h6",
+      "estado": "fazendo",
+      "frente": "Google",
+      "t": "Google Meu Negócio atualizado e conferido"
+    },
+    {
+      "id": "h7",
+      "estado": "fazendo",
+      "frente": "Conteúdo",
+      "trava": true,
+      "t": "Fotos e vídeos do acervo",
+      "d": "Caminho crítico. O site já tem imagem em todas as telas, mas são projetos 3D marcados como ilustrativos: a foto real entra no lugar com o mesmo nome de arquivo. Fontes, nesta ordem: o portfólio do site antigo (marceneirotatuape.com.br/portfolio, que a rede do ambiente de trabalho não alcança — vem por anexo ou pela pasta Marceneiro Tatuapé do Google Drive), o celular do Gabriel e as fotos da visita de 21/10. A seção Fotos, acima, marca lugar por lugar o que já trocou."
+    },
+    {
+      "id": "h8",
+      "estado": "fazendo",
+      "frente": "Tráfego",
+      "t": "Tráfego orgânico, aos poucos",
+      "d": "Google Meu Negócio, Instagram e WhatsApp de quem já é cliente. Pago fica para depois da penalidade resolvida."
+    },
+    {
+      "id": "a10",
+      "estado": "fazendo",
+      "frente": "Conteúdo",
+      "trava": true,
+      "t": "CNPJ verdadeiro no site",
+      "d": "WhatsApp, endereço e e-mail já são os reais e batem em todo o site. Falta o CNPJ, que está como 00.000.000/0001-00. Tudo precisa bater letra por letra com o Google Meu Negócio."
+    },
+    {
+      "id": "g1",
+      "estado": "afazer",
+      "frente": "Google Meu Negócio",
+      "trava": true,
+      "t": "Gabriel proprietário do perfil, Leandro administrador",
+      "d": "Proprietário principal no e-mail dele, nunca no de terceiro. O Leandro entra como administrador para o dia a dia — e sai no dia em que o Gabriel quiser, sem levar nada."
+    },
+    {
+      "id": "g2",
+      "estado": "afazer",
+      "frente": "Google Meu Negócio",
+      "t": "Perfil completo, igual ao site letra por letra",
+      "d": "Categoria principal Marcenaria, horário, serviços, área atendida, WhatsApp, link do site, descrição com 1980 e fotos reais. Mesmo endereço do site: Rua Tuiuti, 2530, cj. 42."
+    },
+    {
+      "id": "g3",
+      "estado": "afazer",
+      "frente": "Google Meu Negócio",
+      "t": "Pedido de avaliação em toda entrega",
+      "d": "Link direto pelo WhatsApp e QR code impresso na oficina e na nota. Toda avaliação respondida em até dois dias, inclusive a ruim."
+    },
+    {
+      "id": "g4",
+      "estado": "afazer",
+      "frente": "Google Meu Negócio",
+      "t": "Uma publicação por semana no perfil",
+      "d": "Obra entregue, peça da semana ou processo na bancada. O texto sai pronto com o Leandro; o Gabriel só manda as fotos."
+    },
+    {
+      "id": "a1",
+      "estado": "afazer",
+      "frente": "Segurança",
+      "trava": true,
+      "t": "Revogar o acesso do primo em tudo",
+      "d": "Foi ele quem cancelou a conta de anúncios em janeiro. Enquanto o acesso existir, o risco existe."
+    },
+    {
+      "id": "a2",
+      "estado": "afazer",
+      "frente": "Segurança",
+      "t": "Reunião de 40 minutos só de acessos",
+      "d": "Sentar com o Gabriel e passar conta por conta, com ele digitando as senhas."
+    },
+    {
+      "id": "a3",
+      "estado": "afazer",
+      "frente": "Segurança",
+      "t": "Inventário por escrito: quem é dono de quê",
+      "d": "Domínio, hospedagem, loja, Google, Instagram, Ads. Uma linha por ativo, com titular e e-mail de recuperação."
+    },
+    {
+      "id": "a4",
+      "estado": "afazer",
+      "frente": "Ads",
+      "trava": true,
+      "t": "Ler as três violações do Google Ads",
+      "d": "Nunca foram abertas. Sem saber o que dizem, não há como saber se a conta é recuperável."
+    },
+    {
+      "id": "a5",
+      "estado": "afazer",
+      "frente": "Ads",
+      "t": "Decidir os R$ 300 parados desde 2024",
+      "d": "O reembolso foi pedido. Se a intenção é voltar a anunciar, vale reconsiderar — sacar fecha uma porta."
+    },
+    {
+      "id": "a6",
+      "estado": "afazer",
+      "frente": "Ads",
+      "t": "Resolver a penalidade na conta atual, sem abrir outra",
+      "d": "Conta nova para escapar de penalidade é violação por si só, e o desfecho é banimento permanente."
+    },
+    {
+      "id": "a7",
+      "estado": "afazer",
+      "frente": "Ads",
+      "t": "Ligar anúncio só com a loja no ar e testada"
+    },
+    {
+      "id": "ad1",
+      "estado": "afazer",
+      "frente": "Google Ads",
+      "t": "Medir antes de gastar: WhatsApp e ligação como conversão",
+      "d": "Cada clique no botão de WhatsApp e no telefone do site vira conversão no Google Ads. Sem isso não há como saber que anúncio traz cliente e qual só gasta."
+    },
+    {
+      "id": "ad2",
+      "estado": "afazer",
+      "frente": "Google Ads",
+      "t": "Primeira campanha de pesquisa local, pronta para ligar",
+      "d": "Raio de 6 km da oficina, palavras de quem já quer contratar e negativas para não pagar por quem procura curso, emprego ou móvel usado. Verba de R$ 600 a R$ 900 por mês, paga direto ao Google no cartão do Gabriel."
+    },
+    {
+      "id": "ad3",
+      "estado": "afazer",
+      "frente": "Gestão",
+      "t": "Gestão mensal das campanhas, com o Leandro",
+      "d": "Ajuste toda semana no primeiro mês e a cada quinze dias depois. Relatório mensal de uma página: verba gasta, conversas no WhatsApp, orçamentos e obras fechadas."
+    },
+    {
+      "id": "a8",
+      "estado": "afazer",
+      "frente": "Conteúdo",
+      "t": "Preços reais no lugar dos ilustrativos",
+      "d": "Os do protótipo servem para validar o fluxo, não para vender."
+    },
+    {
+      "id": "a9",
+      "estado": "afazer",
+      "frente": "Conteúdo",
+      "t": "Depoimentos reais do Google, com autorização de quem assina"
+    },
+    {
+      "id": "a11",
+      "estado": "afazer",
+      "frente": "Loja",
+      "t": "Cadastrar o catálogo real"
+    },
+    {
+      "id": "a12",
+      "estado": "afazer",
+      "frente": "Loja",
+      "t": "Checkout transparente e antifraude ligados",
+      "d": "O cartão vai cifrado direto para o adquirente. É o que tira a marcenaria de quase todo o peso de PCI DSS."
+    },
+    {
+      "id": "a13",
+      "estado": "afazer",
+      "frente": "Loja",
+      "t": "Teste fechado com três a cinco pessoas antes de abrir",
+      "d": "Comprar de verdade, com cartão de verdade, e cancelar depois. É o único jeito de descobrir o que quebra."
+    },
+    {
+      "id": "a14",
+      "estado": "afazer",
+      "frente": "Loja",
+      "t": "Política de troca e devolução publicada",
+      "d": "O Código de Defesa do Consumidor dá sete dias para arrependimento em compra online. Melhor estar escrito."
+    },
+    {
+      "id": "a15",
+      "estado": "afazer",
+      "frente": "Instagram",
+      "t": "Repaginar o @casadomarceneirotatuape"
+    },
+    {
+      "id": "a16",
+      "estado": "afazer",
+      "frente": "Instagram",
+      "t": "Bio com o link da loja e o mesmo endereço do Google"
+    },
+    {
+      "id": "a17",
+      "estado": "afazer",
+      "frente": "Comercial",
+      "t": "Definir o preço da Fase 2",
+      "d": "Recomendei R$ 3.200 em 4×, contra uma faixa de mercado de R$ 6.600 a R$ 13.000. A decisão é sua."
+    },
+    {
+      "id": "a18",
+      "estado": "afazer",
+      "frente": "Comercial",
+      "t": "Decidir loja na raiz ou site institucional separado",
+      "d": "Um lugar só para manter e uma autoridade de busca só, contra dois de tudo."
+    },
+    {
+      "id": "a19",
+      "estado": "afazer",
+      "frente": "Conteúdo",
+      "t": "Confirmar com o Gabriel o que o site afirma",
+      "d": "O site segue 1980 (46 anos); o texto antigo diz “há mais de 25 anos” e precisa ser corrigido onde ainda estiver no ar. Horário de atendimento, @ do Instagram e CNPJ ainda são do protótipo."
+    },
+    {
+      "id": "c1",
+      "estado": "afazer",
+      "frente": "Clientes",
+      "t": "Lista dos clientes antigos",
+      "d": "Agenda do celular, cadernos, notas fiscais, grupos de WhatsApp. Começar com vinte nomes de quem ficou satisfeito, com o móvel que a oficina fez para cada um."
+    },
+    {
+      "id": "c2",
+      "estado": "afazer",
+      "frente": "Clientes",
+      "t": "Mensagem de reencontro, uma por uma",
+      "d": "Pelo WhatsApp Business, com o nome da pessoa e o móvel que ela tem, oferecendo uma revisão sem custo. Quem aceitar recebe o pedido de avaliação no Google. Sempre com a opção de não receber mais."
+    },
+    {
+      "id": "c3",
+      "estado": "afazer",
+      "frente": "Clientes",
+      "t": "Indicação premiada com peça da oficina",
+      "d": "Quem indica uma obra que fecha ganha uma tábua de corte maciça feita da sobra de madeira nobre, com o logo gravado. Custo baixo, valor alto, e a peça fica na cozinha do cliente lembrando da casa."
+    },
+    {
+      "id": "c4",
+      "estado": "afazer",
+      "frente": "Parcerias",
+      "t": "Apresentar a oficina a arquitetos da Zona Leste",
+      "d": "Dez escritórios de arquitetura e design de interiores, com o site no celular e uma peça na mão. Arquiteto que confia num marceneiro manda obra por anos — e é a obra de valor mais alto."
+    },
+    {
+      "id": "c5",
+      "estado": "afazer",
+      "frente": "Instagram",
+      "t": "Pinterest e Instagram com a obra do Gabriel",
+      "d": "O Pinterest é onde se procura ideia de cozinha e closet: cada obra dele vira um pin com link para o site. No Instagram, vídeo curto do encaixe e do antes e depois. Em vez de tirar foto do Pinterest, a gente põe a obra dele lá."
+    }
+  ],
+  "replanejado": "Replanejado em 20/10. As datas de setembro dependiam de acessos que só o Gabriel libera — domínio, Google e Ads — e passam a contar da visita de 21/10. A data antiga fica ao lado de cada marco, para ninguém esquecer.",
+  "proximas": {
+    "intro": "Com o site no ar, o trabalho agora é fazer o cliente achar a oficina. São três frentes, nesta ordem, e o Leandro cuida da gestão de todas. O Gabriel é o dono de cada conta, aprova o que vai ao ar, manda as fotos e atende quem chega.",
+    "etapas": [
+      {
+        "t": "Google Meu Negócio",
+        "sub": "a vitrine grátis no mapa",
+        "porque": "É o que aparece para quem procura marcenaria perto de casa, no mapa e na busca, sem pagar clique. E o Google Ads confere os mesmos dados: perfil, site e anúncio dizendo coisas diferentes é motivo de reprovação.",
+        "leandro": [
+          "Completar o perfil: categoria Marcenaria, horário, serviços, área atendida, WhatsApp e site",
+          "Deixar tudo igual ao site, letra por letra: Rua Tuiuti, 2530, cj. 42 e (11) 94752-3961",
+          "Publicar uma novidade por semana com as fotos que o Gabriel mandar",
+          "Responder toda avaliação em até dois dias, inclusive a ruim",
+          "Montar o link e o QR code de avaliação"
+        ],
+        "gabriel": [
+          "Ser o proprietário principal, no e-mail dele",
+          "Dar acesso de administrador ao Leandro",
+          "Mandar três fotos de cada obra entregue",
+          "Pedir a avaliação na entrega"
+        ],
+        "quando": "Começa na visita de 21/10. Perfil completo até 30/10."
+      },
+      {
+        "t": "Google Ads",
+        "sub": "recuperar a conta, sem abrir outra",
+        "porque": "A conta foi cancelada em janeiro com três violações que ninguém leu. Abrir conta nova para escapar é violação por si só e termina em banimento permanente. O caminho é tratar a conta que existe.",
+        "leandro": [
+          "Ler as três violações com o Gabriel e corrigir a causa de cada uma",
+          "Concluir a verificação de anunciante",
+          "Pedir a revisão na conta atual, com recurso documentado se for preciso",
+          "Instalar a medição: clique no WhatsApp e no telefone do site contam como conversão",
+          "Decidir com ele o destino dos R$ 300 parados desde 2024"
+        ],
+        "gabriel": [
+          "Fazer o login e dar acesso de administrador ao Leandro",
+          "Separar o documento da empresa para a verificação",
+          "Ter o site no domínio dele, com cadeado: é o destino que o anúncio precisa"
+        ],
+        "quando": "Começa na visita de 21/10. Não tem data para terminar: depende de o Google responder."
+      },
+      {
+        "t": "Campanha",
+        "sub": "criação e gestão mensal",
+        "porque": "O anúncio de pesquisa aparece para quem digitou o que precisa — “marcenaria no Tatuapé”, “móveis planejados na Zona Leste”. É o cliente mais perto de fechar, e cada real fica medido pelo WhatsApp.",
+        "leandro": [
+          "Criar a campanha de pesquisa local: raio de 6 km da oficina, abrindo conforme os dados",
+          "Escolher as palavras de quem quer contratar e bloquear quem procura curso, emprego ou móvel usado",
+          "Escrever os anúncios com WhatsApp, endereço e “desde 1980”",
+          "Ajustar toda semana no primeiro mês, a cada quinze dias depois",
+          "Mandar o relatório do mês: verba, conversas, orçamentos e obras fechadas"
+        ],
+        "gabriel": [
+          "Cadastrar o cartão dele no Google Ads para a verba",
+          "Responder o WhatsApp no mesmo dia: o anúncio traz a conversa, quem fecha é o atendimento",
+          "Contar ao Leandro quais conversas viraram orçamento e obra"
+        ],
+        "quando": "Liga no dia em que a conta for liberada. Verba sugerida de R$ 600 a R$ 900 por mês, direto ao Google."
+      }
+    ]
+  },
+  "crescimento": {
+    "intro": "Do mais barato e rápido ao que demora mais e dura mais. Os três primeiros custam quase nada, trazem resultado em dias e começam pelos clientes que já confiam na oficina.",
+    "itens": [
+      {
+        "t": "Reencontro com os clientes antigos",
+        "para": "Antigos",
+        "custo": "R$ 0",
+        "prazo": "dias",
+        "d": "Quarenta e seis anos de oficina são muitas casas com móvel do Gabriel. Mensagem pessoal pelo WhatsApp Business, uma por uma, oferecendo uma revisão sem custo: regular porta, trocar corrediça, olhar o verniz. Na revisão é a hora de falar do próximo móvel e de pedir a avaliação."
+      },
+      {
+        "t": "Avaliações no Google",
+        "para": "Os dois",
+        "custo": "± R$ 30 de QR code impresso",
+        "prazo": "semanas",
+        "d": "Cada cliente satisfeito é uma avaliação esperando o pedido. Link direto no WhatsApp e QR code na oficina e na nota de entrega. Avaliação recente e respondida pesa na posição no mapa e na decisão de quem está comparando."
+      },
+      {
+        "t": "Indicação premiada com peça da oficina",
+        "para": "Antigos trazem novos",
+        "custo": "sobra de madeira",
+        "prazo": "semanas",
+        "d": "Quem indica uma obra que fecha ganha uma tábua de corte maciça feita da sobra de madeira nobre, com o logo gravado. Custo baixo, valor alto, e a peça fica na cozinha do cliente lembrando da casa."
+      },
+      {
+        "t": "Google Meu Negócio vivo",
+        "para": "Novos",
+        "custo": "R$ 0",
+        "prazo": "2 a 4 semanas",
+        "d": "Perfil completo, foto nova toda semana, uma publicação por semana e resposta a tudo. É o canal grátis de quem está a poucos quarteirões da oficina."
+      },
+      {
+        "t": "Vizinho da obra",
+        "para": "Novos",
+        "custo": "cartões impressos",
+        "prazo": "semanas",
+        "d": "Com autorização do cliente e do síndico, cartão com a foto da cozinha pronta no mural do prédio onde a obra foi entregue. Quem mora no mesmo prédio tem a mesma planta — e o mesmo canto para resolver."
+      },
+      {
+        "t": "Peça pequena como porta de entrada",
+        "para": "Os dois",
+        "custo": "R$ 0",
+        "prazo": "com a loja no ar",
+        "d": "Nicho, prateleira e tábua da loja são a primeira compra de quem ainda não conhece a oficina. Quem gostou da peça volta para a cozinha, e quem já é cliente compra o presente."
+      },
+      {
+        "t": "Anúncio de pesquisa no Google",
+        "para": "Novos",
+        "custo": "R$ 600 a 900 por mês de verba",
+        "prazo": "dias, com a conta liberada",
+        "d": "Aparece para quem digitou que precisa de marceneiro. Medido pelo WhatsApp: se uma palavra não traz conversa, a verba muda de lugar."
+      },
+      {
+        "t": "Arquitetos e designers do bairro",
+        "para": "Novos, obra maior",
+        "custo": "R$ 0",
+        "prazo": "meses",
+        "d": "Dez escritórios da Zona Leste, com o site no celular e uma peça na mão. Arquiteto que confia num marceneiro manda obra por anos."
+      },
+      {
+        "t": "Pinterest e Instagram com a obra dele",
+        "para": "Novos",
+        "custo": "R$ 0",
+        "prazo": "meses",
+        "d": "O Pinterest é buscador de ideia de cozinha e closet: cada obra do Gabriel vira um pin com link para o site. No Instagram, vídeo curto do encaixe e do antes e depois. Demora para pegar e dura muito."
+      }
+    ],
+    "ordem": "Semana 1: reencontro e avaliações, que custam zero e alimentam o Google Meu Negócio. Semanas 2 a 4: perfil vivo, indicação e vizinho da obra. Com a conta liberada: anúncio de pesquisa, medido pelo WhatsApp. Sempre: arquitetos, Pinterest e Instagram."
+  },
+  "fotos": {
+    "intro": "Cada imagem do site tem um lugar marcado. Hoje são projetos 3D ilustrativos; a foto real entra com o mesmo nome de arquivo e o selo sai. Cada link abre uma busca do Pinterest com o estilo daquele lugar, para o Gabriel apontar o que quer mostrar. Foto do Pinterest tem dono e é obra de outra oficina: serve de inspiração, nunca vai para o site.",
+    "lugares": [
+      {
+        "id": "capa",
+        "t": "Capa do site",
+        "onde": "Início, a primeira tela",
+        "arquivo": "fotos/capa-2400.webp",
+        "q": "cozinha em U madeira freijó tampo de madeira",
+        "estado": "afazer"
+      },
+      {
+        "id": "cozinha",
+        "t": "Cozinha em U com torre quente",
+        "onde": "Projetos e simulador",
+        "arquivo": "fotos/cozinha.webp",
+        "q": "cozinha planejada torre quente madeira",
+        "estado": "afazer"
+      },
+      {
+        "id": "closet",
+        "t": "Closet aberto do casal",
+        "onde": "Projetos e simulador",
+        "arquivo": "fotos/closet.webp",
+        "q": "closet aberto madeira iluminação embutida",
+        "estado": "afazer"
+      },
+      {
+        "id": "escritorio",
+        "t": "Home office em nicho de sala",
+        "onde": "Projetos e simulador",
+        "arquivo": "fotos/escritorio.webp",
+        "q": "home office nicho sala marcenaria",
+        "estado": "afazer"
+      },
+      {
+        "id": "painel",
+        "t": "Painel ripado com rack suspenso",
+        "onde": "Projetos e simulador",
+        "arquivo": "fotos/painel.webp",
+        "q": "painel ripado freijó rack suspenso",
+        "estado": "afazer"
+      },
+      {
+        "id": "compacta",
+        "t": "Cozinha compacta de apartamento",
+        "onde": "Projetos",
+        "arquivo": "fotos/compacta.webp",
+        "q": "cozinha compacta apartamento pequeno planejada",
+        "estado": "afazer"
+      },
+      {
+        "id": "dormitorio",
+        "t": "Dormitório completo",
+        "onde": "Projetos",
+        "arquivo": "fotos/dormitorio.webp",
+        "q": "quarto casal marcenaria cabeceira madeira guarda-roupa",
+        "estado": "afazer"
+      },
+      {
+        "id": "banheiro",
+        "t": "Gabinete de banheiro",
+        "onde": "Simulador",
+        "arquivo": "fotos/banheiro.webp",
+        "q": "gabinete suspenso banheiro madeira cuba de apoio",
+        "estado": "afazer"
+      },
+      {
+        "id": "oficina",
+        "t": "A oficina",
+        "onde": "Início e Quem somos — só foto real, tirada na visita",
+        "arquivo": "fotos/oficina.webp",
+        "q": "fotografia oficina de marcenaria luz natural",
+        "estado": "afazer"
+      },
+      {
+        "id": "corte",
+        "t": "Corte de chapa sob medida",
+        "onde": "Loja e A oficina",
+        "arquivo": "fotos/corte.webp",
+        "q": "corte de chapa mdf sob medida marcenaria",
+        "estado": "afazer"
+      },
+      {
+        "id": "nicho",
+        "t": "Nicho duplo",
+        "onde": "Loja",
+        "arquivo": "fotos/nicho.webp",
+        "q": "nicho de madeira duplo parede",
+        "estado": "afazer"
+      },
+      {
+        "id": "prateleira",
+        "t": "Prateleira flutuante",
+        "onde": "Loja",
+        "arquivo": "fotos/prateleira.webp",
+        "q": "prateleira flutuante madeira maciça",
+        "estado": "afazer"
+      },
+      {
+        "id": "tabua",
+        "t": "Tábua de corte maciça",
+        "onde": "Loja",
+        "arquivo": "fotos/tabua.webp",
+        "q": "tábua de corte madeira maciça",
+        "estado": "afazer"
+      },
+      {
+        "id": "ripado",
+        "t": "Painel ripado",
+        "onde": "Loja",
+        "arquivo": "fotos/ripado.webp",
+        "q": "painel ripado madeira parede sala",
+        "estado": "afazer"
+      },
+      {
+        "id": "banqueta",
+        "t": "Banqueta alta",
+        "onde": "Loja",
+        "arquivo": "fotos/banqueta.webp",
+        "q": "banqueta alta madeira maciça",
+        "estado": "afazer"
+      },
+      {
+        "id": "cabeceira",
+        "t": "Mesa de cabeceira",
+        "onde": "Loja",
+        "arquivo": "fotos/cabeceira.webp",
+        "q": "mesa de cabeceira madeira maciça",
+        "estado": "afazer"
+      },
+      {
+        "id": "bancada",
+        "t": "Bancada maciça",
+        "onde": "Loja",
+        "arquivo": "fotos/bancada.webp",
+        "q": "bancada de madeira maciça cozinha",
+        "estado": "afazer"
+      }
+    ]
+  }
+}

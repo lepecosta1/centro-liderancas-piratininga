@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8">
+<!-- as fontes vêm embutidas da Fase 1: a rede desta máquina não alcança o Google Fonts -->
+<link rel="stylesheet" href="../../proposta-marcenaria-tatuape/fontes-embutidas.css">
+<style>
+*{margin:0;box-sizing:border-box}
+body{width:1200px;height:630px;overflow:hidden;background:#1A120C;position:relative;
+  font-family:"Barlow",sans-serif;color:#F4E9D8}
+.foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 55%}
+.veu{position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,12,8,.95) 0%,rgba(18,12,8,.86) 40%,
+  rgba(18,12,8,.35) 68%,rgba(18,12,8,.05) 100%),linear-gradient(0deg,rgba(18,12,8,.75) 0%,rgba(18,12,8,0) 40%)}
+.env{position:relative;height:100%;padding:64px 72px;display:flex;flex-direction:column;justify-content:space-between}
+.topo{display:flex;align-items:center;gap:18px}
+.topo{gap:24px}
+.logo{height:112px;width:auto;display:block}
+.onde{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.15em;font-size:19px;
+  line-height:1.4;color:#C0A88C;padding-left:24px;border-left:1.5px solid #4A3527}
+h1{font-family:"Fraunces",serif;font-size:70px;font-weight:600;line-height:1.06;letter-spacing:-.02em;max-width:19ch}
+h1 em{font-style:normal;color:#F5C15C}
+.sub{font-size:25px;color:#C0A88C;margin-top:20px;max-width:44ch;line-height:1.42}
+.pe{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.chip{border:1.4px solid #4A3527;background:rgba(42,30,21,.86);border-radius:5px;padding:9px 17px;
+  font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:18px;color:#C0A88C}
+.chip.forte{background:#E09A3A;border-color:#E09A3A;color:#1A120C;font-weight:600}
+.chip.zap{background:#1C7C43;border-color:#1C7C43;color:#F3FBF6;font-weight:600}
+</style></head><body>
+<!-- a capa do site é o fundo do cartão; o degradê guarda a esquerda para o texto -->
+<img class="foto" src="../fotos/capa-1600.webp" alt="">
+<div class="veu"></div>
+<div class="env">
+  <div class="topo">
+    <img class="logo" src="../marca/logo-site.svg" alt="Casa do Marceneiro">
+    <span class="onde">Tatuapé<br>São Paulo</span>
+  </div>
+  <div>
+    <h1>A madeira certa, <em>cortada para o seu espaço.</em></h1>
+    <p class="sub">Peças prontas com preço fechado, corte de chapa na medida e projeto sob medida
+      com visita técnica.</p>
+  </div>
+  <div class="pe">
+    <span class="chip forte">Prévia do novo site</span>
+    <span class="chip">Desde 1980</span><span class="chip">Madeira e MDF · nunca MDP</span>
+    <span class="chip zap">WhatsApp (11) 94752-3961</span>
+  </div>
+</div></body></html>
