@@ -11,13 +11,15 @@
 
 O modo domínio confere o lancamento.json e o texto final antes de sair
 indexável: CNPJ de exemplo, foto 3D, preço não confirmado ou palavra de
-prévia barram a publicação. --forcar monta assim mesmo, mas com noindex —
-para testar no domínio sem o Google guardar nada inventado.
+prévia barram a publicação. --forcar monta assim mesmo, mas com noindex e
+com o aviso de prévia no topo — para mostrar e testar no endereço de
+verdade sem o Google guardar nada inventado nem o visitante tomar o
+protótipo por loja pronta. É o que a Vercel roda (ver vercel.json).
 
 As fontes vêm da Fase 1: mesmo cliente, mesma marca, arquivo já
 versionado — não faz sentido baixar de novo nem duplicar 400 KB.
 """
-import argparse, datetime, html as H, json, pathlib, re, shutil, sys
+import argparse, datetime, html as H, json, os, pathlib, re, shutil, sys
 from urllib.parse import urlparse
 
 base = pathlib.Path(__file__).parent
@@ -25,7 +27,7 @@ fonte = (base / "corpo.html").read_text(encoding="utf-8")
 fontes = (base / ".." / "proposta-marcenaria-tatuape" / "fontes-embutidas.css").read_text(encoding="utf-8")
 css = (base / "site.css").read_text(encoding="utf-8")
 
-PREVIA = "https://lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/"
+PREVIA = "https://casa-do-marceneiro-tatuape.vercel.app/"
 RESUMO = ("Marcenaria familiar no Tatuapé desde 1980: peças prontas com preço fechado, corte de chapa "
           "na medida e projeto sob medida com visita técnica. Madeira maciça e MDF, nunca MDP.")
 REDES = ["https://www.facebook.com/CasaDoMarceneiroTatuape/", "https://www.instagram.com/casadomarceneirotatuape/"]
@@ -100,6 +102,7 @@ def ficha(url):
     }, ensure_ascii=False).replace("</", "<\\/")
 
 def pagina(miolo, *, titulo, descricao, url, canonico, raiz, robots, atributos):
+    """Página inteira. O miolo traz o estilo (inline ou <link>) e o corpo."""
     t, d = H.escape(titulo), H.escape(descricao, quote=True)
     return f"""<!DOCTYPE html>
 <html lang="pt-BR"{atributos}>
@@ -149,6 +152,8 @@ if not args.dominio:
 
 # ---------------------------------------------------------------- domínio
 url = args.dominio.rstrip("/") + "/"
+if not urlparse(url).hostname:
+    sys.exit(f"--dominio sem endereço: {args.dominio!r}")
 raiz = urlparse(url).path or "/"
 lanc = ler_json("lancamento.json", {})
 destino = base / "publicar"
@@ -162,14 +167,15 @@ if lanc.get("cnpj"):
 dom = re.sub(r'href="#/([a-z-]*)"', lambda m: f'href="{raiz}{m.group(1) + "/" if m.group(1) else ""}"', dom)
 dom = re.sub(r'(?<![\w/.-])(fotos/|marca/)', lambda m: raiz + m.group(1), dom)
 
-# --- a conferência de lançamento
+# --- a conferência de lançamento (o aviso de prévia não conta: ele só
+# fica quando há pendência, e sai sozinho quando tudo estiver resolvido)
 def texto_visivel(t):
     t = re.sub(r"<(script|style)\b.*?</\1>", " ", t, flags=re.S | re.I)
     t = re.sub(r"<!--.*?-->", " ", t, flags=re.S)
     return H.unescape(re.sub(r"<[^>]+>", " ", t))
 
 pendencias = []
-visivel = texto_visivel(dom)
+visivel = texto_visivel(re.sub(r"<!--AVISO-->.*?<!--/AVISO-->", "", dom, flags=re.S))
 for marca_, motivo in ((CNPJ_EXEMPLO, "o CNPJ ainda é o de exemplo"),
                        ("ilustrativ", "ainda há texto de imagem ou projeto ilustrativo"),
                        ("prévia", "ainda há texto de prévia"), ("Prévia", "ainda há texto de prévia"),
@@ -200,6 +206,8 @@ if pendencias and not args.forcar:
     sys.exit(1)
 
 robots = "noindex, nofollow" if pendencias else "index, follow"
+if not pendencias:
+    dom = re.sub(r"<!--AVISO-->.*?<!--/AVISO-->", "", dom, flags=re.S)
 if destino.exists():
     shutil.rmtree(destino)
 destino.mkdir()
@@ -211,6 +219,12 @@ for arq in ("logo-site.svg", "icone.svg", "icone-512.png", "favicon-32.png", "ap
 shutil.copy2(base / "capa-link.jpg", destino / "capa-link.jpg")
 
 estilo, resto = separar(dom)
+codigo = re.search(r"<script>\n(.*?)</script>", resto, re.S)
+assert codigo and resto.count("<script>") == 1, "esperava um único <script> no corpo"
+(destino / "site.js").write_text(codigo.group(1), encoding="utf-8")
+resto = resto.replace(codigo.group(0), f'<script src="{raiz}site.js"></script>')
+(destino / "estilo.css").write_text(re.sub(r"^<style>\n?|</style>$", "", estilo.strip()), encoding="utf-8")
+estilo = f'<link rel="stylesheet" href="{raiz}estilo.css">'
 for tela, (titulo, descricao) in TELAS.items():
     miolo = resto
     if tela != "inicio":
@@ -246,7 +260,7 @@ hoje = datetime.date.today().isoformat()
 (destino / "robots.txt").write_text(
     ("User-agent: *\nAllow: /\n" if not pendencias else "User-agent: *\nDisallow: /\n") +
     f"\nSitemap: {url}sitemap.xml\n", encoding="utf-8")
-if raiz == "/":
+if raiz == "/" and not os.environ.get("VERCEL"):   # CNAME é coisa do GitHub Pages
     (destino / "CNAME").write_text(urlparse(url).hostname + "\n", encoding="utf-8")
 (destino / ".nojekyll").write_text("", encoding="utf-8")
 

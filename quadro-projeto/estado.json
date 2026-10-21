@@ -202,7 +202,7 @@
       "id": "r13",
       "feito": false,
       "t": "Mostrar o site no ar, no celular dele",
-      "d": "Abrir lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/ no celular do Gabriel, passar pela loja e simular a cozinha de um cliente real. Dizer com todas as letras que as imagens são 3D até as fotos dele chegarem."
+      "d": "Abrir casa-do-marceneiro-tatuape.vercel.app no celular do Gabriel, passar pela loja e simular a cozinha de um cliente real. Dizer com todas as letras que as imagens são 3D até as fotos dele chegarem."
     },
     {
       "id": "r14",
@@ -401,7 +401,7 @@
       "estado": "feito",
       "frente": "Fase 2",
       "t": "Prévia do site publicada na internet",
-      "d": "Abre em qualquer celular, sem login: lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/ Fica fora da busca do Google e com o aviso de prévia até as fotos e os preços reais entrarem; o endereço definitivo é marceneirotatuape.com.br. Publicada em 20/10."
+      "d": "Abre em qualquer celular, sem login. Saiu do GitHub Pages em 21/10 e está na Vercel, em projeto próprio: casa-do-marceneiro-tatuape.vercel.app. Fica fora da busca do Google e com o aviso de prévia até as fotos e os preços reais entrarem; o endereço definitivo é marceneirotatuape.com.br."
     },
     {
       "id": "f15",
@@ -1060,20 +1060,20 @@
       {
         "id": "s7",
         "feito": false,
-        "t": "Hospedagem no nome dele",
-        "d": "Um repositório só do site, numa conta no e-mail do Gabriel, com GitHub Pages: grátis e com cadeado automático."
+        "t": "Hospedagem na Vercel",
+        "d": "O site já está na Vercel e se monta sozinho a cada atualização do código. O projeto está na conta do Leandro; a Vercel transfere para uma conta no e-mail do Gabriel quando ele quiser, sem tirar o site do ar."
       },
       {
         "id": "s8",
         "feito": false,
-        "t": "Montar e subir",
-        "d": "Montar o site no modo domínio — o comando está no LEIA-ME do site. Se ele recusar, a lista do que falta aparece na tela."
+        "t": "Confirmar tudo e deixar a Vercel montar",
+        "d": "Com a última pendência resolvida, o mesmo build sai indexável e sem o aviso de prévia. Se ainda faltar algo, o site continua no ar, fora do Google, com o aviso."
       },
       {
         "id": "s9",
         "feito": false,
         "t": "Apontar o domínio",
-        "d": "Quatro registros A para 185.199.108.153, .109.153, .110.153 e .111.153, e o www para a conta do GitHub. MX e TXT do e-mail ficam como estão. Ligar Enforce HTTPS. Até 24 h de propagação."
+        "d": "Na Vercel, Settings → Domains: marceneirotatuape.com.br e www. No DNS, os registros que ela mostrar — hoje, A @ para 76.76.21.21 e CNAME www para cname.vercel-dns.com. MX e TXT do e-mail ficam como estão. Até 24 h de propagação."
       },
       {
         "id": "s10",

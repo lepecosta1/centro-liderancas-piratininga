@@ -8,7 +8,8 @@ testado antes de subir e antes do primeiro real de anúncio.
 
 | Arquivo | Para quê |
 |---|---|
-| `index.html` | O site. Abre em qualquer celular ou navegador, sem servidor. |
+| `index.html` | A prévia num arquivo só, gerada pelo `montar.py`: abre em qualquer navegador, sem servidor. Fica fora do Git. |
+| `vercel.json` | Como a Vercel monta e serve o site. |
 | `corpo.html` | Fonte única — conteúdo, marcação e toda a lógica. |
 | `site.css` | Sistema visual. |
 | `montar.py` | Gera `index.html` e `artifact.html` a partir da fonte; com `--dominio`, o site de verdade em `publicar/`. |
@@ -20,7 +21,11 @@ testado antes de subir e antes do primeiro real de anúncio.
 | `marca/` | O logo em vetor, HD e 4K, ícones e foto de perfil (ver "O logo"). |
 | `gerador/logo/` | Desenho, textura e exportação do logo. |
 
-`artifact.html` e `publicar/` são saída de build e ficam fora do versionamento.
+`artifact.html`, `index.html` e `publicar/` são saída de build e ficam fora do versionamento.
+
+**No ar: https://casa-do-marceneiro-tatuape.vercel.app/** — projeto próprio na Vercel, que monta o site
+a partir deste repositório a cada atualização. O site saiu do GitHub Pages: o repositório guarda a
+fonte, quem serve é a Vercel.
 
 Para reconstruir depois de mexer em `corpo.html` ou `site.css`:
 
@@ -134,17 +139,20 @@ capa:
 python3 montar.py --dominio https://marceneirotatuape.com.br/
 ```
 
-Sai em `publicar/` (fora do Git): as sete páginas, `sitemap.xml`, `robots.txt`,
-`CNAME`, `404.html`, o endereço antigo `/portfolio/` levando a `/projetos/`, as
-fotos e só os arquivos do logo que a página usa. No domínio não existe aviso de
-prévia, checkout simulado nem bandeira de cartão: o carrinho vira **Pedir pelo
+Sai em `publicar/` (fora do Git): as sete páginas, com estilo e código em
+`estilo.css` e `site.js` compartilhados (cada página tem 54 KB em vez de 740),
+`sitemap.xml`, `robots.txt`, `404.html`, `CNAME` (só fora da Vercel), o endereço
+antigo `/portfolio/` levando a `/projetos/`, as fotos e só os arquivos do logo
+que a página usa. No domínio não existe checkout simulado nem bandeira de cartão: o carrinho vira **Pedir pelo
 WhatsApp**, com peça, opção, quantidade, valor e subtotal na mensagem.
 
 **A conferência de lançamento.** O comando se recusa a publicar indexável
 enquanto houver CNPJ de exemplo, texto de prévia ou de imagem ilustrativa,
 lugar de foto ainda em 3D ou item sem confirmar no `lancamento.json`. Ele lista
-o que falta. `--forcar` monta assim mesmo, mas com `noindex` e `Disallow` — para
-testar no domínio sem o Google guardar nada inventado.
+o que falta. `--forcar` monta assim mesmo, mas com `noindex`, `Disallow` e o
+aviso de prévia no topo — é assim que a Vercel monta hoje: o site está no ar
+para o Gabriel ver e aprovar, sem o Google guardar nada inventado. Quando a
+última pendência sair, o mesmo build passa a sair indexável e sem o aviso.
 
 A ordem:
 
@@ -165,12 +173,15 @@ A ordem:
 6. **Domínio.** Conferir no Registro.br que o titular é o CNPJ do Gabriel e
    **anotar todos os registros de DNS de hoje, principalmente os MX**: o
    `contato@marceneirotatuape.com.br` depende deles e não pode cair na troca.
-7. **Hospedagem.** Um repositório só do site, numa conta no e-mail do Gabriel,
-   com GitHub Pages (grátis, cadeado automático). Sobe o conteúdo de `publicar/`.
-8. **DNS.** No domínio, quatro registros A para `185.199.108.153`,
-   `185.199.109.153`, `185.199.110.153` e `185.199.111.153`, e `www` como CNAME
-   para `<conta>.github.io`. MX e TXT do e-mail ficam como estão. No GitHub,
-   Custom domain com o endereço e **Enforce HTTPS**. Propagação: até 24 h.
+7. **Hospedagem.** Já está na Vercel (`vercel.json`): o build roda o
+   `montar.py --dominio` com o endereço de produção do projeto, e o cadeado é
+   automático. Hoje o projeto está na conta do Leandro; a Vercel transfere o
+   projeto para uma conta no e-mail do Gabriel sem tirar o site do ar.
+8. **DNS.** Na Vercel, Settings → Domains → `marceneirotatuape.com.br` e
+   `www.marceneirotatuape.com.br`. No DNS do domínio, os registros que ela
+   mostrar — hoje, A `@` para `76.76.21.21` e CNAME `www` para
+   `cname.vercel-dns.com`. MX e TXT do e-mail ficam como estão. Propagação:
+   até 24 h. O build seguinte já sai com o domínio no canônico e no sitemap.
 9. **Conferir no celular:** cadeado, `/contato/`, `/projetos/`, `/portfolio/`
    levando a projetos, WhatsApp e Ligar chamando o (11) 94752-3961.
 10. **Google Search Console:** propriedade de domínio (registro TXT), enviar
