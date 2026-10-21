@@ -37,17 +37,21 @@
     lugares().forEach(function(l){
       if (over.fotos && over.fotos[l.id]) l.estado = over.fotos[l.id];
     });
+    passosSubida().forEach(function(x){
+      if (over.subida && Object.prototype.hasOwnProperty.call(over.subida, x.id)) x.feito = !!over.subida[x.id];
+    });
     parcelas().forEach(function(p){
       if (over.parcelas && Object.prototype.hasOwnProperty.call(over.parcelas, p.id)) p.pago = !!over.parcelas[p.id];
     });
   }
 
   function guardarLocal(){
-    var over = { versao:estado.versao, roteiro:{}, itens:{}, fotos:{}, parcelas:{} };
+    var over = { versao:estado.versao, roteiro:{}, itens:{}, fotos:{}, parcelas:{}, subida:{} };
     (estado.roteiro || []).forEach(function(p){ over.roteiro[p.id] = !!p.feito; });
     (estado.itens || []).forEach(function(i){ over.itens[i.id] = i.estado; });
     lugares().forEach(function(l){ over.fotos[l.id] = l.estado; });
     parcelas().forEach(function(p){ over.parcelas[p.id] = !!p.pago; });
+    passosSubida().forEach(function(x){ over.subida[x.id] = !!x.feito; });
     try { localStorage.setItem(CHAVE, JSON.stringify(over)); } catch (e) {}
   }
 
@@ -56,6 +60,7 @@
      pode não ter fotos. Nada aqui pode quebrar por falta delas. */
   function lugares(){ return (estado.fotos && estado.fotos.lugares) || []; }
   function parcelas(){ return (estado.financeiro && estado.financeiro.linhas) || []; }
+  function passosSubida(){ return (estado.subida && estado.subida.passos) || []; }
 
   /* ---------- ferramentas ---------- */
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
@@ -210,13 +215,30 @@
       cont.innerHTML = '<b>' + r.feitos + ' de ' + r.total + '</b> passos concluídos' +
         '<span class="barra-mini"><i style="width:' + (r.total ? (r.feitos / r.total) * 100 : 0) + '%"></i></span>';
     }
-    alvo.innerHTML = (estado.roteiro || []).map(function(p, i){
-      return '<li><button type="button" class="passo' + (p.feito ? " ok" : "") + '" data-passo="' + esc(p.id) + '"' +
+    alvo.innerHTML = listaDePassos(estado.roteiro || [], "data-passo");
+  }
+
+  function listaDePassos(lista, atributo){
+    return lista.map(function(p, i){
+      return '<li><button type="button" class="passo' + (p.feito ? " ok" : "") + '" ' + atributo + '="' + esc(p.id) + '"' +
         ' aria-pressed="' + (p.feito ? "true" : "false") + '">' +
         '<span class="n">' + (p.feito ? '<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#q-check"/></svg>' : (i + 1)) + '</span>' +
         '<span class="txt"><b>' + esc(p.t) + '</b><span>' + esc(p.d) + '</span></span>' +
         '</button></li>';
     }).join("");
+  }
+
+  function desenharSubida(){
+    var alvo = document.getElementById("subida-passos"), su = estado.subida;
+    var sec = document.getElementById("s-subida");
+    if (sec) sec.hidden = !su;
+    if (!alvo || !su) return;
+    texto("subida-intro", su.intro);
+    var ps = passosSubida(), feitos = ps.filter(function(x){ return x.feito; }).length;
+    var cont = document.getElementById("conta-subida");
+    if (cont) cont.innerHTML = '<b>' + feitos + ' de ' + ps.length + '</b> passos concluídos' +
+      '<span class="barra-mini"><i style="width:' + (ps.length ? feitos / ps.length * 100 : 0) + '%"></i></span>';
+    alvo.innerHTML = listaDePassos(ps, "data-subida");
   }
 
   function desenharQuadro(){
@@ -348,6 +370,7 @@
     desenharMedidor();
     desenharMarcos();
     desenharRoteiro();
+    desenharSubida();
     desenharProximas();
     desenharCrescimento();
     desenharFotos();
@@ -369,6 +392,12 @@
     var bi = e.target.closest("[data-item]");
     if (bi) {
       (estado.itens || []).forEach(function(i){ if (i.id === bi.dataset.item) i.estado = CICLO[i.estado] || "afazer"; });
+      mudou();
+      return;
+    }
+    var bs = e.target.closest("[data-subida]");
+    if (bs) {
+      passosSubida().forEach(function(x){ if (x.id === bs.dataset.subida) x.feito = !x.feito; });
       mudou();
       return;
     }

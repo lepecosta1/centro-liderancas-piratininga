@@ -1,0 +1,10 @@
+{
+  "_leia": "Cada item só vira true (ou ganha o valor) depois de confirmado com o Gabriel. Enquanto faltar algum, python3 montar.py --dominio se recusa a publicar o site indexável.",
+  "cnpj": "",
+  "precos_confirmados": false,
+  "horario_confirmado": false,
+  "promessas_confirmadas": false,
+  "projetos_reais": false,
+  "instagram_confirmado": false,
+  "fundacao_1980_confirmada": false
+}
