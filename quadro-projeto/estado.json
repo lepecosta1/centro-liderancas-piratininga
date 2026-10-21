@@ -1,7 +1,7 @@
 {
   "versao": 2,
   "titulo": "Quadro do Projeto Marceneiro",
-  "atualizado": "2026-10-20",
+  "atualizado": "2026-10-21",
   "visita": "2026-10-21",
   "marcos": [
     {
@@ -53,6 +53,19 @@
       "itens": [
         "f14",
         "f15"
+      ]
+    },
+    {
+      "id": "m13",
+      "rot": "Site pronto para o domínio",
+      "quando": "qua 21/10",
+      "ate": "2026-10-21",
+      "entrega": "Uma página por tela para o Google, avaliações do Google no lugar dos depoimentos inventados, ligar ao lado do WhatsApp, políticas, medição com aceite e a conferência que não deixa nada inventado ir ao ar.",
+      "itens": [
+        "f16",
+        "f17",
+        "f18",
+        "f19"
       ]
     },
     {
@@ -148,6 +161,17 @@
       "antes": "09/10"
     },
     {
+      "id": "m14",
+      "rot": "Primeiros anúncios na Meta",
+      "quando": "sem data — começa com as fotos reais",
+      "ate": null,
+      "entrega": "Instagram e Facebook trazendo conversa no WhatsApp de quem mora perto, com obra de verdade no anúncio. Não espera o Google: espera as fotos.",
+      "itens": [
+        "me1",
+        "me2"
+      ]
+    },
+    {
       "id": "m9",
       "rot": "Anúncio pago",
       "quando": "sem data — depende do Google",
@@ -178,7 +202,7 @@
       "id": "r13",
       "feito": false,
       "t": "Mostrar o site no ar, no celular dele",
-      "d": "Abrir lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/ no celular do Gabriel, passar pela loja e simular a cozinha de um cliente real. Dizer com todas as letras que as imagens são 3D até as fotos dele chegarem."
+      "d": "Abrir casa-do-marceneiro-tatuape.vercel.app no celular do Gabriel, passar pela loja e simular a cozinha de um cliente real. Dizer com todas as letras que as imagens são 3D até as fotos dele chegarem."
     },
     {
       "id": "r14",
@@ -377,14 +401,42 @@
       "estado": "feito",
       "frente": "Fase 2",
       "t": "Prévia do site publicada na internet",
-      "d": "Abre em qualquer celular, sem login: lepecosta1.github.io/centro-liderancas-piratininga/site-casa-do-marceneiro/ Fica fora da busca do Google e com o aviso de prévia até as fotos e os preços reais entrarem; o endereço definitivo é marceneirotatuape.com.br. Publicada em 20/10."
+      "d": "Abre em qualquer celular, sem login. Saiu do GitHub Pages em 21/10 e está na Vercel, em projeto próprio: casa-do-marceneiro-tatuape.vercel.app. Fica fora da busca do Google e com o aviso de prévia até as fotos e os preços reais entrarem; o endereço definitivo é marceneirotatuape.com.br."
     },
     {
       "id": "f15",
       "estado": "feito",
       "frente": "Planejamento",
       "t": "Plano da próxima etapa: Google, campanha e clientes",
-      "d": "As três frentes — Google Meu Negócio, Google Ads e campanha —, quem faz o quê em cada uma, e nove formas de atrair cliente novo e trazer de volta o antigo, na ordem recomendada. Neste quadro, abaixo do roteiro. Feito em 20/10."
+      "d": "As três frentes — Google Meu Negócio, Google Ads e campanha —, quem faz o quê em cada uma, e dez formas de atrair cliente novo e trazer de volta o antigo, na ordem recomendada. Neste quadro, abaixo do roteiro. Feito em 20/10."
+    },
+    {
+      "id": "f16",
+      "estado": "feito",
+      "frente": "Site",
+      "t": "Site pronto para o domínio e para o Google",
+      "d": "Um comando monta o site de marceneirotatuape.com.br com uma página por tela (/loja/, /projetos/, /contato/…), título e descrição próprios, sitemap, robots, CNAME e o endereço antigo /portfolio/ levando a projetos. Antes de sair indexável, ele confere: CNPJ de exemplo, foto 3D, preço ou promessa sem confirmar barram a publicação. Feito em 21/10."
+    },
+    {
+      "id": "f17",
+      "estado": "feito",
+      "frente": "Site",
+      "t": "Avaliações do Google, botão de ligar e políticas",
+      "d": "Os depoimentos inventados saíram; entrou o mapa do Google com a nota ao vivo e os botões para ver e deixar avaliação. Ligar ao lado do WhatsApp em todo lugar, o WhatsApp como botão principal da capa, perguntas frequentes e a página de privacidade, trocas e devoluções (CDC e LGPD). Feito em 21/10."
+    },
+    {
+      "id": "f18",
+      "estado": "feito",
+      "frente": "Conteúdo",
+      "t": "Foto real entra com um comando",
+      "d": "Foto do celular com o nome do lugar (cozinha.jpg, capa.jpg…): o importador vira, corta, reduz, apaga o GPS — que costuma ser a casa do cliente — e tira o selo de 3D daquele lugar. Feito em 21/10."
+    },
+    {
+      "id": "f19",
+      "estado": "feito",
+      "frente": "Medição",
+      "t": "Medição de anúncio pronta, com aceite de cookies",
+      "d": "Google Analytics, Google Ads e o pixel da Meta ligam com os identificadores num arquivo só, e só depois de o visitante aceitar. Medem o que vira cliente: WhatsApp, ligação, formulário e pedido. Feito em 21/10."
     },
     {
       "id": "h1",
@@ -431,7 +483,7 @@
       "frente": "Conteúdo",
       "trava": true,
       "t": "Fotos e vídeos do acervo",
-      "d": "Caminho crítico. O site já tem imagem em todas as telas, mas são projetos 3D marcados como ilustrativos: a foto real entra no lugar com o mesmo nome de arquivo. Fontes, nesta ordem: o portfólio do site antigo (marceneirotatuape.com.br/portfolio, que a rede do ambiente de trabalho não alcança — vem por anexo ou pela pasta Marceneiro Tatuapé do Google Drive), o celular do Gabriel e as fotos da visita de 21/10. A seção Fotos, acima, marca lugar por lugar o que já trocou."
+      "d": "Caminho crítico: o site, a Meta e o domínio esperam por elas. Fontes, nesta ordem: o portfólio do site antigo (marceneirotatuape.com.br/portfolio, que a rede do ambiente de trabalho não alcança — vem pela pasta Marceneiro Tatuapé do Google Drive), o celular do Gabriel e fotos novas da oficina. Com o nome do lugar em cada arquivo, entram com um comando. A seção Fotos marca lugar por lugar."
     },
     {
       "id": "h8",
@@ -539,7 +591,7 @@
       "estado": "afazer",
       "frente": "Google Ads",
       "t": "Primeira campanha de pesquisa local, pronta para ligar",
-      "d": "Raio de 6 km da oficina, palavras de quem já quer contratar e negativas para não pagar por quem procura curso, emprego ou móvel usado. Verba de R$ 600 a R$ 900 por mês, paga direto ao Google no cartão do Gabriel."
+      "d": "Raio de 6 km da oficina, palavras de quem já quer contratar e negativas para não pagar por quem procura curso, emprego ou móvel usado. Verba dentro dos R$ 50 a R$ 100 por dia somando Google e Meta, paga direto ao Google no cartão do Gabriel."
     },
     {
       "id": "ad3",
@@ -547,6 +599,21 @@
       "frente": "Gestão",
       "t": "Gestão mensal das campanhas, com o Leandro",
       "d": "Ajuste toda semana no primeiro mês e a cada quinze dias depois. Relatório mensal de uma página: verba gasta, conversas no WhatsApp, orçamentos e obras fechadas."
+    },
+    {
+      "id": "me1",
+      "estado": "afazer",
+      "frente": "Meta",
+      "trava": true,
+      "t": "Conta de anúncios da Meta no nome do Gabriel",
+      "d": "Meta Business Suite no e-mail dele, com a página do Facebook, o Instagram e o WhatsApp Business (11) 94752-3961 ligados, o cartão dele e o Leandro como administrador. É a mesma lição do Google: o dono é ele."
+    },
+    {
+      "id": "me2",
+      "estado": "afazer",
+      "frente": "Meta",
+      "t": "Campanha de mensagens no WhatsApp pela Meta",
+      "d": "Anúncio no Instagram e no Facebook que abre a conversa no WhatsApp, num raio de 5 km da oficina, com vídeo e foto de obra real. Começa com cerca de R$ 30 por dia. Não depende da conta do Google — só das fotos."
     },
     {
       "id": "a8",
@@ -559,7 +626,8 @@
       "id": "a9",
       "estado": "afazer",
       "frente": "Conteúdo",
-      "t": "Depoimentos reais do Google, com autorização de quem assina"
+      "t": "Depoimentos reais do Google, com autorização de quem assina",
+      "d": "A seção de avaliações já mostra a nota ao vivo do Google. Comentário só entra no site com a autorização de quem escreveu — e o identificador do perfil faz o botão de avaliar abrir direto o formulário."
     },
     {
       "id": "a11",
@@ -659,7 +727,7 @@
   ],
   "replanejado": "Replanejado em 20/10. As datas de setembro dependiam de acessos que só o Gabriel libera — domínio, Google e Ads — e passam a contar da visita de 21/10. A data antiga fica ao lado de cada marco, para ninguém esquecer.",
   "proximas": {
-    "intro": "Com o site no ar, o trabalho agora é fazer o cliente achar a oficina. São três frentes, nesta ordem, e o Leandro cuida da gestão de todas. O Gabriel é o dono de cada conta, aprova o que vai ao ar, manda as fotos e atende quem chega.",
+    "intro": "Com o site no ar, o trabalho agora é fazer o cliente achar a oficina. São quatro frentes, e o Leandro cuida da gestão de todas. O Gabriel é o dono de cada conta, aprova o que vai ao ar, manda as fotos e atende quem chega.",
     "etapas": [
       {
         "t": "Google Meu Negócio",
@@ -699,22 +767,37 @@
         "quando": "Começa na visita de 21/10. Não tem data para terminar: depende de o Google responder."
       },
       {
-        "t": "Campanha",
-        "sub": "criação e gestão mensal",
-        "porque": "O anúncio de pesquisa aparece para quem digitou o que precisa — “marcenaria no Tatuapé”, “móveis planejados na Zona Leste”. É o cliente mais perto de fechar, e cada real fica medido pelo WhatsApp.",
+        "t": "Meta: Instagram e Facebook",
+        "sub": "pode começar antes do Google",
+        "porque": "O anúncio de mensagem abre a conversa direto no WhatsApp do Gabriel, para quem mora perto. Não depende da conta do Google, que espera o Google responder: depende só de foto e vídeo de obra de verdade — imagem 3D em anúncio seria vender o que a oficina não fez.",
         "leandro": [
-          "Criar a campanha de pesquisa local: raio de 6 km da oficina, abrindo conforme os dados",
-          "Escolher as palavras de quem quer contratar e bloquear quem procura curso, emprego ou móvel usado",
-          "Escrever os anúncios com WhatsApp, endereço e “desde 1980”",
-          "Ajustar toda semana no primeiro mês, a cada quinze dias depois",
-          "Mandar o relatório do mês: verba, conversas, orçamentos e obras fechadas"
+          "Montar a Meta Business Suite no nome do Gabriel e ligar página, Instagram e WhatsApp Business",
+          "Criar a campanha de mensagens: raio de 5 km da oficina, público de casa própria e reforma",
+          "Fazer os anúncios com as fotos e os vídeos das obras",
+          "Ligar o pixel da Meta no site, com o aceite de cookies"
         ],
         "gabriel": [
-          "Cadastrar o cartão dele no Google Ads para a verba",
-          "Responder o WhatsApp no mesmo dia: o anúncio traz a conversa, quem fecha é o atendimento",
-          "Contar ao Leandro quais conversas viraram orçamento e obra"
+          "Dar acesso de administrador ao Leandro na página e no Instagram",
+          "Gravar vídeos curtos da oficina e das obras: o encaixe, o antes e o depois",
+          "Cadastrar o cartão dele na conta de anúncios"
         ],
-        "quando": "Liga no dia em que a conta for liberada. Verba sugerida de R$ 600 a R$ 900 por mês, direto ao Google."
+        "quando": "Começa quando as fotos e os vídeos reais chegarem. Cerca de R$ 30 por dia para começar."
+      },
+      {
+        "t": "Verba e gestão",
+        "sub": "R$ 50 a R$ 100 por dia, medidos pelo WhatsApp",
+        "porque": "Pouco por dia, mas medido: cada real tem que virar conversa no WhatsApp ou ligação. Quem trouxer cliente mais barato fica com a verba; quem não trouxer, perde.",
+        "leandro": [
+          "Começar com R$ 50 por dia: cerca de R$ 30 na Meta e R$ 20 no Google, quando a conta voltar",
+          "Em 14 dias, mover a verba para o canal com a conversa mais barata",
+          "Subir para R$ 100 por dia só quando o custo por orçamento estiver claro e a oficina der conta",
+          "Relatório mensal: quanto foi gasto, quantas conversas, orçamentos e obras fechadas"
+        ],
+        "gabriel": [
+          "Responder toda conversa no mesmo dia",
+          "Contar quais conversas viraram orçamento e obra — é o que mostra se o anúncio paga"
+        ],
+        "quando": "R$ 50 por dia são cerca de R$ 1.500 por mês; R$ 100, cerca de R$ 3.000. Pagos direto ao Google e à Meta, no cartão do Gabriel."
       }
     ]
   },
@@ -766,9 +849,16 @@
       {
         "t": "Anúncio de pesquisa no Google",
         "para": "Novos",
-        "custo": "R$ 600 a 900 por mês de verba",
+        "custo": "parte dos R$ 50 a 100 por dia",
         "prazo": "dias, com a conta liberada",
         "d": "Aparece para quem digitou que precisa de marceneiro. Medido pelo WhatsApp: se uma palavra não traz conversa, a verba muda de lugar."
+      },
+      {
+        "t": "Anúncio de mensagem na Meta",
+        "para": "Novos",
+        "custo": "cerca de R$ 30 por dia",
+        "prazo": "dias, com as fotos reais",
+        "d": "Vídeo de obra no Instagram e no Facebook para quem mora a até 5 km, abrindo a conversa direto no WhatsApp. Pode começar antes do Google, porque não depende da conta penalizada."
       },
       {
         "t": "Arquitetos e designers do bairro",
@@ -785,7 +875,7 @@
         "d": "O Pinterest é buscador de ideia de cozinha e closet: cada obra do Gabriel vira um pin com link para o site. No Instagram, vídeo curto do encaixe e do antes e depois. Demora para pegar e dura muito."
       }
     ],
-    "ordem": "Semana 1: reencontro e avaliações, que custam zero e alimentam o Google Meu Negócio. Semanas 2 a 4: perfil vivo, indicação e vizinho da obra. Com a conta liberada: anúncio de pesquisa, medido pelo WhatsApp. Sempre: arquitetos, Pinterest e Instagram."
+    "ordem": "Semana 1: reencontro e avaliações, que custam zero e alimentam o Google Meu Negócio. Semanas 2 a 4: perfil vivo, indicação e vizinho da obra. Com as fotos reais: anúncio de mensagem na Meta. Com a conta liberada: anúncio de pesquisa no Google. Sempre: arquitetos, Pinterest e Instagram."
   },
   "fotos": {
     "intro": "Cada imagem do site tem um lugar marcado. Hoje são projetos 3D ilustrativos; a foto real entra com o mesmo nome de arquivo e o selo sai. Cada link abre uma busca do Pinterest com o estilo daquele lugar, para o Gabriel apontar o que quer mostrar. Foto do Pinterest tem dono e é obra de outra oficina: serve de inspiração, nunca vai para o site.",
@@ -925,6 +1015,101 @@
         "arquivo": "fotos/bancada.webp",
         "q": "bancada de madeira maciça cozinha",
         "estado": "afazer"
+      }
+    ]
+  },
+  "subida": {
+    "intro": "A ordem importa: quem aponta o domínio antes de anotar o DNS de hoje derruba o e-mail contato@, e quem anuncia antes de medir paga sem saber pelo quê. O comando de montar o site não publica no Google enquanto houver qualquer coisa inventada.",
+    "passos": [
+      {
+        "id": "s1",
+        "feito": false,
+        "t": "Gabriel aprova o site",
+        "d": "Na prévia, no celular dele. O que ele quiser mudar entra antes de tudo."
+      },
+      {
+        "id": "s2",
+        "feito": false,
+        "t": "Fotos reais na pasta do Drive",
+        "d": "Pasta Marceneiro Tatuapé, cada foto com o nome do lugar: capa, cozinha, closet, oficina… A seção Fotos deste quadro tem a lista. Um comando põe todas no site, sem o GPS."
+      },
+      {
+        "id": "s3",
+        "feito": false,
+        "t": "Projetos reais no lugar dos de exemplo",
+        "d": "As seis obras da página de projetos, com o que é, o bairro, os metros e o prazo de verdade — as das fotos."
+      },
+      {
+        "id": "s4",
+        "feito": false,
+        "t": "Confirmar o que o site promete",
+        "d": "CNPJ, preços, horário, Instagram, 1980 e as promessas: garantia de 3 anos, visita sem custo, desconto por atraso, preço travado, prazos de entrega. Promessa publicada vira oferta e obriga (CDC, art. 30)."
+      },
+      {
+        "id": "s5",
+        "feito": false,
+        "t": "Avaliações do Google no site",
+        "d": "O identificador do perfil faz o botão abrir direto o formulário de avaliação. Comentários entram só com a autorização de quem escreveu."
+      },
+      {
+        "id": "s6",
+        "feito": false,
+        "t": "Domínio no nome dele, e o DNS anotado",
+        "d": "No Registro.br: titular é o CNPJ do Gabriel. Anotar todos os registros de hoje — principalmente os MX, de que o e-mail contato@ depende."
+      },
+      {
+        "id": "s7",
+        "feito": false,
+        "t": "Hospedagem na Vercel",
+        "d": "O site já está na Vercel e se monta sozinho a cada atualização do código. O projeto está na conta do Leandro; a Vercel transfere para uma conta no e-mail do Gabriel quando ele quiser, sem tirar o site do ar."
+      },
+      {
+        "id": "s8",
+        "feito": false,
+        "t": "Confirmar tudo e deixar a Vercel montar",
+        "d": "Com a última pendência resolvida, o mesmo build sai indexável e sem o aviso de prévia. Se ainda faltar algo, o site continua no ar, fora do Google, com o aviso."
+      },
+      {
+        "id": "s9",
+        "feito": false,
+        "t": "Apontar o domínio",
+        "d": "Na Vercel, Settings → Domains: marceneirotatuape.com.br e www. No DNS, os registros que ela mostrar — hoje, A @ para 76.76.21.21 e CNAME www para cname.vercel-dns.com. MX e TXT do e-mail ficam como estão. Até 24 h de propagação."
+      },
+      {
+        "id": "s10",
+        "feito": false,
+        "t": "Conferir no celular",
+        "d": "Cadeado, /contato/, /projetos/, /portfolio/ levando a projetos, WhatsApp e Ligar chamando o (11) 94752-3961."
+      },
+      {
+        "id": "s11",
+        "feito": false,
+        "t": "Google Search Console",
+        "d": "Propriedade de domínio pelo DNS, enviar o sitemap.xml e pedir a indexação da capa."
+      },
+      {
+        "id": "s12",
+        "feito": false,
+        "t": "Google Meu Negócio apontando para o site",
+        "d": "Site, horário e endereço iguais, letra por letra."
+      },
+      {
+        "id": "s13",
+        "feito": false,
+        "t": "Medição antes do primeiro real",
+        "d": "Google Analytics, conversões do Google Ads e pixel da Meta no arquivo de medição, montar de novo e testar um clique no WhatsApp."
+      },
+      {
+        "id": "s14",
+        "feito": false,
+        "t": "Ligar os anúncios",
+        "d": "Meta com as fotos reais; Google quando a conta voltar. R$ 50 por dia para começar, revisão em 14 dias."
+      },
+      {
+        "id": "s15",
+        "feito": false,
+        "t": "Só então, desligar o site antigo",
+        "d": "Depois de o novo abrir e de o portfólio antigo estar salvo."
       }
     ]
   }

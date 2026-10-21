@@ -11,6 +11,8 @@
 <g id="i-carrinho" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1.4 2h2.2l2 8.4h7.4l1.6-6H4.4"/><circle cx="6.6" cy="13.4" r="1.3"/><circle cx="12.4" cy="13.4" r="1.3"/></g>
 <g id="i-blocos" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="1.8" y="1.8" width="5.4" height="5.4" rx="1"/><rect x="8.8" y="1.8" width="5.4" height="5.4" rx="1"/><rect x="1.8" y="8.8" width="5.4" height="5.4" rx="1"/><rect x="8.8" y="8.8" width="5.4" height="5.4" rx="1"/></g>
 <g id="i-escudo" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.4 2.4 3.6v4.2c0 3.4 2.3 5.6 5.6 6.8 3.3-1.2 5.6-3.4 5.6-6.8V3.6L8 1.4Z"/><path d="m5.6 7.8 1.7 1.7 3.1-3.3"/></g>
+<g id="i-estrela" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M8 1.8l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.6l-3.8 2 .7-4.3-3.1-3 4.3-.6L8 1.8Z"/></g>
+<g id="i-lapis" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2.6l2.4 2.4-8.2 8.2-3.1.7.7-3.1L11 2.6Z"/><path d="M9.6 4l2.4 2.4"/></g>
 <g id="i-cal" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3.2" width="12" height="11" rx="1.6"/><path d="M2 7h12M5.4 1.6v3M10.6 1.6v3"/></g>
 <g id="i-moeda" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M10.1 5.9a2.1 2.1 0 0 0-3.9.7c0 2.1 3.9 1.2 3.9 3.1a2.1 2.1 0 0 1-3.9.6M8 4.1v7.8"/></g>
 <g id="i-cadeado" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="6.8" width="10.8" height="7.4" rx="1.6"/><path d="M5.2 6.8V4.6a2.8 2.8 0 0 1 5.6 0v2.2"/></g>
@@ -49,13 +51,13 @@
 
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-<div class="aviso" id="aviso">
+<!--AVISO--><div class="aviso" id="aviso">
   <div class="env">
     <svg viewBox="0 0 16 16"><use href="#i-alerta"/></svg>
     <p><b>Prévia</b><span class="longo"> — protótipo do novo site para aprovação. Peças, preços e imagens em 3D são ilustrativos e nenhum pagamento é processado.</span><span class="curto"> — imagens 3D e preços ilustrativos.</span></p>
     <button type="button" id="fecha-aviso" aria-label="Fechar aviso">&times;</button>
   </div>
-</div>
+</div><!--/AVISO-->
 
 <header class="topo">
   <div class="env">
@@ -106,14 +108,14 @@
         <p class="sub">Peças prontas que saem hoje da oficina, corte de chapa na medida que você mandar
           e projeto sob medida com visita técnica. Tudo feito na nossa oficina — sem terceirizar, sem intermediário.</p>
         <div class="cta">
-          <a class="btn forte" href="#/loja" data-ir="loja">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-carrinho"/></svg>Ver a loja
+          <a class="btn zap" id="zap-capa" href="https://wa.me/5511947523961" data-zap="capa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>Pedir orçamento no WhatsApp
           </a>
           <a class="btn vazado" href="#/sob-medida" data-ir="sob-medida">
             <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-regua"/></svg>Simular meu projeto
           </a>
         </div>
-        <p class="capa-zap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg><span>Prefere conversar? <a href="https://wa.me/5511947523961" data-zap="capa" target="_blank" rel="noopener">Chame no WhatsApp: (11)&nbsp;94752&#8209;3961</a></span></p>
+        <p class="capa-zap"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-tel"/></svg><span>Prefere falar? <a href="tel:+5511947523961" data-ligar="capa">Ligue (11)&nbsp;94752&#8209;3961</a> · ou <a href="#/loja" data-ir="loja">veja as peças prontas</a></span></p>
         <div class="provas">
           <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b><i data-anos>46</i> anos</b>de oficina própria</span></div>
           <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b>Madeira e MDF</b>nunca MDP</span></div>
@@ -122,7 +124,7 @@
       </div>
     </div>
 
-    <p class="capa-legenda"><b>Cozinha em U · tampo contínuo em freijó maciço</b><span>Projeto 3D ilustrativo</span></p>
+    <p class="capa-legenda"><b>Cozinha em U · tampo contínuo em freijó maciço</b><span data-ilustrativo="capa">Projeto 3D ilustrativo</span></p>
   </div>
 
   <div class="faixa">
@@ -187,41 +189,38 @@
         <a class="btn" href="#/projetos" data-ir="projetos">Ver os projetos<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
       </div>
       <div class="mosaico" id="mosaico"></div>
-      <p class="nota-3d">As imagens desta prévia são projetos 3D ilustrativos, feitos para a apresentação.
+      <p class="nota-3d" data-ilustrativo="closet painel dormitorio">As imagens desta prévia são projetos 3D ilustrativos, feitos para a apresentação.
         Na versão final entram as fotos do acervo da oficina.</p>
     </div>
   </div>
 
   <div class="faixa creme">
     <div class="env">
-      <div class="cab meio">
-        <span class="rotulo">Quem já recebeu</span>
-        <h2>O que dizem no Tatuapé</h2>
+      <div class="google-g" id="avaliacoes">
+        <div class="google-txt">
+          <span class="rotulo">Avaliações no Google</span>
+          <h2>Quem contratou, conta no Google</h2>
+          <p class="sub">A nota e os comentários vêm direto do Google Maps, escritos por quem já recebeu um
+            móvel da oficina. Nenhuma linha aqui é escrita por nós — e quem quiser conferir, confere na fonte.</p>
+          <div class="google-bts">
+            <a class="btn forte" id="ver-avaliacoes" href="https://www.google.com/maps/search/?api=1&amp;query=Casa%20do%20Marceneiro%20Tatuap%C3%A9%2C%20Rua%20Tuiuti%2C%202530%2C%20S%C3%A3o%20Paulo" target="_blank" rel="noopener">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-estrela"/></svg>Ver as avaliações no Google</a>
+            <a class="btn" id="deixar-avaliacao" href="https://www.google.com/maps/search/?api=1&amp;query=Casa%20do%20Marceneiro%20Tatuap%C3%A9%2C%20Rua%20Tuiuti%2C%202530%2C%20S%C3%A3o%20Paulo" target="_blank" rel="noopener">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-lapis"/></svg>Já é cliente? Avalie a oficina</a>
+          </div>
+          <p class="google-obs">Avaliação sincera, boa ou ruim, ajuda o vizinho a decidir. A oficina responde todas.</p>
+        </div>
+        <figure class="mapa-g" id="mapa-google" data-busca="Casa do Marceneiro Tatuapé, Rua Tuiuti, 2530 - Tatuapé, São Paulo - SP">
+          <div class="mapa-reserva">
+            <span class="ic-grande"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-pin"/></svg></span>
+            <b>Casa do Marceneiro Tatuapé</b>
+            <span>Rua Tuiuti, 2530, cj. 42 — São Paulo/SP</span>
+            <span class="mut">O mapa com a nota do Google aparece aqui.</span>
+          </div>
+          <figcaption>Mapa, nota e avaliações carregados do Google Maps</figcaption>
+        </figure>
       </div>
-      <div class="vozes">
-        <div class="voz">
-          <div class="estrelas" aria-label="5 de 5">★★★★★</div>
-          <p>“Fecharam a cozinha em 22 dias, no prazo que combinaram. O acabamento por dentro dos armários
-            é o mesmo de fora — isso ninguém faz.”</p>
-          <div class="quem"><span class="ini">RM</span><span><b>Renata M.</b><span>Cozinha planejada · Vila Formosa</span></span></div>
-        </div>
-        <div class="voz">
-          <div class="estrelas" aria-label="5 de 5">★★★★★</div>
-          <p>“Pedi só o corte das chapas para montar sozinho. Chegou na medida exata, com fita de borda
-            já aplicada. Economizei metade do que ia gastar pronto.”</p>
-          <div class="quem"><span class="ini">CS</span><span><b>Carlos S.</b><span>Corte sob medida · Tatuapé</span></span></div>
-        </div>
-        <div class="voz">
-          <div class="estrelas" aria-label="5 de 5">★★★★★</div>
-          <p>“Comprei duas prateleiras pelo site num domingo e retirei na terça. Simples assim,
-            e a madeira é de verdade — não é aquele aglomerado que descasca.”</p>
-          <div class="quem"><span class="ini">JP</span><span><b>Juliana P.</b><span>Prateleiras · Anália Franco</span></span></div>
-        </div>
-      </div>
-      <p class="sub" style="margin:22px auto 0;text-align:center;font-size:14.5px;color:var(--mut2)">
-        Depoimentos ilustrativos nesta prévia. Na versão final entram avaliações reais do Google Meu Negócio,
-        com nome e foto de quem autorizar.
-      </p>
+      <div class="vozes" id="vozes" hidden></div>
     </div>
   </div>
 
@@ -241,7 +240,7 @@
         </div>
         <figure class="quadro-foto">
           <div class="ft" data-foto="oficina" data-alt="Oficina de marcenaria com bancada central, estante de madeira bruta, chapas de MDF e serra de mesa"></div>
-          <figcaption><b>A oficina</b><span>Corte, colagem e acabamento no mesmo endereço · imagem 3D ilustrativa</span></figcaption>
+          <figcaption><b>A oficina</b><span>Corte, colagem e acabamento no mesmo endereço<span data-ilustrativo="oficina"> · imagem 3D ilustrativa</span></span></figcaption>
         </figure>
       </div>
       <ul class="nap nap-linha">
@@ -250,7 +249,8 @@
         <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-relogio"/></svg></span>
           <span><b>Horário</b><span>Seg a sex, 8h às 18h · Sáb, 8h às 12h</span></span></li>
         <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg></span>
-          <span><b>WhatsApp</b><a id="nap-tel" href="https://wa.me/5511947523961" data-zap="oficina" target="_blank" rel="noopener">(11) 94752-3961</a></span></li>
+          <span><b>WhatsApp e telefone</b><a id="nap-tel" href="https://wa.me/5511947523961" data-zap="oficina" target="_blank" rel="noopener">(11) 94752-3961</a>
+            <a class="ligar" href="tel:+5511947523961" data-ligar="oficina">Ligar agora</a></span></li>
         <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-email"/></svg></span>
           <span><b>E-mail</b><a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a></span></li>
       </ul>
@@ -349,8 +349,9 @@
         <span class="rotulo">Bancada · obra sob medida</span>
         <h2>Projetos entregues</h2>
         <p class="sub">Cada um desses começou com uma medição e terminou com a chave na mão do cliente.
-          Nesta prévia, projetos e imagens são ilustrativos — renderizações 3D feitas para a apresentação.
-          As fotos definitivas entram quando o acervo da oficina chegar.</p>
+          <span data-ilustrativo="cozinha closet escritorio painel compacta dormitorio">Nesta prévia, projetos e imagens são
+          ilustrativos — renderizações 3D feitas para a apresentação. As fotos definitivas entram quando o acervo da
+          oficina chegar.</span></p>
       </div>
       <div class="galeria" id="galeria"></div>
     </div>
@@ -565,10 +566,13 @@
               <span><b>Atendimento</b><span>Segunda a sexta, 8h às 18h · Sábado, 8h às 12h</span></span></li>
             <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg></span>
               <span><b>WhatsApp</b><a href="https://wa.me/5511947523961" data-zap="contato" target="_blank" rel="noopener">(11) 94752-3961</a></span></li>
+            <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-tel"/></svg></span>
+              <span><b>Telefone</b><a href="tel:+5511947523961" data-ligar="contato">(11) 94752-3961</a></span></li>
             <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-email"/></svg></span>
               <span><b>E-mail</b><a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a></span></li>
             <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-insta"/></svg></span>
-              <span><b>Instagram</b><span>@casadomarceneirotatuape</span></span></li>
+              <span><b>Redes</b><a href="https://www.instagram.com/casadomarceneirotatuape/" target="_blank" rel="noopener">Instagram @casadomarceneirotatuape</a>
+                <a href="https://www.facebook.com/CasaDoMarceneiroTatuape/" target="_blank" rel="noopener">Facebook</a></span></li>
           </ul>
           <div class="cartao chegar">
             <span class="ic-grande"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-pin"/></svg></span>
@@ -583,10 +587,85 @@
           </div>
         </div>
       </div>
+
+      <div class="faq" id="faq">
+        <h3>Perguntas frequentes</h3>
+        <details>
+          <summary>Vocês fazem só o corte da chapa?</summary>
+          <p>Sim. Você manda as medidas, a oficina corta e aplica a fita de borda, e a chapa sai pronta para montar.
+            Dá para retirar na oficina ou receber em casa — o corte está na <a href="#/loja" data-ir="loja">loja</a>.</p>
+        </details>
+        <details>
+          <summary>MDF ou MDP: qual a diferença?</summary>
+          <p>As duas são chapas de madeira reconstituída. O MDF é feito de fibras finas e bem prensadas: tem a borda
+            lisa, segura melhor o parafuso e aceita usinagem e pintura. O MDP é feito de partículas maiores, custa
+            menos e esfarela com mais facilidade na borda e na furação. A oficina trabalha com madeira maciça e MDF,
+            nunca MDP.</p>
+        </details>
+        <details>
+          <summary>Quanto tempo leva um móvel sob medida?</summary>
+          <p>Depende do tamanho do projeto. O prazo sai junto com o orçamento e fica escrito no contrato antes de a
+            produção começar.</p>
+        </details>
+        <details>
+          <summary>Como eu peço um orçamento?</summary>
+          <p>Pelo <a href="https://wa.me/5511947523961" data-zap="faq" target="_blank" rel="noopener">WhatsApp (11) 94752-3961</a>,
+            pelo formulário desta página ou pelo <a href="#/sob-medida" data-ir="sob-medida">simulador</a>, que mostra uma
+            faixa de investimento na hora. Para projeto sob medida, a oficina marca uma visita para medir.</p>
+        </details>
+        <details>
+          <summary>Onde fica a oficina?</summary>
+          <p>Na Rua Tuiuti, 2530, cj. 42, no Tatuapé, Zona Leste de São Paulo. Os botões de Como chegar, acima, abrem o
+            caminho no Google Maps ou no Waze.</p>
+        </details>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ===================== POLÍTICAS ===================== -->
+<section class="rota" data-rota="politicas" aria-label="Privacidade, trocas e devoluções">
+  <div class="faixa">
+    <div class="env">
+      <div class="cab">
+        <span class="rotulo">Sem letra miúda</span>
+        <h2>Privacidade, trocas e devoluções</h2>
+        <p class="sub">O que a oficina faz com os seus dados e o que vale quando a peça precisa voltar.</p>
+      </div>
+      <div class="politicas">
+        <article class="politica cartao" id="privacidade">
+          <h3>Privacidade</h3>
+          <p><b>Quem cuida dos dados.</b> Casa do Marceneiro Tatuapé, <span class="cnpj">CNPJ 00.000.000/0001-00</span>,
+            Rua Tuiuti, 2530, cj. 42, São Paulo/SP. Contato: <a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a>.</p>
+          <p><b>O que coletamos.</b> Só o que você digita para pedir orçamento ou fazer um pedido: nome, telefone,
+            e-mail, endereço de entrega e a mensagem. A conversa pelo WhatsApp segue as regras do próprio WhatsApp.</p>
+          <p><b>Para quê.</b> Responder o seu pedido, fazer o orçamento, combinar visita e entrega e emitir a nota.
+            A oficina não vende nem repassa os seus dados.</p>
+          <p><b>No seu navegador.</b> O carrinho e as suas escolhas ficam guardados no próprio aparelho. O mapa da
+            página inicial é carregado do Google Maps e segue a política de privacidade do Google.
+            <span class="so-medicao" hidden>As ferramentas de medição de anúncio do Google e da Meta só ligam se você
+            aceitar no aviso de cookies, e a escolha pode ser desfeita limpando os dados do site no navegador.</span></p>
+          <p><b>Seus direitos.</b> Pela Lei Geral de Proteção de Dados (Lei 13.709/2018, art. 18), você pode pedir para
+            ver, corrigir ou apagar os seus dados, ou retirar a autorização, pelo e-mail acima.</p>
+        </article>
+        <article class="politica cartao" id="trocas">
+          <h3>Trocas e devoluções</h3>
+          <p><b>Peça da loja comprada à distância</b>, pelo site ou pelo WhatsApp: você pode desistir em até 7 dias
+            do recebimento e recebe de volta o valor pago, como garante o artigo 49 do Código de Defesa do Consumidor.</p>
+          <p><b>Defeito.</b> Móvel é produto durável: o prazo legal para reclamar de defeito é de 90 dias a contar da
+            entrega — ou de quando o defeito aparecer, se ele estava oculto (artigo 26 do CDC). A garantia da oficina,
+            quando houver, vem escrita no pedido ou no contrato.</p>
+          <p><b>Projeto sob medida.</b> Prazo, medidas, acabamento, garantia e condições de cancelamento ficam no
+            contrato assinado antes de a produção começar.</p>
+          <p><b>Como pedir.</b> Pelo WhatsApp <a href="https://wa.me/5511947523961" data-zap="politicas" target="_blank" rel="noopener">(11) 94752-3961</a>
+            ou pelo e-mail, com o número do pedido ou o nome de quem comprou.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--PREVIA-->
 <!-- ===================== CHECKOUT ===================== -->
 <section class="rota" data-rota="checkout" aria-label="Finalizar pedido">
   <div class="faixa">
@@ -826,6 +905,7 @@
     </div>
   </div>
 </section>
+<!--/PREVIA-->
 
 </main>
 
@@ -836,9 +916,9 @@
         <img class="logo-rod" src="marca/logo-site.svg" width="360" height="131" alt="Casa do Marceneiro" loading="lazy">
         <p class="diz">Marcenaria familiar desde 1980. A chapa entra aqui, é cortada aqui e sai daqui
           para a sua casa.</p>
-        <div class="pagam">
+        <!--PREVIA--><div class="pagam">
           <i>PIX</i><i>Visa</i><i>Master</i><i>Elo</i><i>Boleto</i>
-        </div>
+        </div><!--/PREVIA-->
       </div>
       <div>
         <h4>Comprar</h4>
@@ -855,7 +935,8 @@
           <li><a href="#/oficina" data-ir="oficina">Quem somos</a></li>
           <li><a href="#/oficina" data-ir="oficina">Garantias</a></li>
           <li><a href="#/contato" data-ir="contato">Onde ficamos</a></li>
-          <li><a href="#/contato" data-ir="contato">Trocas e devoluções</a></li>
+          <li><a href="#/politicas" data-ir="politicas">Trocas e devoluções</a></li>
+          <li><a href="#/politicas" data-ir="politicas">Privacidade</a></li>
         </ul>
       </div>
       <div>
@@ -865,7 +946,9 @@
           <li>Seg a sex 8h–18h · Sáb 8h–12h</li>
           <li><a href="https://wa.me/5511947523961" data-zap="rodape" target="_blank" rel="noopener">WhatsApp (11) 94752-3961</a></li>
           <li><a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a></li>
-          <li><a href="#/contato" data-ir="contato">@casadomarceneirotatuape</a></li>
+          <li><a href="tel:+5511947523961" data-ligar="rodape">Telefone (11) 94752-3961</a></li>
+          <li><a href="https://www.instagram.com/casadomarceneirotatuape/" target="_blank" rel="noopener">Instagram</a> ·
+            <a href="https://www.facebook.com/CasaDoMarceneiroTatuape/" target="_blank" rel="noopener">Facebook</a></li>
         </ul>
       </div>
     </div>
@@ -873,7 +956,7 @@
       <span class="sel"><svg viewBox="0 0 16 16"><use href="#i-cadeado"/></svg>Conexão segura</span>
       <span class="sel"><svg viewBox="0 0 16 16"><use href="#i-escudo"/></svg>Dados tratados conforme a LGPD</span>
       <span class="sel"><svg viewBox="0 0 16 16"><use href="#i-folha"/></svg>Madeira de origem legal</span>
-      <span class="dir">CNPJ 00.000.000/0001-00 · Prévia de aprovação, não é a loja no ar</span>
+      <span class="dir"><span class="cnpj">CNPJ 00.000.000/0001-00</span><!--AVISO--> · Prévia de aprovação<!--/AVISO--></span>
     </div>
   </div>
 </footer>
@@ -919,16 +1002,20 @@
     <a href="#/oficina" data-ir="oficina">A oficina</a>
     <a href="#/contato" data-ir="contato">Contato</a>
     <a class="gav-zap" href="https://wa.me/5511947523961" data-zap="menu" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg><span>Fale no WhatsApp<small>(11) 94752-3961</small></span></a>
+    <a class="gav-tel" href="tel:+5511947523961" data-ligar="menu"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-tel"/></svg><span>Ligar para a oficina<small>(11) 94752-3961</small></span></a>
   </div>
 </div>
 
 <div class="torradas" id="torradas" role="status" aria-live="polite"></div>
 
 <div class="lgpd" id="lgpd" hidden>
-  <p><b>Um aviso curto.</b> Este site usa apenas o armazenamento do seu próprio navegador para lembrar
-    o que você colocou no carrinho. Não há rastreador de terceiros e nada é enviado para fora do aparelho.</p>
+  <p><b>Um aviso curto.</b> O carrinho fica guardado no seu próprio navegador, e o mapa da página inicial vem do
+    Google Maps. <span class="so-medicao" hidden>Se você aceitar, ligamos também a medição de anúncios do Google e
+    da Meta, para saber qual anúncio trouxe você até aqui.</span>
+    <a href="#/politicas" data-ir="politicas">Privacidade</a></p>
   <div class="bts">
     <button class="btn peq forte" type="button" id="lgpd-ok">Entendi</button>
+    <button class="btn peq" type="button" id="lgpd-nao" hidden>Só o essencial</button>
   </div>
 </div>
 
@@ -945,6 +1032,29 @@
 
   var TEL = "5511947523961";        /* WhatsApp da oficina: (11) 94752-3961 */
   var EMAIL = "contato@marceneirotatuape.com.br";
+
+  /* Modo de publicação, gravado pelo montar.py no <html>: "previa" é o
+     protótipo, com aviso e checkout simulado; "dominio" é o site de
+     verdade, com endereço próprio por tela e pedido pelo WhatsApp. */
+  var NO_DOMINIO = document.documentElement.getAttribute("data-modo") === "dominio";
+
+  /* Google Maps: a busca acha o perfil da oficina. Com o placeId do perfil
+     (Google Meu Negócio → Pedir avaliações), o botão de avaliar abre direto
+     o formulário de nota. */
+  var GOOGLE = { busca:"Casa do Marceneiro Tatuapé, Rua Tuiuti, 2530 - Tatuapé, São Paulo - SP", placeId:"" };
+
+  /* Só avaliações reais, copiadas do Google com a autorização de quem
+     escreveu. Vazio, a seção mostra a nota ao vivo do Google e nada mais:
+     depoimento inventado não entra. Cada item:
+     { nome:"Renata M.", nota:5, texto:"…", quando:"setembro de 2026" } */
+  var AVALIACOES = [];
+
+  /* Gravados pelo montar.py: os identificadores de medição (medicao.json),
+     os lugares que já têm foto real (fotos/reais.json) e o título de cada
+     tela no domínio. Vazios, nada de terceiro carrega e todo selo de 3D fica. */
+  var MEDICAO = {};
+  var REAIS = {};
+  var TITULOS = {};
 
   var GRUPOS = {
     madeira: { rot:"Madeira", itens:[
@@ -1089,7 +1199,7 @@
       return '<div class="foto com-img" style="--a:' + (o.tons ? o.tons[0] : "#D9BE94") + ';--b:' + (o.tons ? o.tons[1] : "#A87C48") + '">' +
         imagem(o.img, o.alt || o.nome || "", opc.sizes) +
         (o.tag && !opc.semTag ? '<span class="tag">' + esc(o.tag) + '</span>' : '') +
-        (opc.selo ? '<span class="selo3d">' + esc(opc.selo) + '</span>' : '') +
+        (opc.selo && !REAIS[o.img] ? '<span class="selo3d">' + esc(opc.selo) + '</span>' : '') +
         '</div>';
     }
     return '<div class="foto" style="--a:' + o.tons[0] + ';--b:' + o.tons[1] + '">' +
@@ -1113,6 +1223,14 @@
   }
 
   function zapLink(msg){ return "https://wa.me/" + TEL + "?text=" + encodeURIComponent(msg); }
+  /* No domínio o checkout simulado não existe: quem liga um evento num
+     elemento que pode faltar usa isto, e a página não quebra. */
+  function ligar(sel, evento, fn){ var el = $(sel); if (el) el.addEventListener(evento, fn); }
+  function abrirFora(url){
+    var a = document.createElement("a");
+    a.target = "_blank"; a.rel = "noopener"; a.href = url;
+    document.body.appendChild(a); a.click(); a.remove();
+  }
 
   /* ============================================================
      ROTEAMENTO
@@ -1120,12 +1238,22 @@
      botão voltar do celular funciona e cada tela tem link próprio.
      ============================================================ */
 
-  var ROTAS = ["inicio","loja","sob-medida","projetos","oficina","contato","checkout"];
+  var ROTAS = ["inicio","loja","sob-medida","projetos","oficina","contato","politicas"];
+  if (!NO_DOMINIO) ROTAS.push("checkout");
 
-  function rotaDoHash(){
-    var h = (location.hash || "").replace(/^#\/?/, "").split("?")[0];
+  /* Na prévia a tela vem do #/rota. No domínio vem do caminho (/loja/),
+     que o Google indexa como página própria, com título e descrição seus. */
+  var RAIZ = document.documentElement.getAttribute("data-raiz") || "/";
+  function rotaAtual(){
+    var h = NO_DOMINIO
+      ? location.pathname.slice(RAIZ.length).split("/")[0]
+      : (location.hash || "").replace(/^#\/?/, "").split("?")[0];
     if (!h) return "inicio";
     return ROTAS.indexOf(h) >= 0 ? h : "inicio";
+  }
+  function enderecoDe(rota){
+    var r = rota === "inicio" ? "" : rota;
+    return NO_DOMINIO ? RAIZ + (r ? r + "/" : "") : "#/" + r;
   }
 
   function irPara(rota, semRolar){
@@ -1138,8 +1266,12 @@
         else a.removeAttribute("aria-current");
       }
     });
-    var alvo = "#/" + (rota === "inicio" ? "" : rota);
-    if (location.hash !== alvo) history.pushState(null, "", alvo);
+    var alvo = enderecoDe(rota);
+    if ((NO_DOMINIO ? location.pathname : location.hash) !== alvo) {
+      history.pushState(null, "", alvo);
+      if (window.fbq) fbq("track", "PageView");
+    }
+    if (TITULOS[rota]) document.title = TITULOS[rota];
     if (!semRolar) window.scrollTo({ top:0, behavior:"instant" in document.documentElement.style ? "instant" : "auto" });
     var h = $(".rota.on h1, .rota.on h2");
     if (h) { h.setAttribute("tabindex", "-1"); h.focus({ preventScroll:true }); }
@@ -1152,7 +1284,7 @@
     e.preventDefault();
     irPara(alvo.dataset.ir);
   });
-  window.addEventListener("popstate", function(){ irPara(rotaDoHash(), false); });
+  window.addEventListener("popstate", function(){ irPara(rotaAtual(), false); });
 
   /* ============================================================
      MENU DE CELULAR
@@ -1359,6 +1491,19 @@
   }
 
   function totalItens(){ return cesta.reduce(function(s, i){ return s + i.q; }, 0); }
+
+  /* O pedido sai como mensagem: peça, opção, quantidade e valor, para a
+     oficina responder com disponibilidade, prazo e forma de pagamento. */
+  function pedirPeloZap(){
+    if (!cesta.length) return;
+    var linhas = cesta.map(function(it){
+      return "• " + it.q + "× " + it.nome + (it.op ? " (" + it.op + ")" : "") + " — " + reais(it.v * it.q);
+    });
+    abrirFora(zapLink("Olá! Montei este pedido no site da Casa do Marceneiro:\n" + linhas.join("\n") +
+      "\nSubtotal: " + reais(subtotal()) + "\nPode confirmar disponibilidade, prazo e forma de pagamento?"));
+    medir("pedido", "carrinho");
+    torrada("Abrimos o WhatsApp com o pedido pronto. É só tocar em enviar.");
+  }
   function subtotal(){ return cesta.reduce(function(s, i){ return s + i.v * i.q; }, 0); }
 
   function pintarCarrinho(){
@@ -1398,9 +1543,12 @@
         '<div><span>Frete</span><span id="cart-frete">a calcular</span></div>' +
         '<div class="total"><span>Total</span><span id="cart-total">' + reais(sub) + '</span></div>' +
       '</div>' +
-      '<button class="btn forte larga" type="button" id="ir-checkout">' + ic("i-cadeado") + 'Finalizar pedido</button>' +
-      '<p style="font-family:var(--f-util);font-size:12.5px;color:var(--mut2);text-align:center;margin:0;letter-spacing:.04em">' +
-        'Prévia de aprovação · nenhum pagamento é processado</p>';
+      (NO_DOMINIO
+        ? '<button class="btn zap larga" type="button" id="pedir-zap">' +
+            '<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>Pedir pelo WhatsApp</button>' +
+          '<p class="cart-obs">A oficina confirma disponibilidade, prazo e forma de pagamento na conversa.</p>'
+        : '<button class="btn forte larga" type="button" id="ir-checkout">' + ic("i-cadeado") + 'Finalizar pedido</button>' +
+          '<p class="cart-obs">Prévia de aprovação · nenhum pagamento é processado</p>');
 
     pintarFreteCaixa($("#frete-cart"));
     aplicarFrete();
@@ -1429,6 +1577,7 @@
       torrada(nome + " removida do carrinho"); return;
     }
     if (e.target.closest("#ir-checkout")) { fecharCarrinho(); irCheckout(); return; }
+    if (e.target.closest("#pedir-zap")) { pedirPeloZap(); return; }
   });
 
   /* ============================================================
@@ -1668,7 +1817,7 @@
   }
 
   /* passo 1 — dados */
-  $('[data-cx="1"]').addEventListener("submit", function(e){
+  ligar('[data-cx="1"]', "submit", function(e){
     e.preventDefault();
     var ok = true;
     ok &= erro("x-nome", $("#x-nome").value.trim().split(/\s+/).length >= 2 ? "" : "Escreva o nome e ao menos um sobrenome.");
@@ -1690,7 +1839,7 @@
     });
   });
 
-  $('[data-cx="2"]').addEventListener("submit", function(e){
+  ligar('[data-cx="2"]', "submit", function(e){
     e.preventDefault();
     if (pedido.entrega === "entrega") {
       var ok = true;
@@ -1768,7 +1917,7 @@
     }
   }
 
-  $("#pix-copia").addEventListener("click", function(){
+  ligar("#pix-copia", "click", function(){
     var campo = $("#pix-txt");
     campo.select(); campo.setSelectionRange(0, 99999);
     var deu = false;
@@ -1781,7 +1930,7 @@
     }
   });
 
-  $('[data-cx="3"]').addEventListener("submit", function(e){
+  ligar('[data-cx="3"]', "submit", function(e){
     e.preventDefault();
     if (pedido.pagto === "cartao") {
       var ok = true;
@@ -1852,7 +2001,7 @@
     if (cfgFotoAtual !== amb.img) {
       cfgFotoAtual = amb.img;
       $("#cfg-foto").innerHTML = imagem(amb.img, amb.alt, "(max-width: 980px) 100vw, 480px") +
-        '<span class="selo3d">' + esc(amb.n) + ' · 3D ilustrativo</span>';
+        (REAIS[amb.img] ? '' : '<span class="selo3d">' + esc(amb.n) + ' · 3D ilustrativo</span>');
     }
     botoesCfg($("#cfg-amb"), AMBIENTES, "amb");
     botoesCfg($("#cfg-pad"), PADROES, "pad");
@@ -1897,12 +2046,10 @@
     var corpo = "Olá! Meu nome é " + $("#c-nome").value.trim() + ".\n" +
       "Assunto: " + assunto + "\n\n" + $("#c-msg").value.trim() + "\n\n" +
       "Telefone: " + $("#c-tel").value.trim() + "\nE-mail: " + $("#c-email").value.trim();
-    var a = document.createElement("a");
-    a.target = "_blank"; a.rel = "noopener";
-    a.href = via === "email"
+    abrirFora(via === "email"
       ? "mailto:" + EMAIL + "?subject=" + encodeURIComponent(assunto + " — pelo site") + "&body=" + encodeURIComponent(corpo)
-      : zapLink(corpo);
-    document.body.appendChild(a); a.click(); a.remove();
+      : zapLink(corpo));
+    medir("formulario", via);
     torrada(via === "email" ? "Abrimos o seu e-mail com a mensagem pronta. É só enviar."
                             : "Abrimos o WhatsApp com a mensagem pronta. É só tocar em enviar.");
   });
@@ -1918,22 +2065,136 @@
     if ($("#gaveta-menu").classList.contains("on")) { fecharMenu(); return; }
   });
 
-  $("#fecha-aviso").addEventListener("click", function(){
+  ligar("#fecha-aviso", "click", function(){
     $("#aviso").remove();
     try { sessionStorage.setItem("cmt-aviso", "1"); } catch (e) {}
   });
   try { if (sessionStorage.getItem("cmt-aviso") === "1") { var a = $("#aviso"); if (a) a.remove(); } } catch (e) {}
 
+  /* ============================================================
+     MEDIÇÃO DE ANÚNCIOS
+     Google (GA4 e Ads) e Meta só carregam com aceite no aviso de
+     cookies, e só se o montar.py gravou os identificadores. Mede o que
+     vira cliente: WhatsApp, ligação, formulário e pedido da loja.
+     ============================================================ */
+  var TEM_MEDICAO = !!(MEDICAO.ga4 || MEDICAO.ads || MEDICAO.meta);
+  var medindo = false;
+
+  function ligarMedicao(){
+    if (medindo || !TEM_MEDICAO) return;
+    medindo = true;
+    var gid = MEDICAO.ga4 || MEDICAO.ads;
+    if (gid) {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){ window.dataLayer.push(arguments); };
+      window.gtag("js", new Date());
+      if (MEDICAO.ga4) window.gtag("config", MEDICAO.ga4);
+      if (MEDICAO.ads) window.gtag("config", MEDICAO.ads);
+      var g = document.createElement("script");
+      g.async = true; g.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(gid);
+      document.head.appendChild(g);
+    }
+    if (MEDICAO.meta) {
+      /* o carregador oficial do pixel da Meta, reescrito sem minificar */
+      var fila = window.fbq = function(){
+        if (fila.callMethod) fila.callMethod.apply(fila, arguments); else fila.queue.push(arguments);
+      };
+      window._fbq = fila; fila.push = fila; fila.loaded = true; fila.version = "2.0"; fila.queue = [];
+      var m = document.createElement("script");
+      m.async = true; m.src = "https://connect.facebook.net/en_US/fbevents.js";
+      document.head.appendChild(m);
+      window.fbq("init", MEDICAO.meta);
+      window.fbq("track", "PageView");
+    }
+  }
+
+  function medir(acao, origem){
+    if (!medindo) return;
+    if (window.gtag) {
+      window.gtag("event", acao, { origem:origem || "" });
+      var rotulo = MEDICAO.conversoes && MEDICAO.conversoes[acao];
+      if (MEDICAO.ads && rotulo) window.gtag("event", "conversion", { send_to:MEDICAO.ads + "/" + rotulo });
+    }
+    if (window.fbq) window.fbq("track", acao === "pedido" ? "Lead" : "Contact", { content_name:acao });
+  }
+
+  document.addEventListener("click", function(e){
+    var z = e.target.closest("[data-zap]");
+    if (z) { medir("whatsapp", z.dataset.zap); return; }
+    var l = e.target.closest("[data-ligar]");
+    if (l) medir("ligacao", l.dataset.ligar);
+  }, true);
+
+  /* "1" é o aceite antigo, de quando não havia medição: com medição
+     ligada, a pergunta volta, porque a resposta não cobria isso. */
   function mostrarLgpd(sim){
     $("#lgpd").hidden = !sim;
     document.body.classList.toggle("tem-lgpd", sim);
   }
-  try {
-    if (localStorage.getItem("cmt-lgpd") !== "1") mostrarLgpd(true);
-  } catch (e) { mostrarLgpd(true); }
-  $("#lgpd-ok").addEventListener("click", function(){
+  if (TEM_MEDICAO) {
+    $$(".so-medicao").forEach(function(el){ el.hidden = false; });
+    $("#lgpd-ok").textContent = "Aceitar";
+    $("#lgpd-nao").hidden = false;
+  }
+  var escolhaLgpd = null;
+  try { escolhaLgpd = localStorage.getItem("cmt-lgpd"); } catch (e) {}
+  if (!escolhaLgpd || (TEM_MEDICAO && escolhaLgpd === "1")) mostrarLgpd(true);
+  if (escolhaLgpd === "tudo") ligarMedicao();
+  function responderLgpd(valor){
     mostrarLgpd(false);
-    try { localStorage.setItem("cmt-lgpd", "1"); } catch (e) {}
+    try { localStorage.setItem("cmt-lgpd", valor); } catch (e) {}
+    if (valor === "tudo") ligarMedicao();
+  }
+  $("#lgpd-ok").addEventListener("click", function(){ responderLgpd(TEM_MEDICAO ? "tudo" : "1"); });
+  $("#lgpd-nao").addEventListener("click", function(){ responderLgpd("essencial"); });
+
+  /* ============================================================
+     AVALIAÇÕES DO GOOGLE
+     O mapa entra quando a seção chega perto da tela: não pesa na
+     abertura e só fala com o Google quando vai aparecer.
+     ============================================================ */
+  var linkMaps = GOOGLE.placeId
+    ? "https://www.google.com/maps/place/?q=place_id:" + GOOGLE.placeId
+    : "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(GOOGLE.busca);
+  $("#ver-avaliacoes").href = linkMaps;
+  $("#deixar-avaliacao").href = GOOGLE.placeId
+    ? "https://search.google.com/local/writereview?placeid=" + GOOGLE.placeId : linkMaps;
+
+  function carregarMapa(){
+    var caixa = $("#mapa-google");
+    if (!caixa || caixa.querySelector("iframe")) return;
+    var f = document.createElement("iframe");
+    f.src = "https://maps.google.com/maps?q=" + encodeURIComponent(GOOGLE.busca) + "&hl=pt-BR&z=16&output=embed";
+    f.title = "Casa do Marceneiro Tatuapé no Google Maps, com a nota e as avaliações";
+    f.loading = "lazy";
+    f.referrerPolicy = "no-referrer-when-downgrade";
+    f.setAttribute("allowfullscreen", "");
+    f.addEventListener("load", function(){ caixa.classList.add("mapa-pronto"); });
+    caixa.insertBefore(f, caixa.firstChild);
+    caixa.classList.add("com-mapa");
+  }
+  if ("IntersectionObserver" in window) {
+    var vigiaMapa = new IntersectionObserver(function(vistos){
+      if (vistos.some(function(v){ return v.isIntersecting; })) { carregarMapa(); vigiaMapa.disconnect(); }
+    }, { rootMargin:"400px 0px" });
+    vigiaMapa.observe($("#mapa-google"));
+  } else carregarMapa();
+
+  if (AVALIACOES.length) {
+    $("#vozes").innerHTML = AVALIACOES.map(function(a){
+      var ini = a.nome.split(/\s+/).map(function(x){ return x.charAt(0); }).join("").slice(0, 2).toUpperCase();
+      return '<figure class="voz"><div class="estrelas" aria-label="' + a.nota + ' de 5">' +
+        "★★★★★".slice(0, a.nota) + '</div><blockquote>' + esc(a.texto) + '</blockquote>' +
+        '<figcaption class="quem"><span class="ini">' + esc(ini) + '</span><span><b>' + esc(a.nome) + '</b>' +
+        '<span>Avaliação no Google · ' + esc(a.quando) + '</span></span></figcaption></figure>';
+    }).join("");
+    $("#vozes").hidden = false;
+  }
+
+  /* Textos que só valem enquanto a foto é 3D: somem quando todos os
+     lugares que eles citam já têm foto real. */
+  $$("[data-ilustrativo]").forEach(function(el){
+    el.hidden = el.dataset.ilustrativo.split(" ").every(function(n){ return REAIS[n]; });
   });
 
   /* ============================================================
@@ -1970,7 +2231,7 @@
     var p = PROJETOS.filter(function(x){ return x.img === nome; })[0];
     return '<a class="tela' + (i === 0 ? ' grande' : '') + '" href="#/projetos" data-ir="projetos">' +
       imagem(p.img, p.t + " — " + p.d, i === 0 ? "(max-width: 760px) 100vw, 680px" : "(max-width: 760px) 100vw, 480px") +
-      '<span class="leg"><b>' + esc(p.t) + '</b><span>' + esc(p.meta[2]) + ' · 3D ilustrativo</span></span></a>';
+      '<span class="leg"><b>' + esc(p.t) + '</b><span>' + esc(p.meta[2]) + (REAIS[p.img] ? '' : ' · 3D ilustrativo') + '</span></span></a>';
   }).join("");
 
   /* fotos fixas do HTML: cartões dos três balcões e a faixa da oficina */
@@ -1999,6 +2260,6 @@
   pintarVitrine();
   pintarCfg();
   pintarCarrinho();
-  irPara(rotaDoHash(), true);
+  irPara(rotaAtual(), true);
 })();
 </script>

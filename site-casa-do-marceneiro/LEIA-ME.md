@@ -1,4 +1,4 @@
-# Site da Casa do Marceneiro Tatuapé — protótipo funcional
+# Site da Casa do Marceneiro Tatuapé
 
 Reconstrução do `marceneirotatuape.com.br` como site próprio, navegável e com
 loja que funciona de verdade. Não é maquete de tela: é o site rodando, para ser
@@ -8,17 +8,24 @@ testado antes de subir e antes do primeiro real de anúncio.
 
 | Arquivo | Para quê |
 |---|---|
-| `index.html` | O site. Abre em qualquer celular ou navegador, sem servidor. |
+| `index.html` | A prévia num arquivo só, gerada pelo `montar.py`: abre em qualquer navegador, sem servidor. Fica fora do Git. |
+| `vercel.json` | Como a Vercel monta e serve o site. |
 | `corpo.html` | Fonte única — conteúdo, marcação e toda a lógica. |
 | `site.css` | Sistema visual. |
-| `montar.py` | Gera `index.html` e `artifact.html` a partir da fonte. |
+| `montar.py` | Gera `index.html` e `artifact.html` a partir da fonte; com `--dominio`, o site de verdade em `publicar/`. |
+| `lancamento.json` | O que precisa ser confirmado com o Gabriel antes de o site ir para o Google. |
+| `gerador/fotos/importar.py` | Põe as fotos reais nos lugares das imagens 3D. |
 | `capa-link.jpg` | Cartão de prévia do link, para o WhatsApp. |
 | `gerador/cartao.html` | Fonte do cartão. |
 | `gerador/cartao.js` | Fotografa o cartão em 1200 × 630. |
 | `marca/` | O logo em vetor, HD e 4K, ícones e foto de perfil (ver "O logo"). |
 | `gerador/logo/` | Desenho, textura e exportação do logo. |
 
-`artifact.html` é saída de build e fica fora do versionamento.
+`artifact.html`, `index.html` e `publicar/` são saída de build e ficam fora do versionamento.
+
+**No ar: https://casa-do-marceneiro-tatuape.vercel.app/** — projeto próprio na Vercel, que monta o site
+a partir deste repositório a cada atualização. O site saiu do GitHub Pages: o repositório guarda a
+fonte, quem serve é a Vercel.
 
 Para reconstruir depois de mexer em `corpo.html` ou `site.css`:
 
@@ -120,7 +127,91 @@ O endereço precisa bater **letra por letra** com o Google Meu Negócio e com o
 Instagram — é esse casamento que faz a oficina aparecer na busca de quem está a
 dois quarteirões.
 
+## Do site aprovado ao domínio — passo a passo
+
+A prévia continua em `index.html`, fora do Google. O site de verdade sai de um
+comando, numa pasta à parte, com uma página por tela (`/loja/`, `/projetos/`,
+`/contato/`…), cada uma com título, descrição e endereço canônico próprios — é
+isso que deixa "painel ripado no Tatuapé" achar a página de projetos, e não só a
+capa:
+
+```
+python3 montar.py --dominio https://marceneirotatuape.com.br/
+```
+
+Sai em `publicar/` (fora do Git): as sete páginas, com estilo e código em
+`estilo.css` e `site.js` compartilhados (cada página tem 54 KB em vez de 740),
+`sitemap.xml`, `robots.txt`, `404.html`, `CNAME` (só fora da Vercel), o endereço
+antigo `/portfolio/` levando a `/projetos/`, as fotos e só os arquivos do logo
+que a página usa. No domínio não existe checkout simulado nem bandeira de cartão: o carrinho vira **Pedir pelo
+WhatsApp**, com peça, opção, quantidade, valor e subtotal na mensagem.
+
+**A conferência de lançamento.** O comando se recusa a publicar indexável
+enquanto houver CNPJ de exemplo, texto de prévia ou de imagem ilustrativa,
+lugar de foto ainda em 3D ou item sem confirmar no `lancamento.json`. Ele lista
+o que falta. `--forcar` monta assim mesmo, mas com `noindex`, `Disallow` e o
+aviso de prévia no topo — é assim que a Vercel monta hoje: o site está no ar
+para o Gabriel ver e aprovar, sem o Google guardar nada inventado. Quando a
+última pendência sair, o mesmo build passa a sair indexável e sem o aviso.
+
+A ordem:
+
+1. **Gabriel aprova a prévia.**
+2. **Fotos reais.** Na pasta Marceneiro Tatuapé do Drive, cada foto com o nome do
+   lugar (`capa.jpg`, `cozinha.jpg`, `oficina.jpg`…). Depois
+   `python gerador/fotos/importar.py <pasta>` — vira, corta, reduz, tira o GPS e
+   marca o lugar em `fotos/reais.json`; o selo de 3D sai sozinho dali.
+3. **Projetos reais.** Trocar os seis de `PROJETOS` no `corpo.html` pelas obras
+   das fotos: o que é, o bairro, os metros e o prazo de verdade.
+4. **Confirmar com o Gabriel** e marcar no `lancamento.json`: CNPJ, preços,
+   horário, Instagram, 1980 e as promessas que o site faz — garantia de 3 anos,
+   visita sem custo, desconto por atraso, preço travado, prazos de retirada e
+   entrega. Promessa publicada vira oferta e obriga (CDC, art. 30).
+5. **Avaliações.** O `placeId` do perfil no Google (Google Meu Negócio → Pedir
+   avaliações) em `GOOGLE.placeId` faz o botão abrir direto o formulário de nota.
+   Comentários só entram em `AVALIACOES` com a autorização de quem escreveu.
+6. **Domínio.** Conferir no Registro.br que o titular é o CNPJ do Gabriel e
+   **anotar todos os registros de DNS de hoje, principalmente os MX**: o
+   `contato@marceneirotatuape.com.br` depende deles e não pode cair na troca.
+7. **Hospedagem.** Já está na Vercel (`vercel.json`): o build roda o
+   `montar.py --dominio` com o endereço de produção do projeto, e o cadeado é
+   automático. Hoje o projeto está na conta do Leandro; a Vercel transfere o
+   projeto para uma conta no e-mail do Gabriel sem tirar o site do ar.
+8. **DNS.** Na Vercel, Settings → Domains → `marceneirotatuape.com.br` e
+   `www.marceneirotatuape.com.br`. No DNS do domínio, os registros que ela
+   mostrar — hoje, A `@` para `76.76.21.21` e CNAME `www` para
+   `cname.vercel-dns.com`. MX e TXT do e-mail ficam como estão. Propagação:
+   até 24 h. O build seguinte já sai com o domínio no canônico e no sitemap.
+9. **Conferir no celular:** cadeado, `/contato/`, `/projetos/`, `/portfolio/`
+   levando a projetos, WhatsApp e Ligar chamando o (11) 94752-3961.
+10. **Google Search Console:** propriedade de domínio (registro TXT), enviar
+    `sitemap.xml` e pedir a indexação da capa.
+11. **Google Meu Negócio:** site `https://marceneirotatuape.com.br/`, o mesmo
+    horário e o mesmo endereço do site, letra por letra.
+12. **Medição** (ver abaixo), e só então os anúncios.
+13. **O site antigo** só sai do ar depois de o novo abrir e de o portfólio dele
+    estar salvo.
+
+## Medição e anúncios
+
+Os identificadores ficam em `medicao.json`, ao lado deste arquivo:
+
+```json
+{ "ga4": "G-XXXXXXX", "ads": "AW-XXXXXXXXX", "meta": "000000000000000",
+  "conversoes": { "whatsapp": "<rótulo>", "ligacao": "<rótulo>",
+                  "formulario": "<rótulo>", "pedido": "<rótulo>" } }
+```
+
+O `montar.py --dominio` grava isso na página. Sem o arquivo, nenhum script de
+terceiro carrega. Com ele, o aviso de cookies passa a pedir aceite, com
+**Aceitar** e **Só o essencial**, e o Google (GA4 e Ads) e o pixel da Meta só
+carregam depois do aceite — LGPD. O que se mede é o que vira cliente: clique no
+WhatsApp, toque em Ligar, formulário enviado e pedido pela loja. No Google Ads,
+cada um é uma conversão com o rótulo acima; na Meta, `Contact` e `Lead`.
+
 ## O que ainda falta confirmar antes de subir
+
+O `lancamento.json` é a lista que o `montar.py --dominio` cobra. Em detalhe:
 
 1. **Desde 1980.** O site segue a fundação informada, 1980 (46 anos). O texto
    antigo da casa diz "há mais de 25 anos no mercado" e precisa ser corrigido onde
@@ -131,10 +222,11 @@ dois quarteirões.
 5. **Fotos reais.** O portfólio do site atual tem as fotos das obras; entram no
    lugar dos renders com o mesmo nome (ver "As imagens").
 6. **Preços reais.** Os do protótipo são ilustrativos.
-7. **Depoimentos.** Trocar pelos reais do Google, com autorização de quem assina.
-8. **Título da aba.** Está só `Casa do Marceneiro Tatuapé`, que é o nome. Na
-   versão no ar vale acrescentar o que a oficina faz e onde — é o que aparece
-   como linha azul no resultado do Google.
+7. **Depoimentos.** Os inventados saíram. No lugar entrou a seção de avaliações
+   do Google, com o mapa e a nota ao vivo; comentários só com autorização.
+8. **Promessas comerciais.** Garantia de 3 anos, visita sem custo, desconto por
+   atraso, preço travado e prazos de retirada e entrega são do protótipo.
+9. **Formas de pagamento.** As bandeiras do rodapé só aparecem na prévia.
 
 ## Defeitos encontrados na conferência e corrigidos
 
@@ -157,7 +249,26 @@ A ordenação estava certa; corrigi o teste, não o código.
 
 ## Verificação
 
-**154 conferências** de ponta a ponta (desktop 1440 e Pixel 7) e **335 de
+Em 21/10: **180 conferências** de ponta a ponta na prévia, **335 de celular**,
+**34 do modo domínio** servido como raiz (páginas por caminho, título e
+canônico por tela, voltar do celular, pedido pelo WhatsApp, `/portfolio/`,
+sitemap, robots, CNAME, ficha do Google), **44 com a medição ligada** (nada do
+Google nem da Meta antes do aceite; depois, evento e conversão no clique do
+WhatsApp) e **13 do importador de fotos** (orientação do celular, corte,
+larguras, GPS fora, foto sem lugar recusada).
+
+A rodada achou e corrigiu: o atributo `hidden` perdia para o `display` do `.btn`
+e mostrava o botão de recusar sem haver o que recusar; e o mapa do Google, com
+proporção e altura mínima juntas, ficava com 442 px num celular de 320 e
+empurrava a página para o lado. **O teste de celular não via isso**: media a
+página contra o `innerWidth`, que no celular emulado cresce junto com o que
+transborda. Passou a medir contra a largura do aparelho.
+
+O mapa do Google não carrega aqui: a rede do ambiente de trabalho não alcança o
+Google. As conferências checam o endereço do mapa e que ele só entra quando a
+seção chega perto da tela; a nota aparece de verdade no celular de qualquer um.
+
+Antes, **154 conferências** de ponta a ponta (desktop 1440 e Pixel 7) e **335 de
 celular** em sete aparelhos: Galaxy de 320 px, iPhone SE, iPhone 13, iPhone 14
 Pro Max, Pixel 7, iPad Mini e iPhone deitado. No celular, por tela: nada rola
 para o lado, nenhum elemento sai da tela, nenhum alvo de toque abaixo de 24 px
@@ -194,7 +305,11 @@ Todo texto passa no piso de contraste WCAG AA, medido cor a cor.
 
 Cada imagem tem duas larguras: `<nome>.webp` (1200 ou 1280 px) e `<nome>-640.webp`,
 e o navegador escolhe pela largura em que ela aparece. Para trocar por foto real:
-mesma proporção 4:3, mesmo nome, e rodar `python3 montar.py`.
+mesma proporção 4:3, mesmo nome, e rodar `python3 montar.py`. O
+`gerador/fotos/importar.py` faz isso a partir das fotos do celular, com o nome do
+lugar em cada arquivo: vira pela orientação, corta no centro, gera as larguras,
+apaga os metadados (foto de celular traz o GPS de onde foi tirada, muitas vezes a
+casa do cliente) e marca o lugar em `fotos/reais.json`.
 
 Para refazer os renders (precisa do pacote `bpy`, o Blender como módulo Python):
 
