@@ -216,6 +216,19 @@ carregam depois do aceite — LGPD. O que se mede é o que vira cliente: clique 
 WhatsApp, toque em Ligar, formulário enviado e pedido pela loja. No Google Ads,
 cada um é uma conversão com o rótulo acima; na Meta, `Contact` e `Lead`.
 
+## Palavras-chave
+
+O site fala a língua de quem procura marcenaria, não só cozinha (27/10): cada
+página tem título e descrição com **marcenaria**, **móveis sob medida e
+planejados** e **São Paulo / Tatuapé / Zona Leste**, e a capa mostra os seis
+ambientes da casa — closet e guarda-roupa, cozinha, dormitório, painel de TV e
+sala, home office, banheiro e lavabo —, cada um com o seu pedido de orçamento no
+WhatsApp (`data-msg` no botão). A ficha do Google traz o mesmo em `knowsAbout`.
+
+A campanha do Google Ads que usa essas palavras está em `anuncios/` (ver o
+LEIA-ME de lá): `anuncios/campanha.py publicar/` confere se cada palavra-chave
+aparece na página para onde o anúncio leva. Mudou o texto do site, roda de novo.
+
 ## O que ainda falta confirmar antes de subir
 
 O `lancamento.json` é a lista que o `montar.py --dominio` cobra. Em detalhe:

@@ -708,6 +708,15 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
   .garantias .balcao:last-child{grid-column:auto}
 }
 
+/* seis ambientes: a casa inteira, não só a cozinha. Três por linha,
+   duas no tablet, uma no celular */
+.balcoes.ambientes{grid-template-columns:repeat(3,1fr);margin-top:26px}
+.ambientes .balcao{padding:22px 22px 20px}
+.ambientes .balcao h3{font-size:19px}
+.ambientes .balcao p{font-size:15px;margin-bottom:14px}
+@media (max-width:980px){.balcoes.ambientes{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.balcoes.ambientes{grid-template-columns:1fr}}
+
 /* ---------- ficha técnica ---------- */
 .ficha{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .ficha-col{border:1px solid var(--veio);border-radius:var(--raio);padding:24px 24px 26px;

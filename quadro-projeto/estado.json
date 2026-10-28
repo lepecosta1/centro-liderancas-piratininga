@@ -90,13 +90,15 @@
     },
     {
       "id": "m15",
-      "rot": "Ajustes do Gabriel e análise do hub",
+      "rot": "Ajustes do Gabriel, palavras-chave e hub",
       "quando": "ter 27/10",
       "ate": "2026-10-27",
-      "entrega": "Endereço certo em todo o site, loja com aparador, sapateira e luminária, Sob medida guardado, Projetos concluídos, A oficina enxuta, e o mapa de como Google, loja, anúncios e Meta se ligam ao site.",
+      "entrega": "Endereço certo em todo o site, loja com aparador, sapateira e luminária, Sob medida guardado, Projetos concluídos, o site falando de marcenaria e móveis para a casa inteira, e a campanha do Google pronta para importar.",
       "itens": [
         "f20",
-        "f21"
+        "f21",
+        "f22",
+        "f23"
       ]
     },
     {
@@ -468,6 +470,20 @@
       "d": "Cada canal tem uma função e leva de volta ao site ou ao WhatsApp: o Google Meu Negócio é a vitrine do mapa, a loja é a porta de entrada barata, o Google Ads e a Meta trazem gente, e o WhatsApp fecha. O que falta para ligar tudo está nos itens de hub abaixo. Feito em 27/10."
     },
     {
+      "id": "f22",
+      "estado": "feito",
+      "frente": "Site",
+      "t": "Site reescrito com as palavras de quem procura marcenaria",
+      "d": "Menos cozinha, mais casa inteira. No texto da tela, “móveis” foi de 4 para 18 menções, “planejados” de 0 para 12, “sob medida” de 7 para 17 e “marcenaria” de 14 para 19. Cada página ganhou título e descrição com marcenaria, móveis sob medida e planejados e São Paulo; a capa ganhou os seis ambientes da casa, cada um com o seu pedido de orçamento no WhatsApp; e o acabamento passou a ser com maquinário de primeira linha. Feito em 27/10."
+    },
+    {
+      "id": "f23",
+      "estado": "feito",
+      "frente": "Google Ads",
+      "t": "Campanha de R$ 500 por mês, pronta para importar",
+      "d": "Palavras-chave, negativas e anúncios numa fonte só, que confere o limite de caracteres do Google e se cada palavra aparece na página para onde o anúncio leva — é o que o Google mede como relevância da página de destino. Liga quando a conta for liberada e o site estiver sem nada de exemplo. Feito em 27/10."
+    },
+    {
       "id": "h1",
       "estado": "fazendo",
       "frente": "Domínio",
@@ -649,7 +665,7 @@
       "estado": "afazer",
       "frente": "Google Ads",
       "t": "Primeira campanha de pesquisa local, pronta para ligar",
-      "d": "Raio de 6 km da oficina, palavras de quem já quer contratar e negativas para não pagar por quem procura curso, emprego ou móvel usado. Verba dentro dos R$ 50 a R$ 100 por dia somando Google e Meta, paga direto ao Google no cartão do Gabriel."
+      "d": "Pronta para importar, em site-casa-do-marceneiro/anuncios/: quatro grupos — marcenaria, móveis sob medida e planejados, closet e guarda-roupa, e a loja, pausada até os preços —, 58 palavras em correspondência exata e de frase, 54 negativas e um anúncio por grupo, conferidos contra os limites do Google e contra o texto das páginas. R$ 500 no primeiro mês (cerca de R$ 16 por dia), raio de 6 km da oficina, pago direto ao Google no cartão do Gabriel."
     },
     {
       "id": "ad3",
@@ -815,7 +831,8 @@
           "Concluir a verificação de anunciante",
           "Pedir a revisão na conta atual, com recurso documentado se for preciso",
           "Instalar a medição: clique no WhatsApp e no telefone do site contam como conversão",
-          "Decidir com ele o destino dos R$ 300 parados desde 2024"
+          "Decidir com ele o destino dos R$ 300 parados desde 2024",
+          "Importar a campanha pronta de anuncios/ e rodar as palavras no Planejador, com o raio da oficina"
         ],
         "gabriel": [
           "Fazer o login e dar acesso de administrador ao Leandro",
@@ -1129,13 +1146,13 @@
         "id": "s6",
         "feito": false,
         "t": "Domínio no nome dele, e o DNS anotado",
-        "d": "No Registro.br: titular é o CNPJ do Gabriel. Anotar todos os registros de hoje — principalmente os MX, de que o e-mail contato@ depende."
+        "d": "O domínio é marceneirotatuape.com.br. No Registro.br, o titular tem de ser o CNPJ do Gabriel. Ver onde está o DNS — o Gabriel indicou a HostGator — e anotar todos os registros de hoje, principalmente os MX, de que o e-mail contato@ depende."
       },
       {
         "id": "s7",
         "feito": false,
         "t": "Hospedagem na Vercel",
-        "d": "O site já está na Vercel e se monta sozinho a cada atualização do código. O projeto está na conta do Leandro; a Vercel transfere para uma conta no e-mail do Gabriel quando ele quiser, sem tirar o site do ar."
+        "d": "O vercel.json já está no repositório: a Vercel monta o site sozinha a cada atualização do código. Falta criar o projeto, que depende de autorizar o acesso à conta da Vercel. Depois, a Vercel transfere o projeto para uma conta no e-mail do Gabriel quando ele quiser, sem tirar o site do ar."
       },
       {
         "id": "s8",
@@ -1147,7 +1164,7 @@
         "id": "s9",
         "feito": false,
         "t": "Apontar o domínio",
-        "d": "Na Vercel, Settings → Domains: marceneirotatuape.com.br e www. No DNS, os registros que ela mostrar — hoje, A @ para 76.76.21.21 e CNAME www para cname.vercel-dns.com. MX e TXT do e-mail ficam como estão. Até 24 h de propagação."
+        "d": "Na Vercel, Settings → Domains: marceneirotatuape.com.br e www. No DNS — no Editor de Zona da HostGator, se o DNS estiver lá —, os registros que ela mostrar — hoje, A @ para 76.76.21.21 e CNAME www para cname.vercel-dns.com. MX e TXT do e-mail ficam como estão. Até 24 h de propagação."
       },
       {
         "id": "s10",
@@ -1177,7 +1194,7 @@
         "id": "s14",
         "feito": false,
         "t": "Ligar os anúncios",
-        "d": "Meta com as fotos reais; Google quando a conta voltar. R$ 50 por dia para começar, revisão em 14 dias."
+        "d": "Google Ads com a campanha pronta de anuncios/: R$ 500 no primeiro mês, revisão toda semana. Meta com as fotos reais. Só depois de a conta do Google ser liberada e de o site estar sem nada de exemplo."
       },
       {
         "id": "s15",

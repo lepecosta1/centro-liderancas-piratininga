@@ -28,8 +28,8 @@ fontes = (base / ".." / "proposta-marcenaria-tatuape" / "fontes-embutidas.css").
 css = (base / "site.css").read_text(encoding="utf-8")
 
 PREVIA = "https://casa-do-marceneiro-tatuape.vercel.app/"
-RESUMO = ("Marcenaria familiar no Tatuapé desde 1980: peças prontas de madeira com preço fechado e "
-          "projeto sob medida com visita técnica. Madeira maciça e MDF, nunca MDP.")
+RESUMO = ("Marcenaria em São Paulo desde 1980, no Tatuapé: móveis sob medida e planejados para closet, "
+          "guarda-roupa, cozinha, dormitório e sala, e móveis de madeira prontos. Orçamento pelo WhatsApp.")
 
 # O simulador de sob medida fica guardado, fora do ar, até o Gabriel liberar:
 # tudo entre <!--SIMULADOR--> sai de todas as versões do site, e o que está
@@ -42,22 +42,22 @@ CNPJ_EXEMPLO = "00.000.000/0001-00"
 # Cada tela vira uma página no domínio, com título e descrição próprios:
 # é assim que "painel ripado no Tatuapé" acha a página de projetos, e não só a capa.
 TELAS = {
-    "inicio": ("Casa do Marceneiro Tatuapé — marcenaria sob medida desde 1980", RESUMO),
-    "loja": ("Peças prontas de madeira: aparador, sapateira, nicho e mais | Casa do Marceneiro Tatuapé",
-             "Aparadores, sapateiras, luminárias, nichos, prateleiras e bancadas de madeira, feitos na oficina "
-             "do Tatuapé. Escolha a madeira e o acabamento e peça pelo WhatsApp."),
+    "inicio": ("Marcenaria em São Paulo: móveis sob medida e planejados | Casa do Marceneiro Tatuapé", RESUMO),
+    "loja": ("Móveis de madeira prontos: aparador, sapateira, nicho e mais | Casa do Marceneiro Tatuapé",
+             "Móveis de madeira da marcenaria do Tatuapé, em São Paulo: aparador, sapateira, luminária, nicho, "
+             "prateleira, mesa de cabeceira e bancada. Preço fechado e pedido pelo WhatsApp."),
     "sob-medida": ("Simulador de móveis sob medida | Casa do Marceneiro Tatuapé",
                    "Escolha o ambiente, os metros e o padrão de acabamento e veja na hora a faixa de investimento "
                    "de cozinha, closet, home office, painel ou banheiro sob medida."),
-    "projetos": ("Projetos de marcenaria: cozinhas, closets e painéis | Casa do Marceneiro Tatuapé",
-                 "Cozinhas, closets, home offices, painéis ripados e dormitórios feitos sob medida pela oficina "
-                 "da Casa do Marceneiro, no Tatuapé, Zona Leste de São Paulo."),
-    "oficina": ("A oficina: marcenaria familiar no Tatuapé desde 1980 | Casa do Marceneiro",
-                "Empresa familiar de marcenaria desde 1980, com oficina na Rua Elisiário, no Tatuapé. "
-                "Missão, valores, garantias e como trabalhamos."),
-    "contato": ("Contato, endereço e orçamento pelo WhatsApp | Casa do Marceneiro Tatuapé",
-                "WhatsApp e telefone (11) 94752-3961, Rua Elisiário, 143, Tatuapé, São Paulo. "
-                "Peça orçamento, tire dúvidas e veja como chegar."),
+    "projetos": ("Móveis planejados e sob medida: projetos concluídos | Casa do Marceneiro Tatuapé",
+                 "Closets, guarda-roupas, cozinhas, painéis de TV, home offices e dormitórios planejados e feitos "
+                 "sob medida pela marcenaria Casa do Marceneiro, no Tatuapé, Zona Leste de São Paulo."),
+    "oficina": ("Marcenaria familiar em São Paulo desde 1980 | Casa do Marceneiro Tatuapé",
+                "Marcenaria familiar desde 1980 na Rua Elisiário, no Tatuapé, Zona Leste de São Paulo, com "
+                "acabamento em maquinário de primeira linha. Missão, valores, garantias e como trabalhamos."),
+    "contato": ("Marcenaria no Tatuapé: endereço, WhatsApp e orçamento | Casa do Marceneiro",
+                "Orçamento de móveis sob medida pelo WhatsApp e telefone (11) 94752-3961. Marcenaria na "
+                "Rua Elisiário, 143, Tatuapé, Zona Leste de São Paulo. Veja como chegar."),
     "politicas": ("Privacidade, trocas e devoluções | Casa do Marceneiro Tatuapé",
                   "Como a Casa do Marceneiro Tatuapé trata os seus dados e o que vale para trocas, devoluções e "
                   "defeitos, pelo Código de Defesa do Consumidor e pela LGPD."),
@@ -108,7 +108,11 @@ def ficha(url):
         "foundingDate": "1980",
         "address": {"@type": "PostalAddress", "streetAddress": "Rua Elisiário, 143 - Tatuapé",
                     "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR"},
-        "areaServed": "São Paulo",
+        "areaServed": [{"@type": "City", "name": "São Paulo"},
+                       {"@type": "Place", "name": "Tatuapé, Zona Leste de São Paulo"}],
+        "knowsAbout": ["Marcenaria", "Móveis sob medida", "Móveis planejados", "Closet e guarda-roupa sob medida",
+                       "Cozinha planejada", "Móveis de dormitório", "Painel de TV", "Home office",
+                       "Móveis de banheiro", "Móveis de madeira maciça"],
         "sameAs": REDES,
     }, ensure_ascii=False).replace("</", "<\\/")
 
