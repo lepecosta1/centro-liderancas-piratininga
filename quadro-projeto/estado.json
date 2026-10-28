@@ -1,7 +1,7 @@
 {
   "versao": 2,
   "titulo": "Quadro do Projeto Marceneiro",
-  "atualizado": "2026-10-21",
+  "atualizado": "2026-10-27",
   "visita": "2026-10-21",
   "marcos": [
     {
@@ -89,6 +89,17 @@
       "antes": "17/09"
     },
     {
+      "id": "m15",
+      "rot": "Ajustes do Gabriel e análise do hub",
+      "quando": "ter 27/10",
+      "ate": "2026-10-27",
+      "entrega": "Endereço certo em todo o site, loja com aparador, sapateira e luminária, Sob medida guardado, Projetos concluídos, A oficina enxuta, e o mapa de como Google, loja, anúncios e Meta se ligam ao site.",
+      "itens": [
+        "f20",
+        "f21"
+      ]
+    },
+    {
       "id": "m4",
       "rot": "Endereço no ar",
       "quando": "até qua 28/10",
@@ -111,7 +122,9 @@
         "a10",
         "a16",
         "g2",
-        "g3"
+        "g3",
+        "hb1",
+        "hb2"
       ],
       "antes": "24/09"
     },
@@ -125,7 +138,9 @@
         "h7",
         "a8",
         "a9",
-        "a11"
+        "a11",
+        "hb3",
+        "hb4"
       ],
       "antes": "01/10"
     },
@@ -202,7 +217,7 @@
       "id": "r13",
       "feito": false,
       "t": "Mostrar o site no ar, no celular dele",
-      "d": "Abrir casa-do-marceneiro-tatuape.vercel.app no celular do Gabriel, passar pela loja e simular a cozinha de um cliente real. Dizer com todas as letras que as imagens são 3D até as fotos dele chegarem."
+      "d": "Abrir casa-do-marceneiro-tatuape.vercel.app no celular do Gabriel, passar pela loja e pelos projetos. Dizer com todas as letras que as imagens são 3D até as fotos dele chegarem."
     },
     {
       "id": "r14",
@@ -387,7 +402,7 @@
       "estado": "feito",
       "frente": "Fase 2",
       "t": "WhatsApp, endereço e e-mail reais no site",
-      "d": "(11) 94752-3961 no topo, na capa, no botão flutuante, no menu do celular, no contato e no rodapé; Rua Tuiuti, 2530, cj. 42; contato@marceneirotatuape.com.br. O formulário de contato agora envia de verdade, pelo WhatsApp ou por e-mail, com a mensagem montada. O pedido de teste avisa a oficina e diz que é teste. Feito em 06/10."
+      "d": "(11) 94752-3961 no topo, na capa, no botão flutuante, no menu do celular, no contato e no rodapé; endereço (corrigido em 27/10 para a Rua Elisiário, 143 — Tatuapé); contato@marceneirotatuape.com.br. O formulário de contato agora envia de verdade, pelo WhatsApp ou por e-mail, com a mensagem montada. O pedido de teste avisa a oficina e diz que é teste. Feito em 06/10."
     },
     {
       "id": "f13",
@@ -439,6 +454,20 @@
       "d": "Google Analytics, Google Ads e o pixel da Meta ligam com os identificadores num arquivo só, e só depois de o visitante aceitar. Medem o que vira cliente: WhatsApp, ligação, formulário e pedido. Feito em 21/10."
     },
     {
+      "id": "f20",
+      "estado": "feito",
+      "frente": "Site",
+      "t": "Ajustes do Gabriel no site",
+      "d": "Endereço trocado para a Rua Elisiário, 143 — Tatuapé nos 13 lugares do site — topo, mapa, avaliações, contato, Como chegar, Google Maps, Waze, perguntas, privacidade, rodapé — e na ficha que o Google lê. Loja sem corte de chapa e sem banqueta, com aparador, sapateira ripada e luminária de madeira. Sob medida fora do ar, com o código guardado para voltar. Projetos concluídos, sem carimbo de 3D em cada foto. A oficina sem o parágrafo do meio, e os textos que repetiam a mesma promessa ajustados. Feito em 27/10."
+    },
+    {
+      "id": "f21",
+      "estado": "feito",
+      "frente": "Estratégia",
+      "t": "Análise do hub: o site no centro de Google, loja, anúncios e Meta",
+      "d": "Cada canal tem uma função e leva de volta ao site ou ao WhatsApp: o Google Meu Negócio é a vitrine do mapa, a loja é a porta de entrada barata, o Google Ads e a Meta trazem gente, e o WhatsApp fecha. O que falta para ligar tudo está nos itens de hub abaixo. Feito em 27/10."
+    },
+    {
       "id": "h1",
       "estado": "fazendo",
       "frente": "Domínio",
@@ -483,7 +512,7 @@
       "frente": "Conteúdo",
       "trava": true,
       "t": "Fotos e vídeos do acervo",
-      "d": "Caminho crítico: o site, a Meta e o domínio esperam por elas. Fontes, nesta ordem: o portfólio do site antigo (marceneirotatuape.com.br/portfolio, que a rede do ambiente de trabalho não alcança — vem pela pasta Marceneiro Tatuapé do Google Drive), o celular do Gabriel e fotos novas da oficina. Com o nome do lugar em cada arquivo, entram com um comando. A seção Fotos marca lugar por lugar."
+      "d": "Caminho crítico: o site, a Meta e o domínio esperam por elas. Em 27/10 o Gabriel separou as fotos originais e está fechando o link do Google Drive. Assim que o link chegar, cada foto vai para o seu lugar no site — a seção Fotos marca lugar por lugar — e a página de projetos troca os exemplos pelas obras de verdade."
     },
     {
       "id": "h8",
@@ -513,7 +542,7 @@
       "estado": "afazer",
       "frente": "Google Meu Negócio",
       "t": "Perfil completo, igual ao site letra por letra",
-      "d": "Categoria principal Marcenaria, horário, serviços, área atendida, WhatsApp, link do site, descrição com 1980 e fotos reais. Mesmo endereço do site: Rua Tuiuti, 2530, cj. 42."
+      "d": "Categoria principal Marcenaria, horário, serviços, área atendida, WhatsApp, link do site, descrição com 1980 e fotos reais. Mesmo endereço do site: Rua Elisiário, 143 — Tatuapé, São Paulo/SP."
     },
     {
       "id": "g3",
@@ -528,6 +557,35 @@
       "frente": "Google Meu Negócio",
       "t": "Uma publicação por semana no perfil",
       "d": "Obra entregue, peça da semana ou processo na bancada. O texto sai pronto com o Leandro; o Gabriel só manda as fotos."
+    },
+    {
+      "id": "hb1",
+      "estado": "afazer",
+      "frente": "Hub",
+      "trava": true,
+      "t": "Endereço novo em tudo que fica fora do site",
+      "d": "Google Meu Negócio, Instagram, Facebook, perfil do WhatsApp Business e o site antigo: Rua Elisiário, 143 — Tatuapé, São Paulo/SP, letra por letra igual ao site. O Google cruza esses dados para decidir quem aparece no mapa; endereço diferente em cada lugar derruba a oficina na busca local. Conferir também a grafia e o CEP no site dos Correios."
+    },
+    {
+      "id": "hb2",
+      "estado": "afazer",
+      "frente": "Hub",
+      "t": "As nove peças da loja no Google Meu Negócio",
+      "d": "A seção Produtos do perfil, com a mesma foto, nome e preço da loja e o botão levando para a página da peça. Quem acha a oficina no mapa já vê o que pode comprar sem orçamento."
+    },
+    {
+      "id": "hb3",
+      "estado": "afazer",
+      "frente": "Hub",
+      "t": "Catálogo da loja no Google Shopping e no Instagram",
+      "d": "Um arquivo de catálogo gerado da própria loja do site, para o Merchant Center (listagem grátis na Pesquisa, no Maps e no Shopping) e para o catálogo da Meta (Instagram e Facebook). Uma fonte só: mudou o preço no site, muda em todo lugar. Só depois de os preços estarem confirmados."
+    },
+    {
+      "id": "hb4",
+      "estado": "afazer",
+      "frente": "Hub",
+      "t": "WhatsApp: ficar no aplicativo Business, com o catálogo",
+      "d": "Desde 1º/10 a Meta cobra por mensagem só de quem usa a API (cerca de R$ 0,035 por resposta depois de mil grátis no mês, e R$ 0,32 por mensagem de marketing). O aplicativo WhatsApp Business continua sem custo e atende a oficina. Montar nele o catálogo com as mesmas nove peças e a mensagem de ausência com o link da loja."
     },
     {
       "id": "a1",
@@ -735,7 +793,7 @@
         "porque": "É o que aparece para quem procura marcenaria perto de casa, no mapa e na busca, sem pagar clique. E o Google Ads confere os mesmos dados: perfil, site e anúncio dizendo coisas diferentes é motivo de reprovação.",
         "leandro": [
           "Completar o perfil: categoria Marcenaria, horário, serviços, área atendida, WhatsApp e site",
-          "Deixar tudo igual ao site, letra por letra: Rua Tuiuti, 2530, cj. 42 e (11) 94752-3961",
+          "Deixar tudo igual ao site, letra por letra: Rua Elisiário, 143 — Tatuapé e (11) 94752-3961",
           "Publicar uma novidade por semana com as fotos que o Gabriel mandar",
           "Responder toda avaliação em até dois dias, inclusive a ruim",
           "Montar o link e o QR code de avaliação"
@@ -891,7 +949,7 @@
       {
         "id": "cozinha",
         "t": "Cozinha em U com torre quente",
-        "onde": "Projetos e simulador",
+        "onde": "Projetos concluídos",
         "arquivo": "fotos/cozinha.webp",
         "q": "cozinha planejada torre quente madeira",
         "estado": "afazer"
@@ -899,7 +957,7 @@
       {
         "id": "closet",
         "t": "Closet aberto do casal",
-        "onde": "Projetos e simulador",
+        "onde": "Projetos concluídos",
         "arquivo": "fotos/closet.webp",
         "q": "closet aberto madeira iluminação embutida",
         "estado": "afazer"
@@ -907,7 +965,7 @@
       {
         "id": "escritorio",
         "t": "Home office em nicho de sala",
-        "onde": "Projetos e simulador",
+        "onde": "Projetos concluídos",
         "arquivo": "fotos/escritorio.webp",
         "q": "home office nicho sala marcenaria",
         "estado": "afazer"
@@ -915,7 +973,7 @@
       {
         "id": "painel",
         "t": "Painel ripado com rack suspenso",
-        "onde": "Projetos e simulador",
+        "onde": "Projetos concluídos",
         "arquivo": "fotos/painel.webp",
         "q": "painel ripado freijó rack suspenso",
         "estado": "afazer"
@@ -939,7 +997,7 @@
       {
         "id": "banheiro",
         "t": "Gabinete de banheiro",
-        "onde": "Simulador",
+        "onde": "Simulador, que está guardado — não precisa agora",
         "arquivo": "fotos/banheiro.webp",
         "q": "gabinete suspenso banheiro madeira cuba de apoio",
         "estado": "afazer"
@@ -954,10 +1012,10 @@
       },
       {
         "id": "corte",
-        "t": "Corte de chapa sob medida",
-        "onde": "Loja e A oficina",
+        "t": "Bancada da oficina",
+        "onde": "A oficina",
         "arquivo": "fotos/corte.webp",
-        "q": "corte de chapa mdf sob medida marcenaria",
+        "q": "bancada de marcenaria trena esquadro chapa",
         "estado": "afazer"
       },
       {
@@ -993,11 +1051,11 @@
         "estado": "afazer"
       },
       {
-        "id": "banqueta",
-        "t": "Banqueta alta",
+        "id": "aparador",
+        "t": "Aparador",
         "onde": "Loja",
-        "arquivo": "fotos/banqueta.webp",
-        "q": "banqueta alta madeira maciça",
+        "arquivo": "fotos/aparador.webp",
+        "q": "aparador madeira maciça três portas pés palito",
         "estado": "afazer"
       },
       {
@@ -1006,6 +1064,22 @@
         "onde": "Loja",
         "arquivo": "fotos/cabeceira.webp",
         "q": "mesa de cabeceira madeira maciça",
+        "estado": "afazer"
+      },
+      {
+        "id": "sapateira",
+        "t": "Sapateira ripada",
+        "onde": "Loja",
+        "arquivo": "fotos/sapateira.webp",
+        "q": "sapateira ripada madeira entrada de casa",
+        "estado": "afazer"
+      },
+      {
+        "id": "luminaria",
+        "t": "Luminária de madeira",
+        "onde": "Loja",
+        "arquivo": "fotos/luminaria.webp",
+        "q": "luminária de mesa base madeira torneada cúpula linho",
         "estado": "afazer"
       },
       {
@@ -1031,7 +1105,7 @@
         "id": "s2",
         "feito": false,
         "t": "Fotos reais na pasta do Drive",
-        "d": "Pasta Marceneiro Tatuapé, cada foto com o nome do lugar: capa, cozinha, closet, oficina… A seção Fotos deste quadro tem a lista. Um comando põe todas no site, sem o GPS."
+        "d": "O Gabriel separou as fotos originais em 27/10 e está fechando o link do Google Drive. Cada foto vai para o seu lugar — a seção Fotos deste quadro tem a lista — e entra no site sem o GPS."
       },
       {
         "id": "s3",

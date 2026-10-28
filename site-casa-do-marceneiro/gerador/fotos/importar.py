@@ -28,7 +28,7 @@ LUGARES = {
     "cozinha": AMBIENTE, "closet": AMBIENTE, "escritorio": AMBIENTE, "painel": AMBIENTE,
     "compacta": AMBIENTE, "dormitorio": AMBIENTE, "banheiro": AMBIENTE, "oficina": AMBIENTE,
     "corte": PECA, "nicho": PECA, "prateleira": PECA, "tabua": PECA, "ripado": PECA,
-    "banqueta": PECA, "cabeceira": PECA, "bancada": PECA,
+    "aparador": PECA, "cabeceira": PECA, "sapateira": PECA, "luminaria": PECA, "bancada": PECA,
 }
 EXTENSOES = {".jpg", ".jpeg", ".png", ".webp"}
 

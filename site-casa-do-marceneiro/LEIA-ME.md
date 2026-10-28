@@ -35,8 +35,15 @@ python3 montar.py
 
 ## O que funciona de verdade
 
-Sete telas com endereço próprio (`#/loja`, `#/sob-medida`, …), então cada uma
+Seis telas com endereço próprio (`#/loja`, `#/projetos`, …), então cada uma
 tem link que se manda por WhatsApp e o botão voltar do celular se comporta.
+
+**O simulador de sob medida está guardado.** A pedido do Gabriel (27/10), a tela
+`#/sob-medida` sai do menu, da capa, do rodapé e do domínio, mas o código fica
+inteiro em `corpo.html`, entre marcas `<!--SIMULADOR-->`. Onde ele aparecia, entra
+o que está entre `<!--SEM-SIMULADOR-->` (o botão da capa vai para os projetos
+concluídos, o balcão do meio pede a medida pelo WhatsApp). Para religar:
+`SIMULADOR = True` no `montar.py` e montar de novo.
 
 - **Loja** — catálogo com filtro por categoria, busca e ordenação.
 - **Ficha do produto** — madeira, acabamento e medida recalculam o preço na hora.
@@ -115,7 +122,7 @@ capa, faixa da oficina, contato, rodapé, ficha do Google em `index.html`):
 | Dado | Valor |
 |---|---|
 | WhatsApp | (11) 94752-3961 — `TEL` em `corpo.html`; todo link `wa.me` já nasce com ele no HTML |
-| Endereço | Rua Tuiuti, 2530, cj. 42 — São Paulo/SP |
+| Endereço | Rua Elisiário, 143 — Tatuapé, São Paulo/SP |
 | E-mail | contato@marceneirotatuape.com.br |
 
 O formulário de contato envia de verdade, sem servidor: abre o WhatsApp da
@@ -298,10 +305,11 @@ Todo texto passa no piso de contraste WCAG AA, medido cor a cor.
 | Arquivo em `fotos/` | Onde aparece |
 |---|---|
 | `capa-2400/1600/960.webp` | Capa do site (cozinha em U, quadro panorâmico) |
-| `nicho`, `prateleira`, `tabua`, `ripado`, `banqueta`, `cabeceira`, `corte`, `bancada` | Peça da loja de mesmo nome |
-| `cozinha`, `closet`, `escritorio`, `painel`, `compacta`, `dormitorio` | Projetos, mosaico da página inicial, simulador |
-| `banheiro` | Simulador, ambiente Banheiro |
+| `nicho`, `prateleira`, `tabua`, `ripado`, `aparador`, `cabeceira`, `sapateira`, `luminaria`, `bancada` | Peça da loja de mesmo nome |
+| `cozinha`, `closet`, `escritorio`, `painel`, `compacta`, `dormitorio` | Projetos concluídos, mosaico da página inicial, simulador |
+| `banheiro` | Simulador, ambiente Banheiro (guardado: não conta para o lançamento) |
 | `oficina` | Faixa "Oficina aberta" da página inicial |
+| `corte` | Detalhe da bancada na página A oficina |
 
 Cada imagem tem duas larguras: `<nome>.webp` (1200 ou 1280 px) e `<nome>-640.webp`,
 e o navegador escolhe pela largura em que ela aparece. Para trocar por foto real:

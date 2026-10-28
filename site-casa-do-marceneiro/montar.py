@@ -28,8 +28,14 @@ fontes = (base / ".." / "proposta-marcenaria-tatuape" / "fontes-embutidas.css").
 css = (base / "site.css").read_text(encoding="utf-8")
 
 PREVIA = "https://casa-do-marceneiro-tatuape.vercel.app/"
-RESUMO = ("Marcenaria familiar no Tatuapé desde 1980: peças prontas com preço fechado, corte de chapa "
-          "na medida e projeto sob medida com visita técnica. Madeira maciça e MDF, nunca MDP.")
+RESUMO = ("Marcenaria familiar no Tatuapé desde 1980: peças prontas de madeira com preço fechado e "
+          "projeto sob medida com visita técnica. Madeira maciça e MDF, nunca MDP.")
+
+# O simulador de sob medida fica guardado, fora do ar, até o Gabriel liberar:
+# tudo entre <!--SIMULADOR--> sai de todas as versões do site, e o que está
+# entre <!--SEM-SIMULADOR--> ocupa o lugar. Para religar, True.
+SIMULADOR = False
+SO_DO_SIMULADOR = {"banheiro"}   # foto que só o simulador mostra
 REDES = ["https://www.facebook.com/CasaDoMarceneiroTatuape/", "https://www.instagram.com/casadomarceneirotatuape/"]
 CNPJ_EXEMPLO = "00.000.000/0001-00"
 
@@ -37,9 +43,9 @@ CNPJ_EXEMPLO = "00.000.000/0001-00"
 # é assim que "painel ripado no Tatuapé" acha a página de projetos, e não só a capa.
 TELAS = {
     "inicio": ("Casa do Marceneiro Tatuapé — marcenaria sob medida desde 1980", RESUMO),
-    "loja": ("Peças prontas de madeira e corte de chapa | Casa do Marceneiro Tatuapé",
-             "Nichos, prateleiras, tábuas, bancadas e corte de chapa na medida, feitos na oficina do Tatuapé. "
-             "Escolha a madeira e o acabamento e peça pelo WhatsApp."),
+    "loja": ("Peças prontas de madeira: aparador, sapateira, nicho e mais | Casa do Marceneiro Tatuapé",
+             "Aparadores, sapateiras, luminárias, nichos, prateleiras e bancadas de madeira, feitos na oficina "
+             "do Tatuapé. Escolha a madeira e o acabamento e peça pelo WhatsApp."),
     "sob-medida": ("Simulador de móveis sob medida | Casa do Marceneiro Tatuapé",
                    "Escolha o ambiente, os metros e o padrão de acabamento e veja na hora a faixa de investimento "
                    "de cozinha, closet, home office, painel ou banheiro sob medida."),
@@ -47,15 +53,17 @@ TELAS = {
                  "Cozinhas, closets, home offices, painéis ripados e dormitórios feitos sob medida pela oficina "
                  "da Casa do Marceneiro, no Tatuapé, Zona Leste de São Paulo."),
     "oficina": ("A oficina: marcenaria familiar no Tatuapé desde 1980 | Casa do Marceneiro",
-                "Não somos revenda: a chapa é cortada, colada, lixada e finalizada na nossa oficina da Rua Tuiuti, "
-                "no Tatuapé. Missão, valores, garantias e como trabalhamos."),
+                "Empresa familiar de marcenaria desde 1980, com oficina na Rua Elisiário, no Tatuapé. "
+                "Missão, valores, garantias e como trabalhamos."),
     "contato": ("Contato, endereço e orçamento pelo WhatsApp | Casa do Marceneiro Tatuapé",
-                "WhatsApp e telefone (11) 94752-3961, Rua Tuiuti, 2530, cj. 42, Tatuapé, São Paulo. "
+                "WhatsApp e telefone (11) 94752-3961, Rua Elisiário, 143, Tatuapé, São Paulo. "
                 "Peça orçamento, tire dúvidas e veja como chegar."),
     "politicas": ("Privacidade, trocas e devoluções | Casa do Marceneiro Tatuapé",
                   "Como a Casa do Marceneiro Tatuapé trata os seus dados e o que vale para trocas, devoluções e "
                   "defeitos, pelo Código de Defesa do Consumidor e pela LGPD."),
 }
+if not SIMULADOR:
+    del TELAS["sob-medida"]
 ANTIGOS = {"portfolio": "projetos"}   # endereços do site antigo que o Google já conhece
 
 args = argparse.ArgumentParser()
@@ -76,6 +84,9 @@ def injetar(texto, nome, valor):
     assert texto.count(alvo) == 1, nome
     return texto.replace(alvo, f"  var {nome} = {json.dumps(valor, ensure_ascii=False)};")
 
+guarda, mostra = ("SEM-SIMULADOR", "SIMULADOR") if SIMULADOR else ("SIMULADOR", "SEM-SIMULADOR")
+fonte = re.sub(rf"<!--{guarda}-->.*?<!--/{guarda}-->", "", fonte, flags=re.S)
+fonte = re.sub(rf"<!--/?{mostra}-->", "", fonte)
 corpo = fonte.replace("/*CSS-SITE*/", fontes + "\n" + css)
 corpo = injetar(corpo, "REAIS", reais)
 
@@ -95,7 +106,7 @@ def ficha(url):
         "telephone": "+55 11 94752-3961",
         "email": "contato@marceneirotatuape.com.br",
         "foundingDate": "1980",
-        "address": {"@type": "PostalAddress", "streetAddress": "Rua Tuiuti, 2530, cj. 42",
+        "address": {"@type": "PostalAddress", "streetAddress": "Rua Elisiário, 143 - Tatuapé",
                     "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR"},
         "areaServed": "São Paulo",
         "sameAs": REDES,
@@ -183,7 +194,8 @@ for marca_, motivo in ((CNPJ_EXEMPLO, "o CNPJ ainda é o de exemplo"),
     if marca_ in visivel:
         pendencias.append(f"{motivo} (“{marca_}” no texto)")
 lugares = sorted({p.stem for p in (base / "fotos").glob("*.webp")
-                  if not re.search(r"-(640|960|1600|2400)$", p.stem)} | {"capa"})
+                  if not re.search(r"-(640|960|1600|2400)$", p.stem)
+                  and (SIMULADOR or p.stem not in SO_DO_SIMULADOR)} | {"capa"})
 sem_foto = [n for n in lugares if not reais.get(n)]
 if sem_foto:
     pendencias.append(f"{len(sem_foto)} de {len(lugares)} lugares ainda com imagem 3D: {', '.join(sem_foto)}")

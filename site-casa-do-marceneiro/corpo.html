@@ -39,9 +39,10 @@
 <g id="p-prateleira" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="2" y="9" width="20" height="3.4" rx="1"/><path d="M6 12.4v3.4M18 12.4v3.4"/></g>
 <g id="p-tabua" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="17.5" cy="8.5" r="1.3"/></g>
 <g id="p-ripado" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 4v16M9 4v16M13 4v16M17 4v16M19.6 4v16"/></g>
-<g id="p-banqueta" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="3" rx="1.2"/><path d="M6.5 8v11M17.5 8v11M7 14.5h10"/></g>
+<g id="p-aparador" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="9.5" rx="1"/><path d="M9 6v9.5M15 6v9.5M5.2 15.5 4.6 20M18.8 15.5l.6 4.5"/></g>
+<g id="p-sapateira" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="15" rx="1"/><path d="M7.5 6.8v9.4M10.5 6.8v9.4M13.5 6.8v9.4M16.5 6.8v9.4M6 19v1.4M18 19v1.4"/></g>
+<g id="p-luminaria" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.2 3.5h7.6L19 11H5z"/><path d="M12 11v7.5M8.5 20.5h7"/></g>
 <g id="p-cabeceira" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="4" y="5" width="16" height="12" rx="1"/><path d="M4 11h16M11 8.2h2"/><path d="M6.5 17v2.6M17.5 17v2.6"/></g>
-<g id="p-corte" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M8 4v16" stroke-dasharray="2.4 2.4"/><path d="M3 13h18" stroke-dasharray="2.4 2.4"/></g>
 <g id="p-bancada" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="2" y="8" width="20" height="5" rx="1.4"/><path d="M5 13v5M19 13v5"/></g>
 <g id="p-cozinha" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="2.5" y="3" width="19" height="18" rx="1"/><path d="M2.5 11h19M12 3v18M6 6.6h2M16 6.6h2M6 15.6h2M16 15.6h2"/></g>
 <g id="p-closet" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 3v18M7 11h2M15 11h2M3 8h18"/></g>
@@ -68,7 +69,7 @@
     <nav class="nav" id="nav" aria-label="Principal">
       <a href="#/" data-ir="inicio">Início</a>
       <a href="#/loja" data-ir="loja">Loja</a>
-      <a href="#/sob-medida" data-ir="sob-medida">Sob medida</a>
+      <!--SIMULADOR--><a href="#/sob-medida" data-ir="sob-medida">Sob medida</a><!--/SIMULADOR-->
       <a href="#/projetos" data-ir="projetos">Projetos</a>
       <a href="#/oficina" data-ir="oficina">A oficina</a>
       <a href="#/contato" data-ir="contato">Contato</a>
@@ -105,15 +106,17 @@
       <div class="capa-txt">
         <span class="rotulo">Marcenaria familiar no Tatuapé desde 1980</span>
         <h1>A madeira certa, <em>cortada para o seu espaço</em>.</h1>
-        <p class="sub">Peças prontas que saem hoje da oficina, corte de chapa na medida que você mandar
-          e projeto sob medida com visita técnica. Tudo feito na nossa oficina — sem terceirizar, sem intermediário.</p>
+        <p class="sub">Peças prontas com preço fechado e projeto sob medida com visita técnica.
+          Você fala direto com a família que faz móvel no Tatuapé desde 1980.</p>
         <div class="cta">
           <a class="btn zap" id="zap-capa" href="https://wa.me/5511947523961" data-zap="capa" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>Pedir orçamento no WhatsApp
           </a>
-          <a class="btn vazado" href="#/sob-medida" data-ir="sob-medida">
+          <!--SIMULADOR--><a class="btn vazado" href="#/sob-medida" data-ir="sob-medida">
             <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-regua"/></svg>Simular meu projeto
-          </a>
+          </a><!--/SIMULADOR--><!--SEM-SIMULADOR--><a class="btn vazado" href="#/projetos" data-ir="projetos">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-regua"/></svg>Ver projetos concluídos
+          </a><!--/SEM-SIMULADOR-->
         </div>
         <p class="capa-zap"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-tel"/></svg><span>Prefere falar? <a href="tel:+5511947523961" data-ligar="capa">Ligue (11)&nbsp;94752&#8209;3961</a> · ou <a href="#/loja" data-ir="loja">veja as peças prontas</a></span></p>
         <div class="provas">
@@ -140,17 +143,19 @@
           <div class="ft" data-foto="prateleira" data-alt="Prateleiras flutuantes de freijó com livros e vasos"></div>
           <span class="quando">Preço fechado · compra na hora</span>
           <h3>Prateleira</h3>
-          <p>Peças prontas com medida padrão: nicho, prateleira, tábua, banqueta. Escolhe a madeira,
+          <p>Peças prontas com medida padrão: nicho, prateleira, aparador, luminária. Escolhe a madeira,
             o acabamento e o tamanho, e o preço aparece na hora. Retira na oficina ou recebe em casa.</p>
           <a class="btn" href="#/loja" data-ir="loja">Ver peças<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
         </div>
         <div class="balcao com-foto" style="--cor:#A66A15">
           <div class="ft" data-foto="bancada" data-alt="Ilha de cozinha com tampo maciço de freijó e base branca"></div>
-          <span class="quando">Faixa na hora · fecha por WhatsApp</span>
+          <span class="quando"><!--SIMULADOR-->Faixa na hora<!--/SIMULADOR--><!--SEM-SIMULADOR-->Faixa pelo WhatsApp<!--/SEM-SIMULADOR--> · fecha por WhatsApp</span>
           <h3>Balcão</h3>
-          <p>Ambiente definido, medida sua. Você diz o cômodo, os metros e o padrão de acabamento,
+          <!--SIMULADOR--><p>Ambiente definido, medida sua. Você diz o cômodo, os metros e o padrão de acabamento,
             e o site devolve a faixa de investimento antes de qualquer conversa. Sem enrolação, sem “depende”.</p>
-          <a class="btn" href="#/sob-medida" data-ir="sob-medida">Simular agora<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
+          <a class="btn" href="#/sob-medida" data-ir="sob-medida">Simular agora<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a><!--/SIMULADOR--><!--SEM-SIMULADOR--><p>Ambiente definido, medida sua. Mande pelo WhatsApp o cômodo, os metros e uma foto da parede,
+            e a oficina responde com a faixa de investimento antes de marcar visita. Sem enrolação, sem “depende”.</p>
+          <a class="btn" href="https://wa.me/5511947523961" data-zap="balcao" target="_blank" rel="noopener">Mandar a medida<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a><!--/SEM-SIMULADOR-->
         </div>
         <div class="balcao com-foto" style="--cor:#7F4F0E">
           <div class="ft" data-foto="closet" data-alt="Closet aberto em carvalho com cabideiros, gaveteiro e sapateira"></div>
@@ -203,18 +208,18 @@
           <p class="sub">A nota e os comentários vêm direto do Google Maps, escritos por quem já recebeu um
             móvel da oficina. Nenhuma linha aqui é escrita por nós — e quem quiser conferir, confere na fonte.</p>
           <div class="google-bts">
-            <a class="btn forte" id="ver-avaliacoes" href="https://www.google.com/maps/search/?api=1&amp;query=Casa%20do%20Marceneiro%20Tatuap%C3%A9%2C%20Rua%20Tuiuti%2C%202530%2C%20S%C3%A3o%20Paulo" target="_blank" rel="noopener">
+            <a class="btn forte" id="ver-avaliacoes" href="https://www.google.com/maps/search/?api=1&amp;query=Casa%20do%20Marceneiro%20Tatuap%C3%A9%2C%20Rua%20Elisi%C3%A1rio%2C%20143%2C%20Tatuap%C3%A9%2C%20S%C3%A3o%20Paulo" target="_blank" rel="noopener">
               <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-estrela"/></svg>Ver as avaliações no Google</a>
-            <a class="btn" id="deixar-avaliacao" href="https://www.google.com/maps/search/?api=1&amp;query=Casa%20do%20Marceneiro%20Tatuap%C3%A9%2C%20Rua%20Tuiuti%2C%202530%2C%20S%C3%A3o%20Paulo" target="_blank" rel="noopener">
+            <a class="btn" id="deixar-avaliacao" href="https://www.google.com/maps/search/?api=1&amp;query=Casa%20do%20Marceneiro%20Tatuap%C3%A9%2C%20Rua%20Elisi%C3%A1rio%2C%20143%2C%20Tatuap%C3%A9%2C%20S%C3%A3o%20Paulo" target="_blank" rel="noopener">
               <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-lapis"/></svg>Já é cliente? Avalie a oficina</a>
           </div>
           <p class="google-obs">Avaliação sincera, boa ou ruim, ajuda o vizinho a decidir. A oficina responde todas.</p>
         </div>
-        <figure class="mapa-g" id="mapa-google" data-busca="Casa do Marceneiro Tatuapé, Rua Tuiuti, 2530 - Tatuapé, São Paulo - SP">
+        <figure class="mapa-g" id="mapa-google" data-busca="Casa do Marceneiro Tatuapé, Rua Elisiário, 143 - Tatuapé, São Paulo - SP">
           <div class="mapa-reserva">
             <span class="ic-grande"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-pin"/></svg></span>
             <b>Casa do Marceneiro Tatuapé</b>
-            <span>Rua Tuiuti, 2530, cj. 42 — São Paulo/SP</span>
+            <span>Rua Elisiário, 143 — Tatuapé, São Paulo/SP</span>
             <span class="mut">O mapa com a nota do Google aparece aqui.</span>
           </div>
           <figcaption>Mapa, nota e avaliações carregados do Google Maps</figcaption>
@@ -230,8 +235,8 @@
         <div>
           <span class="rotulo">Onde a peça é feita</span>
           <h2>Oficina aberta. Pode vir ver serrando.</h2>
-          <p class="sub">Não somos revenda nem representante. A chapa entra aqui, é cortada, colada, lixada
-            e finalizada aqui, e sai daqui para a sua casa. Se quiser conferir antes de fechar, é só marcar.</p>
+          <p class="sub">A peça ganha forma na oficina da família, no Tatuapé: montagem, acabamento e
+            conferência no mesmo endereço, antes de sair para a sua casa. Se quiser conferir antes de fechar, é só marcar.</p>
           <div class="numeros">
             <div><b>1980</b><span>ano da fundação</span></div>
             <div><b data-anos>46</b><span>anos de oficina</span></div>
@@ -240,12 +245,12 @@
         </div>
         <figure class="quadro-foto">
           <div class="ft" data-foto="oficina" data-alt="Oficina de marcenaria com bancada central, estante de madeira bruta, chapas de MDF e serra de mesa"></div>
-          <figcaption><b>A oficina</b><span>Corte, colagem e acabamento no mesmo endereço<span data-ilustrativo="oficina"> · imagem 3D ilustrativa</span></span></figcaption>
+          <figcaption><b>A oficina</b><span>Montagem e acabamento no mesmo endereço<span data-ilustrativo="oficina"> · imagem 3D ilustrativa</span></span></figcaption>
         </figure>
       </div>
       <ul class="nap nap-linha">
         <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-pin"/></svg></span>
-          <span><b>Endereço</b><span id="nap-end">Rua Tuiuti, 2530, cj. 42<br>São Paulo/SP</span></span></li>
+          <span><b>Endereço</b><span id="nap-end">Rua Elisiário, 143 — Tatuapé<br>São Paulo/SP</span></span></li>
         <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-relogio"/></svg></span>
           <span><b>Horário</b><span>Seg a sex, 8h às 18h · Sáb, 8h às 12h</span></span></li>
         <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg></span>
@@ -291,7 +296,9 @@
 </section>
 
 <!-- ===================== SOB MEDIDA ===================== -->
-<section class="rota" data-rota="sob-medida" aria-label="Sob medida">
+<!-- Guardado para quando o Gabriel liberar: o montar.py tira este bloco,
+     e os outros marcados como simulador, enquanto SIMULADOR = False. -->
+<!--SIMULADOR--><section class="rota" data-rota="sob-medida" aria-label="Sob medida">
   <div class="faixa">
     <div class="env">
       <div class="cab">
@@ -339,7 +346,7 @@
       </div>
     </div>
   </div>
-</section>
+</section><!--/SIMULADOR-->
 
 <!-- ===================== PROJETOS ===================== -->
 <section class="rota" data-rota="projetos" aria-label="Projetos">
@@ -347,7 +354,7 @@
     <div class="env">
       <div class="cab">
         <span class="rotulo">Bancada · obra sob medida</span>
-        <h2>Projetos entregues</h2>
+        <h2>Projetos concluídos</h2>
         <p class="sub">Cada um desses começou com uma medição e terminou com a chave na mão do cliente.
           <span data-ilustrativo="cozinha closet escritorio painel compacta dormitorio">Nesta prévia, projetos e imagens são
           ilustrativos — renderizações 3D feitas para a apresentação. As fotos definitivas entram quando o acervo da
@@ -379,10 +386,7 @@
             estilo artesanal: é no detalhe do móvel que aparece a escolha de quem encomendou. Mudaram as
             máquinas, o ofício passou de uma geração para a outra — mas a régua continua a mesma: quem corta
             a sua peça é quem responde por ela.</p>
-          <p style="color:var(--mut);margin-top:16px">Não terceirizamos corte, não revendemos móvel pronto de
-            fábrica e não trabalhamos com representante. Isso deixa o processo mais lento do que o de uma loja de
-            shopping, e é exatamente por isso que a peça dura.</p>
-          <p style="color:var(--mut)">Trabalhamos em parceria com escritório de arquitetura de São Paulo, e a
+          <p style="color:var(--mut);margin-top:16px">Trabalhamos em parceria com escritório de arquitetura de São Paulo, e a
             oficina fica aberta para visita: se você quer ver a chapa que vai virar a sua cozinha antes de
             assinar qualquer coisa, marque um horário e venha.</p>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
@@ -436,8 +440,8 @@
         </div>
         <div class="balcao" style="--cor:#2A1E15">
           <span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-martelo"/></svg></span>
-          <h3>Quem corta responde</h3>
-          <p>A peça é desenhada, cortada, montada e instalada pela mesma casa. Sem terceiro no meio, não
+          <h3>Quem faz responde</h3>
+          <p>Do desenho à instalação, a peça é responsabilidade da mesma casa. Se algo sair errado, não
             existe aquela conversa de que o erro foi do outro.</p>
         </div>
         <div class="balcao" style="--cor:#A33A22">
@@ -478,11 +482,12 @@
             <li><b>MDP, o aglomerado</b><span>É a chapa que incha com um respingo debaixo da pia e solta o
               parafuso na primeira mudança. Barateia o orçamento e encurta a vida do móvel. Aqui não entra,
               em nenhuma peça.</span></li>
-            <li><b>Corte terceirizado</b><span>Chapa cortada fora volta com folga de milímetros que só
-              aparece na montagem, quando já não dá para consertar.</span></li>
-            <li><b>Móvel de fábrica revendido</b><span>Se não saiu desta serra, não sai com o nosso nome.</span></li>
-            <li><b>Representante comissionado</b><span>Quem atende você é quem vai fazer o móvel, não quem
-              ganha por assinatura fechada.</span></li>
+            <li><b>Ferragem sem marca</b><span>Corrediça que trava e dobradiça que cede no primeiro ano.
+              Só entra ferragem com garantia do próprio fabricante.</span></li>
+            <li><b>Acabamento só por fora</b><span>Armário pintado na porta e cru por dentro absorve umidade e
+              mancha. O interior recebe o mesmo acabamento da frente.</span></li>
+            <li><b>Chapa sem procedência</b><span>Madeira e MDF entram com nota fiscal do fornecedor, que fica
+              disponível a pedido.</span></li>
           </ul>
         </div>
       </div>
@@ -534,7 +539,6 @@
               <label for="c-assunto">O que você precisa</label>
               <select id="c-assunto" name="assunto">
                 <option>Projeto sob medida (visita técnica)</option>
-                <option>Corte de chapa na medida</option>
                 <option>Dúvida sobre peça da loja</option>
                 <option>Andamento de um pedido</option>
                 <option>Outro assunto</option>
@@ -561,7 +565,7 @@
         <div>
           <ul class="nap">
             <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-pin"/></svg></span>
-              <span><b>Endereço</b><span>Rua Tuiuti, 2530, cj. 42 — São Paulo/SP</span></span></li>
+              <span><b>Endereço</b><span>Rua Elisiário, 143 — Tatuapé, São Paulo/SP</span></span></li>
             <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-relogio"/></svg></span>
               <span><b>Atendimento</b><span>Segunda a sexta, 8h às 18h · Sábado, 8h às 12h</span></span></li>
             <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg></span>
@@ -578,10 +582,10 @@
             <span class="ic-grande"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-pin"/></svg></span>
             <div>
               <h3>Como chegar</h3>
-              <p>Rua Tuiuti, 2530, cj. 42<br>São Paulo/SP</p>
+              <p>Rua Elisiário, 143 — Tatuapé<br>São Paulo/SP</p>
               <div class="bts">
-                <a class="btn peq" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Tuiuti%2C%202530%2C%20S%C3%A3o%20Paulo%20-%20SP" target="_blank" rel="noopener">Abrir no Google Maps</a>
-                <a class="btn peq" href="https://waze.com/ul?q=Rua%20Tuiuti%2C%202530%2C%20S%C3%A3o%20Paulo&amp;navigate=yes" target="_blank" rel="noopener">Ir com o Waze</a>
+                <a class="btn peq" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Elisi%C3%A1rio%2C%20143%2C%20Tatuap%C3%A9%2C%20S%C3%A3o%20Paulo%20-%20SP" target="_blank" rel="noopener">Abrir no Google Maps</a>
+                <a class="btn peq" href="https://waze.com/ul?q=Rua%20Elisi%C3%A1rio%2C%20143%2C%20Tatuap%C3%A9%2C%20S%C3%A3o%20Paulo&amp;navigate=yes" target="_blank" rel="noopener">Ir com o Waze</a>
               </div>
             </div>
           </div>
@@ -591,9 +595,10 @@
       <div class="faq" id="faq">
         <h3>Perguntas frequentes</h3>
         <details>
-          <summary>Vocês fazem só o corte da chapa?</summary>
-          <p>Sim. Você manda as medidas, a oficina corta e aplica a fita de borda, e a chapa sai pronta para montar.
-            Dá para retirar na oficina ou receber em casa — o corte está na <a href="#/loja" data-ir="loja">loja</a>.</p>
+          <summary>Dá para fazer o aparador ou a sapateira em outra medida?</summary>
+          <p>Dá. As peças da <a href="#/loja" data-ir="loja">loja</a> saem em medida padrão, com preço fechado. Para outra
+            largura, altura ou madeira, mande a medida pelo <a href="https://wa.me/5511947523961" data-zap="faq-medida" target="_blank" rel="noopener">WhatsApp</a>
+            e a oficina faz sob medida.</p>
         </details>
         <details>
           <summary>MDF ou MDP: qual a diferença?</summary>
@@ -610,12 +615,12 @@
         <details>
           <summary>Como eu peço um orçamento?</summary>
           <p>Pelo <a href="https://wa.me/5511947523961" data-zap="faq" target="_blank" rel="noopener">WhatsApp (11) 94752-3961</a>,
-            pelo formulário desta página ou pelo <a href="#/sob-medida" data-ir="sob-medida">simulador</a>, que mostra uma
-            faixa de investimento na hora. Para projeto sob medida, a oficina marca uma visita para medir.</p>
+            pelo formulário desta página<!--SIMULADOR--> ou pelo <a href="#/sob-medida" data-ir="sob-medida">simulador</a>, que mostra uma
+            faixa de investimento na hora<!--/SIMULADOR-->. Para projeto sob medida, a oficina marca uma visita para medir.</p>
         </details>
         <details>
           <summary>Onde fica a oficina?</summary>
-          <p>Na Rua Tuiuti, 2530, cj. 42, no Tatuapé, Zona Leste de São Paulo. Os botões de Como chegar, acima, abrem o
+          <p>Na Rua Elisiário, 143, no Tatuapé, Zona Leste de São Paulo. Os botões de Como chegar, acima, abrem o
             caminho no Google Maps ou no Waze.</p>
         </details>
       </div>
@@ -636,7 +641,7 @@
         <article class="politica cartao" id="privacidade">
           <h3>Privacidade</h3>
           <p><b>Quem cuida dos dados.</b> Casa do Marceneiro Tatuapé, <span class="cnpj">CNPJ 00.000.000/0001-00</span>,
-            Rua Tuiuti, 2530, cj. 42, São Paulo/SP. Contato: <a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a>.</p>
+            Rua Elisiário, 143, Tatuapé, São Paulo/SP. Contato: <a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a>.</p>
           <p><b>O que coletamos.</b> Só o que você digita para pedir orçamento ou fazer um pedido: nome, telefone,
             e-mail, endereço de entrega e a mensagem. A conversa pelo WhatsApp segue as regras do próprio WhatsApp.</p>
           <p><b>Para quê.</b> Responder o seu pedido, fazer o orçamento, combinar visita e entrega e emitir a nota.
@@ -914,8 +919,8 @@
     <div class="rod-g">
       <div>
         <img class="logo-rod" src="marca/logo-site.svg" width="360" height="131" alt="Casa do Marceneiro" loading="lazy">
-        <p class="diz">Marcenaria familiar desde 1980. A chapa entra aqui, é cortada aqui e sai daqui
-          para a sua casa.</p>
+        <p class="diz">Marcenaria familiar desde 1980. A peça ganha forma na oficina do Tatuapé e sai
+          daqui para a sua casa.</p>
         <!--PREVIA--><div class="pagam">
           <i>PIX</i><i>Visa</i><i>Master</i><i>Elo</i><i>Boleto</i>
         </div><!--/PREVIA-->
@@ -924,8 +929,8 @@
         <h4>Comprar</h4>
         <ul>
           <li><a href="#/loja" data-ir="loja">Peças prontas</a></li>
-          <li><a href="#/sob-medida" data-ir="sob-medida">Simular projeto</a></li>
-          <li><a href="#/projetos" data-ir="projetos">Projetos entregues</a></li>
+          <!--SIMULADOR--><li><a href="#/sob-medida" data-ir="sob-medida">Simular projeto</a></li><!--/SIMULADOR-->
+          <li><a href="#/projetos" data-ir="projetos">Projetos concluídos</a></li>
           <li><a href="#/contato" data-ir="contato">Agendar visita</a></li>
         </ul>
       </div>
@@ -942,7 +947,7 @@
       <div>
         <h4>Contato</h4>
         <ul>
-          <li>Rua Tuiuti, 2530, cj. 42<br>São Paulo/SP</li>
+          <li>Rua Elisiário, 143 — Tatuapé<br>São Paulo/SP</li>
           <li>Seg a sex 8h–18h · Sáb 8h–12h</li>
           <li><a href="https://wa.me/5511947523961" data-zap="rodape" target="_blank" rel="noopener">WhatsApp (11) 94752-3961</a></li>
           <li><a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a></li>
@@ -997,7 +1002,7 @@
     </div>
     <a href="#/" data-ir="inicio">Início</a>
     <a href="#/loja" data-ir="loja">Loja</a>
-    <a href="#/sob-medida" data-ir="sob-medida">Sob medida</a>
+    <!--SIMULADOR--><a href="#/sob-medida" data-ir="sob-medida">Sob medida</a><!--/SIMULADOR-->
     <a href="#/projetos" data-ir="projetos">Projetos</a>
     <a href="#/oficina" data-ir="oficina">A oficina</a>
     <a href="#/contato" data-ir="contato">Contato</a>
@@ -1041,7 +1046,7 @@
   /* Google Maps: a busca acha o perfil da oficina. Com o placeId do perfil
      (Google Meu Negócio → Pedir avaliações), o botão de avaliar abre direto
      o formulário de nota. */
-  var GOOGLE = { busca:"Casa do Marceneiro Tatuapé, Rua Tuiuti, 2530 - Tatuapé, São Paulo - SP", placeId:"" };
+  var GOOGLE = { busca:"Casa do Marceneiro Tatuapé, Rua Elisiário, 143 - Tatuapé, São Paulo - SP", placeId:"" };
 
   /* Só avaliações reais, copiadas do Google com a autorização de quem
      escreveu. Vazio, a seção mostra a nota ao vivo do Google e nada mais:
@@ -1092,18 +1097,22 @@
       tons:["#CBA476","#96693A"],
       desc:"Ripas alinhadas sobre base, prontas para parede de sala ou cabeceira. Preço por metro quadrado, medida livre.",
       grupos:["madeira","acabamento"] },
-    { id:"banqueta", nome:"Banqueta alta", cat:"Móveis", icone:"p-banqueta", base:279, un:"", peso:6,
-      tons:["#D5B384","#A87C48"],
-      desc:"Altura de bancada, 75 cm. Encaixe cavilhado, sem parafuso aparente.",
-      grupos:["madeira","acabamento"] },
+    { id:"aparador", nome:"Aparador", cat:"Móveis", icone:"p-aparador", base:1290, un:"", peso:7,
+      tons:["#D3A872","#9E7440"], tag:"Novo",
+      desc:"Três portas com dobradiça de amortecimento e pés palito em madeira maciça. Para o hall de entrada, a sala de jantar ou embaixo da TV.",
+      grupos:["madeira","acabamento","medida"] },
     { id:"cabeceira", nome:"Mesa de cabeceira", cat:"Móveis", icone:"p-cabeceira", base:449, un:"", peso:5,
       tons:["#C9A277","#8F6335"],
       desc:"Uma gaveta com corrediça telescópica e nicho aberto. Pés em madeira maciça.",
       grupos:["madeira","acabamento","medida"] },
-    { id:"corte", nome:"Corte de chapa sob medida", cat:"Corte", icone:"p-corte", base:68, un:"/m²", peso:9,
-      tons:["#E3D2B4","#B99A6C"], tag:"Usa sobra de chapa",
-      desc:"Você manda a medida, a gente corta e aplica fita de borda. Ideal para quem monta o próprio móvel.",
-      grupos:["madeira"] },
+    { id:"sapateira", nome:"Sapateira ripada", cat:"Móveis", icone:"p-sapateira", base:690, un:"", peso:6,
+      tons:["#D0A46C","#93683A"], tag:"Novo",
+      desc:"Frente ripada que deixa o ar circular, prateleiras internas e tampo para a chave e a correspondência. Feita para a entrada de casa.",
+      grupos:["madeira","acabamento","medida"] },
+    { id:"luminaria", nome:"Luminária de madeira", cat:"Iluminação", icone:"p-luminaria", base:249, un:"", peso:6,
+      tons:["#D9B27E","#A0703C"], tag:"Novo",
+      desc:"Base torneada em madeira maciça com cúpula de linho. Para a mesa lateral, o criado-mudo ou o aparador. Soquete E27 para lâmpada LED.",
+      grupos:["acabamento"] },
     { id:"bancada", nome:"Bancada maciça", cat:"Cozinha", icone:"p-bancada", base:890, un:"/m linear", peso:4,
       tons:["#C08E56","#7E5227"],
       desc:"Tampo maciço para cozinha, ateliê ou área gourmet. Preço por metro linear, profundidade de 60 cm.",
@@ -1135,7 +1144,7 @@
     { n:"1", t:"Conversa", d:"Você conta o ambiente e o prazo. Se der para resolver por WhatsApp, resolvemos por WhatsApp." },
     { n:"2", t:"Medição", d:"Vamos até o local com trena e nível. A visita não custa nada e não obriga a nada." },
     { n:"3", t:"Projeto 3D", d:"Você vê o móvel antes de existir, com as medidas reais e o acabamento escolhido." },
-    { n:"4", t:"Produção", d:"Corte, colagem e acabamento na oficina do Tatuapé, com prazo em contrato." },
+    { n:"4", t:"Produção", d:"Produção e acabamento na oficina do Tatuapé, com prazo em contrato." },
     { n:"5", t:"Montagem", d:"Instalação no local, limpeza e conferência item a item antes de entregar a chave." }
   ];
 
@@ -1238,7 +1247,11 @@
      botão voltar do celular funciona e cada tela tem link próprio.
      ============================================================ */
 
-  var ROTAS = ["inicio","loja","sob-medida","projetos","oficina","contato","politicas"];
+  /* O simulador pode estar guardado (montar.py, SIMULADOR = False): a tela
+     só vale se veio no HTML. */
+  var COM_SIMULADOR = !!document.querySelector('[data-rota="sob-medida"]');
+  var ROTAS = ["inicio","loja","sob-medida","projetos","oficina","contato","politicas"]
+    .filter(function(r){ return r !== "sob-medida" || COM_SIMULADOR; });
   if (!NO_DOMINIO) ROTAS.push("checkout");
 
   /* Na prévia a tela vem do #/rota. No domínio vem do caminho (/loja/),
@@ -1365,7 +1378,10 @@
     if (!l.length) {
       vit.innerHTML = '<div class="vazio">' + ic("i-lupa") +
         '<p><b>Nada encontrado</b><br>Tente outra palavra, ou fale com a oficina — o que não está na loja a gente faz sob medida.</p>' +
-        '<a class="btn" href="#/sob-medida" data-ir="sob-medida" style="margin-top:12px">Simular sob medida</a></div>';
+        (COM_SIMULADOR
+          ? '<a class="btn" href="#/sob-medida" data-ir="sob-medida" style="margin-top:12px">Simular sob medida</a></div>'
+          : '<a class="btn zap" href="' + zapLink("Olá! Procurei na loja do site e não achei a peça que preciso. Vocês fazem sob medida?") +
+            '" data-zap="loja-vazia" target="_blank" rel="noopener" style="margin-top:12px">Pedir sob medida no WhatsApp</a></div>');
     } else {
       vit.innerHTML = l.map(cartaoProduto).join("");
     }
@@ -2025,7 +2041,7 @@
     cfg[b.dataset.campo] = parseInt(b.dataset.i, 10);
     pintarCfg();
   });
-  $("#cfg-range").addEventListener("input", function(e){ cfg.metros = parseFloat(e.target.value); pintarCfg(); });
+  if (COM_SIMULADOR) $("#cfg-range").addEventListener("input", function(e){ cfg.metros = parseFloat(e.target.value); pintarCfg(); });
 
   /* ============================================================
      FORMULÁRIO DE CONTATO
@@ -2206,7 +2222,7 @@
 
   $("#galeria").innerHTML = PROJETOS.map(function(p){
     return '<article class="proj">' + foto({ img:p.img, alt:p.t + " — " + p.d, tons:p.tons, icone:p.icone },
-        { selo:"3D ilustrativo", sizes:"(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 380px" }) +
+        { sizes:"(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 380px" }) +
       '<div class="txt"><span class="onde">' + esc(p.onde) + '</span><h4>' + esc(p.t) + '</h4>' +
       '<p>' + esc(p.d) + '</p><div class="meta">' +
       p.meta.map(function(m){ return "<span>" + esc(m) + "</span>"; }).join("") +
@@ -2231,7 +2247,7 @@
     var p = PROJETOS.filter(function(x){ return x.img === nome; })[0];
     return '<a class="tela' + (i === 0 ? ' grande' : '') + '" href="#/projetos" data-ir="projetos">' +
       imagem(p.img, p.t + " — " + p.d, i === 0 ? "(max-width: 760px) 100vw, 680px" : "(max-width: 760px) 100vw, 480px") +
-      '<span class="leg"><b>' + esc(p.t) + '</b><span>' + esc(p.meta[2]) + (REAIS[p.img] ? '' : ' · 3D ilustrativo') + '</span></span></a>';
+      '<span class="leg"><b>' + esc(p.t) + '</b><span>' + esc(p.meta[2]) + '</span></span></a>';
   }).join("");
 
   /* fotos fixas do HTML: cartões dos três balcões e a faixa da oficina */
@@ -2240,9 +2256,9 @@
       el.closest(".quadro-foto") ? "(max-width: 980px) 100vw, 560px" : "(max-width: 980px) 100vw, 380px");
   });
 
-  $("#peca-oficina").innerHTML = foto({ img:"corte", alt:"Chapas de MDF cortadas na medida sobre a bancada, com trena, lápis e esquadro", tag:"A oficina" },
+  $("#peca-oficina").innerHTML = foto({ img:"corte", alt:"Chapas de MDF sobre a bancada da oficina, com trena, lápis e esquadro", tag:"A oficina" },
     { selo:"3D ilustrativo", sizes:"(max-width: 980px) 100vw, 560px" }) +
-    '<div class="pe"><span><b>Chapa cortada na medida</b><span>Corte, fita de borda e acabamento no mesmo endereço</span></span></div>';
+    '<div class="pe"><span><b>Medida conferida na bancada</b><span>Trena, esquadro e acabamento no mesmo endereço</span></span></div>';
 
   // todo link de WhatsApp já nasce com o número no HTML; aqui ganha a primeira frase pronta
   $$("[data-zap]").forEach(function(a){
@@ -2258,7 +2274,7 @@
 
   pintarFiltros();
   pintarVitrine();
-  pintarCfg();
+  if (COM_SIMULADOR) pintarCfg();
   pintarCarrinho();
   irPara(rotaAtual(), true);
 })();
