@@ -299,6 +299,19 @@ python3 montar.py --dominio https://marceneirotatuape.com.br/ --forcar
 NODE_PATH=$(npm root -g) node testes/dominio.js         # o site como vai ao ar, servido como raiz
 ```
 
+**Publicar a prévia (Artifact) sempre com todos os arquivos.** A página do
+Artifact carrega as fotos como arquivos à parte. Se só a página for publicada
+de novo, os arquivos antigos continuam lá e os novos não sobem. Em 04/11 a capa
+nova saiu quebrada assim, enquanto os testes locais passavam. Por isso:
+
+1. O `montar.py` grava `artifact-arquivos.json`, com a lista completa do que a
+   prévia usa.
+2. A publicação leva todos esses arquivos, e o que estiver publicado e não
+   estiver na lista vai como `null`.
+3. Depois de publicar, baixe a lista do que está no ar e monte uma pasta só
+   com esses arquivos e a página publicada. Rode `node testes/site.js
+   <pasta>/index.html` nela: imagem que não subiu aparece como falha.
+
 Em 04/11, com as fotos reais: **93 conferências** na prévia — endereço,
 WhatsApp, simulador guardado, capa com foto real e sem pixelar em nenhuma tela, os seis ambientes com foto e
 pedido próprio, o mosaico abrindo a galeria na foto clicada, os seis ambientes

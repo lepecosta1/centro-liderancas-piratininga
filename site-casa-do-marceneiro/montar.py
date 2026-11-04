@@ -113,6 +113,17 @@ corpo = injetar(corpo, "OBRAS", obras())
 
 # ---------------------------------------------------------------- prévia
 (base / "artifact.html").write_text(corpo.strip() + "\n", encoding="utf-8")
+# O Artifact carrega as fotos como arquivos à parte, e republicar só a página
+# mantém os arquivos antigos e não leva os novos: a capa nova saiu quebrada
+# assim em 04/11. Esta é a lista completa do que a prévia usa, para publicar
+# sempre inteira (o que estiver publicado e não estiver aqui vai como null).
+usados = sorted({m for m in re.findall(r"(?:fotos|marca)/[\w./-]+\.(?:webp|svg|png|jpg|mp4)", corpo)
+                 if not m.startswith("fotos/obras/")})
+arquivos = sorted(str(p.relative_to(base)) for p in (base / "fotos").rglob("*") if p.is_file() and p.suffix != ".json")
+faltam = [m for m in usados if not (base / m).exists()]
+assert not faltam, f"a prévia aponta para arquivos que não existem: {faltam}"
+(base / "artifact-arquivos.json").write_text(json.dumps(arquivos + [m for m in usados if m.startswith("marca/")],
+    indent=1) + "\n", encoding="utf-8")
 
 def ficha(url):
     """Ficha da empresa para o Google: os mesmos dados do rodapé, letra por letra."""
