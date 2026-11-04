@@ -148,9 +148,12 @@ python3 montar.py --dominio https://marceneirotatuape.com.br/
 
 Sai em `publicar/` (fora do Git): as sete páginas, com estilo e código em
 `estilo.css` e `site.js` compartilhados (cada página tem 54 KB em vez de 740),
-`sitemap.xml`, `robots.txt`, `404.html`, `CNAME` (só fora da Vercel), o endereço
-antigo `/portfolio/` levando a `/projetos/`, as fotos e só os arquivos do logo
-que a página usa. No domínio não existe checkout simulado nem bandeira de cartão: o carrinho vira **Pedir pelo
+`sitemap.xml`, `robots.txt`, `404.html`, o endereço antigo `/portfolio/` levando
+a `/projetos/`, as fotos e só os arquivos do logo que a página usa. Fora da
+Vercel saem também `CNAME`, `_redirects` e `_headers` (Cloudflare Pages, Netlify)
+e `.htaccess` (HostGator e qualquer Apache), com as mesmas regras do
+`vercel.json`: o redirecionamento do portfólio, a página 404, HTTPS e cache das
+fotos. No domínio não existe checkout simulado nem bandeira de cartão: o carrinho vira **Pedir pelo
 WhatsApp**, com peça, opção, quantidade, valor e subtotal na mensagem.
 
 **A conferência de lançamento.** O comando se recusa a publicar indexável
@@ -164,12 +167,14 @@ para o Gabriel ver e aprovar, sem o Google guardar nada inventado. Quando a
 A ordem:
 
 1. **Gabriel aprova a prévia.**
-2. **Fotos reais.** Na pasta Marceneiro Tatuapé do Drive, cada foto com o nome do
-   lugar (`capa.jpg`, `cozinha.jpg`, `oficina.jpg`…). Depois
+2. **Fotos reais.** As das obras já entraram (04/11, ver "Fotos reais das obras"):
+   capa, os seis ambientes e o mosaico. Faltam a oficina, o corte e os nove
+   produtos da loja: cada foto com o nome do lugar (`oficina.jpg`…) e
    `python gerador/fotos/importar.py <pasta>` — vira, corta, reduz, tira o GPS e
    marca o lugar em `fotos/reais.json`; o selo de 3D sai sozinho dali.
-3. **Projetos reais.** Trocar os seis de `PROJETOS` no `corpo.html` pelas obras
-   das fotos: o que é, o bairro, os metros e o prazo de verdade.
+3. **Projetos reais.** Feito como galeria por ambiente (`obras.json`). Se o
+   Gabriel quiser obras com bairro, metragem e prazo, ele passa os dados de cada
+   uma e elas entram como mais um nível da galeria — sem isso, não se inventa.
 4. **Confirmar com o Gabriel** e marcar no `lancamento.json`: CNPJ, preços,
    horário, Instagram, 1980 e as promessas que o site faz — garantia de 3 anos,
    visita sem custo, desconto por atraso, preço travado, prazos de retirada e
@@ -180,15 +185,30 @@ A ordem:
 6. **Domínio.** Conferir no Registro.br que o titular é o CNPJ do Gabriel e
    **anotar todos os registros de DNS de hoje, principalmente os MX**: o
    `contato@marceneirotatuape.com.br` depende deles e não pode cair na troca.
-7. **Hospedagem.** Já está na Vercel (`vercel.json`): o build roda o
-   `montar.py --dominio` com o endereço de produção do projeto, e o cadeado é
-   automático. Hoje o projeto está na conta do Leandro; a Vercel transfere o
-   projeto para uma conta no e-mail do Gabriel sem tirar o site do ar.
-8. **DNS.** Na Vercel, Settings → Domains → `marceneirotatuape.com.br` e
-   `www.marceneirotatuape.com.br`. No DNS do domínio, os registros que ela
-   mostrar — hoje, A `@` para `76.76.21.21` e CNAME `www` para
-   `cname.vercel-dns.com`. MX e TXT do e-mail ficam como estão. Propagação:
-   até 24 h. O build seguinte já sai com o domínio no canônico e no sitemap.
+7. **Hospedagem.** O plano grátis da Vercel (Hobby) é só para uso não
+   comercial: a prévia pode ficar lá, o site da loja não. Três caminhos, todos
+   com o mesmo build:
+   - **Cloudflare Pages (recomendado, grátis, uso comercial liberado).** Ligar
+     ao repositório; pasta raiz `site-casa-do-marceneiro`, comando
+     `python3 montar.py --dominio https://marceneirotatuape.com.br/`, saída
+     `publicar`. Lê os `_redirects` e `_headers` gerados.
+   - **HostGator (o plano que o Gabriel já paga).** Rodar o mesmo comando aqui e
+     enviar o conteúdo de `publicar/` para `public_html` pelo gerenciador de
+     arquivos ou FTP, `.htaccess` incluído (é arquivo oculto: conferir que subiu).
+     Cada atualização é um novo envio.
+   - **Vercel Pro (US$ 20 por mês).** `vercel.json` já pronto; a Vercel transfere
+     o projeto para uma conta no e-mail do Gabriel sem tirar o site do ar.
+8. **DNS.** MX e TXT do e-mail ficam como estão em qualquer caminho.
+   - Cloudflare: o endereço sem `www` exige o domínio como zona do Cloudflare,
+     ou seja, trocar os servidores de nome no Registro.br. Recriar antes, no
+     Cloudflare, todos os registros anotados no passo 6.
+   - HostGator: nada muda no DNS se o domínio já aponta para a hospedagem.
+   - Vercel: Settings → Domains → `marceneirotatuape.com.br` e
+     `www.marceneirotatuape.com.br`, e no DNS os registros que ela mostrar —
+     hoje, A `@` para `76.76.21.21` e CNAME `www` para `cname.vercel-dns.com`.
+
+   Propagação: até 24 h. O build seguinte já sai com o domínio no canônico e no
+   sitemap.
 9. **Conferir no celular:** cadeado, `/contato/`, `/projetos/`, `/portfolio/`
    levando a projetos, WhatsApp e Ligar chamando o (11) 94752-3961.
 10. **Google Search Console:** propriedade de domínio (registro TXT), enviar

@@ -299,6 +299,24 @@ hoje = datetime.date.today().isoformat()
     f"\nSitemap: {url}sitemap.xml\n", encoding="utf-8")
 if raiz == "/" and not os.environ.get("VERCEL"):   # CNAME é coisa do GitHub Pages
     (destino / "CNAME").write_text(urlparse(url).hostname + "\n", encoding="utf-8")
+if not os.environ.get("VERCEL"):
+    # As mesmas regras do vercel.json para quem hospedar em outro lugar: a
+    # Cloudflare Pages (e a Netlify) leem _redirects e _headers; a HostGator,
+    # como todo Apache, lê o .htaccess.
+    antigos = "".join(f"{raiz}{a} {raiz}{n}/ 301\n{raiz}{a}/* {raiz}{n}/ 301\n" for a, n in ANTIGOS.items())
+    (destino / "_redirects").write_text(antigos, encoding="utf-8")
+    (destino / "_headers").write_text(
+        "/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n"
+        "  Permissions-Policy: camera=(), microphone=(), geolocation=()\n"
+        f"{raiz}fotos/*\n  Cache-Control: public, max-age=86400, stale-while-revalidate=604800\n", encoding="utf-8")
+    (destino / ".htaccess").write_text(
+        "ErrorDocument 404 " + raiz + "404.html\nDirectoryIndex index.html\n"
+        "RewriteEngine On\nRewriteCond %{HTTPS} off\nRewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]\n" +
+        "".join(f"RedirectMatch 301 ^{raiz}{a}(/.*)?$ {raiz}{n}/\n" for a, n in ANTIGOS.items()) +
+        "<IfModule mod_headers.c>\n  Header set X-Content-Type-Options nosniff\n"
+        "  Header set Referrer-Policy strict-origin-when-cross-origin\n</IfModule>\n"
+        "<IfModule mod_expires.c>\n  ExpiresActive On\n  ExpiresByType image/webp \"access plus 1 day\"\n"
+        "  ExpiresByType video/mp4 \"access plus 1 day\"\n</IfModule>\n", encoding="utf-8")
 (destino / ".nojekyll").write_text("", encoding="utf-8")
 
 total = sum(f.stat().st_size for f in destino.rglob("*") if f.is_file())
