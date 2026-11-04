@@ -20,13 +20,13 @@ from PIL import Image, ImageOps
 
 # lugar → (proporção largura/altura, larguras geradas). A primeira largura
 # é a do arquivo principal; as outras ganham o sufixo -<largura>.
-CAPA = (16 / 9, (2400, 1600, 960))
+CAPA = (16 / 9, (1600, 960))
 AMBIENTE = (4 / 3, (1280, 640))
 PECA = (4 / 3, (1200, 640))
 LUGARES = {
     "capa": CAPA,
     "cozinha": AMBIENTE, "closet": AMBIENTE, "escritorio": AMBIENTE, "painel": AMBIENTE,
-    "compacta": AMBIENTE, "dormitorio": AMBIENTE, "banheiro": AMBIENTE, "oficina": AMBIENTE,
+    "dormitorio": AMBIENTE, "banheiro": AMBIENTE, "oficina": AMBIENTE,
     "corte": PECA, "nicho": PECA, "prateleira": PECA, "tabua": PECA, "ripado": PECA,
     "aparador": PECA, "cabeceira": PECA, "sapateira": PECA, "luminaria": PECA, "bancada": PECA,
 }

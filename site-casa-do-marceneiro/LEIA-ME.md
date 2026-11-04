@@ -269,6 +269,27 @@ A ordenação estava certa; corrigi o teste, não o código.
 
 ## Verificação
 
+Os testes agora moram no repositório, em `testes/` (antes ficavam numa pasta
+temporária e se perderam quando o ambiente de trabalho reiniciou):
+
+```
+python3 montar.py
+NODE_PATH=$(npm root -g) node testes/site.js            # prévia: computador e sete celulares
+python3 montar.py --dominio https://marceneirotatuape.com.br/ --forcar
+NODE_PATH=$(npm root -g) node testes/dominio.js         # o site como vai ao ar, servido como raiz
+```
+
+Em 04/11, com as fotos reais: **85 conferências** na prévia — endereço,
+WhatsApp, simulador guardado, capa com foto real, os seis ambientes com foto e
+pedido próprio, o mosaico abrindo a galeria na foto clicada, os seis ambientes
+de projetos sem nada de exemplo, a galeria (setas, teclado, miniaturas, vídeo
+só no play, pedido dizendo o ambiente, Esc e ×), a loja; e, em sete celulares
+(iPhone SE e 13, Pixel 7, Galaxy S9+ e de 320 px, iPad Mini, Moto G4), as seis
+telas sem rolagem para o lado, a foto cabendo na tela e o arrastar para passar
+de foto. **25 do modo domínio**: título e canônico, a galeria carregando da
+raiz em `/projetos/`, as 33 fotos e o vídeo publicados, o pedido pelo
+carrinho, `/portfolio/`, sitemap e a ficha do Google. Zero erro de JavaScript.
+
 Em 21/10: **180 conferências** de ponta a ponta na prévia, **335 de celular**,
 **34 do modo domínio** servido como raiz (páginas por caminho, título e
 canônico por tela, voltar do celular, pedido pelo WhatsApp, `/portfolio/`,
@@ -315,14 +336,45 @@ Todo texto passa no piso de contraste WCAG AA, medido cor a cor.
 
 ## As imagens
 
-| Arquivo em `fotos/` | Onde aparece |
-|---|---|
-| `capa-2400/1600/960.webp` | Capa do site (cozinha em U, quadro panorâmico) |
-| `nicho`, `prateleira`, `tabua`, `ripado`, `aparador`, `cabeceira`, `sapateira`, `luminaria`, `bancada` | Peça da loja de mesmo nome |
-| `cozinha`, `closet`, `escritorio`, `painel`, `compacta`, `dormitorio` | Projetos concluídos, mosaico da página inicial, simulador |
-| `banheiro` | Simulador, ambiente Banheiro (guardado: não conta para o lançamento) |
-| `oficina` | Faixa "Oficina aberta" da página inicial |
-| `corte` | Detalhe da bancada na página A oficina |
+### Fotos reais das obras (04/11)
+
+O Gabriel mandou pelo Drive 60 arquivos: 31 fotos soltas, três `.zip` e uma
+pasta que era um dos `.zip` já aberto, além de três vídeos. Comparadas pelo
+conteúdo — o WhatsApp dá o mesmo nome a fotos diferentes —, eram **53 fotos
+diferentes**: seis cópias exatas e uma recomprimida. Das 53 ficaram **33**: dez
+pares quase iguais perderam a pior de cada par, e saíram as fotos com gente, com
+bagunça de obra e a de uma TV mostrando imagem de terceiros. Na capa, a tela da
+TV desligada refletia quem fotografava e foi escurecida; o móvel ficou como está.
+
+- `obras.json` é a curadoria: cada foto (achada pelo hash do original), o
+  ambiente, o texto alternativo, o foco do recorte e os lugares fixos do site.
+- `gerador/fotos/obras.py <pastas dos originais>` gera `fotos/obras/<id>.webp`
+  (lado maior de 1600 px) e `-640.webp`, os lugares fixos recortados no foco, o
+  vídeo sem áudio e sem metadados, e marca os lugares em `fotos/reais.json`.
+  Nada do GPS do celular é copiado.
+- O `montar.py` junta a curadoria com os tamanhos e entrega ao site; recusa
+  montar se faltar uma foto.
+
+Os projetos concluídos são por **ambiente** — cozinhas, dormitórios e closets,
+salas e home office, halls e divisórias, banheiros e lavabos, área gourmet —,
+e não por obra: sem a confirmação do Gabriel, agrupar fotos em "obras" com
+bairro, metragem e prazo seria inventar. Cada ambiente abre uma galeria em
+tela cheia; o de cozinhas traz o tour em vídeo de 23 segundos.
+
+Dois `.zip` do Drive (12 e 16 MB) e o vídeo maior passam do limite de 10 MB da
+ferramenta de leitura do Drive e não foram abertos. Pelo tamanho, o de 16 MB
+deve ser o vídeo de 15 MB; se algum tiver foto diferente, basta abrir a pasta
+no próprio Drive, como foi feito com o primeiro.
+
+### Os lugares fixos
+
+| Arquivo em `fotos/` | Onde aparece | Foto |
+|---|---|---|
+| `capa-1600/960.webp` | Capa do site | Real: painel de TV e cozinha em madeira |
+| `cozinha`, `closet`, `escritorio`, `painel`, `dormitorio`, `banheiro` | Os seis ambientes da página inicial; simulador guardado | Real |
+| `nicho`, `prateleira`, `tabua`, `ripado`, `aparador`, `cabeceira`, `sapateira`, `luminaria`, `bancada` | Peça da loja de mesmo nome | 3D — falta a foto da peça pronta |
+| `oficina` | Faixa "Oficina aberta" da página inicial | 3D — falta a foto da oficina |
+| `corte` | Detalhe da bancada na página A oficina | 3D — falta a foto da bancada |
 
 Cada imagem tem duas larguras: `<nome>.webp` (1200 ou 1280 px) e `<nome>-640.webp`,
 e o navegador escolhe pela largura em que ela aparece. Para trocar por foto real:

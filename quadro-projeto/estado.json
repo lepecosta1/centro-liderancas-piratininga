@@ -1,7 +1,7 @@
 {
   "versao": 2,
   "titulo": "Quadro do Projeto Marceneiro",
-  "atualizado": "2026-10-27",
+  "atualizado": "2026-11-04",
   "visita": "2026-10-21",
   "marcos": [
     {
@@ -102,6 +102,17 @@
       ]
     },
     {
+      "id": "m16",
+      "rot": "Fotos reais e validação com o Gabriel",
+      "quando": "qua 04/11",
+      "ate": "2026-11-04",
+      "entrega": "As obras de verdade no site, por ambiente, para o Gabriel validar o site novo antes de subir no marceneirotatuape.com.br.",
+      "itens": [
+        "f24",
+        "h7"
+      ]
+    },
+    {
       "id": "m4",
       "rot": "Endereço no ar",
       "quando": "até qua 28/10",
@@ -135,9 +146,8 @@
       "rot": "Vitrine real",
       "quando": "até sex 06/11",
       "ate": "2026-11-06",
-      "entrega": "As fotos do Gabriel no lugar dos desenhos de chapa, com preço que se pode cobrar e catálogo cadastrado. É o marco que depende só dele.",
+      "entrega": "As fotos do Gabriel no lugar dos desenhos — as das obras entraram em 04/11; faltam a oficina e as peças da loja —, com preço que se pode cobrar e catálogo cadastrado.",
       "itens": [
-        "h7",
         "a8",
         "a9",
         "a11",
@@ -484,6 +494,13 @@
       "d": "Palavras-chave, negativas e anúncios numa fonte só, que confere o limite de caracteres do Google e se cada palavra aparece na página para onde o anúncio leva — é o que o Google mede como relevância da página de destino. Liga quando a conta for liberada e o site estiver sem nada de exemplo. Feito em 27/10."
     },
     {
+      "id": "f24",
+      "estado": "feito",
+      "frente": "Site",
+      "t": "Fotos reais das obras no site",
+      "d": "Capa, os seis ambientes da página inicial, o mosaico e a página de projetos com as obras de verdade. Projetos concluídos virou galeria por ambiente — cozinhas, dormitórios e closets, salas e home office, halls e divisórias, banheiros e lavabos, área gourmet —, com foto em tela cheia, arrastar no celular, o tour em vídeo da obra em madeira e o pedido de orçamento já dizendo o ambiente. Sem bairro, prazo ou metragem inventados; sem GPS nas fotos. Feito em 04/11."
+    },
+    {
       "id": "h1",
       "estado": "fazendo",
       "frente": "Domínio",
@@ -524,11 +541,11 @@
     },
     {
       "id": "h7",
-      "estado": "fazendo",
+      "estado": "feito",
       "frente": "Conteúdo",
       "trava": true,
       "t": "Fotos e vídeos do acervo",
-      "d": "Caminho crítico: o site, a Meta e o domínio esperam por elas. Em 27/10 o Gabriel separou as fotos originais e está fechando o link do Google Drive. Assim que o link chegar, cada foto vai para o seu lugar no site — a seção Fotos marca lugar por lugar — e a página de projetos troca os exemplos pelas obras de verdade."
+      "d": "Chegaram em 04/11 pelo Drive: 60 arquivos, 53 fotos diferentes depois de tirar as cópias exatas e a recomprimida, 33 no site — as quase iguais, as com gente, bagunça de obra ou TV com imagem de terceiros ficaram de fora. Faltam só duas fotos da oficina e as das peças da loja quando forem feitas."
     },
     {
       "id": "h8",
@@ -953,15 +970,15 @@
     "ordem": "Semana 1: reencontro e avaliações, que custam zero e alimentam o Google Meu Negócio. Semanas 2 a 4: perfil vivo, indicação e vizinho da obra. Com as fotos reais: anúncio de mensagem na Meta. Com a conta liberada: anúncio de pesquisa no Google. Sempre: arquitetos, Pinterest e Instagram."
   },
   "fotos": {
-    "intro": "Cada imagem do site tem um lugar marcado. Hoje são projetos 3D ilustrativos; a foto real entra com o mesmo nome de arquivo e o selo sai. Cada link abre uma busca do Pinterest com o estilo daquele lugar, para o Gabriel apontar o que quer mostrar. Foto do Pinterest tem dono e é obra de outra oficina: serve de inspiração, nunca vai para o site.",
+    "intro": "Em 04/11 entraram as fotos reais das obras: 60 arquivos do Drive, 53 fotos diferentes, 33 escolhidas, por ambiente, numa galeria em tela cheia. Os lugares fixos do site que eram 3D agora são foto real. Faltam a oficina e as peças da loja, que precisam de foto da peça pronta. Cada link abre uma busca do Pinterest com o estilo daquele lugar, só como referência: foto do Pinterest é obra de outra oficina e nunca vai para o site.",
     "lugares": [
       {
         "id": "capa",
         "t": "Capa do site",
         "onde": "Início, a primeira tela",
-        "arquivo": "fotos/capa-2400.webp",
+        "arquivo": "fotos/capa-1600.webp",
         "q": "cozinha em U madeira freijó tampo de madeira",
-        "estado": "afazer"
+        "estado": "feito"
       },
       {
         "id": "cozinha",
@@ -969,7 +986,7 @@
         "onde": "Projetos concluídos",
         "arquivo": "fotos/cozinha.webp",
         "q": "cozinha planejada torre quente madeira",
-        "estado": "afazer"
+        "estado": "feito"
       },
       {
         "id": "closet",
@@ -977,7 +994,7 @@
         "onde": "Projetos concluídos",
         "arquivo": "fotos/closet.webp",
         "q": "closet aberto madeira iluminação embutida",
-        "estado": "afazer"
+        "estado": "feito"
       },
       {
         "id": "escritorio",
@@ -985,7 +1002,7 @@
         "onde": "Projetos concluídos",
         "arquivo": "fotos/escritorio.webp",
         "q": "home office nicho sala marcenaria",
-        "estado": "afazer"
+        "estado": "feito"
       },
       {
         "id": "painel",
@@ -993,15 +1010,7 @@
         "onde": "Projetos concluídos",
         "arquivo": "fotos/painel.webp",
         "q": "painel ripado freijó rack suspenso",
-        "estado": "afazer"
-      },
-      {
-        "id": "compacta",
-        "t": "Cozinha compacta de apartamento",
-        "onde": "Projetos",
-        "arquivo": "fotos/compacta.webp",
-        "q": "cozinha compacta apartamento pequeno planejada",
-        "estado": "afazer"
+        "estado": "feito"
       },
       {
         "id": "dormitorio",
@@ -1009,7 +1018,7 @@
         "onde": "Projetos",
         "arquivo": "fotos/dormitorio.webp",
         "q": "quarto casal marcenaria cabeceira madeira guarda-roupa",
-        "estado": "afazer"
+        "estado": "feito"
       },
       {
         "id": "banheiro",
@@ -1017,12 +1026,12 @@
         "onde": "Simulador, que está guardado — não precisa agora",
         "arquivo": "fotos/banheiro.webp",
         "q": "gabinete suspenso banheiro madeira cuba de apoio",
-        "estado": "afazer"
+        "estado": "feito"
       },
       {
         "id": "oficina",
         "t": "A oficina",
-        "onde": "Início e Quem somos — só foto real, tirada na visita",
+        "onde": "Início e A oficina — falta: duas fotos da oficina de verdade, tiradas no celular",
         "arquivo": "fotos/oficina.webp",
         "q": "fotografia oficina de marcenaria luz natural",
         "estado": "afazer"
@@ -1030,7 +1039,7 @@
       {
         "id": "corte",
         "t": "Bancada da oficina",
-        "onde": "A oficina",
+        "onde": "A oficina — falta: a bancada com trena e esquadro",
         "arquivo": "fotos/corte.webp",
         "q": "bancada de marcenaria trena esquadro chapa",
         "estado": "afazer"
@@ -1120,15 +1129,15 @@
       },
       {
         "id": "s2",
-        "feito": false,
+        "feito": true,
         "t": "Fotos reais na pasta do Drive",
-        "d": "O Gabriel separou as fotos originais em 27/10 e está fechando o link do Google Drive. Cada foto vai para o seu lugar — a seção Fotos deste quadro tem a lista — e entra no site sem o GPS."
+        "d": "Feito em 04/11: 33 fotos reais das obras no site, sem o GPS. Faltam só a oficina e as peças da loja."
       },
       {
         "id": "s3",
-        "feito": false,
+        "feito": true,
         "t": "Projetos reais no lugar dos de exemplo",
-        "d": "As seis obras da página de projetos, com o que é, o bairro, os metros e o prazo de verdade — as das fotos."
+        "d": "Feito em 04/11: a página de projetos mostra as obras reais por ambiente, sem bairro, prazo ou metragem de exemplo."
       },
       {
         "id": "s4",

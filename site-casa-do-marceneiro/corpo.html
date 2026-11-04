@@ -33,6 +33,8 @@
 <g id="i-regua" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="1.4" y="5.2" width="13.2" height="5.6" rx="1.1"/><path d="M4.2 5.2v2.1M6.6 5.2v3M9 5.2v2.1M11.4 5.2v3"/></g>
 <g id="i-martelo" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m7.6 6.2-5 5a1.4 1.4 0 0 0 2 2l5-5"/><path d="M8.2 2.4 6.4 4.2l3.4 3.4 1.8-1.8 2.2.6-.9-3.5-3.5-.9.8 2.2z"/></g>
 <g id="i-folha" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.6 2.6c0 6-3.4 9.4-8 9.4a4.4 4.4 0 0 1 0-8.8c3.6 0 4.6-.6 8-.6Z"/><path d="M2.8 13.4c1.6-3.4 4-5.6 7.4-7"/></g>
+<g id="i-camera" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M2 5.2h2.6l1.2-1.8h4.4l1.2 1.8H14v7.6H2z"/><circle cx="8" cy="8.8" r="2.4"/></g>
+<g id="i-play" fill="currentColor"><path d="M5.2 3.4v9.2L12.6 8z"/></g>
 <g id="i-seta" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9.2 4.2 13 8l-3.8 3.8"/></g>
 <g id="i-volta" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8H3M6.8 4.2 3 8l3.8 3.8"/></g>
 <g id="p-nicho" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 12h18M12 4v16"/></g>
@@ -97,8 +99,8 @@
 
   <div class="capa">
     <picture class="capa-foto">
-      <img src="fotos/capa-1600.webp" srcset="fotos/capa-960.webp 960w, fotos/capa-1600.webp 1600w, fotos/capa-2400.webp 2400w"
-        sizes="(orientation: portrait) and (min-width: 761px) 150vh, 100vw" width="2400" height="1350" alt="Cozinha em U com armários em MDF amadeirado, torre quente e tampo contínuo de freijó maciço, iluminada pelo sol da tarde"
+      <img src="fotos/capa-1600.webp" srcset="fotos/capa-960.webp 960w, fotos/capa-1600.webp 1600w"
+        sizes="(orientation: portrait) and (min-width: 761px) 150vh, 100vw" width="1600" height="900" alt="Sala com painel de TV em madeira, fita de LED vertical e rack suspenso, integrada à cozinha planejada em madeira — obra da Casa do Marceneiro"
         fetchpriority="high" decoding="async">
     </picture>
 
@@ -127,7 +129,7 @@
       </div>
     </div>
 
-    <p class="capa-legenda"><b>Cozinha em U · tampo contínuo em freijó maciço</b><span data-ilustrativo="capa">Projeto 3D ilustrativo</span></p>
+    <p class="capa-legenda"><b>Painel de TV e cozinha em madeira</b><span>Obra da Casa do Marceneiro</span></p>
   </div>
 
   <div class="faixa">
@@ -158,7 +160,7 @@
           <a class="btn" href="https://wa.me/5511947523961" data-zap="balcao" target="_blank" rel="noopener">Mandar a medida<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a><!--/SEM-SIMULADOR-->
         </div>
         <div class="balcao com-foto" style="--cor:#7F4F0E">
-          <div class="ft" data-foto="closet" data-alt="Closet aberto em carvalho com cabideiros, gaveteiro e sapateira"></div>
+          <div class="ft" data-foto="obras/divisoria-ripado-cozinha" data-alt="Cozinha de studio com divisórias de ripado de madeira até a área do quarto"></div>
           <span class="quando">Visita técnica · projeto e execução</span>
           <h3>Bancada</h3>
           <p>Móveis planejados para a casa inteira: closet, guarda-roupa, cozinha, dormitório, marcenaria de apartamento.
@@ -195,45 +197,43 @@
       </div>
       <div class="mosaico" id="mosaico"></div>
       <div class="balcoes ambientes" id="ambientes">
-        <div class="balcao" style="--cor:#A66A15">
-          <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#p-closet"/></svg></span>
+        <div class="balcao com-foto" style="--cor:#A66A15">
+          <div class="ft" data-foto="closet" data-alt="Guarda-roupa de portas espelhadas até o teto"></div>
           <h3>Closet e guarda-roupa</h3>
           <p>Guarda-roupa planejado e closet sob medida, do quarto de casal ao apartamento compacto.</p>
-          <a class="btn peq" href="https://wa.me/5511947523961" data-zap="ambiente-closet" data-msg="Olá! Vim pelo site da Casa do Marceneiro e quero orçamento de closet ou guarda-roupa sob medida." target="_blank" rel="noopener">Pedir orçamento<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
+          <div class="amb-bts"><a class="btn peq" href="https://wa.me/5511947523961" data-zap="ambiente-closet" data-msg="Olá! Vim pelo site da Casa do Marceneiro e quero orçamento de closet ou guarda-roupa sob medida." target="_blank" rel="noopener">Pedir orçamento<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a><button class="btn peq leve" type="button" data-album="dormitorios"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-camera"/></svg>Ver fotos</button></div>
         </div>
-        <div class="balcao" style="--cor:#A66A15">
-          <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#p-cozinha"/></svg></span>
+        <div class="balcao com-foto" style="--cor:#A66A15">
+          <div class="ft" data-foto="cozinha" data-alt="Cozinha planejada em madeira com tampo preto e LED no forro"></div>
           <h3>Cozinha planejada</h3>
           <p>Armários até o teto, torre quente e bancada de madeira maciça na medida da sua parede.</p>
-          <a class="btn peq" href="https://wa.me/5511947523961" data-zap="ambiente-cozinha" data-msg="Olá! Vim pelo site da Casa do Marceneiro e quero orçamento de cozinha planejada." target="_blank" rel="noopener">Pedir orçamento<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
+          <div class="amb-bts"><a class="btn peq" href="https://wa.me/5511947523961" data-zap="ambiente-cozinha" data-msg="Olá! Vim pelo site da Casa do Marceneiro e quero orçamento de cozinha planejada." target="_blank" rel="noopener">Pedir orçamento<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a><button class="btn peq leve" type="button" data-album="cozinhas"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-camera"/></svg>Ver fotos</button></div>
         </div>
-        <div class="balcao" style="--cor:#A66A15">
-          <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#p-cabeceira"/></svg></span>
+        <div class="balcao com-foto" style="--cor:#A66A15">
+          <div class="ft" data-foto="dormitorio" data-alt="Dormitório com cabeceira terracota, criado-mudo suspenso e ripado"></div>
           <h3>Dormitório</h3>
           <p>Cabeceira, criado-mudo e guarda-roupa do mesmo lote de madeira, para o quarto inteiro combinar.</p>
-          <a class="btn peq" href="https://wa.me/5511947523961" data-zap="ambiente-dormitorio" data-msg="Olá! Vim pelo site da Casa do Marceneiro e quero orçamento de móveis de dormitório sob medida." target="_blank" rel="noopener">Pedir orçamento<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
+          <div class="amb-bts"><a class="btn peq" href="https://wa.me/5511947523961" data-zap="ambiente-dormitorio" data-msg="Olá! Vim pelo site da Casa do Marceneiro e quero orçamento de móveis de dormitório sob medida." target="_blank" rel="noopener">Pedir orçamento<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a><button class="btn peq leve" type="button" data-album="dormitorios"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-camera"/></svg>Ver fotos</button></div>
         </div>
-        <div class="balcao" style="--cor:#A66A15">
-          <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#p-painel"/></svg></span>
+        <div class="balcao com-foto" style="--cor:#A66A15">
+          <div class="ft" data-foto="painel" data-alt="Sala com painel de TV iluminado"></div>
           <h3>Painel de TV e sala</h3>
           <p>Painel ripado, rack suspenso e estante sob medida, com a fiação escondida.</p>
-          <a class="btn peq" href="https://wa.me/5511947523961" data-zap="ambiente-sala" data-msg="Olá! Vim pelo site da Casa do Marceneiro e quero orçamento de painel de TV ou móveis de sala sob medida." target="_blank" rel="noopener">Pedir orçamento<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
+          <div class="amb-bts"><a class="btn peq" href="https://wa.me/5511947523961" data-zap="ambiente-sala" data-msg="Olá! Vim pelo site da Casa do Marceneiro e quero orçamento de painel de TV ou móveis de sala sob medida." target="_blank" rel="noopener">Pedir orçamento<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a><button class="btn peq leve" type="button" data-album="salas"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-camera"/></svg>Ver fotos</button></div>
         </div>
-        <div class="balcao" style="--cor:#A66A15">
-          <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#p-home"/></svg></span>
+        <div class="balcao com-foto" style="--cor:#A66A15">
+          <div class="ft" data-foto="escritorio" data-alt="Home office com escrivaninha verde e painel de TV"></div>
           <h3>Home office</h3>
           <p>Bancada de trabalho, prateleiras e nichos que aproveitam o canto que sobrou.</p>
-          <a class="btn peq" href="https://wa.me/5511947523961" data-zap="ambiente-home-office" data-msg="Olá! Vim pelo site da Casa do Marceneiro e quero orçamento de home office planejado." target="_blank" rel="noopener">Pedir orçamento<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
+          <div class="amb-bts"><a class="btn peq" href="https://wa.me/5511947523961" data-zap="ambiente-home-office" data-msg="Olá! Vim pelo site da Casa do Marceneiro e quero orçamento de home office planejado." target="_blank" rel="noopener">Pedir orçamento<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a><button class="btn peq leve" type="button" data-album="salas"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-camera"/></svg>Ver fotos</button></div>
         </div>
-        <div class="balcao" style="--cor:#A66A15">
-          <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#p-nicho"/></svg></span>
+        <div class="balcao com-foto" style="--cor:#A66A15">
+          <div class="ft" data-foto="banheiro" data-alt="Lavabo com espelho redondo iluminado e parede de ripado"></div>
           <h3>Banheiro e lavabo</h3>
           <p>Gabinete suspenso, nichos e espelheira sob medida para o banheiro e o lavabo.</p>
-          <a class="btn peq" href="https://wa.me/5511947523961" data-zap="ambiente-banheiro" data-msg="Olá! Vim pelo site da Casa do Marceneiro e quero orçamento de móveis de banheiro sob medida." target="_blank" rel="noopener">Pedir orçamento<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
+          <div class="amb-bts"><a class="btn peq" href="https://wa.me/5511947523961" data-zap="ambiente-banheiro" data-msg="Olá! Vim pelo site da Casa do Marceneiro e quero orçamento de móveis de banheiro sob medida." target="_blank" rel="noopener">Pedir orçamento<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a><button class="btn peq leve" type="button" data-album="banheiros"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-camera"/></svg>Ver fotos</button></div>
         </div>
       </div>
-      <p class="nota-3d" data-ilustrativo="closet painel dormitorio">As imagens desta prévia são projetos 3D ilustrativos, feitos para a apresentação.
-        Na versão final entram as fotos do acervo da oficina.</p>
     </div>
   </div>
 
@@ -396,10 +396,8 @@
         <span class="rotulo">Móveis planejados e sob medida</span>
         <h2>Projetos concluídos</h2>
         <p class="sub">Closets, guarda-roupas, cozinhas, painéis de TV, home offices e dormitórios feitos sob medida
-          para casas e apartamentos de São Paulo. Cada um começou com uma medição e terminou com a chave na mão do cliente.
-          <span data-ilustrativo="cozinha closet escritorio painel compacta dormitorio">Nesta prévia, projetos e imagens são
-          ilustrativos — renderizações 3D feitas para a apresentação. As fotos definitivas entram quando o acervo da
-          oficina chegar.</span></p>
+          para casas e apartamentos de São Paulo. As fotos são das obras da oficina, como foram entregues: toque num
+          ambiente para ver todas.</p>
       </div>
       <div class="galeria" id="galeria"></div>
     </div>
@@ -1019,6 +1017,27 @@
   <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg><span class="rot">Fale no WhatsApp</span>
 </a>
 
+<!-- galeria de fotos das obras -->
+<div class="modal album" id="album" hidden role="dialog" aria-modal="true" aria-labelledby="album-titulo">
+  <div class="veu" data-fecha-album></div>
+  <div class="album-caixa">
+    <div class="album-topo">
+      <div><b id="album-titulo"></b><span id="album-conta"></span></div>
+      <button class="btn peq xis" type="button" data-fecha-album aria-label="Fechar a galeria">&times;</button>
+    </div>
+    <figure class="album-palco">
+      <div class="album-midia" id="album-midia"></div>
+      <button class="album-seta ant" type="button" data-album-passo="-1" aria-label="Foto anterior"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-volta"/></svg></button>
+      <button class="album-seta prox" type="button" data-album-passo="1" aria-label="Próxima foto"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></button>
+      <figcaption id="album-legenda"></figcaption>
+    </figure>
+    <div class="album-miniaturas" id="album-miniaturas"></div>
+    <div class="album-pe">
+      <a class="btn zap" id="album-zap" href="https://wa.me/5511947523961" data-zap="galeria" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>Quero um orçamento assim</a>
+    </div>
+  </div>
+</div>
+
 <!-- ficha do produto -->
 <div class="modal" id="ficha" hidden role="dialog" aria-modal="true" aria-labelledby="ficha-nome">
   <div class="veu" data-fecha-ficha></div>
@@ -1168,26 +1187,9 @@
       grupos:["madeira","acabamento"] }
   ];
 
-  var PROJETOS = [
-    { t:"Cozinha em U com torre quente", img:"cozinha", onde:"Vila Formosa", icone:"p-cozinha", tons:["#D9BE94","#A87C48"],
-      d:"Marcenaria de piso a teto em MDF amadeirado, com nicho de forno e micro-ondas e bancada em maciço.",
-      meta:["4,2 m lineares","22 dias","Padrão intermediário"] },
-    { t:"Closet aberto do casal", img:"closet", onde:"Anália Franco", icone:"p-closet", tons:["#E0CDA9","#B7955F"],
-      d:"Estrutura modular com cabideiro duplo, gaveteiro interno e iluminação embutida em perfil de alumínio.",
-      meta:["5,0 m lineares","26 dias","Padrão premium"] },
-    { t:"Home office em nicho de sala", img:"escritorio", onde:"Tatuapé", icone:"p-home", tons:["#D3B387","#9E7440"],
-      d:"Aproveitamento de vão morto: bancada de trabalho, prateleiras e passagem de fiação escondida.",
-      meta:["2,4 m lineares","14 dias","Padrão essencial"] },
-    { t:"Painel ripado com rack suspenso", img:"painel", onde:"Jardim Anália", icone:"p-painel", tons:["#CBA476","#8F6335"],
-      d:"Ripado de freijó com rack flutuante e caixa de tomadas acessível por trás, sem furar a parede duas vezes.",
-      meta:["3,1 m lineares","11 dias","Padrão intermediário"] },
-    { t:"Cozinha compacta de apartamento", img:"compacta", onde:"Carrão", icone:"p-cozinha", tons:["#E3D2B4","#B08A55"],
-      d:"Projeto para 32 m²: armário até o teto, portas de correr e mesa retrátil embutida no balcão.",
-      meta:["3,4 m lineares","19 dias","Padrão essencial"] },
-    { t:"Marcenaria completa de dormitório", img:"dormitorio", onde:"Vila Regente Feijó", icone:"p-closet", tons:["#D5B384","#96693A"],
-      d:"Guarda-roupa, cabeceira estofada com moldura de madeira e criados-mudos suspensos, tudo do mesmo lote.",
-      meta:["6,8 m lineares","31 dias","Padrão premium"] }
-  ];
+  /* Fotos reais das obras, por ambiente. Vêm de obras.json (curadoria) e
+     fotos/obras/medidas.json (tamanhos), juntados pelo montar.py. */
+  var OBRAS = {};
 
   var ETAPAS = [
     { n:"1", t:"Conversa", d:"Você conta o ambiente e o prazo. Se der para resolver por WhatsApp, resolvemos por WhatsApp." },
@@ -1206,11 +1208,11 @@
   ];
 
   var AMBIENTES = [
-    { n:"Cozinha",      m:1.25, ic:"p-cozinha", img:"cozinha",    alt:"Cozinha em U com tampo de freijó" },
-    { n:"Closet",       m:1,    ic:"p-closet",  img:"closet",     alt:"Closet aberto em carvalho" },
-    { n:"Home office",  m:0.9,  ic:"p-home",    img:"escritorio", alt:"Home office em nicho com bancada de freijó" },
-    { n:"Painel de TV", m:0.62, ic:"p-painel",  img:"painel",     alt:"Painel ripado de freijó com rack suspenso" },
-    { n:"Banheiro",     m:0.85, ic:"p-nicho",   img:"banheiro",   alt:"Gabinete suspenso de banheiro em freijó com cuba de apoio" }
+    { n:"Cozinha",      m:1.25, ic:"p-cozinha", img:"cozinha",    alt:"Cozinha planejada em madeira com tampo preto e LED no forro" },
+    { n:"Closet",       m:1,    ic:"p-closet",  img:"closet",     alt:"Guarda-roupa de portas espelhadas até o teto" },
+    { n:"Home office",  m:0.9,  ic:"p-home",    img:"escritorio", alt:"Home office com escrivaninha verde e painel de TV" },
+    { n:"Painel de TV", m:0.62, ic:"p-painel",  img:"painel",     alt:"Sala com painel de TV iluminado" },
+    { n:"Banheiro",     m:0.85, ic:"p-nicho",   img:"banheiro",   alt:"Lavabo com espelho redondo iluminado e parede de ripado" }
   ];
   var PADROES = [
     { n:"Essencial",     m:1,    d:"MDF branco, ferragem nacional" },
@@ -1238,7 +1240,7 @@
      para um cartão de 170. A capa tem três larguras e carrega primeiro;
      o resto só carrega quando chega perto da tela. */
   var FOTOS = "fotos/";
-  var LARGURA = { capa:2400, cozinha:1280, closet:1280, escritorio:1280, painel:1280, compacta:1280,
+  var LARGURA = { capa:1600, cozinha:1280, closet:1280, escritorio:1280, painel:1280,
     dormitorio:1280, oficina:1280, banheiro:1280 };   /* o resto é peça da loja, 1200 px */
   function larguraDe(nome){ return LARGURA[nome] || 1200; }
 
@@ -1248,6 +1250,17 @@
       FOTOS + nome + '.webp ' + w + 'w" sizes="' + (sizes || "(max-width: 760px) 100vw, 420px") + '" width="' + w +
       '" height="' + h + '" alt="' + esc(alt || "") + '"' + (ansioso ? '' : ' loading="lazy"') + ' decoding="async">';
   }
+
+  /* Foto de obra: tamanho real de cada uma (em pé ou deitada) e o foco
+     que o recorte do cartão respeita. */
+  function imagemObra(f, sizes, ansioso){
+    var base = FOTOS + "obras/" + f.id;
+    return '<img src="' + base + '-640.webp" srcset="' + base + '-640.webp 640w, ' + base + '.webp ' + f.w + 'w" sizes="' +
+      (sizes || "(max-width: 760px) 100vw, 420px") + '" width="' + f.w + '" height="' + f.h + '" alt="' + esc(f.alt) + '"' +
+      (f.foco ? ' style="object-position:' + f.foco + '"' : '') + (ansioso ? '' : ' loading="lazy"') + ' decoding="async">';
+  }
+  function ambiente(id){ return OBRAS.ambientes.filter(function(a){ return a.id === id; })[0]; }
+  function itensDe(a){ return a.fotos.concat(a.video ? [a.video] : []); }
 
   /* Sem imagem (o mapa, por enquanto), a moldura continua sendo a chapa
      desenhada com a peça em linha — ver LEIA-ME.md. */
@@ -2120,11 +2133,93 @@
   });
 
   /* ============================================================
+     GALERIA DAS OBRAS
+     Tela cheia, foto a foto: setas, teclado, arrastar no celular e
+     miniaturas. O vídeo só carrega quando alguém aperta o play.
+     ============================================================ */
+
+  var album = null, albumI = 0, albumVolta = null;
+  function midiaAlbum(item, grande){
+    if (item.video) {
+      var capa = FOTOS + "obras/" + item.id + "-capa.webp";
+      return grande
+        ? '<video controls playsinline preload="none" poster="' + capa + '" width="' + item.w + '" height="' + item.h + '" aria-label="' + esc(item.alt) + '">' +
+          '<source src="' + FOTOS + 'obras/' + item.id + '.mp4" type="video/mp4"></video>'
+        : '<img src="' + capa + '" alt="" loading="lazy"><span class="play">' + ic("i-play") + '</span>';
+    }
+    return grande
+      ? '<img src="' + FOTOS + 'obras/' + item.id + '.webp" width="' + item.w + '" height="' + item.h + '" alt="' + esc(item.alt) + '">'
+      : '<img src="' + FOTOS + 'obras/' + item.id + '-640.webp" alt="" loading="lazy" style="object-position:' + (item.foco || "50% 50%") + '">';
+  }
+  function mostrarFoto(i){
+    var itens = itensDe(album);
+    albumI = (i + itens.length) % itens.length;
+    var item = itens[albumI];
+    $("#album-midia").innerHTML = midiaAlbum(item, true);
+    $("#album-legenda").textContent = item.alt;
+    $("#album-conta").textContent = (albumI + 1) + " de " + itens.length;
+    $$("#album-miniaturas button").forEach(function(b, k){
+      b.setAttribute("aria-current", k === albumI ? "true" : "false");
+      if (k === albumI && b.scrollIntoView) b.scrollIntoView({ block:"nearest", inline:"center" });
+    });
+    [albumI + 1, albumI - 1].forEach(function(k){   // a vizinha já vem baixada
+      var v = itens[(k + itens.length) % itens.length];
+      if (!v.video) (new Image()).src = FOTOS + "obras/" + v.id + ".webp";
+    });
+  }
+  function abrirAlbum(id, i){
+    album = ambiente(id);
+    if (!album) return;
+    albumVolta = document.activeElement;
+    $("#album-titulo").textContent = album.titulo;
+    $("#album-miniaturas").innerHTML = itensDe(album).map(function(item, k){
+      return '<button type="button" data-album-ir="' + k + '" aria-label="' + esc((k + 1) + ". " + item.alt) + '">' + midiaAlbum(item, false) + '</button>';
+    }).join("");
+    var z = $("#album-zap");
+    z.href = zapLink("Olá! Vi as fotos de " + album.titulo.toLowerCase() + " no site da Casa do Marceneiro e quero orçamento de " + album.pedido + ".");
+    z.dataset.zap = "galeria-" + album.id;
+    $("#album").hidden = false;
+    document.body.style.overflow = "hidden";
+    mostrarFoto(i || 0);
+    $("#album .xis").focus();
+    medir("galeria", album.id);
+  }
+  function fecharAlbum(){
+    var v = $("#album-midia video");
+    if (v) v.pause();
+    $("#album").hidden = true;
+    $("#album-midia").innerHTML = "";
+    document.body.style.overflow = "";
+    if (albumVolta && albumVolta.focus) albumVolta.focus();
+  }
+  document.addEventListener("click", function(e){
+    var a = e.target.closest("[data-album]");
+    if (a) { e.preventDefault(); abrirAlbum(a.dataset.album, parseInt(a.dataset.i || "0", 10)); return; }
+    if (e.target.closest("[data-fecha-album]")) { fecharAlbum(); return; }
+    var passo = e.target.closest("[data-album-passo]");
+    if (passo) { mostrarFoto(albumI + parseInt(passo.dataset.albumPasso, 10)); return; }
+    var ir = e.target.closest("[data-album-ir]");
+    if (ir) mostrarFoto(parseInt(ir.dataset.albumIr, 10));
+  });
+  var toqueX = null;
+  ligar("#album-midia", "touchstart", function(e){ toqueX = e.touches[0].clientX; });
+  ligar("#album-midia", "touchend", function(e){
+    if (toqueX === null) return;
+    var dx = e.changedTouches[0].clientX - toqueX;
+    toqueX = null;
+    if (Math.abs(dx) > 45) mostrarFoto(albumI + (dx < 0 ? 1 : -1));
+  });
+
+  /* ============================================================
      TECLADO E AVISOS
      ============================================================ */
 
   document.addEventListener("keydown", function(e){
+    if (!$("#album").hidden && (e.key === "ArrowRight" || e.key === "ArrowLeft")) {
+      mostrarFoto(albumI + (e.key === "ArrowRight" ? 1 : -1)); return;
+    }
     if (e.key !== "Escape") return;
+    if (!$("#album").hidden) { fecharAlbum(); return; }
     if (!$("#ficha").hidden) { fecharFicha(); return; }
     if ($("#gaveta-cart").classList.contains("on")) { fecharCarrinho(); return; }
     if ($("#gaveta-menu").classList.contains("on")) { fecharMenu(); return; }
@@ -2180,7 +2275,10 @@
       var rotulo = MEDICAO.conversoes && MEDICAO.conversoes[acao];
       if (MEDICAO.ads && rotulo) window.gtag("event", "conversion", { send_to:MEDICAO.ads + "/" + rotulo });
     }
-    if (window.fbq) window.fbq("track", acao === "pedido" ? "Lead" : "Contact", { content_name:acao });
+    if (window.fbq) {
+      if (acao === "galeria") window.fbq("track", "ViewContent", { content_name:origem || "", content_category:"galeria" });
+      else window.fbq("track", acao === "pedido" ? "Lead" : "Contact", { content_name:acao });
+    }
   }
 
   document.addEventListener("click", function(e){
@@ -2269,13 +2367,18 @@
   $("#destaques").innerHTML = PRODUTOS.slice().sort(function(a, b){ return b.peso - a.peso; })
     .slice(0, 4).map(cartaoProduto).join("");
 
-  $("#galeria").innerHTML = PROJETOS.map(function(p){
-    return '<article class="proj">' + foto({ img:p.img, alt:p.t + " — " + p.d, tons:p.tons, icone:p.icone },
-        { sizes:"(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 380px" }) +
-      '<div class="txt"><span class="onde">' + esc(p.onde) + '</span><h4>' + esc(p.t) + '</h4>' +
-      '<p>' + esc(p.d) + '</p><div class="meta">' +
-      p.meta.map(function(m){ return "<span>" + esc(m) + "</span>"; }).join("") +
-      '</div></div></article>';
+  $("#galeria").innerHTML = OBRAS.ambientes.map(function(a){
+    var n = a.fotos.length, extra = a.video ? " + tour em vídeo" : "";
+    return '<article class="proj">' +
+      '<button type="button" class="proj-foto" data-album="' + a.id + '" aria-label="Ver as fotos de ' + esc(a.titulo) + '">' +
+        '<span class="foto com-img">' + imagemObra(a.fotos[0], "(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 380px") + '</span>' +
+        '<span class="selo-fotos">' + ic("i-camera") + n + (a.video ? ' · ' + ic("i-play") + 'vídeo' : '') + '</span></button>' +
+      '<div class="txt"><span class="onde">' + n + ' fotos reais' + extra + '</span><h4>' + esc(a.titulo) + '</h4>' +
+      '<p>' + esc(a.texto) + '</p><div class="proj-bts">' +
+      '<button type="button" class="btn peq" data-album="' + a.id + '">' + ic("i-camera") + 'Ver as fotos</button>' +
+      '<a class="btn peq zap" href="https://wa.me/5511947523961" data-zap="projeto-' + a.id + '" data-msg="' +
+        esc("Olá! Vi as fotos de " + a.titulo.toLowerCase() + " no site da Casa do Marceneiro e quero orçamento de " + a.pedido + ".") +
+        '" target="_blank" rel="noopener">Pedir orçamento</a></div></div></article>';
   }).join("");
 
   $("#etapas").innerHTML = ETAPAS.map(function(et){
@@ -2291,12 +2394,14 @@
       '<p>' + esc(g.d) + '</p></div>';
   }).join("");
 
-  /* mosaico da página inicial: três ambientes, o maior à esquerda */
-  $("#mosaico").innerHTML = ["closet", "painel", "dormitorio"].map(function(nome, i){
-    var p = PROJETOS.filter(function(x){ return x.img === nome; })[0];
-    return '<a class="tela' + (i === 0 ? ' grande' : '') + '" href="#/projetos" data-ir="projetos">' +
-      imagem(p.img, p.t + " — " + p.d, i === 0 ? "(max-width: 760px) 100vw, 680px" : "(max-width: 760px) 100vw, 480px") +
-      '<span class="leg"><b>' + esc(p.t) + '</b><span>' + esc(p.meta[2]) + '</span></span></a>';
+  /* mosaico da página inicial: três fotos de obra, a maior à esquerda; cada
+     uma abre a galeria do seu ambiente já nela */
+  $("#mosaico").innerHTML = OBRAS.mosaico.map(function(id, k){
+    var a = OBRAS.ambientes.filter(function(x){ return x.fotos.some(function(f){ return f.id === id; }); })[0];
+    var i = a.fotos.map(function(f){ return f.id; }).indexOf(id);
+    return '<a class="tela' + (k === 0 ? ' grande' : '') + '" href="#/projetos" data-album="' + a.id + '" data-i="' + i + '">' +
+      imagemObra(a.fotos[i], k === 0 ? "(max-width: 760px) 100vw, 680px" : "(max-width: 760px) 100vw, 480px") +
+      '<span class="leg"><b>' + esc(a.titulo) + '</b><span>' + ic("i-camera") + 'Ver as ' + itensDe(a).length + ' fotos</span></span></a>';
   }).join("");
 
   /* fotos fixas do HTML: cartões dos três balcões e a faixa da oficina */

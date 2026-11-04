@@ -77,6 +77,26 @@ def ler_json(nome, padrao):
     return json.loads(arq.read_text(encoding="utf-8")) if arq.exists() else padrao
 
 reais = ler_json("fotos/reais.json", {})
+
+# As fotos reais das obras: a curadoria (obras.json) com o tamanho de cada
+# arquivo (fotos/obras/medidas.json, gravado pelo gerador/fotos/obras.py).
+def obras():
+    cur, medidas = ler_json("obras.json", {"ambientes": [], "mosaico": []}), ler_json("fotos/obras/medidas.json", {})
+    saida = []
+    for a in cur["ambientes"]:
+        fotos = []
+        for f in a["fotos"]:
+            arq = base / "fotos" / "obras" / f"{f['id']}.webp"
+            assert arq.exists() and (base / "fotos" / "obras" / f"{f['id']}-640.webp").exists(), f"falta a foto {f['id']}"
+            fotos.append({"id": f["id"], "alt": f["alt"], "foco": f.get("foco", "50% 50%"),
+                          "w": medidas[f["id"]][0], "h": medidas[f["id"]][1]})
+        item = {k: a[k] for k in ("id", "titulo", "texto", "pedido")} | {"fotos": fotos}
+        if a.get("video"):
+            v = a["video"]
+            assert (base / "fotos" / "obras" / f"{v['id']}.mp4").exists(), f"falta o vídeo {v['id']}"
+            item["video"] = {"id": v["id"], "alt": v["alt"], "video": True, "w": medidas[v["id"]][0], "h": medidas[v["id"]][1]}
+        saida.append(item)
+    return {"ambientes": saida, "mosaico": cur.get("mosaico", [])}
 medicao = ler_json(args.medicao, {})
 
 def injetar(texto, nome, valor):
@@ -89,6 +109,7 @@ fonte = re.sub(rf"<!--{guarda}-->.*?<!--/{guarda}-->", "", fonte, flags=re.S)
 fonte = re.sub(rf"<!--/?{mostra}-->", "", fonte)
 corpo = fonte.replace("/*CSS-SITE*/", fontes + "\n" + css)
 corpo = injetar(corpo, "REAIS", reais)
+corpo = injetar(corpo, "OBRAS", obras())
 
 # ---------------------------------------------------------------- prévia
 (base / "artifact.html").write_text(corpo.strip() + "\n", encoding="utf-8")
@@ -140,7 +161,7 @@ def pagina(miolo, *, titulo, descricao, url, canonico, raiz, robots, atributos):
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{url}capa-link.jpg">
-  <link rel="preload" as="image" href="{raiz}fotos/capa-1600.webp" imagesrcset="{raiz}fotos/capa-960.webp 960w, {raiz}fotos/capa-1600.webp 1600w, {raiz}fotos/capa-2400.webp 2400w" imagesizes="(orientation: portrait) and (min-width: 761px) 150vh, 100vw" fetchpriority="high">
+  <link rel="preload" as="image" href="{raiz}fotos/capa-1600.webp" imagesrcset="{raiz}fotos/capa-960.webp 960w, {raiz}fotos/capa-1600.webp 1600w" imagesizes="(orientation: portrait) and (min-width: 761px) 150vh, 100vw" fetchpriority="high">
   <link rel="icon" type="image/svg+xml" href="{raiz}marca/icone.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="{raiz}marca/favicon-32.png">
   <link rel="apple-touch-icon" href="{raiz}marca/apple-touch-icon.png">

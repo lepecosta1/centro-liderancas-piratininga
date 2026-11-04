@@ -712,10 +712,69 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
    duas no tablet, uma no celular */
 .balcoes.ambientes{grid-template-columns:repeat(3,1fr);margin-top:26px}
 .ambientes .balcao{padding:22px 22px 20px}
+.ambientes .balcao .ft{margin:0 -22px 6px}
 .ambientes .balcao h3{font-size:19px}
 .ambientes .balcao p{font-size:15px;margin-bottom:14px}
 @media (max-width:980px){.balcoes.ambientes{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.balcoes.ambientes{grid-template-columns:1fr}}
+
+/* ambientes: pedir orçamento e ver as fotos lado a lado */
+.amb-bts{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.amb-bts .btn{margin-top:0}
+.btn.leve{background:transparent}
+.btn svg{flex:none}
+
+/* projetos: a capa do ambiente abre a galeria */
+.proj-foto{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;position:relative;color:inherit}
+.proj-foto .foto{display:block;aspect-ratio:4/3}
+.proj-foto img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.proj-foto:hover img{transform:scale(1.035)}
+.proj-foto .selo-fotos{position:absolute;right:10px;bottom:10px;z-index:1;display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--f-util);font-size:12.5px;letter-spacing:.06em;color:#fff;background:rgba(20,14,10,.74);
+  padding:5px 9px;border-radius:5px}
+.proj-foto .selo-fotos svg{width:14px;height:14px}
+.proj-bts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.proj-bts .btn svg{width:15px;height:15px}
+.mosaico .leg span svg{width:13px;height:13px;vertical-align:-2px;margin-right:5px}
+
+/* galeria em tela cheia */
+.modal.album{z-index:80;padding:clamp(10px,2.4vw,28px)}
+.album .veu{background:rgba(14,10,7,.94);backdrop-filter:none}
+.album-caixa{position:relative;width:min(1180px,100%);height:min(94vh,1000px);display:flex;flex-direction:column;gap:10px;color:var(--claro)}
+.album-topo{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.album-topo b{display:block;font-family:var(--f-disp);font-size:clamp(18px,2.2vw,23px);font-weight:600;color:var(--claro)}
+.album-topo span{font-family:var(--f-util);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#CDB998}
+.album-topo .xis{background:rgba(244,233,216,.12);color:var(--claro);border-color:rgba(244,233,216,.3);font-size:22px}
+.album-palco{position:relative;flex:1;min-height:0;margin:0;display:flex;flex-direction:column}
+.album-midia{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;touch-action:pan-y}
+.album-midia img,.album-midia video{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:8px;
+  display:block;background:#1c140e}
+.album-seta{position:absolute;top:calc(50% - 30px);width:48px;height:48px;border-radius:50%;border:1px solid rgba(244,233,216,.32);
+  background:rgba(20,14,10,.62);color:var(--claro);display:grid;place-items:center;cursor:pointer}
+.album-seta:hover{background:rgba(20,14,10,.85)}
+.album-seta.ant{left:6px}
+.album-seta.prox{right:6px}
+.album-seta svg{width:20px;height:20px}
+.album-palco figcaption{font-size:14.5px;line-height:1.45;color:#DCCBB3;text-align:center;padding:10px 46px 0;min-height:3.1em}
+.album-miniaturas{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:thin}
+.album-miniaturas button{flex:none;position:relative;width:78px;height:58px;padding:0;border-radius:6px;overflow:hidden;
+  border:2px solid transparent;background:#2a1e15;cursor:pointer;opacity:.62;transition:opacity .2s}
+.album-miniaturas button:hover{opacity:.9}
+.album-miniaturas button[aria-current="true"]{border-color:var(--mel);opacity:1}
+.album-miniaturas img{width:100%;height:100%;object-fit:cover;display:block}
+.album-miniaturas .play{position:absolute;inset:0;display:grid;place-items:center;color:#fff;background:rgba(0,0,0,.28)}
+.album-miniaturas .play svg{width:18px;height:18px}
+.album-pe{display:flex;justify-content:center}
+@media (max-width:760px){
+  .modal.album{padding:0;align-items:stretch}
+  .album-caixa{height:100%;padding:12px 10px 14px}
+  .album-seta{width:40px;height:40px;top:calc(50% - 26px)}
+  .album-seta.ant{left:2px}
+  .album-seta.prox{right:2px}
+  .album-palco figcaption{padding:8px 4px 0;font-size:13.5px}
+  .album-miniaturas button{width:62px;height:48px}
+  .album-pe .btn{width:100%;justify-content:center}
+}
 
 /* ---------- ficha técnica ---------- */
 .ficha{display:grid;grid-template-columns:1fr 1fr;gap:18px}
