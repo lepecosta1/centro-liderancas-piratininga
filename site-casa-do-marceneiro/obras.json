@@ -1,10 +1,11 @@
 {
-  "nota": "Curadoria das fotos reais das obras (Google Drive, 04/11). 60 arquivos, 53 fotos diferentes depois de tirar as cópias exatas e a recomprimida; das 53 ficaram 33 — as quase iguais, as com gente, bagunça de obra ou TV com imagem de terceiros saíram. Cada foto é achada pelo hash do original, não pelo nome: o WhatsApp repete nomes. gerador/fotos/obras.py processa; montar.py publica.",
+  "nota": "Curadoria das fotos reais das obras (Google Drive, 04/11). 60 arquivos, 53 fotos diferentes depois de tirar as cópias exatas e a recomprimida; das 53 ficaram 33 — as quase iguais, as com gente, bagunça de obra ou TV com imagem de terceiros saíram. Cada foto é achada pelo hash do original, não pelo nome: o WhatsApp repete nomes. A capa (cozinha-sala-led-forro) veio à parte, pelo chat, em 04/11: foto em pé de 902 px, ampliada pelo obras.py sem inventar detalhe. gerador/fotos/obras.py processa; montar.py publica.",
   "ambientes": [
     {
       "id": "cozinhas", "titulo": "Cozinhas planejadas", "pedido": "cozinha planejada",
       "texto": "Armários até o teto, torre de forno e micro-ondas, tampo de pedra e iluminação embutida — da cozinha compacta de studio à cozinha aberta para a sala.",
       "fotos": [
+        {"id": "cozinha-sala-led-forro", "fonte": "b692d0cdb977f587", "foco": "50% 40%", "alt": "Cozinha planejada em madeira integrada à sala, com armários de vidro fumê, nichos com LED e fita de LED no forro, e a mesa de jantar ao fundo"},
         {"id": "cozinha-madeira-led", "fonte": "ce4469af5ed04017", "foco": "50% 60%", "alt": "Cozinha planejada em madeira com armários até o teto, tampo preto e fita de LED no forro, aberta para a sala"},
         {"id": "cozinha-integrada-jantar", "fonte": "c491cb0b5751e726", "foco": "50% 45%", "alt": "Cozinha integrada à sala de jantar, com armários brancos e de madeira e mesa oval de madeira em primeiro plano"},
         {"id": "cozinha-cinza-tijolinho", "fonte": "6d054ec84ace47d7", "foco": "50% 50%", "alt": "Cozinha planejada cinza com tampo preto, torre de micro-ondas, geladeira embutida e parede de tijolinho"},
@@ -75,7 +76,7 @@
     }
   ],
   "lugares": {
-    "capa":       {"foto": "sala-painel-led", "proporcao": [16, 9], "foco": [0.5, 0.5]},
+    "capa":       {"foto": "cozinha-sala-led-forro", "proporcao": null, "foco": [0.5, 0.42]},
     "cozinha":    {"foto": "cozinha-madeira-led", "foco": [0.5, 0.6]},
     "closet":     {"foto": "closet-espelhado", "foco": [0.5, 0.42]},
     "dormitorio": {"foto": "dormitorio-cabeceira-terracota", "foco": [0.5, 0.55]},

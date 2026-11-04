@@ -8,6 +8,8 @@ const PORTA = process.argv[2] || "8765";
 const URL0 = `http://localhost:${PORTA}/`;
 let ok = 0; const falhas = [];
 const confere = (c, msg) => { if (c) ok++; else { falhas.push(msg); console.log("  FALHOU:", msg); } };
+const COZ = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "obras.json"), "utf-8")).ambientes.find(a => a.id === "cozinhas");
+const NCOZ = COZ.fotos.length + (COZ.video ? 1 : 0);   // itens da galeria de cozinhas; o vídeo é o último
 
 (async () => {
   const servidor = spawn("python3", ["-m", "http.server", PORTA], { cwd: PUB, stdio: "ignore" });
@@ -28,13 +30,13 @@ const confere = (c, msg) => { if (c) ok++; else { falhas.push(msg); console.log(
         hash: document.querySelectorAll('a[href^="#/"]').length, capa: document.querySelector(".capa-foto img").currentSrc }));
       confere(ini.modo === "dominio" && /^Marcenaria em São Paulo/.test(ini.t), `capa no modo domínio com o título certo (${ini.t})`);
       confere(ini.hash === 0 && ini.canon === "https://marceneirotatuape.com.br/", "links por caminho e canônico do domínio");
-      confere(/^http:\/\/localhost:\d+\/fotos\/capa-(960|1600)\.webp$/.test(ini.capa), `foto da capa a partir da raiz (${ini.capa})`);
+      confere(/^http:\/\/localhost:\d+\/fotos\/capa-(720|1350)\.webp$/.test(ini.capa), `foto da capa a partir da raiz (${ini.capa})`);
       // galeria funciona com os caminhos da raiz, inclusive numa página interna
       await p.goto(URL0 + "projetos/"); await p.waitForTimeout(600);
       await p.click('#galeria .proj-foto[data-album="cozinhas"]'); await p.waitForTimeout(500);
       const g = await p.evaluate(() => { const i = document.querySelector("#album-midia img"); return { src: i.currentSrc || i.src, ok: i.complete && i.naturalWidth > 0, conta: document.getElementById("album-conta").textContent }; });
-      confere(g.ok && /^http:\/\/localhost:\d+\/fotos\/obras\//.test(g.src) && g.conta === "1 de 9", `galeria em /projetos/ carrega da raiz (${g.src})`);
-      for (let k = 0; k < 8; k++) { await p.keyboard.press("ArrowRight"); await p.waitForTimeout(120); }
+      confere(g.ok && /^http:\/\/localhost:\d+\/fotos\/obras\//.test(g.src) && g.conta === `1 de ${NCOZ}`, `galeria em /projetos/ carrega da raiz (${g.src})`);
+      for (let k = 0; k < NCOZ - 1; k++) { await p.keyboard.press("ArrowRight"); await p.waitForTimeout(120); }
       const v = await p.evaluate(() => { const v = document.querySelector("#album-midia video"); return v && v.querySelector("source").src; });
       confere(v && /\/fotos\/obras\/tour-sala-cozinha-madeira\.mp4$/.test(v), "o vídeo aponta para a raiz");
       const mp4 = await p.evaluate(async u => (await fetch(u)).status, v || URL0);
@@ -46,7 +48,7 @@ const confere = (c, msg) => { if (c) ok++; else { falhas.push(msg); console.log(
         const r = await Promise.all(ids.flatMap(id => ["", "-640"].map(s => fetch("/fotos/obras/" + id + s + ".webp").then(x => x.ok ? null : id + s))));
         return { total: ids.length, faltando: r.filter(Boolean) };
       }, IDS);
-      confere(faltando.total === 33 && !faltando.faltando.length, `as 33 fotos de obra publicadas nas duas larguras (${faltando.faltando.join(", ")})`);
+      confere(faltando.total === IDS.length && IDS.length >= 34 && !faltando.faltando.length, `as ${IDS.length} fotos de obra publicadas nas duas larguras (${faltando.faltando.join(", ")})`);
       // pedido pelo WhatsApp no carrinho
       await p.goto(URL0 + "loja/"); await p.waitForTimeout(500);
       await p.click(".rota.on .prod"); await p.waitForTimeout(300); await p.click("#add-cesta"); await p.waitForTimeout(400);

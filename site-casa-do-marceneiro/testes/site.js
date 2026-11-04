@@ -27,6 +27,20 @@ async function carregarImagens(p) {
   return p.$$eval(".rota.on img", is => is.filter(i => i.offsetParent !== null).map(i => ({ src: i.currentSrc || i.src, ok: i.complete && i.naturalWidth > 0 })));
 }
 
+// quantos itens tem a galeria de cozinhas (fotos e o tour em vídeo), lido da curadoria
+const COZ = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "obras.json"), "utf-8")).ambientes.find(a => a.id === "cozinhas");
+const NCOZ = COZ.fotos.length + (COZ.video ? 1 : 0);
+
+// a capa nunca aparece maior do que tem pixel: px do arquivo por px da tela
+async function nitidez(p) {
+  return p.evaluate(() => {
+    const i = document.querySelector(".capa-foto img"), r = i.getBoundingClientRect(), f = document.querySelector(".capa-fundo");
+    const arq = +(i.currentSrc.match(/capa-(\d+)\.webp/) || [0, 0])[1], alto = Math.round(arq * 2395 / 1350);
+    const mostrada = Math.max(r.width, r.height * arq / alto);
+    return { arq, razao: +(arq / (mostrada * devicePixelRatio)).toFixed(2), fundo: f.complete && f.naturalWidth > 0 };
+  });
+}
+
 (async () => {
   const b = await chromium.launch();
 
@@ -42,8 +56,10 @@ async function carregarImagens(p) {
   confere(/^Móveis sob medida/.test(await p.$eval(".capa h1", h => h.textContent)), "título da capa com a palavra-chave");
 
   // capa com foto real, sem selo de 3D
-  const capa = await p.$eval(".capa-foto img", i => ({ ok: i.complete && i.naturalWidth >= 960, src: i.currentSrc, alt: i.alt }));
-  confere(capa.ok && /capa-(960|1600)\.webp/.test(capa.src) && /painel de TV/.test(capa.alt), `capa com a foto real (${capa.src})`);
+  const capa = await p.$eval(".capa-foto img", i => ({ ok: i.complete && i.naturalWidth > 0, src: i.currentSrc, alt: i.alt }));
+  confere(capa.ok && /capa-(720|1350)\.webp/.test(capa.src) && /^Cozinha planejada em madeira/.test(capa.alt), `capa com a foto real (${capa.src})`);
+  const nt = await nitidez(p);
+  confere(nt.razao >= 0.9 && nt.fundo, `capa sem pixelar no computador (${nt.arq} px, ${nt.razao} px por px) e com o fundo esfumaçado`);
   confere(!/ilustrativ/i.test(await p.$eval(".capa-legenda", e => e.innerText)), "legenda da capa sem 3D ilustrativo");
 
   // ambientes com foto real e os dois botões
@@ -72,16 +88,16 @@ async function carregarImagens(p) {
   // galeria: setas, teclado, miniatura, vídeo, pedido
   await p.click('#galeria .proj-foto[data-album="cozinhas"]'); await p.waitForTimeout(500);
   const g0 = await p.evaluate(() => ({ conta: document.getElementById("album-conta").textContent, mini: document.querySelectorAll("#album-miniaturas button").length, img: (() => { const i = document.querySelector("#album-midia img"); return i && i.complete && i.naturalWidth > 0; })() }));
-  confere(g0.conta === "1 de 9" && g0.mini === 9 && g0.img, `galeria de cozinhas abre na 1 de 9, com 9 miniaturas e a foto carregada (${g0.conta})`);
+  confere(g0.conta === `1 de ${NCOZ}` && g0.mini === NCOZ && g0.img, `galeria de cozinhas abre na 1 de ${NCOZ}, com ${NCOZ} miniaturas e a foto carregada (${g0.conta})`);
   await p.click(".album-seta.prox"); await p.waitForTimeout(200);
   await p.keyboard.press("ArrowRight"); await p.waitForTimeout(200);
-  confere(await p.$eval("#album-conta", e => e.textContent) === "3 de 9", "seta e teclado avançam");
+  confere(await p.$eval("#album-conta", e => e.textContent) === `3 de ${NCOZ}`, "seta e teclado avançam");
   await p.keyboard.press("ArrowLeft"); await p.keyboard.press("ArrowLeft"); await p.keyboard.press("ArrowLeft"); await p.waitForTimeout(200);
-  confere(await p.$eval("#album-conta", e => e.textContent) === "9 de 9", "volta da primeira para a última");
+  confere(await p.$eval("#album-conta", e => e.textContent) === `${NCOZ} de ${NCOZ}`, "volta da primeira para a última");
   const video = await p.evaluate(() => { const v = document.querySelector("#album-midia video"); return v && { preload: v.preload, src: v.querySelector("source").getAttribute("src"), poster: v.poster }; });
   confere(video && video.preload === "none" && /tour-sala-cozinha-madeira\.mp4$/.test(video.src) && /-capa\.webp$/.test(video.poster), "o tour em vídeo só carrega no play");
   await p.click('#album-miniaturas [data-album-ir="3"]'); await p.waitForTimeout(200);
-  confere(await p.$eval("#album-conta", e => e.textContent) === "4 de 9" && await p.$eval('#album-miniaturas [data-album-ir="3"]', b => b.getAttribute("aria-current")) === "true", "miniatura leva à foto e fica marcada");
+  confere(await p.$eval("#album-conta", e => e.textContent) === `4 de ${NCOZ}` && await p.$eval('#album-miniaturas [data-album-ir="3"]', b => b.getAttribute("aria-current")) === "true", "miniatura leva à foto e fica marcada");
   const zapAlbum = await p.$eval("#album-zap", a => decodeURIComponent(a.href));
   confere(/^https:\/\/wa\.me\/5511947523961\?text=Olá! Vi as fotos de cozinhas planejadas .* cozinha planejada\.$/.test(zapAlbum), "o pedido da galeria diz qual ambiente a pessoa viu");
   await p.screenshot({ path: `${CAP}/computador-galeria.png` });
@@ -102,6 +118,9 @@ async function carregarImagens(p) {
   for (const [nome, op] of Object.entries(APARELHOS)) {
     console.log("== " + nome);
     ({ ctx, p } = await abrir(b, op));
+    await ir(p, "");
+    const ntc = await nitidez(p);
+    confere(ntc.razao >= 0.9 && ntc.fundo, `${nome}: capa sem pixelar (${ntc.arq} px, ${ntc.razao} px por px)`);
     for (const r of ["", "loja", "projetos", "oficina", "contato", "politicas"]) {
       await ir(p, r);
       const larg = await p.evaluate(() => ({ doc: document.documentElement.scrollWidth, tela: document.documentElement.clientWidth }));

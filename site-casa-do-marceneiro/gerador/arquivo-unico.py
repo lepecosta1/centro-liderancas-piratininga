@@ -24,14 +24,15 @@ def troca(a, n):
     html = html.replace(a, n)
 
 # capa: uma largura, sem pré-carregamento
-html = re.sub(r'\s*<link rel="preload" as="image" href="fotos/capa-1600\.webp"[^>]*>', "", html)
-troca(' srcset="fotos/capa-960.webp 960w, fotos/capa-1600.webp 1600w"', "")
-troca('src="fotos/capa-1600.webp"', f'src="{uri(SITE / "fotos" / "capa-1600.webp")}"')
+html = re.sub(r'\s*<link rel="preload" as="image" href="fotos/capa-1350\.webp"[^>]*>', "", html)
+troca(' srcset="fotos/capa-720.webp 720w, fotos/capa-1350.webp 1350w"', "")
+troca('src="fotos/capa-1350.webp"', f'src="{uri(SITE / "fotos" / "capa-1350.webp")}"')
+troca('src="fotos/capa-fundo.webp"', f'src="{uri(SITE / "fotos" / "capa-fundo.webp")}"')
 for nome in ("logo-site.svg", "icone.svg", "favicon-32.png", "apple-touch-icon.png"):
     html = html.replace(f'"marca/{nome}"', f'"{uri(SITE / "marca" / nome)}"')
 
 # um mapa nome → arquivo embutido; as funções de imagem leem dele
-emb = {p.stem: uri(p) for p in sorted((SITE / "fotos").glob("*.webp")) if not re.search(r"-(640|960|1600)$", p.stem)}
+emb = {p.stem: uri(p) for p in sorted((SITE / "fotos").glob("*.webp")) if not re.search(r"-(640|960|1600)$", p.stem) and not p.stem.startswith("capa-")}
 for p in sorted((SITE / "fotos" / "obras").glob("*")):
     if p.suffix == ".webp" and not p.stem.endswith("-640"):
         emb["obras/" + p.stem] = uri(p)

@@ -17,7 +17,13 @@ substituem, e entram em fotos/reais.json — o selo de 3D sai sozinho.
 Nada dos metadados do celular é copiado (o GPS da casa do cliente fica fora).
 O vídeo sai sem áudio, em H.264, com a imagem de capa tirada do próprio vídeo.
 
-Precisa do Pillow (pip install pillow) e do ffmpeg.
+A capa é uma foto em pé, inteira, sem corte ("proporcao": null). Ela sai em
+capa-720 e capa-1350, ampliada de um jeito que não pixela nem inventa detalhe
+(ver melhorar), e com capa-fundo: a própria foto desfocada e com névoa, onde a
+foto se desfaz no site.
+
+Precisa do Pillow (pip install pillow), do ffmpeg e, para a capa, do OpenCV
+(pip install opencv-python-headless).
 """
 import hashlib, json, pathlib, subprocess, sys
 from PIL import Image, ImageDraw, ImageFilter, ImageOps
@@ -64,6 +70,56 @@ def cortar(im, proporcao, foco):
     nh = round(w / alvo)
     y = min(max(0, round(foco[1] * h - nh / 2)), h - nh)
     return im.crop((0, y, w, y + nh))
+
+
+def melhorar(im, largura):
+    """Amplia a foto do WhatsApp para a capa sem pixelar.
+
+    Nada de inteligência artificial que redesenha a imagem: o móvel tem de ser
+    o que o Gabriel fez. Quatro passos clássicos:
+      1. tira os blocos da compressão só onde a foto é lisa (forro, parede,
+         vidro) — onde tem textura, como o veio da madeira, ela fica como veio;
+      2. amplia em Lanczos;
+      3. devolve a nitidez que a ampliação tira, menos no liso;
+      4. põe um grão fino, para o degradê do forro não virar faixas.
+    """
+    import cv2
+    import numpy as np
+    bgr = cv2.cvtColor(np.asarray(im), cv2.COLOR_RGB2BGR)
+    f = bgr.astype(np.float32)
+    limpa = cv2.fastNlMeansDenoisingColored(bgr, None, 4, 4, 7, 21).astype(np.float32)
+    cinza = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY).astype(np.float32)
+    media = cv2.blur(cinza, (7, 7))
+    desvio = np.sqrt(np.maximum(cv2.blur(cinza * cinza, (7, 7)) - media * media, 0))
+    liso = cv2.GaussianBlur(np.clip((7.0 - desvio) / 5.0, 0, 1), (0, 0), 1.5)
+    f = limpa * liso[..., None] + f * (1 - liso[..., None])
+    tamanho = (largura, round(im.height * largura / im.width))
+    up = cv2.resize(f, tamanho, interpolation=cv2.INTER_LANCZOS4)
+    liso = cv2.resize(liso, tamanho)[..., None]
+    up = up + (up - cv2.GaussianBlur(up, (0, 0), 1.2)) * (0.9 - 0.6 * liso)
+    grao = cv2.GaussianBlur(np.random.default_rng(7).normal(0, 1, up.shape[:2]).astype(np.float32), (0, 0), 0.6)
+    up = up + grao[..., None] * 2.0
+    return Image.fromarray(cv2.cvtColor(np.clip(up, 0, 255).astype(np.uint8), cv2.COLOR_BGR2RGB))
+
+
+def fumaca(im, foco, tamanho=(640, 360)):
+    """O fundo da capa: a própria foto, desfocada, escurecida e com névoa. A
+    foto nítida se desfaz nele, em vez de terminar numa borda."""
+    import numpy as np
+    w, h = tamanho
+    base = cortar(im, tamanho, foco).resize((w // 8, h // 8), Image.LANCZOS)
+    base = base.resize((w, h), Image.BICUBIC).filter(ImageFilter.GaussianBlur(14))
+    arr = np.asarray(base).astype(np.float32) / 255 * 0.58
+    rng = np.random.default_rng(3)
+    nevoa = np.zeros((h, w), np.float32)
+    for celulas, peso in ((3, .5), (6, .26), (12, .15), (24, .09)):
+        grade = Image.fromarray((rng.random((max(2, round(celulas * h / w)), celulas)) * 255).astype(np.uint8))
+        nevoa += np.asarray(grade.resize((w, h), Image.BICUBIC).filter(ImageFilter.GaussianBlur(4)), np.float32) / 255 * peso
+    nevoa = np.clip((nevoa - 0.42) / 0.38, 0, 1)
+    nevoa = nevoa * nevoa * (3 - 2 * nevoa)
+    tom = np.array([0.93, 0.80, 0.64], np.float32)
+    arr = 1 - (1 - arr) * (1 - (tom * 0.2 * nevoa[..., None]))
+    return Image.fromarray((np.clip(arr, 0, 1) * 255).astype(np.uint8))
 
 
 def gravar(im, saida, largura, qualidade):
@@ -117,10 +173,15 @@ def main():
         im = prontas.get(cfg["foto"])
         if im is None:
             faltam.append(f"lugar {lugar} ({cfg['foto']})"); continue
-        recorte = cortar(im, cfg.get("proporcao", [4, 3]), cfg["foco"])
+        proporcao = cfg.get("proporcao", [4, 3])
+        recorte = im if proporcao is None else cortar(im, proporcao, cfg["foco"])
         if lugar == "capa":
-            for w in (1600, 960):
-                gravar(recorte, FOTOS / f"capa-{w}.webp", w, 88)
+            assert recorte.height > recorte.width, "a capa do site é uma foto em pé"
+            grande = melhorar(recorte, 1350) if recorte.width < 1350 else recorte
+            gravar(grande, FOTOS / "capa-1350.webp", 1350, 84)
+            gravar(grande, FOTOS / "capa-720.webp", 720, 84)
+            fundo = fumaca(recorte, cfg["foco"])
+            fundo.save(FOTOS / "capa-fundo.webp", "WEBP", quality=72, method=6)
         else:
             gravar(recorte, FOTOS / f"{lugar}.webp", 1280, 86)
             gravar(recorte, FOTOS / f"{lugar}-640.webp", 640, 82)

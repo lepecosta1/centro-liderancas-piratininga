@@ -299,8 +299,8 @@ python3 montar.py --dominio https://marceneirotatuape.com.br/ --forcar
 NODE_PATH=$(npm root -g) node testes/dominio.js         # o site como vai ao ar, servido como raiz
 ```
 
-Em 04/11, com as fotos reais: **85 conferências** na prévia — endereço,
-WhatsApp, simulador guardado, capa com foto real, os seis ambientes com foto e
+Em 04/11, com as fotos reais: **93 conferências** na prévia — endereço,
+WhatsApp, simulador guardado, capa com foto real e sem pixelar em nenhuma tela, os seis ambientes com foto e
 pedido próprio, o mosaico abrindo a galeria na foto clicada, os seis ambientes
 de projetos sem nada de exemplo, a galeria (setas, teclado, miniaturas, vídeo
 só no play, pedido dizendo o ambiente, Esc e ×), a loja; e, em sete celulares
@@ -386,11 +386,46 @@ ferramenta de leitura do Drive e não foram abertos. Pelo tamanho, o de 16 MB
 deve ser o vídeo de 15 MB; se algum tiver foto diferente, basta abrir a pasta
 no próprio Drive, como foi feito com o primeiro.
 
+### A capa (04/11, à tarde)
+
+A capa é a foto da cozinha integrada à sala com LED no forro, que o Leandro
+mandou à parte pelo chat. A foto do painel de TV, que era a capa, continua na
+galeria de salas. Ela é uma foto **em pé**, de WhatsApp, com 902 × 1600 px e
+119 KB. Esticada na largura de um computador, numa faixa deitada, ela
+apareceria com menos de um pixel de arquivo por pixel de tela: pixelada. Por
+isso a capa mudou de forma:
+
+- **No computador**, a foto fica inteira, em pé, à direita. Ela se desfaz em
+  fumaça para a esquerda, sobre `capa-fundo.webp`, que é a própria foto
+  desfocada, escurecida e com névoa, e é ali que fica o texto. Uma névoa morna
+  passa devagar sobre a emenda, e para quem pediu menos movimento ela fica
+  parada.
+- **No celular**, que também é em pé, a foto ocupa a largura toda e se desfaz
+  para baixo, onde começa o título. O recorte tira um pouco do forro e mostra
+  mais marcenaria.
+
+A foto foi tratada pelo `obras.py` (função `melhorar`) com quatro passos
+clássicos, sem inteligência artificial que redesenha a imagem: o móvel tem de
+ser o que o Gabriel fez.
+
+1. Os blocos da compressão saem só onde a foto é lisa: forro, parede e vidro.
+   O veio da madeira e o mármore ficam como vieram.
+2. A foto é ampliada em Lanczos para 1350 × 2395 px.
+3. A nitidez volta só onde há borda.
+4. Um grão fino entra para o degradê do forro não virar faixas.
+
+O teste confere, no computador e nos sete celulares, que a capa sempre aparece
+com pelo menos 0,9 pixel de arquivo por pixel de tela. A conta de hoje vai de
+0,92 no Galaxy S9+, a tela mais densa, a 1,4 no iPad; no computador fica em
+1,0. O tratamento da capa precisa do OpenCV
+(`pip install opencv-python-headless`). O original não vai para o repositório,
+como os demais: ele está no chat e precisa entrar na pasta do Drive.
+
 ### Os lugares fixos
 
 | Arquivo em `fotos/` | Onde aparece | Foto |
 |---|---|---|
-| `capa-1600/960.webp` | Capa do site | Real: painel de TV e cozinha em madeira |
+| `capa-1350/720.webp` e `capa-fundo.webp` | Capa do site | Real: cozinha integrada à sala, com LED no forro (ver "A capa") |
 | `cozinha`, `closet`, `escritorio`, `painel`, `dormitorio`, `banheiro` | Os seis ambientes da página inicial; simulador guardado | Real |
 | `nicho`, `prateleira`, `tabua`, `ripado`, `aparador`, `cabeceira`, `sapateira`, `luminaria`, `bancada` | Peça da loja de mesmo nome | 3D — falta a foto da peça pronta |
 | `oficina` | Faixa "Oficina aberta" da página inicial | 3D — falta a foto da oficina |

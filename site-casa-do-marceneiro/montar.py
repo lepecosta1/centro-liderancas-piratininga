@@ -161,7 +161,7 @@ def pagina(miolo, *, titulo, descricao, url, canonico, raiz, robots, atributos):
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{url}capa-link.jpg">
-  <link rel="preload" as="image" href="{raiz}fotos/capa-1600.webp" imagesrcset="{raiz}fotos/capa-960.webp 960w, {raiz}fotos/capa-1600.webp 1600w" imagesizes="(orientation: portrait) and (min-width: 761px) 150vh, 100vw" fetchpriority="high">
+  <link rel="preload" as="image" href="{raiz}fotos/capa-1350.webp" imagesrcset="{raiz}fotos/capa-720.webp 720w, {raiz}fotos/capa-1350.webp 1350w" imagesizes="(max-width: 760px) 100vw, (min-width: 1522px) 700px, max(46vw, 450px)" fetchpriority="high">
   <link rel="icon" type="image/svg+xml" href="{raiz}marca/icone.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="{raiz}marca/favicon-32.png">
   <link rel="apple-touch-icon" href="{raiz}marca/apple-touch-icon.png">
@@ -219,7 +219,7 @@ for marca_, motivo in ((CNPJ_EXEMPLO, "o CNPJ ainda é o de exemplo"),
     if marca_ in visivel:
         pendencias.append(f"{motivo} (“{marca_}” no texto)")
 lugares = sorted({p.stem for p in (base / "fotos").glob("*.webp")
-                  if not re.search(r"-(640|960|1600|2400)$", p.stem)
+                  if not re.search(r"-(640|960|1600|2400)$", p.stem) and not p.stem.startswith("capa-")
                   and (SIMULADOR or p.stem not in SO_DO_SIMULADOR)} | {"capa"})
 sem_foto = [n for n in lugares if not reais.get(n)]
 if sem_foto:

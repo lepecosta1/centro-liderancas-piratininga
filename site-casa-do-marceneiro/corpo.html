@@ -98,9 +98,10 @@
 <section class="rota on" data-rota="inicio" aria-label="Início">
 
   <div class="capa">
+    <img class="capa-fundo" src="fotos/capa-fundo.webp" width="640" height="360" alt="" decoding="async">
     <picture class="capa-foto">
-      <img src="fotos/capa-1600.webp" srcset="fotos/capa-960.webp 960w, fotos/capa-1600.webp 1600w"
-        sizes="(orientation: portrait) and (min-width: 761px) 150vh, 100vw" width="1600" height="900" alt="Sala com painel de TV em madeira, fita de LED vertical e rack suspenso, integrada à cozinha planejada em madeira — obra da Casa do Marceneiro"
+      <img src="fotos/capa-1350.webp" srcset="fotos/capa-720.webp 720w, fotos/capa-1350.webp 1350w"
+        sizes="(max-width: 760px) 100vw, (min-width: 1522px) 700px, max(46vw, 450px)" width="1350" height="2395" alt="Cozinha planejada em madeira integrada à sala, com armários de vidro fumê, nichos com LED e fita de LED no forro, e a mesa de jantar ao fundo — obra da Casa do Marceneiro"
         fetchpriority="high" decoding="async">
     </picture>
 
@@ -129,7 +130,7 @@
       </div>
     </div>
 
-    <p class="capa-legenda"><b>Painel de TV e cozinha em madeira</b><span>Obra da Casa do Marceneiro</span></p>
+    <p class="capa-legenda"><b>Cozinha integrada à sala, com LED no forro</b><span>Obra da Casa do Marceneiro</span></p>
   </div>
 
   <div class="faixa">
@@ -1237,10 +1238,10 @@
 
   /* Imagens: cada uma existe em duas larguras, e o navegador escolhe
      pelo tamanho em que ela vai aparecer — o celular não baixa 1280 px
-     para um cartão de 170. A capa tem três larguras e carrega primeiro;
+     para um cartão de 170. A capa tem duas larguras e carrega primeiro;
      o resto só carrega quando chega perto da tela. */
   var FOTOS = "fotos/";
-  var LARGURA = { capa:1600, cozinha:1280, closet:1280, escritorio:1280, painel:1280,
+  var LARGURA = { cozinha:1280, closet:1280, escritorio:1280, painel:1280,
     dormitorio:1280, oficina:1280, banheiro:1280 };   /* o resto é peça da loja, 1200 px */
   function larguraDe(nome){ return LARGURA[nome] || 1200; }
 

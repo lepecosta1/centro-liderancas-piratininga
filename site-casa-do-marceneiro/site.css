@@ -190,20 +190,37 @@ h3[tabindex="-1"]:focus-visible,h4[tabindex="-1"]:focus-visible{outline:none}
 @keyframes entra{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
 
 /* ---------- capa ---------- */
-/* A capa é a foto. O texto mora no escuro da esquerda, que o degradê
-   cria por cima da imagem; a legenda diz o que se vê, e que é 3D. */
+/* A capa é uma foto em pé, de celular. Esticada na largura da tela ela
+   pixelaria; então ela fica inteira à direita e se desfaz em fumaça para a
+   esquerda, sobre a própria foto desfocada (capa-fundo), onde mora o texto.
+   Em nenhuma tela a foto aparece maior do que tem pixel para mostrar. */
 .capa{position:relative;isolation:isolate;overflow:hidden;background:var(--nogueira);color:var(--claro);
-  min-height:clamp(540px,74vh,760px);display:flex;align-items:center;
+  min-height:clamp(560px,78vh,780px);display:flex;align-items:center;
   padding:clamp(64px,9vw,112px) 0 clamp(88px,10vw,120px)}
-.capa-foto{position:absolute;inset:0;z-index:-2;display:block}
-.capa-foto img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:62% 55%;display:block;
+.capa-fundo{position:absolute;inset:-4%;z-index:-3;width:108%;height:108%;max-width:none;object-fit:cover;display:block;
+  pointer-events:none;user-select:none}
+.capa-foto{position:absolute;top:0;bottom:0;right:0;z-index:-2;display:block;width:clamp(360px,46vw,700px);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.1) 8%,rgba(0,0,0,.32) 17%,rgba(0,0,0,.62) 28%,
+    rgba(0,0,0,.88) 38%,#000 48%),linear-gradient(0deg,transparent 0%,rgba(0,0,0,.45) 9%,#000 22%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.1) 8%,rgba(0,0,0,.32) 17%,rgba(0,0,0,.62) 28%,
+    rgba(0,0,0,.88) 38%,#000 48%),linear-gradient(0deg,transparent 0%,rgba(0,0,0,.45) 9%,#000 22%);
+  mask-composite:intersect}
+.capa-foto img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 40%;display:block;
   animation:assenta 2.2s cubic-bezier(.16,.7,.2,1) both}
 @keyframes assenta{from{transform:scale(1.07);filter:brightness(.7)}to{transform:none;filter:none}}
 .capa::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:
-  linear-gradient(90deg,rgba(18,12,8,.94) 0%,rgba(18,12,8,.86) 30%,rgba(18,12,8,.5) 52%,rgba(18,12,8,.08) 74%,rgba(18,12,8,0) 100%),
-  linear-gradient(0deg,rgba(18,12,8,.7) 0%,rgba(18,12,8,0) 34%)}
+  linear-gradient(90deg,rgba(18,12,8,.93) 0%,rgba(18,12,8,.84) 30%,rgba(18,12,8,.46) 52%,rgba(18,12,8,.06) 72%,rgba(18,12,8,0) 100%),
+  linear-gradient(0deg,rgba(18,12,8,.66) 0%,rgba(18,12,8,0) 32%)}
+/* a fumaça: uma névoa morna que passa devagar sobre a emenda */
+.capa::after{content:"";position:absolute;inset:-12%;z-index:-1;pointer-events:none;mix-blend-mode:screen;
+  background:radial-gradient(26% 38% at 60% 36%,rgba(236,206,160,.13),transparent 72%),
+    radial-gradient(22% 30% at 66% 74%,rgba(214,168,108,.1),transparent 70%),
+    radial-gradient(30% 26% at 44% 58%,rgba(236,214,180,.06),transparent 70%);
+  animation:fumaca 26s ease-in-out infinite alternate}
+@keyframes fumaca{from{transform:translate3d(-2%,1.5%,0) scale(1)}to{transform:translate3d(2.5%,-2%,0) scale(1.07)}}
 .capa .env{position:relative;width:100%}
-.capa-txt{max-width:600px;animation:sobe-txt .9s .25s cubic-bezier(.2,.7,.2,1) both}
+.capa-txt{max-width:min(600px,54vw);animation:sobe-txt .9s .25s cubic-bezier(.2,.7,.2,1) both}
 @keyframes sobe-txt{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .capa h1{color:var(--claro);text-wrap:balance;font-size:clamp(38px,6vw,66px);letter-spacing:-.022em}
 .capa h1 em{font-style:normal;color:var(--mel)}
@@ -878,12 +895,22 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
 }
 @media (max-width:760px){
   /* no celular a foto fica em cima e o texto embaixo, no escuro */
-  .capa{display:block;min-height:0;padding:min(58vw,330px) 0 34px}
-  .capa-foto{bottom:auto;height:min(78vw,440px)}
-  .capa::before{background:linear-gradient(180deg,rgba(18,12,8,.05) 0%,rgba(18,12,8,.2) min(36vw,200px),
-    var(--nogueira) min(78vw,440px))}
-  .capa-legenda{top:12px;right:12px;font-size:11.5px;padding:6px 10px}
-  .capa-legenda b{font-size:12px}
+  /* no celular, que também é em pé, a foto vai inteira na largura e se desfaz
+     para baixo, onde começa o texto */
+  .capa{display:block;min-height:0;padding:min(78vw,410px) 0 34px}
+  .capa-txt{max-width:none}
+  .capa-foto{left:0;right:0;bottom:auto;width:auto;height:min(150vw,800px);
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 38%,rgba(0,0,0,.74) 49%,rgba(0,0,0,.4) 61%,rgba(0,0,0,.14) 73%,transparent 86%);
+    -webkit-mask-composite:source-over;
+    mask-image:linear-gradient(180deg,#000 0%,#000 38%,rgba(0,0,0,.74) 49%,rgba(0,0,0,.4) 61%,rgba(0,0,0,.14) 73%,transparent 86%);
+    mask-composite:add}
+  .capa-foto img{object-position:50% 85%}   /* menos forro, mais marcenaria */
+  .capa::before{background:linear-gradient(180deg,rgba(18,12,8,0) 0%,rgba(18,12,8,.08) min(36vw,190px),
+    rgba(18,12,8,.5) min(62vw,330px),rgba(18,12,8,.8) min(86vw,460px),rgba(18,12,8,.88) min(116vw,620px))}
+  .capa::after{background:radial-gradient(50% 18% at 50% 34%,rgba(236,206,160,.12),transparent 72%),
+    radial-gradient(40% 14% at 30% 52%,rgba(214,168,108,.08),transparent 70%)}
+  .capa-legenda{top:10px;right:10px;font-size:10px;padding:5px 8px;letter-spacing:.07em}
+  .capa-legenda b{font-size:10.5px}
   .mosaico{grid-template-columns:1fr;grid-template-rows:none;height:auto}
   .mosaico .tela,.mosaico .tela.grande{grid-row:auto;aspect-ratio:4/3}
   .cab-linha{align-items:flex-start}
@@ -895,7 +922,7 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
   .galeria{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
-  .capa-foto img,.capa-txt,.cfg-foto img{animation:none}
+  .capa-foto img,.capa-txt,.cfg-foto img,.capa::after{animation:none}
 }
 
 /* ---------- como chegar ---------- */
