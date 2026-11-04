@@ -122,7 +122,8 @@ capa, faixa da oficina, contato, rodapé, ficha do Google em `index.html`):
 | Dado | Valor |
 |---|---|
 | WhatsApp | (11) 94752-3961 — `TEL` em `corpo.html`; todo link `wa.me` já nasce com ele no HTML |
-| Endereço | Rua Elisiário, 143 — Tatuapé, São Paulo/SP |
+| Endereço | Rua Elisiário, 143 — Tatuapé, São Paulo/SP · CEP 03306-080 (o CEP do perfil da oficina no Google Maps) |
+| Ponto no mapa | -23.5483874, -46.575084 · perfil `cid=16711580082198323185` — tirados do link de rota do próprio perfil |
 | E-mail | contato@marceneirotatuape.com.br |
 
 O formulário de contato envia de verdade, sem servidor: abre o WhatsApp da
@@ -341,6 +342,22 @@ transborda. Passou a medir contra a largura do aparelho.
 O mapa do Google não carrega aqui: a rede do ambiente de trabalho não alcança o
 Google. As conferências checam o endereço do mapa e que ele só entra quando a
 seção chega perto da tela; a nota aparece de verdade no celular de qualquer um.
+
+**Mapa e rotas (04/11).** O mapa do Google não entra quando a página está dentro
+de outro site. É o caso do visor onde a prévia é aprovada, e ali aparecia a tela
+cinza de "conteúdo bloqueado". O site agora percebe essa situação: dentro de uma
+moldura, ou quando o navegador avisa que barrou o Maps, entra um cartão da
+oficina sobre um traçado de ruas desenhado. Esse traçado é enfeite e não
+pretende ser o mapa. O cartão abre o perfil no Google Maps. Logo abaixo do
+mapa, com ele ou sem ele, ficam sempre dois botões:
+
+- **Traçar a rota:** o link de rota do próprio perfil, até a porta.
+- **Ir com o Waze:** abre no ponto exato.
+
+Os mesmos botões estão no Como chegar do contato. "Ver as avaliações" abre o
+perfil exato, e não uma busca. Cada clique de rota é medido: `como_chegar` no
+Google e `FindLocation` na Meta. A ficha do Google ganhou CEP, coordenadas e o
+link do perfil.
 
 Antes, **154 conferências** de ponta a ponta (desktop 1440 e Pixel 7) e **335 de
 celular** em sete aparelhos: Galaxy de 320 px, iPhone SE, iPhone 13, iPhone 14

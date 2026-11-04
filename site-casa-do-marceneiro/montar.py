@@ -139,7 +139,11 @@ def ficha(url):
         "email": "contato@marceneirotatuape.com.br",
         "foundingDate": "1980",
         "address": {"@type": "PostalAddress", "streetAddress": "Rua Elisiário, 143 - Tatuapé",
-                    "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR"},
+                    "addressLocality": "São Paulo", "addressRegion": "SP", "postalCode": "03306-080",
+                    "addressCountry": "BR"},
+        # o ponto e o perfil do Maps vêm do link de rota do próprio perfil da oficina
+        "geo": {"@type": "GeoCoordinates", "latitude": -23.5483874, "longitude": -46.575084},
+        "hasMap": "https://maps.google.com/?cid=16711580082198323185",
         "areaServed": [{"@type": "City", "name": "São Paulo"},
                        {"@type": "Place", "name": "Tatuapé, Zona Leste de São Paulo"}],
         "knowsAbout": ["Marcenaria", "Móveis sob medida", "Móveis planejados", "Closet e guarda-roupa sob medida",

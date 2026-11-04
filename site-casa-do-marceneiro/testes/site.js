@@ -62,6 +62,28 @@ async function nitidez(p) {
   confere(nt.razao >= 0.9 && nt.fundo, `capa sem pixelar no computador (${nt.arq} px, ${nt.razao} px por px) e com o fundo esfumaçado`);
   confere(!/ilustrativ/i.test(await p.$eval(".capa-legenda", e => e.innerText)), "legenda da capa sem 3D ilustrativo");
 
+  // mapa e rotas: o ponto exato do perfil da oficina no Maps, e um cartão onde o Google não pode entrar
+  const rotas = await p.evaluate(() => {
+    const as = [...document.querySelectorAll("a[data-rota]")].map(a => a.href);
+    return { google: as.filter(h => /google\.com\/maps\/dir/.test(h)), waze: as.filter(h => /waze\.com/.test(h)),
+      ver: document.querySelector("#ver-avaliacoes").href, cep: (document.body.textContent.match(/03306-080/g) || []).length };
+  });
+  confere(rotas.google.length >= 2 && rotas.google.every(h => h.includes("0x94ce5fc88811b433:0xe7eb758b02ec9ff1")), `rota do Google até o perfil exato da oficina (${rotas.google.length} botões)`);
+  confere(rotas.waze.length >= 2 && rotas.waze.every(h => h.includes("ll=-23.5483874")), `Waze com o ponto exato (${rotas.waze.length} botões)`);
+  confere(/cid=16711580082198323185/.test(rotas.ver), "ver as avaliações abre o perfil da oficina, não uma busca");
+  confere(rotas.cep >= 5, `CEP 03306-080 em todo endereço (${rotas.cep})`);
+  await p.evaluate(() => document.querySelector("#avaliacoes").scrollIntoView()); await p.waitForTimeout(500);
+  const fora = await p.$eval("#mapa-google", m => { const f = m.querySelector("iframe"); return f && f.src; });
+  confere(fora && /output=embed/.test(fora) && /03306-080/.test(decodeURIComponent(fora)), "fora de moldura, o mapa do Google entra com o endereço do perfil");
+  const MOLD = path.join(CAP, "moldura.html");
+  fs.writeFileSync(MOLD, `<!doctype html><meta charset="utf-8"><iframe src="${ARQ}" style="width:1200px;height:800px;border:0"></iframe>`);
+  const pm = await ctx.newPage(); await pm.goto("file://" + MOLD); await pm.waitForTimeout(700);
+  const fm = pm.frames()[1];
+  await fm.evaluate(() => document.querySelector("#avaliacoes").scrollIntoView()); await pm.waitForTimeout(500);
+  const dentro = await fm.$eval("#mapa-google", m => ({ sem: m.classList.contains("sem-mapa"), iframe: !!m.querySelector("iframe"), cartao: getComputedStyle(m.querySelector(".mapa-reserva")).display !== "none" }));
+  confere(dentro.sem && !dentro.iframe && dentro.cartao, "dentro de moldura (como no visor da prévia), o cartão da oficina no lugar da tela de bloqueio");
+  await pm.close();
+
   // ambientes com foto real e os dois botões
   const amb = await p.$$eval("#ambientes .balcao", cs => cs.map(c => ({ img: !!c.querySelector(".ft img"), zap: c.querySelector("[data-zap]").dataset.msg, album: c.querySelector("[data-album]") && c.querySelector("[data-album]").dataset.album })));
   confere(amb.length === 6 && amb.every(a => a.img && /^Olá! .*orçamento de .+\.$/.test(a.zap) && a.album), "seis ambientes, cada um com foto, pedido de orçamento e ver fotos");

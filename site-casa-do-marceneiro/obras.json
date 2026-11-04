@@ -22,9 +22,9 @@
       "id": "dormitorios", "titulo": "Dormitórios e closets", "pedido": "dormitório, closet ou guarda-roupa sob medida",
       "texto": "Guarda-roupa planejado, closet com portas espelhadas, cabeceira, criado-mudo suspenso e estantes que aproveitam cada parede do quarto.",
       "fotos": [
+        {"id": "dormitorio-estante-suspensa", "fonte": "bc7ed48b9514b409", "foco": "50% 50%", "alt": "Cama com estante suspensa de ferro e madeira sobre a cabeceira e painel de TV ao lado"},
         {"id": "dormitorio-cabeceira-terracota", "fonte": "e6ec977bf768b56c", "foco": "50% 52%", "alt": "Dormitório de studio com cabeceira terracota, criado-mudo suspenso, arandela e divisória de ripado"},
         {"id": "closet-espelhado-escrivaninha", "fonte": "ffe88abfb96d1bb6", "foco": "50% 55%", "alt": "Guarda-roupa com portas espelhadas, escrivaninha verde e cama de casal"},
-        {"id": "dormitorio-estante-suspensa", "fonte": "bc7ed48b9514b409", "foco": "50% 50%", "alt": "Cama com estante suspensa de ferro e madeira sobre a cabeceira e painel de TV ao lado"},
         {"id": "closet-espelhado", "fonte": "077ffdc4f1eaabcf", "foco": "50% 42%", "alt": "Guarda-roupa de portas espelhadas até o teto em quarto com piso de mármore"},
         {"id": "dormitorio-armario-janela", "fonte": "889e09e249c5aa4a", "foco": "50% 55%", "alt": "Quarto de studio com armário cinza até o teto, prateleiras e cama junto à janela"},
         {"id": "dormitorio-tijolinho", "fonte": "8e2036cd3d2cea38", "foco": "50% 50%", "alt": "Quarto com parede de tijolinho, estante suspensa e cama com colcha azul"},
@@ -79,7 +79,7 @@
     "capa":       {"foto": "cozinha-sala-led-forro", "proporcao": null, "foco": [0.5, 0.42]},
     "cozinha":    {"foto": "cozinha-madeira-led", "foco": [0.5, 0.6]},
     "closet":     {"foto": "closet-espelhado", "foco": [0.5, 0.42]},
-    "dormitorio": {"foto": "dormitorio-cabeceira-terracota", "foco": [0.5, 0.55]},
+    "dormitorio": {"foto": "dormitorio-estante-suspensa", "foco": [0.5, 0.5]},
     "painel":     {"foto": "sala-painel-iluminado", "foco": [0.5, 0.47]},
     "escritorio": {"foto": "home-office-escrivaninha-verde", "foco": [0.5, 0.55]},
     "banheiro":   {"foto": "lavabo-espelho-led-ripado", "foco": [0.5, 0.48]}

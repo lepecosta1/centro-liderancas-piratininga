@@ -31,6 +31,11 @@ const NCOZ = COZ.fotos.length + (COZ.video ? 1 : 0);   // itens da galeria de co
       confere(ini.modo === "dominio" && /^Marcenaria em São Paulo/.test(ini.t), `capa no modo domínio com o título certo (${ini.t})`);
       confere(ini.hash === 0 && ini.canon === "https://marceneirotatuape.com.br/", "links por caminho e canônico do domínio");
       confere(/^http:\/\/localhost:\d+\/fotos\/capa-(720|1350)\.webp$/.test(ini.capa), `foto da capa a partir da raiz (${ini.capa})`);
+      const ficha = await p.evaluate(() => [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => JSON.parse(s.textContent)).find(j => j.address));
+      confere(ficha && ficha.address.postalCode === "03306-080" && ficha.geo && /cid=/.test(ficha.hasMap || ""), "ficha do Google com CEP, ponto no mapa e perfil");
+      await p.evaluate(() => document.querySelector("#avaliacoes").scrollIntoView()); await p.waitForTimeout(400);
+      const mapa = await p.evaluate(() => { const f = document.querySelector("#mapa-google iframe"); return f && f.src; });
+      confere(mapa && /output=embed/.test(mapa) && /03306-080/.test(decodeURIComponent(mapa)), "no domínio, o mapa do Google entra com o endereço do perfil");
       // galeria funciona com os caminhos da raiz, inclusive numa página interna
       await p.goto(URL0 + "projetos/"); await p.waitForTimeout(600);
       await p.click('#galeria .proj-foto[data-album="cozinhas"]'); await p.waitForTimeout(500);

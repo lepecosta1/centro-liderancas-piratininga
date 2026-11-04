@@ -39,6 +39,10 @@
   478,
   850
  ],
+ "dormitorio-estante-suspensa": [
+  1280,
+  960
+ ],
  "dormitorio-cabeceira-terracota": [
   1200,
   1600
@@ -46,10 +50,6 @@
  "closet-espelhado-escrivaninha": [
   902,
   1600
- ],
- "dormitorio-estante-suspensa": [
-  1280,
-  960
  ],
  "closet-espelhado": [
   902,
