@@ -1,7 +1,7 @@
 {
   "versao": 2,
   "titulo": "Quadro do Projeto Marceneiro",
-  "atualizado": "2026-11-04",
+  "atualizado": "2026-11-10",
   "visita": "2026-10-21",
   "marcos": [
     {
@@ -221,6 +221,19 @@
       "entrega": "Relatório de uma página por mês com o que importa: verba gasta, conversas no WhatsApp, orçamentos e obras fechadas. Ajuste toda semana no primeiro mês, a cada quinze dias depois.",
       "itens": [
         "ad3"
+      ]
+    },
+    {
+      "id": "m17",
+      "rot": "Filme, revisão e roteiro da visita",
+      "quando": "ter 10/11",
+      "ate": "2026-11-10",
+      "entrega": "O site com o filme e as fotos revisadas, o ensaio no domínio pronto e o roteiro para subir o site e criar a campanha do Google na visita ao Gabriel.",
+      "itens": [
+        "f25",
+        "f26",
+        "f27",
+        "f28"
       ]
     }
   ],
@@ -814,6 +827,34 @@
       "frente": "Instagram",
       "t": "Pinterest e Instagram com a obra do Gabriel",
       "d": "O Pinterest é onde se procura ideia de cozinha e closet: cada obra dele vira um pin com link para o site. No Instagram, vídeo curto do encaixe e do antes e depois. Em vez de tirar foto do Pinterest, a gente põe a obra dele lá."
+    },
+    {
+      "id": "f25",
+      "estado": "feito",
+      "frente": "Site",
+      "t": "Filme de 35 segundos na página inicial",
+      "d": "Feito só com fotos reais das obras, em pé, com legendas na tipografia do site e cartão final com endereço e WhatsApp. Só baixa no play. Serve também para Reels e anúncio na Meta. Aceita narração: a melhor é a voz do próprio Gabriel. Feito em 10/11."
+    },
+    {
+      "id": "f26",
+      "estado": "feito",
+      "frente": "Site",
+      "t": "Segunda conferência das fotos: privacidade",
+      "d": "As 34 fotos vistas uma a uma, ampliadas. Em quatro aparecia gente ao fundo ou em reflexo: recorte, borrão no reflexo ou tela escurecida, sem mexer em móvel. Feito em 10/11."
+    },
+    {
+      "id": "f27",
+      "estado": "feito",
+      "frente": "Site",
+      "t": "Ensaio no domínio e pacote da HostGator",
+      "d": "O site monta numa pasta /novo/ do próprio domínio, fora do Google, sem tocar no site atual, e sai fechado num .zip para extrair no cPanel. O Gabriel aprova vendo no endereço dele. Feito em 10/11."
+    },
+    {
+      "id": "f28",
+      "estado": "feito",
+      "frente": "Crescimento",
+      "t": "Roteiro da visita e proposta de parceria mensal",
+      "d": "Passo a passo para o Leandro conduzir a visita: mostrar o site, fechar as pendências, subir na HostGator, criar o Google Ads, preparar a Meta e propor os planos mensais. Página privada. Feito em 10/11."
     }
   ],
   "replanejado": "Replanejado em 20/10. As datas de setembro dependiam de acessos que só o Gabriel libera — domínio, Google e Ads — e passam a contar da visita de 21/10. A data antiga fica ao lado de cada marco, para ninguém esquecer.",
