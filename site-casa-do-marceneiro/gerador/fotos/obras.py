@@ -14,6 +14,10 @@ Os "lugares" de obras.json (capa e as imagens fixas do site) saem cortados na
 proporção do lugar em volta do foco, com o mesmo nome da imagem 3D que
 substituem, e entram em fotos/reais.json — o selo de 3D sai sozinho.
 
+"retoque" em obras.json cuida da privacidade sem mexer em móvel: "tela" escurece
+uma TV que refletia gente, "borrar" desfaz um reflexo pequeno e "recorte" tira
+da foto a faixa onde aparecia uma pessoa ou material de obra.
+
 Nada dos metadados do celular é copiado (o GPS da casa do cliente fica fora).
 O vídeo sai sem áudio, em H.264, com a imagem de capa tirada do próprio vídeo.
 
@@ -57,6 +61,17 @@ def apagar_tela(im, cantos):
         tom = (round(34 - 18 * t), round(36 - 19 * t), round(41 - 21 * t))
         ImageDraw.Draw(tela).line([(0, y), (w, y)], fill=tom)
     return Image.composite(tela, im, mascara)
+
+
+def borrar(im, caixas):
+    """Desfaz um reflexo pequeno (gente no espelho do fim do corredor): a área
+    vira um borrão, com a borda esfumada. O móvel não muda."""
+    w, h = im.size
+    mascara = Image.new("L", (w, h), 0)
+    for x0, y0, x1, y1 in caixas:
+        ImageDraw.Draw(mascara).rectangle([round(x0 * w), round(y0 * h), round(x1 * w), round(y1 * h)], fill=255)
+    raio = max(6, round(min(w, h) * 0.022))
+    return Image.composite(im.filter(ImageFilter.GaussianBlur(raio)), im, mascara.filter(ImageFilter.GaussianBlur(raio / 3)))
 
 
 def cortar(im, proporcao, foco):
@@ -144,8 +159,14 @@ def main():
                 faltam.append(f"{f['id']} ({f['fonte']})"); continue
             with Image.open(arq) as bruto:
                 im = ImageOps.exif_transpose(bruto).convert("RGB")
-            if f.get("retoque", {}).get("tela"):
-                im = apagar_tela(im, f["retoque"]["tela"])
+            ret = f.get("retoque", {})
+            if ret.get("tela"):
+                im = apagar_tela(im, ret["tela"])
+            if ret.get("borrar"):
+                im = borrar(im, ret["borrar"])
+            if ret.get("recorte"):                     # tira da foto a parte onde aparecia gente ou material de obra
+                x0, y0, x1, y1 = ret["recorte"]
+                im = im.crop((round(x0 * im.width), round(y0 * im.height), round(x1 * im.width), round(y1 * im.height)))
             prontas[f["id"]] = im
             lado = 1600 / max(im.size)
             grande = im if lado >= 1 else im.resize((round(im.width * lado), round(im.height * lado)), Image.LANCZOS)

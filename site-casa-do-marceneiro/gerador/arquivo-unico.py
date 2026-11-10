@@ -28,6 +28,8 @@ html = re.sub(r'\s*<link rel="preload" as="image" href="fotos/capa-1350\.webp"[^
 troca(' srcset="fotos/capa-720.webp 720w, fotos/capa-1350.webp 1350w"', "")
 troca('src="fotos/capa-1350.webp"', f'src="{uri(SITE / "fotos" / "capa-1350.webp")}"')
 troca('src="fotos/capa-fundo.webp"', f'src="{uri(SITE / "fotos" / "capa-fundo.webp")}"')
+troca('poster="fotos/filme/filme-capa.webp"', f'poster="{uri(SITE / "fotos" / "filme" / "filme-capa.webp")}"')
+troca('<source src="fotos/filme/casa-do-marceneiro.mp4"', f'<source src="{uri(SITE / "fotos" / "filme" / "casa-do-marceneiro.mp4")}"')
 for nome in ("logo-site.svg", "icone.svg", "favicon-32.png", "apple-touch-icon.png"):
     html = html.replace(f'"marca/{nome}"', f'"{uri(SITE / "marca" / nome)}"')
 

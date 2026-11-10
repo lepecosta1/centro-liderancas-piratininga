@@ -7,5 +7,7 @@
   "projetos_reais": true,
   "instagram_confirmado": false,
   "fundacao_1980_confirmada": false,
+  "imagens_3d_da_loja_aprovadas": false,
+  "_imagens_3d": "Só vira true se o Gabriel aprovar, por escrito, que as nove peças da loja vão ao ar com a imagem 3D e a etiqueta de imagem ilustrativa, enquanto não houver foto de cada peça pronta. A oficina e a bancada continuam exigindo foto real.",
   "_projetos": "Fotos reais das obras do Drive de 04/11, por ambiente, sem bairro, prazo ou metragem inventados. Confirmar com o Gabriel que todas são obras dele e que nenhum cliente se opõe a ver a casa no site."
 }

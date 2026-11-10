@@ -313,6 +313,9 @@ nova saiu quebrada assim, enquanto os testes locais passavam. Por isso:
    com esses arquivos e a página publicada. Rode `node testes/site.js
    <pasta>/index.html` nela: imagem que não subiu aparece como falha.
 
+Em 10/11: **118 conferências** na prévia e **31** no modo domínio, com o filme, a
+entrada suave sem bloco invisível e o filme cabendo na tela dos sete celulares.
+
 Em 04/11, com as fotos reais: **93 conferências** na prévia — endereço,
 WhatsApp, simulador guardado, capa com foto real e sem pixelar em nenhuma tela, os seis ambientes com foto e
 pedido próprio, o mosaico abrindo a galeria na foto clicada, os seis ambientes
@@ -383,6 +386,68 @@ e três padrões do configurador dando faixas distintas, formulário de contato,
 `Escape` fechando sobreposições, aviso de LGPD com memória. Sem estouro
 horizontal em 360, 375, 393, 412, 768, 1280 e 1440 px. Zero erro de JavaScript.
 Todo texto passa no piso de contraste WCAG AA, medido cor a cor.
+
+## A revisão de 10/11: filme, privacidade e o caminho para subir
+
+**O filme.** A página inicial ganhou um filme de 35 segundos, em pé (720 × 1280),
+feito só com fotos reais das obras: movimento lento de câmera, legendas na
+tipografia do site, a marca e um cartão final com o endereço e o WhatsApp. O
+vídeo só baixa quando alguém aperta o play; antes disso a página carrega uma
+capa de 50 KB. O texto do filme está na página, para quem não vê ou não ouve.
+O play é medido (`filme` no Google, `ViewContent` na Meta). O mesmo arquivo
+serve para Reels, Stories e anúncio na Meta.
+
+```
+NODE_PATH=$(npm root -g) node gerador/filme/quadros.js <pasta dos quadros>
+python3 gerador/filme/filme.py <pasta dos quadros> [--narracao <pasta>]
+```
+
+`gerador/filme/roteiro.json` guarda as falas, as legendas e as cenas. Com
+`--narracao`, a pasta traz uma gravação por batida (`1.wav` … `5.wav`, ou mp3,
+m4a, ogg): cada batida passa a durar o que a fala dura e o som entra no filme.
+Sem narração o filme sai mudo, e as legendas contam a mesma história.
+
+**A ordem da página inicial.** O trabalho real vem primeiro: capa, filme, os
+ambientes com foto das obras, e só depois as três formas de comprar, as peças
+prontas (ainda em 3D), as avaliações e a oficina.
+
+**Privacidade: segunda conferência das fotos.** A curadoria de 04/11 olhou as
+fotos em miniatura e deixou passar gente em quatro delas. Em 10/11 as 34 foram
+vistas uma a uma, ampliadas:
+
+| Foto | O que tinha | O que foi feito |
+|---|---|---|
+| `hall-revestido-madeira` | Uma pessoa agachada no corredor e uma sacola | Recorte: ficam a parede de madeira e o aparador |
+| `dormitorio-painel-tv` | Uma pessoa na borda, latas de tinta e sacos de obra | Recorte: ficam o guarda-roupa, as prateleiras e o painel |
+| `corredor-painel-tv` | Quem fotografava, refletido no espelho do fim do corredor | Borrão só no reflexo |
+| `sala-painel-iluminado` | Duas pessoas refletidas na tela da TV | Tela escurecida, como já era na antiga capa |
+
+Tudo isso mora no campo `retoque` de cada foto, em `obras.json` (`recorte`,
+`borrar`, `tela`), e o `obras.py` aplica. Nenhum móvel foi alterado. Ficaram
+como estão: colchão ainda no plástico em cinco fotos de dormitório, uma
+furadeira sobre o guarda-corpo e uma mochila numa bancada.
+
+**Refinamento visual.** Os blocos entram na tela com um movimento curto, uma
+vez só (nada disso roda para quem pediu menos movimento, nem sem JavaScript);
+o rótulo de cada seção ganhou um fio, como marca de régua; os títulos quebram
+de forma equilibrada.
+
+**Para subir sem risco: o ensaio em `/novo/`.** O site pode ser montado para
+uma pasta do próprio domínio, fora do Google, sem tocar no site atual:
+
+```
+python3 montar.py --dominio https://marceneirotatuape.com.br/novo/ --forcar
+python3 gerador/pacote.py ensaio.zip      # o .zip que se extrai em public_html/novo
+```
+
+O Gabriel abre `marceneirotatuape.com.br/novo/` e aprova vendo no domínio
+dele. Na troca de verdade, o mesmo `pacote.py` fecha o `.zip` da raiz.
+
+**As imagens 3D da loja.** As nove peças da loja ainda não têm foto. Há dois
+caminhos, e a escolha é do Gabriel: fotografar cada peça pronta, ou aprovar
+que elas vão ao ar com a imagem 3D e a etiqueta "Imagem 3D ilustrativa"
+(`"imagens_3d_da_loja_aprovadas": true` no `lancamento.json`). A oficina e a
+bancada não entram nessa exceção: ali a foto tem de ser do lugar.
 
 ## As imagens
 

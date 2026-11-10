@@ -89,6 +89,12 @@ h3[tabindex="-1"]:focus-visible,h4[tabindex="-1"]:focus-visible{outline:none}
 .sub{color:var(--mut);font-size:clamp(16px,1.7vw,18.5px);max-width:62ch;margin-top:14px}
 .faixa.escura .sub{color:var(--claro-mut)}
 .cab{margin-bottom:clamp(28px,4vw,44px)}
+/* o rótulo de seção ganha um fio antes (e depois, nos centrados): régua de marceneiro */
+.cab .rotulo{display:flex;align-items:center;gap:12px}
+.cab .rotulo::before,.cab.meio .rotulo::after{content:"";flex:none;width:26px;height:1px;background:currentColor;opacity:.5}
+.cab.meio .rotulo{justify-content:center}
+h2{text-wrap:balance}
+.sub{text-wrap:pretty}
 .cab.meio{text-align:center}
 .cab.meio .sub{margin-left:auto;margin-right:auto}
 
@@ -924,6 +930,55 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
 @media (prefers-reduced-motion:reduce){
   .capa-foto img,.capa-txt,.cfg-foto img,.capa::after{animation:none}
 }
+
+/* ---------- o filme ---------- */
+/* O filme é em pé, como as fotos das obras e como o celular de quem assiste.
+   No computador ele fica ao lado do texto, do tamanho de um aparelho; no
+   celular vai embaixo, sem passar da altura da tela. */
+#filme{overflow:hidden}   /* o brilho atrás do filme não alarga a página */
+.filme-g{display:grid;grid-template-columns:minmax(0,1fr) min(340px,calc(76vh * 9 / 16));column-gap:clamp(28px,6vw,84px);
+  grid-template-areas:"cab tela" "acoes tela";grid-template-rows:1fr 1fr}
+.filme-cab{grid-area:cab;align-self:end;margin-bottom:0;max-width:560px}
+.filme-acoes{grid-area:acoes;align-self:start;max-width:560px}
+.filme-quadro{grid-area:tela;align-self:center}
+.filme-bts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.filme-texto{margin-top:22px;border-top:1px solid var(--linha);padding-top:14px;max-width:52ch}
+.filme-texto summary{cursor:pointer;font-family:var(--f-util);text-transform:uppercase;letter-spacing:.1em;font-size:13px;
+  color:var(--acento-forte);font-weight:600;list-style:none;display:inline-flex;align-items:center;gap:8px;min-height:44px}
+.filme-texto summary::-webkit-details-marker{display:none}
+.filme-texto summary::after{content:"+";font-size:17px;line-height:1;color:var(--acento)}
+.filme-texto[open] summary::after{content:"–"}
+.filme-texto p{margin:4px 0 0;color:var(--mut);font-family:var(--f-disp);font-size:17px;line-height:1.5}
+.filme-quadro{margin:0;position:relative;width:100%;min-width:0}
+.filme-quadro::before{content:"";position:absolute;inset:-9% -16%;z-index:0;pointer-events:none;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(245,193,92,.34),rgba(245,193,92,0) 72%)}
+.filme-tela{position:relative;z-index:1;aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:var(--nogueira);
+  border:1px solid var(--veio);box-shadow:var(--sombra-alta)}
+.filme-tela video{display:block;width:100%;height:100%;object-fit:cover;background:var(--nogueira)}
+.filme-play{position:absolute;inset:0;z-index:2;border:0;padding:0 0 12%;cursor:pointer;color:var(--claro);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  background:linear-gradient(180deg,rgba(18,12,8,0) 30%,rgba(18,12,8,.32) 100%);font:inherit}
+.filme-play .bola{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;background:rgba(244,233,216,.94);
+  color:var(--nogueira);box-shadow:0 12px 34px rgba(18,12,8,.5);transition:transform .25s cubic-bezier(.2,.7,.2,1),background .2s}
+.filme-play .bola svg{width:30px;height:30px;margin-left:4px}
+.filme-play .dizer{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.14em;font-size:13.5px;font-weight:600;
+  background:rgba(18,12,8,.72);border-radius:20px;padding:5px 13px}
+.filme-play:hover .bola,.filme-play:focus-visible .bola{transform:scale(1.07);background:var(--mel)}
+.filme-play:focus-visible{outline:3px solid var(--mel);outline-offset:-6px}
+.filme-quadro figcaption{position:relative;z-index:1;margin-top:12px;text-align:center;font-family:var(--f-util);
+  text-transform:uppercase;letter-spacing:.12em;font-size:12.5px;color:var(--mut)}
+@media (max-width:860px){
+  /* no celular: a chamada, o filme logo abaixo, e só então os botões */
+  .filme-g{grid-template-columns:minmax(0,1fr);grid-template-areas:"cab" "tela" "acoes";grid-template-rows:none;row-gap:26px}
+  .filme-cab,.filme-acoes{max-width:none}
+  .filme-bts{margin-top:8px}
+  .filme-quadro{width:min(340px,100%,calc(76vh * 9 / 16));margin:0 auto}
+}
+
+/* ---------- entrada suave ---------- */
+.anima .revela{opacity:0}
+.anima .revela.visto{animation:surge .75s cubic-bezier(.2,.7,.2,1) both}
+@keyframes surge{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
 
 /* ---------- como chegar ---------- */
 .chegar{margin-top:20px;display:flex;gap:16px;align-items:flex-start}

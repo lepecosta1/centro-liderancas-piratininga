@@ -46,6 +46,8 @@ const NCOZ = COZ.fotos.length + (COZ.video ? 1 : 0);   // itens da galeria de co
       confere(v && /\/fotos\/obras\/tour-sala-cozinha-madeira\.mp4$/.test(v), "o vídeo aponta para a raiz");
       const mp4 = await p.evaluate(async u => (await fetch(u)).status, v || URL0);
       confere(mp4 === 200, `o vídeo existe no servidor (${mp4})`);
+      const fil = await p.evaluate(async () => Promise.all(["/fotos/filme/casa-do-marceneiro.mp4", "/fotos/filme/filme-capa.webp"].map(u => fetch(u).then(r => r.status))));
+      confere(fil.every(s => s === 200), `o filme e a capa dele existem no servidor (${fil.join(", ")})`);
       await p.keyboard.press("Escape");
       // todas as fotos de obra estão publicadas
       const IDS = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "obras.json"), "utf-8")).ambientes.flatMap(a => a.fotos.map(f => f.id));

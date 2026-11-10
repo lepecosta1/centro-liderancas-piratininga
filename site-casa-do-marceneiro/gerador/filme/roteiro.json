@@ -1,0 +1,61 @@
+{
+  "nota": "O filme institucional do site: só fotos reais das obras (fotos/obras/), em pé, 720 × 1280, para o site e para Reels e anúncios. Cada batida tem a fala do narrador, as legendas que aparecem na tela e as cenas. Sem narração, o filme anda no tempo de leitura das legendas; com narração (uma gravação por batida), cada batida dura o que a fala dura.",
+  "largura": 720, "altura": 1280, "fps": 30, "fusao": 0.55,
+  "batidas": [
+    {
+      "fala": "Toda casa tem um canto esperando o móvel certo.",
+      "dur": 5.2,
+      "legendas": [{"linhas": ["Toda casa tem um canto", "esperando o <em>móvel certo</em>."], "de": 0, "ate": 1}],
+      "cenas": [
+        {"foto": "hall-revestido-madeira", "de": [0.5, 0.45, 1.0], "para": [0.5, 0.42, 1.08], "peso": 1},
+        {"foto": "cozinha-sala-led-forro", "de": [0.5, 0.45, 1.12], "para": [0.5, 0.5, 1.0], "peso": 1.15}
+      ]
+    },
+    {
+      "fala": "Na Casa do Marceneiro, ele começa numa conversa: você conta como vive, a gente mede e desenha.",
+      "dur": 7.4,
+      "legendas": [{"linhas": ["Ele começa numa <em>conversa</em>:", "você conta como vive,", "a gente mede e desenha."], "de": 0, "ate": 1}],
+      "cenas": [
+        {"foto": "home-office-escrivaninha-verde", "de": [0.45, 0.5, 1.0], "para": [0.55, 0.45, 1.1], "peso": 1},
+        {"foto": "closet-espelhado", "de": [0.5, 0.45, 1.1], "para": [0.5, 0.5, 1.0], "peso": 1}
+      ]
+    },
+    {
+      "fala": "Depois, a madeira vira cozinha. Vira quarto. Vira sala.",
+      "dur": 7.2,
+      "legendas": [
+        {"linhas": ["Depois, a madeira", "vira <em>cozinha</em>."], "de": 0, "ate": 0.44},
+        {"linhas": ["Vira <em>quarto</em>."], "de": 0.44, "ate": 0.72},
+        {"linhas": ["Vira <em>sala</em>."], "de": 0.72, "ate": 1}
+      ],
+      "cenas": [
+        {"foto": "cozinha-integrada-jantar", "de": [0.5, 0.5, 1.0], "para": [0.5, 0.42, 1.12], "peso": 0.44},
+        {"foto": "dormitorio-estante-suspensa", "de": [0.5, 0.5, 1.0], "para": [0.46, 0.5, 1.05], "peso": 0.28},
+        {"foto": "sala-painel-iluminado", "de": [0.5, 0.5, 1.0], "para": [0.5, 0.45, 1.1], "peso": 0.28}
+      ]
+    },
+    {
+      "fala": "Cada projeto ganha acabamento na oficina da família, no Tatuapé. E quem faz a sua peça é quem responde por ela.",
+      "dur": 9.0,
+      "legendas": [
+        {"linhas": ["Cada projeto ganha", "acabamento na oficina", "da família, no <em>Tatuapé</em>."], "de": 0, "ate": 0.52},
+        {"linhas": ["E quem faz a sua peça", "é quem <em>responde por ela</em>."], "de": 0.52, "ate": 1}
+      ],
+      "cenas": [
+        {"foto": "lavabo-espelho-led-ripado", "de": [0.5, 0.38, 1.18], "para": [0.5, 0.45, 1.04], "peso": 1},
+        {"foto": "cozinha-madeira-led", "de": [0.5, 0.5, 1.0], "para": [0.5, 0.45, 1.1], "peso": 0.9},
+        {"foto": "corredor-painel-tv", "de": [0.5, 0.5, 1.1], "para": [0.5, 0.5, 1.0], "peso": 0.9}
+      ]
+    },
+    {
+      "fala": "Casa do Marceneiro Tatuapé. Móveis sob medida, feitos para o seu espaço.",
+      "dur": 6.2,
+      "final": {
+        "fundo": "cozinha-sala-led-forro",
+        "titulo": ["Móveis sob medida,", "<em>feitos para o seu espaço</em>."],
+        "linha1": "marceneirotatuape.com.br",
+        "linha2": "WhatsApp (11) 94752-3961 · Tatuapé, São Paulo"
+      }
+    }
+  ]
+}

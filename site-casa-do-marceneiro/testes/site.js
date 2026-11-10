@@ -31,6 +31,15 @@ async function carregarImagens(p) {
 const COZ = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "obras.json"), "utf-8")).ambientes.find(a => a.id === "cozinhas");
 const NCOZ = COZ.fotos.length + (COZ.video ? 1 : 0);
 
+// a entrada suave não pode deixar nada invisível: desce a tela inteira e conta o que ficou com opacidade zero
+async function semEscondido(p) {
+  await p.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 450) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 90)); } });
+  await p.waitForTimeout(1200);
+  const n = await p.evaluate(() => [...document.querySelectorAll(".rota.on .revela")].filter(e => e.offsetParent !== null && getComputedStyle(e).opacity === "0").length);
+  await p.evaluate(() => window.scrollTo(0, 0));
+  return n;
+}
+
 // a capa nunca aparece maior do que tem pixel: px do arquivo por px da tela
 async function nitidez(p) {
   return p.evaluate(() => {
@@ -61,6 +70,18 @@ async function nitidez(p) {
   const nt = await nitidez(p);
   confere(nt.razao >= 0.9 && nt.fundo, `capa sem pixelar no computador (${nt.arq} px, ${nt.razao} px por px) e com o fundo esfumaçado`);
   confere(!/ilustrativ/i.test(await p.$eval(".capa-legenda", e => e.innerText)), "legenda da capa sem 3D ilustrativo");
+
+  // o filme: logo depois da capa, só baixa no play, e os arquivos existem
+  const filme = await p.evaluate(() => { const v = document.querySelector("#filme-video"), ids = [...document.querySelectorAll('[data-rota="inicio"] [id]')].map(e => e.id);
+    return { preload: v.preload, poster: v.getAttribute("poster"), src: v.querySelector("source").getAttribute("src"), botao: !!document.querySelector("#filme-play"),
+      ordem: ids.indexOf("filme") >= 0 && ids.indexOf("filme") < ids.indexOf("mosaico") && ids.indexOf("mosaico") < ids.indexOf("destaques"),
+      zap: decodeURIComponent(document.querySelector('[data-zap="filme"]').href), texto: document.querySelector(".filme-texto p").textContent.length }; });
+  confere(filme.preload === "none" && filme.botao && /filme-capa\.webp$/.test(filme.poster) && /casa-do-marceneiro\.mp4$/.test(filme.src), "o filme só carrega no play e tem imagem de capa");
+  confere(filme.ordem, "página inicial: o filme, depois as fotos reais dos ambientes, depois a loja");
+  confere(/vi o filme/.test(filme.zap) && filme.texto > 200, "o pedido que sai do filme diz que a pessoa viu o filme, e o texto do filme está na página");
+  const PASTA = path.dirname(ARQ.replace("file://", ""));
+  confere(["filme-capa.webp", "casa-do-marceneiro.mp4"].every(a => fs.existsSync(path.join(PASTA, "fotos", "filme", a))), "os arquivos do filme estão ao lado da página");
+  confere(await semEscondido(p) === 0, "entrada suave: depois de rolar a página inicial, nenhum bloco fica invisível");
 
   // mapa e rotas: o ponto exato do perfil da oficina no Maps, e um cartão onde o Google não pode entrar
   const rotas = await p.evaluate(() => {
@@ -142,6 +163,9 @@ async function nitidez(p) {
     ({ ctx, p } = await abrir(b, op));
     await ir(p, "");
     const ntc = await nitidez(p);
+    confere(await semEscondido(p) === 0, `${nome}: entrada suave sem bloco invisível`);
+    const fq = await p.evaluate(() => { const r = document.querySelector(".filme-tela").getBoundingClientRect(); return { larg: Math.round(r.width), alt: Math.round(r.height), tela: innerHeight }; });
+    confere(fq.larg >= 230 && fq.alt <= fq.tela, `${nome}: o filme cabe na tela (${fq.larg} × ${fq.alt} em ${fq.tela})`);
     confere(ntc.razao >= 0.9 && ntc.fundo, `${nome}: capa sem pixelar (${ntc.arq} px, ${ntc.razao} px por px)`);
     for (const r of ["", "loja", "projetos", "oficina", "contato", "politicas"]) {
       await ir(p, r);

@@ -236,7 +236,13 @@ for marca_, motivo in ((CNPJ_EXEMPLO, "o CNPJ ainda é o de exemplo"),
 lugares = sorted({p.stem for p in (base / "fotos").glob("*.webp")
                   if not re.search(r"-(640|960|1600|2400)$", p.stem) and not p.stem.startswith("capa-")
                   and (SIMULADOR or p.stem not in SO_DO_SIMULADOR)} | {"capa"})
-sem_foto = [n for n in lugares if not reais.get(n)]
+# As nove peças da loja podem ir ao ar com a imagem 3D se o Gabriel aprovar
+# ("imagens_3d_da_loja_aprovadas" no lancamento.json): a ficha de cada peça
+# continua dizendo "Imagem 3D ilustrativa". A oficina e a bancada, não: ali a
+# foto tem de ser do lugar de verdade.
+PECAS_DA_LOJA = {"nicho", "prateleira", "tabua", "ripado", "aparador", "cabeceira", "sapateira", "luminaria", "bancada"}
+loja_3d = bool(lanc.get("imagens_3d_da_loja_aprovadas"))
+sem_foto = [n for n in lugares if not reais.get(n) and not (loja_3d and n in PECAS_DA_LOJA)]
 if sem_foto:
     pendencias.append(f"{len(sem_foto)} de {len(lugares)} lugares ainda com imagem 3D: {', '.join(sem_foto)}")
 for chave, motivo in (("precos_confirmados", "preços das peças não confirmados com o Gabriel"),
