@@ -427,7 +427,7 @@
       "estado": "feito",
       "frente": "Fase 2",
       "t": "WhatsApp, endereço e e-mail reais no site",
-      "d": "(11) 94752-3961 no topo, na capa, no botão flutuante, no menu do celular, no contato e no rodapé; endereço (corrigido em 27/10 para a Rua Elisiário, 143 — Tatuapé); contato@marceneirotatuape.com.br. O formulário de contato agora envia de verdade, pelo WhatsApp ou por e-mail, com a mensagem montada. O pedido de teste avisa a oficina e diz que é teste. Feito em 06/10."
+      "d": "(11) 94752-3961 no topo, na capa, no botão flutuante, no menu do celular, no contato e no rodapé; endereço (corrigido em 27/10 para a Rua Elisiário, 143 — Tatuapé); e-mail gabriellandiw@hotmail.com (trocado em 10/11). O formulário de contato envia de verdade, só pelo WhatsApp (o envio por e-mail saiu em 10/11: o Gabriel não acompanha e-mail). O pedido de teste avisa a oficina e diz que é teste. Feito em 06/10."
     },
     {
       "id": "f13",
@@ -588,7 +588,7 @@
       "estado": "afazer",
       "frente": "Google Meu Negócio",
       "t": "Perfil completo, igual ao site letra por letra",
-      "d": "Categoria principal Marcenaria, horário, serviços, área atendida, WhatsApp, link do site, descrição com 1980 e fotos reais. Mesmo endereço do site: Rua Elisiário, 143 — Tatuapé, São Paulo/SP."
+      "d": "Categoria principal Marcenaria, horário, serviços, área atendida, WhatsApp, link do site, descrição com “há mais de 25 anos no mercado” e fotos reais. Mesmo endereço do site: Rua Elisiário, 143 — Tatuapé, São Paulo/SP."
     },
     {
       "id": "g3",
@@ -791,7 +791,7 @@
       "estado": "afazer",
       "frente": "Conteúdo",
       "t": "Confirmar com o Gabriel o que o site afirma",
-      "d": "O site segue 1980 (46 anos); o texto antigo diz “há mais de 25 anos” e precisa ser corrigido onde ainda estiver no ar. Horário de atendimento, @ do Instagram e CNPJ ainda são do protótipo."
+      "d": "Desde 10/11 o site diz “há mais de 25 anos no mercado”, como o site antigo, e não cita ano de fundação nem MDP. Falta o Gabriel dizer o que é cada foto comercial e o ano e o arquiteto do ambiente da CasaCor. Horário de atendimento, @ do Instagram e CNPJ ainda são do protótipo."
     },
     {
       "id": "c1",
@@ -1160,7 +1160,7 @@
     ]
   },
   "subida": {
-    "intro": "A ordem importa: quem aponta o domínio antes de anotar o DNS de hoje derruba o e-mail contato@, e quem anuncia antes de medir paga sem saber pelo quê. O comando de montar o site não publica no Google enquanto houver qualquer coisa inventada.",
+    "intro": "A ordem importa: quem aponta o domínio antes de anotar o DNS de hoje derruba os e-mails do domínio, e quem anuncia antes de medir paga sem saber pelo quê. O comando de montar o site não publica no Google enquanto houver qualquer coisa inventada.",
     "passos": [
       {
         "id": "s1",
@@ -1184,7 +1184,7 @@
         "id": "s4",
         "feito": false,
         "t": "Confirmar o que o site promete",
-        "d": "CNPJ, preços, horário, Instagram, 1980 e as promessas: garantia de 3 anos, visita sem custo, desconto por atraso, preço travado, prazos de entrega. Promessa publicada vira oferta e obriga (CDC, art. 30)."
+        "d": "CNPJ, horário, Instagram e as promessas (a loja não mostra mais preço): garantia de 3 anos, visita sem custo, desconto por atraso, preço travado, prazos de entrega. Promessa publicada vira oferta e obriga (CDC, art. 30)."
       },
       {
         "id": "s5",
