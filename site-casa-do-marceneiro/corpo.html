@@ -58,7 +58,7 @@
 <!--AVISO--><div class="aviso" id="aviso">
   <div class="env">
     <svg viewBox="0 0 16 16"><use href="#i-alerta"/></svg>
-    <p><b>Prévia</b><span class="longo"> — protótipo do novo site para aprovação. Peças, preços e imagens em 3D são ilustrativos e nenhum pagamento é processado.</span><span class="curto"> — imagens 3D e preços ilustrativos.</span></p>
+    <p><b>Prévia</b><span class="longo"> — protótipo do novo site para aprovação. As imagens em 3D da loja são ilustrativas; o valor de cada peça a oficina passa pelo WhatsApp.</span><span class="curto"> — imagens 3D da loja são ilustrativas.</span></p>
     <button type="button" id="fecha-aviso" aria-label="Fechar aviso">&times;</button>
   </div>
 </div><!--/AVISO-->
@@ -108,10 +108,11 @@
 
     <div class="env">
       <div class="capa-txt">
-        <span class="rotulo">Marcenaria em São Paulo · Tatuapé, desde 1980</span>
+        <span class="rotulo">Marcenaria familiar em São Paulo · Tatuapé</span>
         <h1>Móveis sob medida, <em>feitos para o seu espaço</em>.</h1>
-        <p class="sub">Móveis planejados e sob medida para closet, guarda-roupa, cozinha, dormitório e sala,
-          e móveis de madeira prontos com preço fechado. Direto com a família que faz móvel no Tatuapé desde 1980.</p>
+        <p class="sub">Empresa familiar há mais de 25 anos no mercado, com proposta e estilo artesanal: a exclusividade
+          da sua escolha aparece nos detalhes de cada móvel. Matéria-prima de primeira linha, prazo cumprido,
+          assistência técnica e garantia, para a sua casa e para o seu negócio.</p>
         <div class="cta">
           <a class="btn zap" id="zap-capa" href="https://wa.me/5511947523961" data-zap="capa" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>Pedir orçamento no WhatsApp
@@ -124,8 +125,8 @@
         </div>
         <p class="capa-zap"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-tel"/></svg><span>Prefere falar? <a href="tel:+5511947523961" data-ligar="capa">Ligue (11)&nbsp;94752&#8209;3961</a> · ou <a href="#/loja" data-ir="loja">veja as peças prontas</a></span></p>
         <div class="provas">
-          <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b><i data-anos>46</i> anos</b>de oficina própria</span></div>
-          <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b>Madeira e MDF</b>nunca MDP</span></div>
+          <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b>+25 anos</b>de mercado</span></div>
+          <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b>Madeira e MDF</b>de primeira linha</span></div>
           <div><svg viewBox="0 0 16 16"><use href="#i-check"/></svg><span><b>Garantia</b>com assistência técnica</span></div>
         </div>
       </div>
@@ -224,21 +225,60 @@
     </div>
   </div>
 
+  <div class="faixa escura" id="comercial">
+    <div class="env">
+      <div class="comercial-g">
+        <div class="comercial-txt">
+          <span class="rotulo">Área comercial · para empresas</span>
+          <h2>Marcenaria também para o seu negócio</h2>
+          <p class="sub">A mesma oficina que faz a sua casa faz salão, recepção, loja, restaurante, academia e
+            escritório. Projeto junto com o arquiteto ou direto com o dono, na medida do ponto e no prazo da
+            inauguração.</p>
+          <ul class="comercial-lista">
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-check"/></svg><span><b>Balcões, bancos e painéis</b> feitos para o uso de todo dia</span></li>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-check"/></svg><span><b>Prazo combinado</b> e cumprido, com cronograma</span></li>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-check"/></svg><span><b>Parceria com escritórios de arquitetura</b> de São Paulo</span></li>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-check"/></svg><span><b>Assistência técnica e garantia</b> depois da entrega</span></li>
+          </ul>
+          <div class="comercial-bts">
+            <a class="btn zap" href="https://wa.me/5511947523961" data-zap="comercial" data-msg="Olá! Vim pelo site da Casa do Marceneiro e quero um orçamento de marcenaria para a minha empresa." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>Orçamento para minha empresa</a>
+            <button class="btn vazado" type="button" data-album="comercial"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-camera"/></svg>Ver projetos comerciais</button>
+          </div>
+        </div>
+        <div class="comercial-fotos" id="comercial-fotos"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faixa creme">
+    <div class="env">
+      <div class="cab cab-linha">
+        <div>
+          <span class="rotulo">Especialidades da oficina</span>
+          <h2>Cama sob medida e um ambiente na CasaCor</h2>
+        </div>
+        <a class="btn" href="#/projetos" data-ir="projetos">Ver projetos concluídos<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
+      </div>
+      <div class="mosaico duo" id="especiais"></div>
+    </div>
+  </div>
+
   <div class="faixa">
     <div class="env">
       <div class="cab meio">
         <span class="rotulo">Três formas de comprar</span>
         <h2>Nem tudo em marcenaria cabe num botão de comprar</h2>
-        <p class="sub">Uma prateleira você resolve em dois cliques. Um closet inteiro, não — e site que finge
+        <p class="sub">Uma prateleira você resolve numa mensagem. Um closet inteiro, não — e site que finge
           que sim perde o cliente na primeira visita. Por isso a loja tem três balcões.</p>
       </div>
       <div class="balcoes">
         <div class="balcao com-foto" style="--cor:#3D6B2F">
           <div class="ft" data-foto="prateleira" data-alt="Prateleiras flutuantes de freijó com livros e vasos"></div>
-          <span class="quando">Preço fechado · compra na hora</span>
+          <span class="quando">Medida padrão · valor pelo WhatsApp</span>
           <h3>Prateleira</h3>
           <p>Peças prontas com medida padrão: nicho, prateleira, aparador, luminária. Escolhe a madeira,
-            o acabamento e o tamanho, e o preço aparece na hora. Retira na oficina ou recebe em casa.</p>
+            o acabamento e o tamanho, e pede o valor pelo WhatsApp. Retira na oficina ou recebe em casa.</p>
           <a class="btn" href="#/loja" data-ir="loja">Ver peças<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
         </div>
         <div class="balcao com-foto" style="--cor:#A66A15">
@@ -256,7 +296,7 @@
           <span class="quando">Visita técnica · projeto e execução</span>
           <h3>Bancada</h3>
           <p>Móveis planejados para a casa inteira: closet, guarda-roupa, cozinha, dormitório, marcenaria de apartamento.
-            Medição no local, projeto em 3D, cronograma e contrato. É o que a Casa do Marceneiro faz desde 1980.</p>
+            Medição no local, projeto em 3D, cronograma e contrato. É o que a Casa do Marceneiro faz há mais de 25 anos.</p>
           <a class="btn" href="#/contato" data-ir="contato">Agendar visita<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-seta"/></svg></a>
         </div>
       </div>
@@ -268,8 +308,8 @@
       <div class="cab">
         <span class="rotulo">Saem da oficina esta semana</span>
         <h2>Peças prontas</h2>
-        <p class="sub">Preço fechado, sem orçamento e sem espera de projeto. Feitas com a sobra nobre das
-          chapas das obras grandes: madeira de primeira que não vira lixo — e é por isso que o valor fecha.</p>
+        <p class="sub">Medida padrão, sem espera de projeto. Feitas com a sobra nobre das chapas das obras grandes:
+          madeira de primeira que não vira lixo. Imagens ilustrativas — toque na peça e receba o valor pelo WhatsApp.</p>
       </div>
       <div class="vitrine" id="destaques"></div>
       <div style="margin-top:26px;text-align:center">
@@ -328,9 +368,9 @@
             montagem, acabamento e conferência no mesmo endereço, antes de sair para a sua casa. Se quiser conferir
             antes de fechar, é só marcar.</p>
           <div class="numeros">
-            <div><b>1980</b><span>ano da fundação</span></div>
-            <div><b data-anos>46</b><span>anos de oficina</span></div>
-            <div><b>0</b><span>chapas de MDP</span></div>
+            <div><b>+25</b><span>anos de mercado</span></div>
+            <div><b>1</b><span>oficina própria, no Tatuapé</span></div>
+            <div><b>6</b><span>dias por semana de atendimento</span></div>
           </div>
         </div>
         <figure class="quadro-foto">
@@ -347,7 +387,7 @@
           <span><b>WhatsApp e telefone</b><a id="nap-tel" href="https://wa.me/5511947523961" data-zap="oficina" target="_blank" rel="noopener">(11) 94752-3961</a>
             <a class="ligar" href="tel:+5511947523961" data-ligar="oficina">Ligar agora</a></span></li>
         <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-email"/></svg></span>
-          <span><b>E-mail</b><a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a></span></li>
+          <span><b>E-mail</b><a href="mailto:gabriellandiw@hotmail.com">gabriellandiw@<wbr>hotmail.com</a></span></li>
       </ul>
     </div>
   </div>
@@ -362,8 +402,11 @@
         <span class="rotulo">Móveis de madeira prontos</span>
         <h2>Loja</h2>
         <p class="sub">Aparador, sapateira, luminária, nicho, prateleira, mesa de cabeceira e bancada de madeira,
-          feitos pela marcenaria no Tatuapé. Preço fechado, sem orçamento: escolha a madeira e o tamanho, e o
-          preço se ajusta na hora, antes de você colocar no carrinho.</p>
+          feitos pela marcenaria no Tatuapé. Escolha a peça, a madeira e o tamanho e peça o valor pelo WhatsApp:
+          a oficina responde com o valor e o prazo da sua peça.</p>
+        <p class="nota-loja"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-camera"/></svg><span><b>Imagens ilustrativas.</b>
+          Cada peça é feita na oficina, na madeira e na medida que você escolher — por isso o veio e o tom da sua
+          podem variar em relação à imagem.</span></p>
       </div>
 
       <div class="ferramentas">
@@ -373,8 +416,6 @@
         </div>
         <select class="ordena" id="ordena" aria-label="Ordenar produtos">
           <option value="rel">Mais procurados</option>
-          <option value="menor">Menor preço</option>
-          <option value="maior">Maior preço</option>
           <option value="az">Nome (A–Z)</option>
         </select>
       </div>
@@ -446,9 +487,9 @@
       <div class="cab">
         <span class="rotulo">Móveis planejados e sob medida</span>
         <h2>Projetos concluídos</h2>
-        <p class="sub">Closets, guarda-roupas, cozinhas, painéis de TV, home offices e dormitórios feitos sob medida
-          para casas e apartamentos de São Paulo. As fotos são das obras da oficina, como foram entregues: toque num
-          ambiente para ver todas.</p>
+        <p class="sub">Closets, guarda-roupas, cozinhas, camas, painéis de TV, home offices e dormitórios feitos sob
+          medida para casas e apartamentos de São Paulo — e também projetos comerciais e um ambiente da CasaCor.
+          As fotos são das obras da oficina, como foram entregues: toque num álbum para ver todas.</p>
       </div>
       <div class="galeria" id="galeria"></div>
     </div>
@@ -470,10 +511,10 @@
     <div class="env">
       <div class="oficina-g">
         <div>
-          <span class="rotulo">Marcenaria familiar em São Paulo desde 1980</span>
-          <h2><span data-anos>46</span> anos na mesma serra</h2>
-          <p class="sub">A Casa do Marceneiro é uma empresa familiar que trabalha desde 1980 com proposta e
-            estilo artesanal: é no detalhe do móvel que aparece a escolha de quem encomendou. Mudaram as
+          <span class="rotulo">Marcenaria familiar em São Paulo há mais de 25 anos</span>
+          <h2>Mais de 25 anos na mesma serra</h2>
+          <p class="sub">A Casa do Marceneiro é uma empresa familiar que atua há mais de 25 anos no mercado, com proposta e
+            estilo artesanal: é no detalhe do móvel que aparece a exclusividade da escolha de quem encomendou. Mudaram as
             máquinas, o ofício passou de uma geração para a outra — mas a régua continua a mesma: quem faz
             a sua peça é quem responde por ela.</p>
           <p style="color:var(--mut);margin-top:16px">Trabalhamos em parceria com escritório de arquitetura de São Paulo, e a
@@ -514,13 +555,14 @@
           <span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-esquadro"/></svg></span>
           <h3>Exclusividade no detalhe</h3>
           <p>Nenhum projeto sai igual ao anterior. O desenho nasce da planta da sua casa e do seu jeito de
-            usar a casa — não de um catálogo que já estava pronto antes de você chegar.</p>
+            usar a casa — não de um catálogo que já estava pronto antes de você chegar. A oficina também trabalha
+            em parceria com escritórios de arquitetura de São Paulo e atende projetos comerciais.</p>
         </div>
         <div class="balcao" style="--cor:#3D6B2F">
           <span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-folha"/></svg></span>
           <h3>Matéria-prima de primeira linha</h3>
-          <p>Só madeira maciça e MDF de fornecedor com nota. <b>MDP não entra nesta oficina</b> — nem no
-            orçamento mais apertado, nem no fundo do armário onde ninguém olha.</p>
+          <p>Madeira maciça e MDF de primeira linha, de fornecedor com nota. <b>O mesmo padrão vale para a frente
+            e para o fundo do armário</b>, onde ninguém olha — nem no orçamento mais apertado isso muda.</p>
         </div>
         <div class="balcao" style="--cor:#7F4F0E">
           <span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-cal"/></svg></span>
@@ -538,7 +580,7 @@
           <span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-escudo"/></svg></span>
           <h3>A relação não acaba na entrega</h3>
           <p>Assistência técnica e garantia continuam depois de o móvel estar instalado. Quem compra aqui
-            fica com alguém para chamar: a mesma família atende desde 1980.</p>
+            fica com alguém para chamar: a mesma família atende há mais de 25 anos.</p>
         </div>
       </div>
     </div>
@@ -569,9 +611,8 @@
         <div class="ficha-col nao">
           <h3><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-x"/></svg>Não entra</h3>
           <ul>
-            <li><b>MDP, o aglomerado</b><span>É a chapa que incha com um respingo debaixo da pia e solta o
-              parafuso na primeira mudança. Barateia o orçamento e encurta a vida do móvel. Aqui não entra,
-              em nenhuma peça.</span></li>
+            <li><b>Chapa sem procedência</b><span>Material sem nota e sem padrão de qualidade barateia o
+              orçamento e encurta a vida do móvel. Toda chapa da oficina vem de fornecedor conhecido.</span></li>
             <li><b>Ferragem sem marca</b><span>Corrediça que trava e dobradiça que cede no primeiro ano.
               Só entra ferragem com garantia do próprio fabricante.</span></li>
             <li><b>Acabamento só por fora</b><span>Armário pintado na porta e cru por dentro absorve umidade e
@@ -603,7 +644,7 @@
         <span class="rotulo">Marcenaria no Tatuapé, São Paulo</span>
         <h2>Contato</h2>
         <p class="sub">Orçamento de móveis sob medida e planejados, dúvida sobre uma peça da loja ou visita à oficina:
-          escreva do jeito que preferir. A mensagem chega direto na oficina, pelo WhatsApp ou por e-mail.</p>
+          escreva aqui e a mensagem chega direto no WhatsApp da oficina, que é onde o Gabriel responde.</p>
       </div>
       <div class="oficina-g" style="align-items:start">
         <form class="cartao" id="form-contato" novalidate>
@@ -622,7 +663,7 @@
               </div>
             </div>
             <div class="campo">
-              <label for="c-email">E-mail</label>
+              <label for="c-email">E-mail <span style="font-weight:400;color:var(--mut2)">(opcional)</span></label>
               <input id="c-email" name="email" type="email" autocomplete="email" placeholder="voce@email.com">
               <span class="erro" data-erro="c-email"></span>
             </div>
@@ -648,7 +689,6 @@
             <span class="erro" data-erro="c-lgpd"></span>
             <div style="display:flex;gap:10px;flex-wrap:wrap">
               <button class="btn zap" type="submit" value="zap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>Enviar pelo WhatsApp</button>
-              <button class="btn" type="submit" value="email"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-email"/></svg>Enviar por e-mail</button>
             </div>
           </div>
         </form>
@@ -664,7 +704,7 @@
             <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-tel"/></svg></span>
               <span><b>Telefone</b><a href="tel:+5511947523961" data-ligar="contato">(11) 94752-3961</a></span></li>
             <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-email"/></svg></span>
-              <span><b>E-mail</b><a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a></span></li>
+              <span><b>E-mail</b><a href="mailto:gabriellandiw@hotmail.com">gabriellandiw@<wbr>hotmail.com</a></span></li>
             <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-insta"/></svg></span>
               <span><b>Redes</b><a href="https://www.instagram.com/casadomarceneirotatuape/" target="_blank" rel="noopener">Instagram @casadomarceneirotatuape</a>
                 <a href="https://www.facebook.com/CasaDoMarceneiroTatuape/" target="_blank" rel="noopener">Facebook</a></span></li>
@@ -689,22 +729,21 @@
         <details>
           <summary>Que móveis a marcenaria faz?</summary>
           <p>Móveis sob medida e planejados para a casa inteira: closet e guarda-roupa, cozinha, dormitório, painel de
-            TV e sala, home office, banheiro e lavabo. Na <a href="#/loja" data-ir="loja">loja</a> ficam os móveis de
-            madeira prontos, com preço fechado. A oficina fica no Tatuapé e atende a Zona Leste e outros bairros de
+            TV e sala, home office, banheiro e lavabo, cama sob medida e projetos comerciais. Na <a href="#/loja" data-ir="loja">loja</a> ficam os móveis de
+            madeira prontos, em medida padrão. A oficina fica no Tatuapé e atende a Zona Leste e outros bairros de
             São Paulo — pergunte pelo seu.</p>
         </details>
         <details>
           <summary>Dá para fazer o aparador ou a sapateira em outra medida?</summary>
-          <p>Dá. As peças da <a href="#/loja" data-ir="loja">loja</a> saem em medida padrão, com preço fechado. Para outra
+          <p>Dá. As peças da <a href="#/loja" data-ir="loja">loja</a> saem em medida padrão. Para outra
             largura, altura ou madeira, mande a medida pelo <a href="https://wa.me/5511947523961" data-zap="faq-medida" target="_blank" rel="noopener">WhatsApp</a>
             e a oficina faz sob medida.</p>
         </details>
         <details>
-          <summary>MDF ou MDP: qual a diferença?</summary>
-          <p>As duas são chapas de madeira reconstituída. O MDF é feito de fibras finas e bem prensadas: tem a borda
-            lisa, segura melhor o parafuso e aceita usinagem e pintura. O MDP é feito de partículas maiores, custa
-            menos e esfarela com mais facilidade na borda e na furação. A oficina trabalha com madeira maciça e MDF,
-            nunca MDP.</p>
+          <summary>Com que material a oficina trabalha?</summary>
+          <p>Madeira maciça e MDF de primeira linha, de fornecedor com nota fiscal. O MDF é feito de fibras finas e bem
+            prensadas: tem a borda lisa, segura bem o parafuso e aceita usinagem, laca e pintura. A madeira maciça entra
+            onde o projeto pede. Na conversa, a oficina mostra as opções e explica a diferença de cada uma.</p>
         </details>
         <details>
           <summary>Quanto tempo leva um móvel sob medida?</summary>
@@ -740,12 +779,12 @@
         <article class="politica cartao" id="privacidade">
           <h3>Privacidade</h3>
           <p><b>Quem cuida dos dados.</b> Casa do Marceneiro Tatuapé, <span class="cnpj">CNPJ 00.000.000/0001-00</span>,
-            Rua Elisiário, 143, Tatuapé, São Paulo/SP, <span class="sem-quebra">CEP 03306-080</span>. Contato: <a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a>.</p>
+            Rua Elisiário, 143, Tatuapé, São Paulo/SP, <span class="sem-quebra">CEP 03306-080</span>. Contato: <a href="mailto:gabriellandiw@hotmail.com">gabriellandiw@<wbr>hotmail.com</a>.</p>
           <p><b>O que coletamos.</b> Só o que você digita para pedir orçamento ou fazer um pedido: nome, telefone,
             e-mail, endereço de entrega e a mensagem. A conversa pelo WhatsApp segue as regras do próprio WhatsApp.</p>
           <p><b>Para quê.</b> Responder o seu pedido, fazer o orçamento, combinar visita e entrega e emitir a nota.
             A oficina não vende nem repassa os seus dados.</p>
-          <p><b>No seu navegador.</b> O carrinho e as suas escolhas ficam guardados no próprio aparelho. O mapa da
+          <p><b>No seu navegador.</b> As suas escolhas ficam guardadas no próprio aparelho. O mapa da
             página inicial é carregado do Google Maps e segue a política de privacidade do Google.
             <span class="so-medicao" hidden>As ferramentas de medição de anúncio do Google e da Meta só ligam se você
             aceitar no aviso de cookies, e a escolha pode ser desfeita limpando os dados do site no navegador.</span></p>
@@ -1018,7 +1057,7 @@
     <div class="rod-g">
       <div>
         <img class="logo-rod" src="marca/logo-site.svg" width="360" height="131" alt="Casa do Marceneiro" loading="lazy">
-        <p class="diz">Marcenaria em São Paulo desde 1980: móveis sob medida e planejados, feitos no
+        <p class="diz">Marcenaria familiar em São Paulo há mais de 25 anos: móveis sob medida e planejados, feitos no
           Tatuapé, Zona Leste, para a sua casa.</p>
         <!--PREVIA--><div class="pagam">
           <i>PIX</i><i>Visa</i><i>Master</i><i>Elo</i><i>Boleto</i>
@@ -1049,7 +1088,7 @@
           <li>Rua Elisiário, 143 — Tatuapé<br>São Paulo/SP · <span class="sem-quebra">CEP 03306-080</span></li>
           <li>Seg a sex 8h–18h · Sáb 8h–12h</li>
           <li><a href="https://wa.me/5511947523961" data-zap="rodape" target="_blank" rel="noopener">WhatsApp (11) 94752-3961</a></li>
-          <li><a href="mailto:contato@marceneirotatuape.com.br">contato@<wbr>marceneirotatuape.com.br</a></li>
+          <li><a href="mailto:gabriellandiw@hotmail.com">gabriellandiw@<wbr>hotmail.com</a></li>
           <li><a href="tel:+5511947523961" data-ligar="rodape">Telefone (11) 94752-3961</a></li>
           <li><a href="https://www.instagram.com/casadomarceneirotatuape/" target="_blank" rel="noopener">Instagram</a> ·
             <a href="https://www.facebook.com/CasaDoMarceneiroTatuape/" target="_blank" rel="noopener">Facebook</a></li>
@@ -1134,7 +1173,7 @@
 <div class="torradas" id="torradas" role="status" aria-live="polite"></div>
 
 <div class="lgpd" id="lgpd" hidden>
-  <p><b>Um aviso curto.</b> O carrinho fica guardado no seu próprio navegador, e o mapa da página inicial vem do
+  <p><b>Um aviso curto.</b> As suas escolhas ficam guardadas no seu próprio navegador, e o mapa da página inicial vem do
     Google Maps. <span class="so-medicao" hidden>Se você aceitar, ligamos também a medição de anúncios do Google e
     da Meta, para saber qual anúncio trouxe você até aqui.</span>
     <a href="#/politicas" data-ir="politicas">Privacidade</a></p>
@@ -1156,7 +1195,7 @@
      ============================================================ */
 
   var TEL = "5511947523961";        /* WhatsApp da oficina: (11) 94752-3961 */
-  var EMAIL = "contato@marceneirotatuape.com.br";
+  var EMAIL = "gabriellandiw@hotmail.com";
 
   /* Modo de publicação, gravado pelo montar.py no <html>: "previa" é o
      protótipo, com aviso e checkout simulado; "dominio" é o site de
@@ -1438,7 +1477,22 @@
     return p.base;
   }
 
+  /* A loja não mostra valor: cada peça é feita na madeira e na medida de quem
+     pede, e o Gabriel passa o valor pelo WhatsApp. O carrinho e o pagamento
+     ficam guardados no código, fora do ar. */
+  var SEM_PRECO = true;
+
   function cartaoProduto(p){
+    if (SEM_PRECO) {
+      return '<button class="prod" type="button" data-prod="' + p.id + '">' +
+        foto(p, { sizes:"(max-width: 520px) 50vw, (max-width: 980px) 33vw, 290px", selo:"Imagem ilustrativa" }) +
+        '<span class="txt">' +
+          '<span class="cat">' + esc(p.cat) + '</span>' +
+          '<h4>' + esc(p.nome) + '</h4>' +
+          '<span class="preco consulta">Valor sob medida</span>' +
+          '<span class="parc">' + ic("i-seta") + 'Receber o valor no WhatsApp</span>' +
+        '</span></button>';
+    }
     var parc = p.base / 3;
     return '<button class="prod" type="button" data-prod="' + p.id + '">' +
       foto(p, { sizes:"(max-width: 520px) 50vw, (max-width: 980px) 33vw, 290px" }) +
@@ -1545,20 +1599,31 @@
                 (it.cor ? '<i style="background:' + it.cor + '"></i>' : '') + esc(it.n) + '</button>';
             }).join("") + '</div></div>';
         }).join("") +
-        '<div class="linha-preco">' +
-          '<span class="v">' + reais(v) + (p.un ? '<small> ' + esc(p.un) + '</small>' : '') + '</span>' +
-          '<span class="p">ou 3× de ' + reais2(v / 3) + ' sem juros</span>' +
-        '</div>' +
+        (SEM_PRECO
+          ? '<div class="linha-preco consulta">' +
+              '<span class="v">Valor sob medida</span>' +
+              '<span class="p">Escolha a madeira e o tamanho: a oficina responde com o valor e o prazo desta peça.</span>' +
+            '</div>'
+          : '<div class="linha-preco">' +
+              '<span class="v">' + reais(v) + (p.un ? '<small> ' + esc(p.un) + '</small>' : '') + '</span>' +
+              '<span class="p">ou 3× de ' + reais2(v / 3) + ' sem juros</span>' +
+            '</div>') +
         '<div class="ficha-acoes">' +
           '<span class="qtd"><button type="button" id="q-menos" aria-label="Diminuir quantidade">−</button>' +
           '<span id="q-n">' + quantos + '</span>' +
           '<button type="button" id="q-mais" aria-label="Aumentar quantidade">+</button></span>' +
-          '<button class="btn forte" type="button" id="add-cesta">' + ic("i-carrinho") + 'Adicionar ao carrinho</button>' +
+          (SEM_PRECO
+            ? '<button class="btn zap" type="button" id="pedir-valor"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>Receber o valor no WhatsApp</button>'
+            : '<button class="btn forte" type="button" id="add-cesta">' + ic("i-carrinho") + 'Adicionar ao carrinho</button>') +
         '</div>' +
         '<div class="selos">' +
-          '<span>' + ic("i-check") + 'Pronto em 2 a 4 dias úteis</span>' +
-          '<span>' + ic("i-check") + 'Retirada grátis no Tatuapé</span>' +
-          '<span>' + ic("i-check") + '7 dias para desistir</span>' +
+          (SEM_PRECO
+            ? '<span>' + ic("i-check") + 'Feita na oficina, no Tatuapé</span>' +
+              '<span>' + ic("i-check") + 'Outra medida? É só pedir</span>' +
+              '<span>' + ic("i-check") + 'Garantia e assistência técnica</span>'
+            : '<span>' + ic("i-check") + 'Pronto em 2 a 4 dias úteis</span>' +
+              '<span>' + ic("i-check") + 'Retirada grátis no Tatuapé</span>' +
+              '<span>' + ic("i-check") + '7 dias para desistir</span>') +
         '</div>' +
       '</div>';
   }
@@ -1589,6 +1654,7 @@
     if (e.target.closest("#q-menos")) { quantos = Math.max(1, quantos - 1); pintarFicha(); return; }
     if (e.target.closest("#q-mais")) { quantos = Math.min(20, quantos + 1); pintarFicha(); return; }
     if (e.target.closest("#add-cesta")) { adicionar(); return; }
+    if (e.target.closest("#pedir-valor")) { pedirValor(); return; }
   });
 
   /* ============================================================
@@ -1619,6 +1685,16 @@
     salvar(); pintarCarrinho(); fecharFicha();
     torrada(quantos > 1 ? quantos + " peças adicionadas ao carrinho" : "Peça adicionada ao carrinho");
     abrirCarrinho();
+  }
+
+  /* Sem valor na tela, a peça escolhida vira uma mensagem pronta. */
+  function pedirValor(){
+    var p = atual;
+    var rotulo = p.grupos.map(function(g){ return GRUPOS[g].rot.replace(/:$/, "") + ": " + GRUPOS[g].itens[escolhas[g]].n; }).join(" · ");
+    abrirFora(zapLink("Olá! Vi no site da Casa do Marceneiro a peça " + p.nome + (rotulo ? " (" + rotulo + ")" : "") +
+      ", quantidade " + quantos + ". Qual o valor e o prazo?"));
+    medir("valor", p.id);
+    torrada("Abrimos o WhatsApp com a peça escolhida. É só tocar em enviar.");
   }
 
   function totalItens(){ return cesta.reduce(function(s, i){ return s + i.q; }, 0); }
@@ -1692,6 +1768,7 @@
     if ($("#ficha").hidden && !$("#gaveta-menu").classList.contains("on")) document.body.style.overflow = ""; }
 
   $("#abre-cart").addEventListener("click", abrirCarrinho);
+  if (SEM_PRECO) { cesta = []; $("#abre-cart").style.display = "none"; }
   $$("[data-fecha-cart]").forEach(function(b){ b.addEventListener("click", fecharCarrinho); });
 
   document.addEventListener("click", function(e){
@@ -2167,22 +2244,19 @@
     var ok = true;
     ok &= erro("c-nome", $("#c-nome").value.trim().length >= 2 ? "" : "Como podemos te chamar?");
     ok &= erro("c-tel", telOk($("#c-tel").value) ? "" : "Informe DDD e número.");
-    ok &= erro("c-email", emailOk($("#c-email").value) ? "" : "E-mail inválido.");
+    ok &= erro("c-email", !$("#c-email").value.trim() || emailOk($("#c-email").value) ? "" : "E-mail inválido.");
     ok &= erro("c-msg", $("#c-msg").value.trim().length >= 10 ? "" : "Conte um pouco mais — ao menos uma frase.");
     ok &= erro("c-lgpd", $("#c-lgpd").checked ? "" : "Precisamos da sua autorização para responder.");
     if (!ok) { torrada("Confira os campos marcados.", true); return; }
-    // sem servidor: a mensagem sai pronta no WhatsApp ou no e-mail de quem escreve
-    var via = e.submitter && e.submitter.value === "email" ? "email" : "zap";
+    // sem servidor: a mensagem sai pronta no WhatsApp de quem escreve — é onde a oficina responde
     var assunto = $("#c-assunto").value;
     var corpo = "Olá! Meu nome é " + $("#c-nome").value.trim() + ".\n" +
       "Assunto: " + assunto + "\n\n" + $("#c-msg").value.trim() + "\n\n" +
-      "Telefone: " + $("#c-tel").value.trim() + "\nE-mail: " + $("#c-email").value.trim();
-    abrirFora(via === "email"
-      ? "mailto:" + EMAIL + "?subject=" + encodeURIComponent(assunto + " — pelo site") + "&body=" + encodeURIComponent(corpo)
-      : zapLink(corpo));
-    medir("formulario", via);
-    torrada(via === "email" ? "Abrimos o seu e-mail com a mensagem pronta. É só enviar."
-                            : "Abrimos o WhatsApp com a mensagem pronta. É só tocar em enviar.");
+      "Telefone: " + $("#c-tel").value.trim() +
+      ($("#c-email").value.trim() ? "\nE-mail: " + $("#c-email").value.trim() : "");
+    abrirFora(zapLink(corpo));
+    medir("formulario", "zap");
+    torrada("Abrimos o WhatsApp com a mensagem pronta. É só tocar em enviar.");
   });
 
   /* ============================================================
@@ -2489,6 +2563,24 @@
       '<span class="leg"><b>' + esc(a.titulo) + '</b><span>' + ic("i-camera") + 'Ver as ' + a.fotos.length + ' fotos' + (a.video ? ' e o vídeo' : '') + '</span></span></a>';
   }).join("");
 
+  /* área comercial: três fotos do álbum, a primeira em destaque; cada uma abre o álbum nela */
+  (function(){
+    var a = ambiente("comercial"); if (!a) return;
+    $("#comercial-fotos").innerHTML = [0, 3, 7].filter(function(i){ return a.fotos[i]; }).map(function(i, k){
+      return '<button type="button" class="tela' + (k === 0 ? ' grande' : '') + '" data-album="comercial" data-i="' + i +
+        '" aria-label="Ver a foto: ' + esc(a.fotos[i].alt) + '">' +
+        imagemObra(a.fotos[i], k === 0 ? "(max-width: 980px) 100vw, 620px" : "(max-width: 980px) 50vw, 300px") + '</button>';
+    }).join("");
+  })();
+
+  /* especialidades: cama sob medida e CasaCor, cada uma abre o seu álbum */
+  $("#especiais").innerHTML = [["camas", "Cama sob medida", 1], ["casacor", "CasaCor", 0]].map(function(e){
+    var a = ambiente(e[0]); if (!a) return "";
+    return '<a class="tela" href="#/projetos" data-album="' + a.id + '" data-i="' + e[2] + '">' +
+      imagemObra(a.fotos[e[2]], "(max-width: 760px) 100vw, 560px") +
+      '<span class="leg"><b>' + esc(e[1]) + '</b><span>' + ic("i-camera") + 'Ver as ' + a.fotos.length + ' fotos</span></span></a>';
+  }).join("");
+
   /* fotos fixas do HTML: cartões dos três balcões e a faixa da oficina */
   $$("[data-foto]").forEach(function(el){
     el.innerHTML = imagem(el.dataset.foto, el.dataset.alt,
@@ -2502,13 +2594,6 @@
   // todo link de WhatsApp já nasce com o número no HTML; aqui ganha a primeira frase pronta
   $$("[data-zap]").forEach(function(a){
     a.href = zapLink(a.dataset.msg || "Olá! Vim pelo site da Casa do Marceneiro e queria falar sobre um projeto.");
-  });
-
-  /* A idade vem do ano de fundação, não escrita à mão: em 1º de janeiro
-     o site se corrige sozinho, em vez de anunciar um número vencido. */
-  var FUNDACAO = 1980;
-  $$("[data-anos]").forEach(function(el){
-    el.textContent = String(new Date().getFullYear() - FUNDACAO);
   });
 
   pintarFiltros();

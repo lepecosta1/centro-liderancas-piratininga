@@ -29,13 +29,13 @@ CAMPANHA = "Marcenaria Tatuapé — Pesquisa"
 # Títulos e descrições que servem a todos os grupos. Cada grupo soma os seus.
 TITULOS_GERAIS = [
     "Marcenaria no Tatuapé", "Móveis Sob Medida em SP", "Móveis Planejados Zona Leste",
-    "Marcenaria Familiar Desde 1980", "Orçamento pelo WhatsApp", "Madeira Maciça e MDF",
+    "Marcenaria Há Mais de 25 Anos", "Orçamento pelo WhatsApp", "Madeira Maciça e MDF",
     "Acabamento de Primeira Linha", "Fale Direto com o Marceneiro", "Projeto em 3D Antes de Fazer",
-    "Medição no Local", "Casa do Marceneiro Tatuapé", "Nunca Usamos MDP",
+    "Medição no Local", "Casa do Marceneiro Tatuapé", "Matéria-Prima de 1ª Linha",
 ]
 DESCRICOES_GERAIS = [
-    "Marcenaria familiar no Tatuapé desde 1980. Móveis sob medida e planejados para sua casa.",
-    "Madeira maciça e MDF, nunca MDP. Acabamento com maquinário de primeira linha.",
+    "Marcenaria familiar no Tatuapé há mais de 25 anos. Móveis sob medida para casa e empresa.",
+    "Madeira maciça e MDF de primeira linha. Acabamento com maquinário de primeira linha.",
 ]
 
 # grupo → (página, situação, palavras exatas e de frase, títulos próprios, descrições próprias)
@@ -67,13 +67,13 @@ GRUPOS = {
         descricoes=["Guarda-roupa planejado e closet sob medida, do quarto de casal ao apartamento.",
                     "Mande a medida da parede pelo WhatsApp e receba a faixa de investimento."]),
     "Móveis de madeira prontos": dict(
-        pagina="loja/", ativo=False,   # liga quando os preços da loja estiverem confirmados
+        pagina="loja/", ativo=False,   # liga quando o Gabriel quiser anunciar as peças prontas
         palavras=["aparador de madeira", "aparador de madeira maciça", "sapateira de madeira",
                   "sapateira ripada", "luminária de madeira", "nicho de madeira", "prateleira flutuante de madeira"],
         exige=["aparador", "sapateira"],
         titulos=["Aparador de Madeira", "Sapateira Ripada de Madeira", "Móveis de Madeira Prontos"],
-        descricoes=["Aparador, sapateira, luminária e nicho de madeira com preço fechado. Peça pelo WhatsApp.",
-                    "Feitos pela marcenaria do Tatuapé. Escolha a madeira e o tamanho e veja o preço."]),
+        descricoes=["Aparador, sapateira, luminária e nicho de madeira prontos. Peça o valor pelo WhatsApp.",
+                    "Feitos pela marcenaria do Tatuapé. Escolha a madeira e o tamanho e receba o valor."]),
 }
 
 # Quem procura isto não vai contratar marcenaria: curso, emprego, faça você

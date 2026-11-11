@@ -28,8 +28,8 @@ fontes = (base / ".." / "proposta-marcenaria-tatuape" / "fontes-embutidas.css").
 css = (base / "site.css").read_text(encoding="utf-8")
 
 PREVIA = "https://casa-do-marceneiro-tatuape.vercel.app/"
-RESUMO = ("Marcenaria em São Paulo desde 1980, no Tatuapé: móveis sob medida e planejados para closet, "
-          "guarda-roupa, cozinha, dormitório e sala, e móveis de madeira prontos. Orçamento pelo WhatsApp.")
+RESUMO = ("Marcenaria familiar em São Paulo há mais de 25 anos, no Tatuapé: móveis sob medida e planejados para closet, "
+          "guarda-roupa, cozinha, dormitório, sala e projetos comerciais. Orçamento pelo WhatsApp.")
 
 # O simulador de sob medida fica guardado, fora do ar, até o Gabriel liberar:
 # tudo entre <!--SIMULADOR--> sai de todas as versões do site, e o que está
@@ -45,15 +45,15 @@ TELAS = {
     "inicio": ("Marcenaria em São Paulo: móveis sob medida e planejados | Casa do Marceneiro Tatuapé", RESUMO),
     "loja": ("Móveis de madeira prontos: aparador, sapateira, nicho e mais | Casa do Marceneiro Tatuapé",
              "Móveis de madeira da marcenaria do Tatuapé, em São Paulo: aparador, sapateira, luminária, nicho, "
-             "prateleira, mesa de cabeceira e bancada. Preço fechado e pedido pelo WhatsApp."),
+             "prateleira, mesa de cabeceira e bancada. Imagens ilustrativas; valor e pedido pelo WhatsApp."),
     "sob-medida": ("Simulador de móveis sob medida | Casa do Marceneiro Tatuapé",
                    "Escolha o ambiente, os metros e o padrão de acabamento e veja na hora a faixa de investimento "
                    "de cozinha, closet, home office, painel ou banheiro sob medida."),
     "projetos": ("Móveis planejados e sob medida: projetos concluídos | Casa do Marceneiro Tatuapé",
-                 "Closets, guarda-roupas, cozinhas, painéis de TV, home offices e dormitórios planejados e feitos "
+                 "Closets, cozinhas, camas sob medida, painéis de TV, projetos comerciais e CasaCor: móveis planejados e feitos "
                  "sob medida pela marcenaria Casa do Marceneiro, no Tatuapé, Zona Leste de São Paulo."),
-    "oficina": ("Marcenaria familiar em São Paulo desde 1980 | Casa do Marceneiro Tatuapé",
-                "Marcenaria familiar desde 1980 na Rua Elisiário, no Tatuapé, Zona Leste de São Paulo, com "
+    "oficina": ("Marcenaria familiar em São Paulo há mais de 25 anos | Casa do Marceneiro Tatuapé",
+                "Marcenaria familiar há mais de 25 anos na Rua Elisiário, no Tatuapé, Zona Leste de São Paulo, com "
                 "acabamento em maquinário de primeira linha. Missão, valores, garantias e como trabalhamos."),
     "contato": ("Marcenaria no Tatuapé: endereço, WhatsApp e orçamento | Casa do Marceneiro",
                 "Orçamento de móveis sob medida pelo WhatsApp e telefone (11) 94752-3961. Marcenaria na "
@@ -136,8 +136,7 @@ def ficha(url):
         "logo": url + "marca/icone-512.png",
         "image": url + "capa-link.jpg",
         "telephone": "+55 11 94752-3961",
-        "email": "contato@marceneirotatuape.com.br",
-        "foundingDate": "1980",
+        "email": "gabriellandiw@hotmail.com",
         "address": {"@type": "PostalAddress", "streetAddress": "Rua Elisiário, 143 - Tatuapé",
                     "addressLocality": "São Paulo", "addressRegion": "SP", "postalCode": "03306-080",
                     "addressCountry": "BR"},
@@ -226,12 +225,15 @@ def texto_visivel(t):
     return H.unescape(re.sub(r"<[^>]+>", " ", t))
 
 pendencias = []
+# Desde 10/11 a loja diz, a pedido, que as imagens são ilustrativas. Esse texto
+# só deixa de ser pendência quando o Gabriel aprovar as imagens 3D da loja.
+loja_3d = bool(lanc.get("imagens_3d_da_loja_aprovadas"))
 visivel = texto_visivel(re.sub(r"<!--AVISO-->.*?<!--/AVISO-->", "", dom, flags=re.S))
 for marca_, motivo in ((CNPJ_EXEMPLO, "o CNPJ ainda é o de exemplo"),
                        ("ilustrativ", "ainda há texto de imagem ou projeto ilustrativo"),
                        ("prévia", "ainda há texto de prévia"), ("Prévia", "ainda há texto de prévia"),
                        ("protótipo", "ainda há texto de protótipo")):
-    if marca_ in visivel:
+    if marca_ in visivel and not (marca_ == "ilustrativ" and loja_3d):
         pendencias.append(f"{motivo} (“{marca_}” no texto)")
 lugares = sorted({p.stem for p in (base / "fotos").glob("*.webp")
                   if not re.search(r"-(640|960|1600|2400)$", p.stem) and not p.stem.startswith("capa-")
@@ -241,17 +243,14 @@ lugares = sorted({p.stem for p in (base / "fotos").glob("*.webp")
 # continua dizendo "Imagem 3D ilustrativa". A oficina e a bancada, não: ali a
 # foto tem de ser do lugar de verdade.
 PECAS_DA_LOJA = {"nicho", "prateleira", "tabua", "ripado", "aparador", "cabeceira", "sapateira", "luminaria", "bancada"}
-loja_3d = bool(lanc.get("imagens_3d_da_loja_aprovadas"))
 sem_foto = [n for n in lugares if not reais.get(n) and not (loja_3d and n in PECAS_DA_LOJA)]
 if sem_foto:
     pendencias.append(f"{len(sem_foto)} de {len(lugares)} lugares ainda com imagem 3D: {', '.join(sem_foto)}")
-for chave, motivo in (("precos_confirmados", "preços das peças não confirmados com o Gabriel"),
-                      ("horario_confirmado", "horário de atendimento não confirmado"),
+for chave, motivo in (("horario_confirmado", "horário de atendimento não confirmado"),
                       ("promessas_confirmadas", "promessas comerciais não confirmadas (garantia de 3 anos, visita sem "
                                                 "custo, prazo em contrato com desconto, preço travado, prazos de entrega)"),
                       ("projetos_reais", "a página de projetos ainda descreve projetos de exemplo"),
-                      ("instagram_confirmado", "o @ do Instagram não foi confirmado"),
-                      ("fundacao_1980_confirmada", "o ano de fundação, 1980, não foi confirmado")):
+                      ("instagram_confirmado", "o @ do Instagram não foi confirmado")):
     if not lanc.get(chave):
         pendencias.append(motivo)
 

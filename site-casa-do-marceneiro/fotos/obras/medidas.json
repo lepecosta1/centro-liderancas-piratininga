@@ -35,6 +35,14 @@
   1600,
   1200
  ],
+ "cozinha-preta-bancada-pedra": [
+  1600,
+  1200
+ ],
+ "cozinha-preta-torre-forno": [
+  825,
+  1100
+ ],
  "tour-sala-cozinha-madeira": [
   478,
   850
@@ -75,6 +83,22 @@
   1280,
   960
  ],
+ "cama-alta-escada-branca": [
+  1200,
+  1600
+ ],
+ "cama-gavetoes-quarto-rosa": [
+  1600,
+  1200
+ ],
+ "cama-gavetoes-quarto-azul": [
+  1600,
+  1200
+ ],
+ "cama-alta-armario-embaixo": [
+  1600,
+  898
+ ],
  "sala-painel-led": [
   1600,
   902
@@ -101,6 +125,10 @@
  ],
  "bancada-alta-estante": [
   1200,
+  1600
+ ],
+ "painel-tv-giratorio-sala-quarto": [
+  900,
   1600
  ],
  "entrada-guarda-corpo-ripas": [
@@ -138,5 +166,65 @@
  "bar-vidro-aramado": [
   1160,
   868
+ ],
+ "comercial-salao-mesa-ilha": [
+  1600,
+  1197
+ ],
+ "comercial-salao-vista-geral": [
+  1600,
+  1197
+ ],
+ "comercial-ilha-ripada-led": [
+  1600,
+  898
+ ],
+ "comercial-banco-ripado-led": [
+  1600,
+  1197
+ ],
+ "comercial-banco-ripado-em-pe": [
+  1197,
+  1600
+ ],
+ "comercial-banco-jardineira": [
+  1600,
+  1197
+ ],
+ "comercial-painel-portas": [
+  1600,
+  1197
+ ],
+ "comercial-academia-balcao-vermelho": [
+  1100,
+  825
+ ],
+ "comercial-academia-balcao-em-l": [
+  1100,
+  825
+ ],
+ "comercial-estantes-piso-teto": [
+  1600,
+  1200
+ ],
+ "casacor-sala-vista-geral": [
+  1100,
+  731
+ ],
+ "casacor-estantes-nichos": [
+  1100,
+  731
+ ],
+ "casacor-nichos-iluminados": [
+  732,
+  1100
+ ],
+ "casacor-estante-lateral": [
+  732,
+  1100
+ ],
+ "casacor-estante-corredor": [
+  732,
+  1100
  ]
 }

@@ -62,9 +62,9 @@ fora do `localStorage` do próprio navegador.
 
 ## A parte institucional
 
-A empresa é familiar e trabalha **desde 1980**. A idade não está escrita à mão em
-lugar nenhum: os elementos com `data-anos` recebem `anoAtual − 1980` na partida,
-para o site não anunciar um número vencido em 1º de janeiro.
+A empresa é familiar e atua **há mais de 25 anos no mercado** — o texto do site
+antigo da casa, que o Gabriel mandou manter em 10/11. O site não cita ano de
+fundação em lugar nenhum (antes dizia 1980).
 
 A página da oficina tem três blocos novos:
 
@@ -74,13 +74,13 @@ A página da oficina tem três blocos novos:
   concreto em vez de um adjetivo. O quinto ocupa duas colunas, porque cinco
   cartões em três colunas deixariam uma célula vazia.
 - **Ficha técnica** — duas colunas, o que entra e o que não entra. É o bloco mais
-  afiado da página, e por isso mora na faixa escura, sozinho. **MDP não entra**:
-  é a primeira linha da coluna da recusa, e a recusa aparece de novo nos valores.
-  Uma marcenaria se define tanto pelo que usa quanto pelo que recusa.
+  afiado da página, e por isso mora na faixa escura, sozinho. A palavra MDP saiu
+  do site inteiro em 10/11, a pedido: a coluna da recusa fala de chapa sem
+  procedência, ferragem sem marca e acabamento só por fora.
 
 **Números inventados saíram.** A capa anunciava "+800 projetos" e "4,9 no Google",
 que eram invenção minha de protótipo. No lugar entraram três fatos que vêm da
-própria empresa: a idade, a recusa do MDP e a garantia com assistência técnica.
+própria empresa: o tempo de mercado, a matéria-prima de primeira linha e a garantia com assistência técnica.
 A nota real do Google entra quando existir avaliação para citar.
 
 ## Decisões que valem explicar
@@ -124,10 +124,10 @@ capa, faixa da oficina, contato, rodapé, ficha do Google em `index.html`):
 | WhatsApp | (11) 94752-3961 — `TEL` em `corpo.html`; todo link `wa.me` já nasce com ele no HTML |
 | Endereço | Rua Elisiário, 143 — Tatuapé, São Paulo/SP · CEP 03306-080 (o CEP do perfil da oficina no Google Maps) |
 | Ponto no mapa | -23.5483874, -46.575084 · perfil `cid=16711580082198323185` — tirados do link de rota do próprio perfil |
-| E-mail | contato@marceneirotatuape.com.br |
+| E-mail | gabriellandiw@hotmail.com (o Gabriel não acompanha e-mail: o site só envia mensagem pelo WhatsApp) |
 
 O formulário de contato envia de verdade, sem servidor: abre o WhatsApp da
-oficina (ou o e-mail de quem escreve) com a mensagem já montada. O pedido de
+oficina com a mensagem já montada (o envio por e-mail saiu em 10/11). O pedido de
 teste do checkout também avisa a oficina pelo WhatsApp, e a mensagem diz que é
 teste.
 
@@ -176,16 +176,16 @@ A ordem:
 3. **Projetos reais.** Feito como galeria por ambiente (`obras.json`). Se o
    Gabriel quiser obras com bairro, metragem e prazo, ele passa os dados de cada
    uma e elas entram como mais um nível da galeria — sem isso, não se inventa.
-4. **Confirmar com o Gabriel** e marcar no `lancamento.json`: CNPJ, preços,
-   horário, Instagram, 1980 e as promessas que o site faz — garantia de 3 anos,
+4. **Confirmar com o Gabriel** e marcar no `lancamento.json`: CNPJ,
+   horário, Instagram e as promessas que o site faz — garantia de 3 anos,
    visita sem custo, desconto por atraso, preço travado, prazos de retirada e
    entrega. Promessa publicada vira oferta e obriga (CDC, art. 30).
 5. **Avaliações.** O `placeId` do perfil no Google (Google Meu Negócio → Pedir
    avaliações) em `GOOGLE.placeId` faz o botão abrir direto o formulário de nota.
    Comentários só entram em `AVALIACOES` com a autorização de quem escreveu.
 6. **Domínio.** Conferir no Registro.br que o titular é o CNPJ do Gabriel e
-   **anotar todos os registros de DNS de hoje, principalmente os MX**: o
-   `contato@marceneirotatuape.com.br` depende deles e não pode cair na troca.
+   **anotar todos os registros de DNS de hoje, principalmente os MX**, para
+   nenhum e-mail do domínio cair na troca.
 7. **Hospedagem.** O plano grátis da Vercel (Hobby) é só para uso não
    comercial: a prévia pode ficar lá, o site da loja não. Três caminhos, todos
    com o mesmo build:
@@ -254,9 +254,9 @@ aparece na página para onde o anúncio leva. Mudou o texto do site, roda de nov
 
 O `lancamento.json` é a lista que o `montar.py --dominio` cobra. Em detalhe:
 
-1. **Desde 1980.** O site segue a fundação informada, 1980 (46 anos). O texto
-   antigo da casa diz "há mais de 25 anos no mercado" e precisa ser corrigido onde
-   ainda estiver no ar (site atual, Instagram), para a empresa não ter duas idades.
+1. **Há mais de 25 anos.** O site usa o texto do site antigo e não cita ano de
+   fundação. Falta confirmar com o Gabriel o que cada foto comercial mostra (o
+   salão, a academia, as estantes) e o ano e o arquiteto do ambiente da CasaCor.
 2. **Horário de atendimento.** Seg a sex 8h–18h, sáb 8h–12h é do protótipo.
 3. **Instagram.** `@casadomarceneirotatuape` é do protótipo.
 4. **CNPJ.** Está como `00.000.000/0001-00`.
@@ -567,3 +567,20 @@ Para refazer tudo (numpy, Pillow e Node com Playwright):
 ```
 python gerador/logo/exportar.py
 ```
+
+## Pedido de 10/11
+
+- **Capa** com a mensagem do site antigo (empresa familiar, há mais de 25 anos,
+  estilo artesanal, matéria-prima de primeira linha, prazo, assistência e garantia).
+- **Área comercial**: faixa escura na página inicial (`#comercial`) e o álbum
+  "Projetos comerciais" em `obras.json`.
+- **Cama sob medida** e **CasaCor**: dois álbuns novos, com chamada na página
+  inicial (`#especiais`). As fotos da pasta Projetos concluídos entraram nos
+  álbuns de cozinhas e de salas.
+- **Loja sem valor** (`SEM_PRECO` em `corpo.html`): cada peça diz "Valor sob
+  medida" e o botão manda a escolha (peça, madeira, medida, quantidade) para o
+  WhatsApp. Aviso de imagens ilustrativas no topo da loja e em cada cartão. O
+  carrinho e o pagamento ficaram no código, fora do ar; `SEM_PRECO = false` religa.
+- **Contato só por WhatsApp**; o e-mail mostrado passou a ser o do Gabriel.
+- Fotos pequenas (lado maior abaixo de 900 px, caso das da CasaCor) são ampliadas
+  pelo `obras.py` com o mesmo `melhorar` da capa.

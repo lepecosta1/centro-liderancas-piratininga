@@ -21,6 +21,9 @@ da foto a faixa onde aparecia uma pessoa ou material de obra.
 Nada dos metadados do celular é copiado (o GPS da casa do cliente fica fora).
 O vídeo sai sem áudio, em H.264, com a imagem de capa tirada do próprio vídeo.
 
+Foto que chega pequena (lado maior abaixo de 900 px) é ampliada até 1100 px
+pelo mesmo melhorar da capa.
+
 A capa é uma foto em pé, inteira, sem corte ("proporcao": null). Ela sai em
 capa-720 e capa-1350, ampliada de um jeito que não pixela nem inventa detalhe
 (ver melhorar), e com capa-fundo: a própria foto desfocada e com névoa, onde a
@@ -167,6 +170,8 @@ def main():
             if ret.get("recorte"):                     # tira da foto a parte onde aparecia gente ou material de obra
                 x0, y0, x1, y1 = ret["recorte"]
                 im = im.crop((round(x0 * im.width), round(y0 * im.height), round(x1 * im.width), round(y1 * im.height)))
+            if max(im.size) < 900:                     # foto pequena do WhatsApp: amplia como a capa, sem inventar detalhe
+                im = melhorar(im, round(im.width * 1100 / max(im.size)))
             prontas[f["id"]] = im
             lado = 1600 / max(im.size)
             grande = im if lado >= 1 else im.resize((round(im.width * lado), round(im.height * lado)), Image.LANCZOS)

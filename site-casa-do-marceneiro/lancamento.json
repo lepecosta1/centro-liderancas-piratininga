@@ -1,13 +1,12 @@
 {
   "_leia": "Cada item só vira true (ou ganha o valor) depois de confirmado com o Gabriel. Enquanto faltar algum, python3 montar.py --dominio se recusa a publicar o site indexável.",
   "cnpj": "",
-  "precos_confirmados": false,
   "horario_confirmado": false,
   "promessas_confirmadas": false,
   "projetos_reais": true,
   "instagram_confirmado": false,
-  "fundacao_1980_confirmada": false,
   "imagens_3d_da_loja_aprovadas": false,
   "_imagens_3d": "Só vira true se o Gabriel aprovar, por escrito, que as nove peças da loja vão ao ar com a imagem 3D e a etiqueta de imagem ilustrativa, enquanto não houver foto de cada peça pronta. A oficina e a bancada continuam exigindo foto real.",
-  "_projetos": "Fotos reais das obras do Drive de 04/11, por ambiente, sem bairro, prazo ou metragem inventados. Confirmar com o Gabriel que todas são obras dele e que nenhum cliente se opõe a ver a casa no site."
+  "_projetos": "Fotos reais das obras do Drive de 04/11, por ambiente, sem bairro, prazo ou metragem inventados. Confirmar com o Gabriel que todas são obras dele e que nenhum cliente se opõe a ver a casa no site.",
+  "_valores": "Desde 10/11 a loja não mostra valor: cada peça diz Valor sob medida e manda a escolha para o WhatsApp. O texto do tempo de casa é há mais de 25 anos, como no site antigo."
 }

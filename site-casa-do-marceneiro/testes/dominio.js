@@ -56,12 +56,11 @@ const NCOZ = COZ.fotos.length + (COZ.video ? 1 : 0);   // itens da galeria de co
         return { total: ids.length, faltando: r.filter(Boolean) };
       }, IDS);
       confere(faltando.total === IDS.length && IDS.length >= 34 && !faltando.faltando.length, `as ${IDS.length} fotos de obra publicadas nas duas larguras (${faltando.faltando.join(", ")})`);
-      // pedido pelo WhatsApp no carrinho
+      // loja sem valor: a peça escolhida vira pedido de valor no WhatsApp
       await p.goto(URL0 + "loja/"); await p.waitForTimeout(500);
-      await p.click(".rota.on .prod"); await p.waitForTimeout(300); await p.click("#add-cesta"); await p.waitForTimeout(400);
-      await p.click("#pedir-zap"); await p.waitForTimeout(200);
+      await p.click(".rota.on .prod"); await p.waitForTimeout(300); await p.click("#pedir-valor"); await p.waitForTimeout(300);
       const pedido = decodeURIComponent(await p.evaluate(() => window.__abriu.pop() || ""));
-      confere(/^https:\/\/wa\.me\/5511947523961\?text=Olá! Montei este pedido/.test(pedido) && /Subtotal: R\$/.test(pedido), "o carrinho pede pelo WhatsApp com peça e subtotal");
+      confere(/^https:\/\/wa\.me\/5511947523961\?text=Olá! Vi no site da Casa do Marceneiro a peça/.test(pedido) && /Qual o valor e o prazo\?/.test(pedido) && !/R\$/.test(pedido), "a loja pede o valor pelo WhatsApp, sem preço na tela");
       // endereço antigo
       await p.goto(URL0 + "portfolio/"); await p.waitForTimeout(700);
       confere(new URL(p.url()).pathname === "/projetos/", "/portfolio/ do site antigo leva a /projetos/");
