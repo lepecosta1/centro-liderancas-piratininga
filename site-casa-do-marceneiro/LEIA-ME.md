@@ -178,7 +178,7 @@ A ordem:
    uma e elas entram como mais um nível da galeria — sem isso, não se inventa.
 4. **Confirmar com o Gabriel** e marcar no `lancamento.json`: CNPJ,
    horário, Instagram e as promessas que o site faz — garantia de 3 anos,
-   visita sem custo, desconto por atraso, preço travado, prazos de retirada e
+   visita sem custo, desconto por atraso, prazos de retirada e
    entrega. Promessa publicada vira oferta e obriga (CDC, art. 30).
 5. **Avaliações.** O `placeId` do perfil no Google (Google Meu Negócio → Pedir
    avaliações) em `GOOGLE.placeId` faz o botão abrir direto o formulário de nota.
@@ -266,7 +266,7 @@ O `lancamento.json` é a lista que o `montar.py --dominio` cobra. Em detalhe:
 7. **Depoimentos.** Os inventados saíram. No lugar entrou a seção de avaliações
    do Google, com o mapa e a nota ao vivo; comentários só com autorização.
 8. **Promessas comerciais.** Garantia de 3 anos, visita sem custo, desconto por
-   atraso, preço travado e prazos de retirada e entrega são do protótipo.
+   atraso e prazos de retirada e entrega são do protótipo.
 9. **Formas de pagamento.** As bandeiras do rodapé só aparecem na prévia.
 
 ## Defeitos encontrados na conferência e corrigidos
@@ -570,7 +570,8 @@ python gerador/logo/exportar.py
 
 ## Pedido de 10/11
 
-- **Capa** com a mensagem do site antigo (empresa familiar, há mais de 25 anos,
+- **Capa** com a mensagem do site antigo (empresa familiar — desde 1980 na capa, a pedido
+  de 11/11; "há mais de 25 anos" no resto do site —
   estilo artesanal, matéria-prima de primeira linha, prazo, assistência e garantia).
 - **Área comercial**: faixa escura na página inicial (`#comercial`) e o álbum
   "Projetos comerciais" em `obras.json`.

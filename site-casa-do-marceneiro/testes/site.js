@@ -164,12 +164,13 @@ async function nitidez(p) {
   confere(/wa\.me\/5511947523961/.test(pedido) && /Qual o valor e o prazo\?/.test(pedido) && /Madeira: /.test(pedido), `o pedido de valor sai pronto no WhatsApp (${pedido.slice(-70)})`);
   await p.keyboard.press("Escape"); await p.waitForTimeout(200);
 
-  // capa com a mensagem do site antigo, sem 1980 e sem MDP em lugar nenhum; e-mail do Gabriel
+  // capa com a mensagem do site antigo e "desde 1980" (11/11); MDP e o e-mail antigo em lugar nenhum
   const tudoHtml = await p.evaluate(() => document.body.textContent + " " + [...document.querySelectorAll("a[href^=mailto], meta[content], script[type='application/ld+json']")].map(e => e.outerHTML).join(" "));
-  confere(!/\b1980\b|\bMDP\b|contato@marceneirotatuape/i.test(tudoHtml), "nada de 1980, MDP ou do e-mail antigo no site");
+  confere(!/\bMDP\b|contato@marceneirotatuape|preço travado/i.test(tudoHtml), "nada de MDP, preço travado ou do e-mail antigo no site");
   confere((tudoHtml.match(/gabriellandiw@hotmail\.com/g) || []).length >= 4, "e-mail gabriellandiw@hotmail.com no lugar do antigo");
   await ir(p, "inicio");
-  confere(/há mais de 25 anos/.test(await p.$eval(".capa-txt .sub", e => e.textContent)) && /\+25 anos/.test(await p.$eval(".capa .provas", e => e.textContent)), "capa: há mais de 25 anos no mercado");
+  confere(/^Empresa familiar desde 1980/.test(await p.$eval(".capa-txt .sub", e => e.textContent)) && /Desde 1980/.test(await p.$eval(".capa .provas", e => e.textContent)), "capa: empresa familiar desde 1980");
+  confere((await p.$$eval("#garantias .balcao", bs => bs.map(b => b.textContent))).length === 4, "quatro compromissos, sem preço travado");
   const com = await p.$eval("#comercial", e => ({ t: e.innerText, fotos: e.querySelectorAll("#comercial-fotos .tela img").length }));
   confere(/para empresas/i.test(com.t) && /Orçamento para minha empresa/i.test(com.t) && com.fotos === 3, "área comercial na página inicial, com três fotos e orçamento para empresa");
   await p.click('#comercial [data-album="comercial"].btn'); await p.waitForTimeout(300);

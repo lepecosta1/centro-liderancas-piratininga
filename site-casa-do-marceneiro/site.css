@@ -719,16 +719,13 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
 .valores{grid-template-columns:repeat(3,1fr)}
 .valores .balcao:last-child{grid-column:span 2}
 
-/* cinco compromissos: a grade fecha em toda largura, em vez de deixar o
-   quinto cartão sozinho e esticado numa linha só dele */
-.garantias{grid-template-columns:repeat(5,1fr)}
+/* quatro compromissos: quatro colunas, duas no tablet, uma no celular */
+.garantias{grid-template-columns:repeat(4,1fr)}
 @media (max-width:1100px){
-  .garantias{grid-template-columns:repeat(3,1fr)}
-  .garantias .balcao:last-child{grid-column:span 2}
+  .garantias{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:760px){
   .garantias{grid-template-columns:1fr}
-  .garantias .balcao:last-child{grid-column:auto}
 }
 
 /* seis ambientes: a casa inteira, não só a cozinha. Três por linha,

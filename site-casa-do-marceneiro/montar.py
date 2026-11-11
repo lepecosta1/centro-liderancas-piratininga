@@ -248,7 +248,7 @@ if sem_foto:
     pendencias.append(f"{len(sem_foto)} de {len(lugares)} lugares ainda com imagem 3D: {', '.join(sem_foto)}")
 for chave, motivo in (("horario_confirmado", "horário de atendimento não confirmado"),
                       ("promessas_confirmadas", "promessas comerciais não confirmadas (garantia de 3 anos, visita sem "
-                                                "custo, prazo em contrato com desconto, preço travado, prazos de entrega)"),
+                                                "custo, prazo em contrato com desconto, prazos de entrega)"),
                       ("projetos_reais", "a página de projetos ainda descreve projetos de exemplo"),
                       ("instagram_confirmado", "o @ do Instagram não foi confirmado")):
     if not lanc.get(chave):
