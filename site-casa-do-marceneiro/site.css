@@ -47,6 +47,8 @@
 }
 
 *{box-sizing:border-box}
+/* .btn, .vozes e cia. têm display próprio, que venceria o atributo hidden */
+[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--papel);color:var(--tinta);
   font-family:var(--f-body);font-size:16px;line-height:1.6;
@@ -87,6 +89,12 @@ h3[tabindex="-1"]:focus-visible,h4[tabindex="-1"]:focus-visible{outline:none}
 .sub{color:var(--mut);font-size:clamp(16px,1.7vw,18.5px);max-width:62ch;margin-top:14px}
 .faixa.escura .sub{color:var(--claro-mut)}
 .cab{margin-bottom:clamp(28px,4vw,44px)}
+/* o rótulo de seção ganha um fio antes (e depois, nos centrados): régua de marceneiro */
+.cab .rotulo{display:flex;align-items:center;gap:12px}
+.cab .rotulo::before,.cab.meio .rotulo::after{content:"";flex:none;width:26px;height:1px;background:currentColor;opacity:.5}
+.cab.meio .rotulo{justify-content:center}
+h2{text-wrap:balance}
+.sub{text-wrap:pretty}
 .cab.meio{text-align:center}
 .cab.meio .sub{margin-left:auto;margin-right:auto}
 
@@ -188,20 +196,37 @@ h3[tabindex="-1"]:focus-visible,h4[tabindex="-1"]:focus-visible{outline:none}
 @keyframes entra{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
 
 /* ---------- capa ---------- */
-/* A capa é a foto. O texto mora no escuro da esquerda, que o degradê
-   cria por cima da imagem; a legenda diz o que se vê, e que é 3D. */
+/* A capa é uma foto em pé, de celular. Esticada na largura da tela ela
+   pixelaria; então ela fica inteira à direita e se desfaz em fumaça para a
+   esquerda, sobre a própria foto desfocada (capa-fundo), onde mora o texto.
+   Em nenhuma tela a foto aparece maior do que tem pixel para mostrar. */
 .capa{position:relative;isolation:isolate;overflow:hidden;background:var(--nogueira);color:var(--claro);
-  min-height:clamp(540px,74vh,760px);display:flex;align-items:center;
+  min-height:clamp(560px,78vh,780px);display:flex;align-items:center;
   padding:clamp(64px,9vw,112px) 0 clamp(88px,10vw,120px)}
-.capa-foto{position:absolute;inset:0;z-index:-2;display:block}
-.capa-foto img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:62% 55%;display:block;
+.capa-fundo{position:absolute;inset:-4%;z-index:-3;width:108%;height:108%;max-width:none;object-fit:cover;display:block;
+  pointer-events:none;user-select:none}
+.capa-foto{position:absolute;top:0;bottom:0;right:0;z-index:-2;display:block;width:clamp(360px,46vw,700px);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.1) 8%,rgba(0,0,0,.32) 17%,rgba(0,0,0,.62) 28%,
+    rgba(0,0,0,.88) 38%,#000 48%),linear-gradient(0deg,transparent 0%,rgba(0,0,0,.45) 9%,#000 22%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.1) 8%,rgba(0,0,0,.32) 17%,rgba(0,0,0,.62) 28%,
+    rgba(0,0,0,.88) 38%,#000 48%),linear-gradient(0deg,transparent 0%,rgba(0,0,0,.45) 9%,#000 22%);
+  mask-composite:intersect}
+.capa-foto img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 40%;display:block;
   animation:assenta 2.2s cubic-bezier(.16,.7,.2,1) both}
 @keyframes assenta{from{transform:scale(1.07);filter:brightness(.7)}to{transform:none;filter:none}}
 .capa::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:
-  linear-gradient(90deg,rgba(18,12,8,.94) 0%,rgba(18,12,8,.86) 30%,rgba(18,12,8,.5) 52%,rgba(18,12,8,.08) 74%,rgba(18,12,8,0) 100%),
-  linear-gradient(0deg,rgba(18,12,8,.7) 0%,rgba(18,12,8,0) 34%)}
+  linear-gradient(90deg,rgba(18,12,8,.93) 0%,rgba(18,12,8,.84) 30%,rgba(18,12,8,.46) 52%,rgba(18,12,8,.06) 72%,rgba(18,12,8,0) 100%),
+  linear-gradient(0deg,rgba(18,12,8,.66) 0%,rgba(18,12,8,0) 32%)}
+/* a fumaça: uma névoa morna que passa devagar sobre a emenda */
+.capa::after{content:"";position:absolute;inset:-12%;z-index:-1;pointer-events:none;mix-blend-mode:screen;
+  background:radial-gradient(26% 38% at 60% 36%,rgba(236,206,160,.13),transparent 72%),
+    radial-gradient(22% 30% at 66% 74%,rgba(214,168,108,.1),transparent 70%),
+    radial-gradient(30% 26% at 44% 58%,rgba(236,214,180,.06),transparent 70%);
+  animation:fumaca 26s ease-in-out infinite alternate}
+@keyframes fumaca{from{transform:translate3d(-2%,1.5%,0) scale(1)}to{transform:translate3d(2.5%,-2%,0) scale(1.07)}}
 .capa .env{position:relative;width:100%}
-.capa-txt{max-width:600px;animation:sobe-txt .9s .25s cubic-bezier(.2,.7,.2,1) both}
+.capa-txt{max-width:min(600px,54vw);animation:sobe-txt .9s .25s cubic-bezier(.2,.7,.2,1) both}
 @keyframes sobe-txt{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .capa h1{color:var(--claro);text-wrap:balance;font-size:clamp(38px,6vw,66px);letter-spacing:-.022em}
 .capa h1 em{font-style:normal;color:var(--mel)}
@@ -694,16 +719,81 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
 .valores{grid-template-columns:repeat(3,1fr)}
 .valores .balcao:last-child{grid-column:span 2}
 
-/* cinco compromissos: a grade fecha em toda largura, em vez de deixar o
-   quinto cartão sozinho e esticado numa linha só dele */
-.garantias{grid-template-columns:repeat(5,1fr)}
+/* quatro compromissos: quatro colunas, duas no tablet, uma no celular */
+.garantias{grid-template-columns:repeat(4,1fr)}
 @media (max-width:1100px){
-  .garantias{grid-template-columns:repeat(3,1fr)}
-  .garantias .balcao:last-child{grid-column:span 2}
+  .garantias{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:760px){
   .garantias{grid-template-columns:1fr}
-  .garantias .balcao:last-child{grid-column:auto}
+}
+
+/* seis ambientes: a casa inteira, não só a cozinha. Três por linha,
+   duas no tablet, uma no celular */
+.balcoes.ambientes{grid-template-columns:repeat(3,1fr);margin-top:26px}
+.ambientes .balcao{padding:22px 22px 20px}
+.ambientes .balcao .ft{margin:0 -22px 6px}
+.ambientes .balcao h3{font-size:19px}
+.ambientes .balcao p{font-size:15px;margin-bottom:14px}
+@media (max-width:980px){.balcoes.ambientes{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.balcoes.ambientes{grid-template-columns:1fr}}
+
+/* ambientes: pedir orçamento e ver as fotos lado a lado */
+.amb-bts{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.amb-bts .btn{margin-top:0}
+.btn.leve{background:transparent}
+.btn svg{flex:none}
+
+/* projetos: a capa do ambiente abre a galeria */
+.proj-foto{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;position:relative;color:inherit}
+.proj-foto .foto{display:block;aspect-ratio:4/3}
+.proj-foto img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.proj-foto:hover img{transform:scale(1.035)}
+.proj-foto .selo-fotos{position:absolute;right:10px;bottom:10px;z-index:1;display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--f-util);font-size:12.5px;letter-spacing:.06em;color:#fff;background:rgba(20,14,10,.74);
+  padding:5px 9px;border-radius:5px}
+.proj-foto .selo-fotos svg{width:14px;height:14px}
+.proj-bts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.proj-bts .btn svg{width:15px;height:15px}
+.mosaico .leg span svg{width:13px;height:13px;vertical-align:-2px;margin-right:5px}
+
+/* galeria em tela cheia */
+.modal.album{z-index:80;padding:clamp(10px,2.4vw,28px)}
+.album .veu{background:rgba(14,10,7,.94);backdrop-filter:none}
+.album-caixa{position:relative;width:min(1180px,100%);height:min(94vh,1000px);display:flex;flex-direction:column;gap:10px;color:var(--claro)}
+.album-topo{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.album-topo b{display:block;font-family:var(--f-disp);font-size:clamp(18px,2.2vw,23px);font-weight:600;color:var(--claro)}
+.album-topo span{font-family:var(--f-util);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#CDB998}
+.album-topo .xis{background:rgba(244,233,216,.12);color:var(--claro);border-color:rgba(244,233,216,.3);font-size:22px}
+.album-palco{position:relative;flex:1;min-height:0;margin:0;display:flex;flex-direction:column}
+.album-midia{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;touch-action:pan-y}
+.album-midia img,.album-midia video{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:8px;
+  display:block;background:#1c140e}
+.album-seta{position:absolute;top:calc(50% - 30px);width:48px;height:48px;border-radius:50%;border:1px solid rgba(244,233,216,.32);
+  background:rgba(20,14,10,.62);color:var(--claro);display:grid;place-items:center;cursor:pointer}
+.album-seta:hover{background:rgba(20,14,10,.85)}
+.album-seta.ant{left:6px}
+.album-seta.prox{right:6px}
+.album-seta svg{width:20px;height:20px}
+.album-palco figcaption{font-size:14.5px;line-height:1.45;color:#DCCBB3;text-align:center;padding:10px 46px 0;min-height:3.1em}
+.album-miniaturas{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:thin}
+.album-miniaturas button{flex:none;position:relative;width:78px;height:58px;padding:0;border-radius:6px;overflow:hidden;
+  border:2px solid transparent;background:#2a1e15;cursor:pointer;opacity:.62;transition:opacity .2s}
+.album-miniaturas button:hover{opacity:.9}
+.album-miniaturas button[aria-current="true"]{border-color:var(--mel);opacity:1}
+.album-miniaturas img{width:100%;height:100%;object-fit:cover;display:block}
+.album-miniaturas .play{position:absolute;inset:0;display:grid;place-items:center;color:#fff;background:rgba(0,0,0,.28)}
+.album-miniaturas .play svg{width:18px;height:18px}
+.album-pe{display:flex;justify-content:center}
+@media (max-width:760px){
+  .modal.album{padding:0;align-items:stretch}
+  .album-caixa{height:100%;padding:12px 10px 14px}
+  .album-seta{width:40px;height:40px;top:calc(50% - 26px)}
+  .album-seta.ant{left:2px}
+  .album-seta.prox{right:2px}
+  .album-palco figcaption{padding:8px 4px 0;font-size:13.5px}
+  .album-miniaturas button{width:62px;height:48px}
+  .album-pe .btn{width:100%;justify-content:center}
 }
 
 /* ---------- ficha técnica ---------- */
@@ -808,12 +898,22 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
 }
 @media (max-width:760px){
   /* no celular a foto fica em cima e o texto embaixo, no escuro */
-  .capa{display:block;min-height:0;padding:min(58vw,330px) 0 34px}
-  .capa-foto{bottom:auto;height:min(78vw,440px)}
-  .capa::before{background:linear-gradient(180deg,rgba(18,12,8,.05) 0%,rgba(18,12,8,.2) min(36vw,200px),
-    var(--nogueira) min(78vw,440px))}
-  .capa-legenda{top:12px;right:12px;font-size:11.5px;padding:6px 10px}
-  .capa-legenda b{font-size:12px}
+  /* no celular, que também é em pé, a foto vai inteira na largura e se desfaz
+     para baixo, onde começa o texto */
+  .capa{display:block;min-height:0;padding:min(78vw,410px) 0 34px}
+  .capa-txt{max-width:none}
+  .capa-foto{left:0;right:0;bottom:auto;width:auto;height:min(150vw,800px);
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 38%,rgba(0,0,0,.74) 49%,rgba(0,0,0,.4) 61%,rgba(0,0,0,.14) 73%,transparent 86%);
+    -webkit-mask-composite:source-over;
+    mask-image:linear-gradient(180deg,#000 0%,#000 38%,rgba(0,0,0,.74) 49%,rgba(0,0,0,.4) 61%,rgba(0,0,0,.14) 73%,transparent 86%);
+    mask-composite:add}
+  .capa-foto img{object-position:50% 85%}   /* menos forro, mais marcenaria */
+  .capa::before{background:linear-gradient(180deg,rgba(18,12,8,0) 0%,rgba(18,12,8,.08) min(36vw,190px),
+    rgba(18,12,8,.5) min(62vw,330px),rgba(18,12,8,.8) min(86vw,460px),rgba(18,12,8,.88) min(116vw,620px))}
+  .capa::after{background:radial-gradient(50% 18% at 50% 34%,rgba(236,206,160,.12),transparent 72%),
+    radial-gradient(40% 14% at 30% 52%,rgba(214,168,108,.08),transparent 70%)}
+  .capa-legenda{top:10px;right:10px;font-size:10px;padding:5px 8px;letter-spacing:.07em}
+  .capa-legenda b{font-size:10.5px}
   .mosaico{grid-template-columns:1fr;grid-template-rows:none;height:auto}
   .mosaico .tela,.mosaico .tela.grande{grid-row:auto;aspect-ratio:4/3}
   .cab-linha{align-items:flex-start}
@@ -825,8 +925,57 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
   .galeria{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
-  .capa-foto img,.capa-txt,.cfg-foto img{animation:none}
+  .capa-foto img,.capa-txt,.cfg-foto img,.capa::after{animation:none}
 }
+
+/* ---------- o filme ---------- */
+/* O filme é em pé, como as fotos das obras e como o celular de quem assiste.
+   No computador ele fica ao lado do texto, do tamanho de um aparelho; no
+   celular vai embaixo, sem passar da altura da tela. */
+#filme{overflow:hidden}   /* o brilho atrás do filme não alarga a página */
+.filme-g{display:grid;grid-template-columns:minmax(0,1fr) min(340px,calc(76vh * 9 / 16));column-gap:clamp(28px,6vw,84px);
+  grid-template-areas:"cab tela" "acoes tela";grid-template-rows:1fr 1fr}
+.filme-cab{grid-area:cab;align-self:end;margin-bottom:0;max-width:560px}
+.filme-acoes{grid-area:acoes;align-self:start;max-width:560px}
+.filme-quadro{grid-area:tela;align-self:center}
+.filme-bts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.filme-texto{margin-top:22px;border-top:1px solid var(--linha);padding-top:14px;max-width:52ch}
+.filme-texto summary{cursor:pointer;font-family:var(--f-util);text-transform:uppercase;letter-spacing:.1em;font-size:13px;
+  color:var(--acento-forte);font-weight:600;list-style:none;display:inline-flex;align-items:center;gap:8px;min-height:44px}
+.filme-texto summary::-webkit-details-marker{display:none}
+.filme-texto summary::after{content:"+";font-size:17px;line-height:1;color:var(--acento)}
+.filme-texto[open] summary::after{content:"–"}
+.filme-texto p{margin:4px 0 0;color:var(--mut);font-family:var(--f-disp);font-size:17px;line-height:1.5}
+.filme-quadro{margin:0;position:relative;width:100%;min-width:0}
+.filme-quadro::before{content:"";position:absolute;inset:-9% -16%;z-index:0;pointer-events:none;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(245,193,92,.34),rgba(245,193,92,0) 72%)}
+.filme-tela{position:relative;z-index:1;aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:var(--nogueira);
+  border:1px solid var(--veio);box-shadow:var(--sombra-alta)}
+.filme-tela video{display:block;width:100%;height:100%;object-fit:cover;background:var(--nogueira)}
+.filme-play{position:absolute;inset:0;z-index:2;border:0;padding:0 0 12%;cursor:pointer;color:var(--claro);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  background:linear-gradient(180deg,rgba(18,12,8,0) 30%,rgba(18,12,8,.32) 100%);font:inherit}
+.filme-play .bola{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;background:rgba(244,233,216,.94);
+  color:var(--nogueira);box-shadow:0 12px 34px rgba(18,12,8,.5);transition:transform .25s cubic-bezier(.2,.7,.2,1),background .2s}
+.filme-play .bola svg{width:30px;height:30px;margin-left:4px}
+.filme-play .dizer{font-family:var(--f-util);text-transform:uppercase;letter-spacing:.14em;font-size:13.5px;font-weight:600;
+  background:rgba(18,12,8,.72);border-radius:20px;padding:5px 13px}
+.filme-play:hover .bola,.filme-play:focus-visible .bola{transform:scale(1.07);background:var(--mel)}
+.filme-play:focus-visible{outline:3px solid var(--mel);outline-offset:-6px}
+.filme-quadro figcaption{position:relative;z-index:1;margin-top:12px;text-align:center;font-family:var(--f-util);
+  text-transform:uppercase;letter-spacing:.12em;font-size:12.5px;color:var(--mut)}
+@media (max-width:860px){
+  /* no celular: a chamada, o filme logo abaixo, e só então os botões */
+  .filme-g{grid-template-columns:minmax(0,1fr);grid-template-areas:"cab" "tela" "acoes";grid-template-rows:none;row-gap:26px}
+  .filme-cab,.filme-acoes{max-width:none}
+  .filme-bts{margin-top:8px}
+  .filme-quadro{width:min(340px,100%,calc(76vh * 9 / 16));margin:0 auto}
+}
+
+/* ---------- entrada suave ---------- */
+.anima .revela{opacity:0}
+.anima .revela.visto{animation:surge .75s cubic-bezier(.2,.7,.2,1) both}
+@keyframes surge{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
 
 /* ---------- como chegar ---------- */
 .chegar{margin-top:20px;display:flex;gap:16px;align-items:flex-start}
@@ -836,6 +985,9 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
 .chegar h3{font-size:20px;margin-bottom:6px}
 .chegar p{color:var(--mut);margin-bottom:12px}
 .chegar .bts{display:flex;gap:8px;flex-wrap:wrap}
+.chegar > div{min-width:0;flex:1}
+.sem-quebra{white-space:nowrap}   /* o CEP não quebra no hífen */
+.chegar .bts .btn{white-space:normal;max-width:100%;text-align:left}
 
 /* ficha no celular estreito: o selo "3D" e a madeira escolhida não cabem lado a lado */
 @media (max-width:520px){ .ficha-foto .na-foto{bottom:40px} }
@@ -846,3 +998,140 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
 }
 /* no celular o aviso desce do topo: embaixo ele cobria o botão de finalizar */
 @media (max-width:760px){ .torradas{bottom:auto;top:calc(72px + env(safe-area-inset-top,0px))} }
+
+/* ============================================================
+   AVALIAÇÕES DO GOOGLE
+   A nota mora no Google, não aqui: o mapa embutido mostra a nota
+   e o número de avaliações ao vivo, e os botões levam à fonte.
+   ============================================================ */
+.google-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,4vw,56px);align-items:center}
+.google-txt h2{margin-top:2px}
+.google-txt .sub{margin-top:14px}
+.google-bts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.google-obs{margin:16px 0 0;font-size:14.5px;color:var(--mut)}
+.mapa-col{min-width:0}
+.mapa-g{position:relative;margin:0;border-radius:14px 14px 0 0;overflow:hidden;background:var(--cartao);
+  border:1px solid var(--linha2);border-bottom:0;box-shadow:var(--sombra-alta);width:100%;min-width:0;aspect-ratio:4/3}
+/* o cartão de reserva fica à vista até o mapa terminar de chegar */
+.mapa-g iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1;opacity:0;transition:opacity .5s}
+.mapa-g.mapa-pronto iframe{opacity:1}
+.mapa-g figcaption{position:absolute;left:12px;bottom:12px;z-index:2;pointer-events:none;
+  font-family:var(--f-util);letter-spacing:.06em;font-size:12.5px;color:var(--claro);
+  background:rgba(26,18,12,.82);border-radius:20px;padding:4px 11px}
+/* sem o Google (ou até ele chegar), um cartão da oficina sobre um traçado de
+   ruas desenhado — enfeite, não mapa: o mapa de verdade abre no clique */
+.mapa-reserva{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:6px;text-align:center;padding:24px;color:var(--tinta);text-decoration:none;
+  background:
+    radial-gradient(circle at 50% 44%,rgba(253,244,229,.97) 0,rgba(253,244,229,.9) 22%,rgba(244,237,224,0) 60%),
+    linear-gradient(32deg,transparent 47.6%,rgba(166,106,21,.16) 48%,rgba(166,106,21,.16) 52%,transparent 52.4%) 0 0/100% 100%,
+    linear-gradient(-58deg,transparent 46%,rgba(211,195,166,.75) 46.5%,rgba(211,195,166,.75) 53.5%,transparent 54%) 0 0/100% 100%,
+    repeating-linear-gradient(32deg,transparent 0 46px,rgba(211,195,166,.55) 46px 49px),
+    repeating-linear-gradient(-58deg,transparent 0 70px,rgba(211,195,166,.45) 70px 73px),
+    var(--papel2)}
+.mapa-reserva:hover .mapa-abrir{color:var(--acento-forte);text-decoration-color:var(--acento-forte)}
+.mapa-abrir{margin-top:8px;font-family:var(--f-util);font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--acento);text-decoration:underline;text-decoration-color:rgba(166,106,21,.4);text-underline-offset:3px}
+.mapa-g.sem-mapa figcaption{display:none}
+/* os botões de rota ficam sempre à mão, com mapa ou sem */
+.mapa-rotas{display:flex;align-items:center;justify-content:space-between;gap:10px 14px;flex-wrap:wrap;
+  padding:12px 14px;background:var(--cartao);border:1px solid var(--linha2);border-top:1px solid var(--linha);
+  border-radius:0 0 14px 14px;box-shadow:var(--sombra-alta)}
+.mapa-onde{font-size:14.5px;color:var(--mut);min-width:0}
+.mapa-onde b{color:var(--tinta);font-weight:600}
+.mapa-bts{display:flex;gap:8px;flex-wrap:wrap}
+.mapa-bts .btn svg,.chegar .btn svg{width:15px;height:15px}
+.mapa-reserva .ic-grande{width:52px;height:52px;border-radius:50%;background:var(--acento);color:#fff;
+  display:grid;place-items:center;margin-bottom:6px;box-shadow:0 8px 22px rgba(166,106,21,.35)}
+.mapa-reserva .ic-grande svg{width:24px;height:24px}
+.mapa-reserva b{font-family:var(--f-disp);font-size:21px;font-weight:600}
+.mapa-reserva .mut{color:var(--mut);font-size:14.5px;margin-top:4px}
+#vozes{margin-top:clamp(28px,4vw,44px)}
+.voz{margin:0}
+.voz blockquote{margin:0;font-family:var(--f-disp);font-size:17px;line-height:1.45;color:var(--tinta);
+  font-variation-settings:"SOFT" 40}
+@media (max-width:980px){ .google-g{grid-template-columns:1fr} }
+/* no celular a proporção daria um mapa baixo demais para o cartão da nota: altura fixa */
+@media (max-width:760px){ .mapa-g{aspect-ratio:auto;height:380px} }
+
+/* ---------- ligar ---------- */
+.capa-zap svg{color:var(--mel)}
+.nap .ligar{display:inline-flex;align-items:center;margin-left:10px;font-family:var(--f-util);font-size:13.5px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--mel);text-decoration:underline;
+  text-decoration-color:rgba(245,193,92,.45);text-underline-offset:3px;padding:6px 0;min-height:44px}
+.gaveta-menu .corpo a.gav-tel{display:flex;align-items:center;gap:12px;margin-top:8px;border:1px solid var(--linha2);
+  border-radius:9px;padding:12px 16px;text-transform:none;letter-spacing:0;font-family:var(--f-body);
+  font-size:16px;font-weight:600;line-height:1.25;color:var(--tinta)}
+.gaveta-menu .corpo a.gav-tel svg{width:22px;height:22px;flex:none;color:var(--acento-forte)}
+.gaveta-menu .corpo a.gav-tel small{display:block;font-weight:500;font-size:14px;color:var(--mut)}
+.nap span a + a{margin-left:10px}
+.cart-obs{font-family:var(--f-util);font-size:12.5px;color:var(--mut2);text-align:center;margin:0;letter-spacing:.04em}
+
+/* ---------- perguntas frequentes ---------- */
+.faq{margin-top:clamp(40px,6vw,64px);max-width:820px}
+.faq h3{margin-bottom:14px}
+.faq details{border-top:1px solid var(--linha)}
+.faq details:last-child{border-bottom:1px solid var(--linha)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:17px 2px;font-weight:600;font-size:17px;min-height:48px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-util);font-size:24px;line-height:1;color:var(--acento);flex:none;
+  transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--mut);margin:0 0 18px;max-width:70ch}
+.faq a{color:var(--acento-forte)}
+
+/* ---------- políticas ---------- */
+.politicas{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.politica h3{margin-bottom:12px}
+.politica p{color:var(--mut);font-size:15.5px}
+.politica p b{color:var(--tinta)}
+.politica a{color:var(--acento-forte);overflow-wrap:anywhere}
+@media (max-width:860px){ .politicas{grid-template-columns:1fr} }
+.lgpd p a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- pedido de 10/11: área comercial, especialidades e loja sem valor ---------- */
+.comercial-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,4vw,56px);align-items:center}
+.comercial-txt h2{max-width:16ch;text-wrap:balance}
+.comercial-lista{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:11px}
+.comercial-lista li{display:flex;gap:11px;align-items:flex-start;color:var(--claro-mut);font-size:16px;line-height:1.45}
+.comercial-lista li b{color:var(--claro);font-weight:600}
+.comercial-lista svg{width:16px;height:16px;flex:none;margin-top:4px;color:var(--verde-vivo)}
+.comercial-bts{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.comercial-fotos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.comercial-fotos .tela{position:relative;display:block;padding:0;border:0;overflow:hidden;border-radius:var(--raio);
+  background:var(--bancada);cursor:zoom-in;aspect-ratio:4/3;box-shadow:0 18px 40px rgba(0,0,0,.28)}
+.comercial-fotos .tela.grande{grid-column:1 / 3;aspect-ratio:16/10}
+.comercial-fotos .tela img{width:100%;height:100%;max-width:none;object-fit:cover;display:block;
+  transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.comercial-fotos .tela:hover img{transform:scale(1.04)}
+.comercial-fotos .tela:focus-visible{outline:2px solid var(--mel);outline-offset:3px}
+
+.mosaico.duo{grid-template-columns:1fr 1fr;grid-template-rows:none;height:auto}
+.mosaico.duo .tela{aspect-ratio:4/3}
+
+.nota-loja{display:flex;gap:11px;align-items:flex-start;margin:16px 0 0;padding:12px 15px;max-width:74ch;
+  background:var(--papel2);border:1px solid var(--linha);border-left:3px solid var(--acento-forte);
+  border-radius:6px;font-size:14.5px;line-height:1.5;color:var(--mut)}
+.nota-loja svg{width:17px;height:17px;flex:none;margin-top:3px;color:var(--acento-forte)}
+.nota-loja b{color:var(--tinta)}
+.prod .preco.consulta{font-size:17px;font-family:var(--f-disp);font-weight:600}
+.prod .parc{display:inline-flex;align-items:center;gap:5px}
+.prod .parc svg{width:12px;height:12px;flex:none}
+.linha-preco.consulta{flex-direction:column;align-items:flex-start;gap:7px}
+.linha-preco.consulta .v{font-size:25px;font-family:var(--f-disp);font-weight:600}
+.linha-preco.consulta .p{color:var(--mut);font-weight:400;letter-spacing:0;font-family:var(--f-body);font-size:15px;line-height:1.45}
+.ficha-acoes .btn.zap{flex:1 1 220px;justify-content:center}
+
+@media (max-width:980px){
+  .comercial-g{grid-template-columns:1fr}
+  .comercial-txt h2{max-width:none}
+}
+@media (max-width:760px){
+  .mosaico.duo{grid-template-columns:1fr}
+  .comercial-bts .btn{flex:1 1 100%;justify-content:center}
+}
+/* faixa curta de endereço, horário e WhatsApp no fim da página inicial (12/11) */
+.faixa-nap{padding:clamp(28px,4vw,44px) 0}
+.faixa-nap .nap-linha{margin-top:0}
+#peca-oficina button.foto{display:block;width:100%;padding:0;border:0;cursor:zoom-in;position:relative}
