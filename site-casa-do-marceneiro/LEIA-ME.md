@@ -585,3 +585,24 @@ python gerador/logo/exportar.py
 - **Contato só por WhatsApp**; o e-mail mostrado passou a ser o do Gabriel.
 - Fotos pequenas (lado maior abaixo de 900 px, caso das da CasaCor) são ampliadas
   pelo `obras.py` com o mesmo `melhorar` da capa.
+
+## Ajustes de 11 e 12/11 e a versão de produção
+
+- Capa com "Empresa familiar desde 1980"; sai o compromisso "Preço travado".
+- Saem da página inicial o bloco "Oficina aberta. Pode vir ver de perto.", os
+  números e a imagem 3D da oficina; fica só a faixa de endereço, horário e
+  WhatsApp. Na página da oficina, sai o título "Por que ainda fazemos móvel à
+  moda antiga" (o bloco se chama "Missão, visão e valores") e a imagem 3D da
+  bancada dá lugar a uma foto real de obra. As imagens oficina e corte saíram
+  do repositório.
+- Confirmado pelo Leandro em 12/11 (`lancamento.json`): horário, Instagram,
+  garantia de 3 anos e desconto por atraso, e as imagens 3D da loja com o aviso
+  de imagens ilustrativas. Sem CNPJ confirmado, o site no ar não mostra número.
+- `python3 montar.py --dominio https://marceneirotatuape.com.br/` monta sem
+  pendência e indexável. `.htaccess` leva www e http para
+  https://marceneirotatuape.com.br/ e endereços comuns de site antigo
+  (portfolio, galeria, servicos, produtos, empresa, sobre, quem-somos) para a
+  tela certa. Conferido num Apache local: 200 nas seis páginas, 301 nos
+  endereços antigos, 404 com a página própria.
+- `python3 gerador/pacote.py casa-do-marceneiro-producao.zip` fecha o pacote
+  para a raiz de public_html.

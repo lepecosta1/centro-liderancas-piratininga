@@ -64,7 +64,10 @@ TELAS = {
 }
 if not SIMULADOR:
     del TELAS["sob-medida"]
-ANTIGOS = {"portfolio": "projetos"}   # endereços do site antigo que o Google já conhece
+# endereços do site antigo que o Google já conhece, e os nomes de página que
+# todo site de marcenaria costuma ter: quem chega por um deles cai na tela certa
+ANTIGOS = {"portfolio": "projetos", "galeria": "projetos", "servicos": "projetos", "produtos": "loja",
+           "empresa": "oficina", "sobre": "oficina", "quem-somos": "oficina"}
 
 args = argparse.ArgumentParser()
 args.add_argument("--dominio", help="endereço final, ex.: https://marceneirotatuape.com.br/")
@@ -213,6 +216,11 @@ dom = injetar(dom, "MEDICAO", medicao)
 dom = injetar(dom, "TITULOS", {k: v[0] for k, v in TELAS.items()})
 if lanc.get("cnpj"):
     dom = dom.replace("CNPJ " + CNPJ_EXEMPLO, "CNPJ " + lanc["cnpj"])
+else:
+    # sem CNPJ confirmado, o site no ar não mostra número nenhum: o de exemplo
+    # nunca sai da prévia (a loja não vende pelo site, só pelo WhatsApp)
+    dom = dom.replace(', <span class="cnpj">CNPJ ' + CNPJ_EXEMPLO + '</span>,', ',')
+    dom = dom.replace('<span class="cnpj">CNPJ ' + CNPJ_EXEMPLO + '</span>', '')
 # links de tela viram caminhos; foto e marca, endereço a partir da raiz
 dom = re.sub(r'href="#/([a-z-]*)"', lambda m: f'href="{raiz}{m.group(1) + "/" if m.group(1) else ""}"', dom)
 dom = re.sub(r'(?<![\w/.-])(fotos/|marca/)', lambda m: raiz + m.group(1), dom)
@@ -331,7 +339,11 @@ if not os.environ.get("VERCEL"):
         f"{raiz}fotos/*\n  Cache-Control: public, max-age=86400, stale-while-revalidate=604800\n", encoding="utf-8")
     (destino / ".htaccess").write_text(
         "ErrorDocument 404 " + raiz + "404.html\nDirectoryIndex index.html\n"
-        "RewriteEngine On\nRewriteCond %{HTTPS} off\nRewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]\n" +
+        "RewriteEngine On\n" +
+        # www e http levam sempre ao mesmo endereço, o do canônico
+        (f"RewriteCond %{{HTTP_HOST}} ^www\\. [NC]\nRewriteRule ^ https://{urlparse(url).hostname}%{{REQUEST_URI}} [L,R=301]\n"
+         if raiz == "/" else "") +
+        "RewriteCond %{HTTPS} off\nRewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]\n" +
         "".join(f"RedirectMatch 301 ^{raiz}{a}(/.*)?$ {raiz}{n}/\n" for a, n in ANTIGOS.items()) +
         "<IfModule mod_headers.c>\n  Header set X-Content-Type-Options nosniff\n"
         "  Header set Referrer-Policy strict-origin-when-cross-origin\n</IfModule>\n"

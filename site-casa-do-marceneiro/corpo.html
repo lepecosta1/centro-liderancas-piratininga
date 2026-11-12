@@ -306,7 +306,7 @@
   <div class="faixa creme">
     <div class="env">
       <div class="cab">
-        <span class="rotulo">Saem da oficina esta semana</span>
+        <span class="rotulo">Medida padrão, feitas na oficina</span>
         <h2>Peças prontas</h2>
         <p class="sub">Medida padrão, sem espera de projeto. Feitas com a sobra nobre das chapas das obras grandes:
           madeira de primeira que não vira lixo. Imagens ilustrativas — toque na peça e receba o valor pelo WhatsApp.</p>
@@ -358,26 +358,8 @@
     </div>
   </div>
 
-  <div class="faixa escura">
+  <div class="faixa escura faixa-nap">
     <div class="env">
-      <div class="oficina-g">
-        <div>
-          <span class="rotulo">Onde a peça é feita</span>
-          <h2>Oficina aberta. Pode vir ver de perto.</h2>
-          <p class="sub">A peça ganha forma na oficina da família, no Tatuapé, com maquinário de primeira linha:
-            montagem, acabamento e conferência no mesmo endereço, antes de sair para a sua casa. Se quiser conferir
-            antes de fechar, é só marcar.</p>
-          <div class="numeros">
-            <div><b>+25</b><span>anos de mercado</span></div>
-            <div><b>1</b><span>oficina própria, no Tatuapé</span></div>
-            <div><b>6</b><span>dias por semana de atendimento</span></div>
-          </div>
-        </div>
-        <figure class="quadro-foto">
-          <div class="ft" data-foto="oficina" data-alt="Oficina de marcenaria com bancada central, estante de madeira bruta, chapas de MDF e serra de mesa"></div>
-          <figcaption><b>A oficina</b><span>Montagem e acabamento no mesmo endereço<span data-ilustrativo="oficina"> · imagem 3D ilustrativa</span></span></figcaption>
-        </figure>
-      </div>
       <ul class="nap nap-linha">
         <li><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-pin"/></svg></span>
           <span><b>Endereço</b><span id="nap-end">Rua Elisiário, 143 — Tatuapé<br>São Paulo/SP · <span class="sem-quebra">CEP 03306-080</span></span></span></li>
@@ -533,8 +515,7 @@
   <div class="faixa creme">
     <div class="env">
       <div class="cab meio">
-        <span class="rotulo">Missão, visão e valores</span>
-        <h2>Por que ainda fazemos móvel à moda antiga</h2>
+        <h2>Missão, visão e valores</h2>
       </div>
 
       <div class="credo">
@@ -592,7 +573,7 @@
         <span class="rotulo">Ficha técnica</span>
         <h2>O que entra na oficina — e o que não entra</h2>
         <p class="sub">Uma marcenaria se define tanto pelo que usa quanto pelo que recusa. Esta lista é
-          a mesma para o closet inteiro e para a prateleira de R$ 149.</p>
+          a mesma para o closet inteiro e para a menor prateleira da loja.</p>
       </div>
       <div class="ficha">
         <div class="ficha-col sim">
@@ -611,8 +592,6 @@
         <div class="ficha-col nao">
           <h3><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-x"/></svg>Não entra</h3>
           <ul>
-            <li><b>Chapa sem procedência</b><span>Material sem nota e sem padrão de qualidade barateia o
-              orçamento e encurta a vida do móvel. Toda chapa da oficina vem de fornecedor conhecido.</span></li>
             <li><b>Ferragem sem marca</b><span>Corrediça que trava e dobradiça que cede no primeiro ano.
               Só entra ferragem com garantia do próprio fabricante.</span></li>
             <li><b>Acabamento só por fora</b><span>Armário pintado na porta e cru por dentro absorve umidade e
@@ -789,7 +768,7 @@
             <span class="so-medicao" hidden>As ferramentas de medição de anúncio do Google e da Meta só ligam se você
             aceitar no aviso de cookies, e a escolha pode ser desfeita limpando os dados do site no navegador.</span></p>
           <p><b>Seus direitos.</b> Pela Lei Geral de Proteção de Dados (Lei 13.709/2018, art. 18), você pode pedir para
-            ver, corrigir ou apagar os seus dados, ou retirar a autorização, pelo e-mail acima.</p>
+            ver, corrigir ou apagar os seus dados, ou retirar a autorização, pelo WhatsApp (11) 94752-3961 ou pelo e-mail acima.</p>
         </article>
         <article class="politica cartao" id="trocas">
           <h3>Trocas e devoluções</h3>
@@ -801,7 +780,7 @@
           <p><b>Projeto sob medida.</b> Prazo, medidas, acabamento, garantia e condições de cancelamento ficam no
             contrato assinado antes de a produção começar.</p>
           <p><b>Como pedir.</b> Pelo WhatsApp <a href="https://wa.me/5511947523961" data-zap="politicas" target="_blank" rel="noopener">(11) 94752-3961</a>
-            ou pelo e-mail, com o número do pedido ou o nome de quem comprou.</p>
+            com o nome de quem comprou e a data do pedido.</p>
         </article>
       </div>
     </div>
@@ -2586,9 +2565,13 @@
       el.closest(".quadro-foto") ? "(max-width: 980px) 100vw, 560px" : "(max-width: 980px) 100vw, 380px");
   });
 
-  $("#peca-oficina").innerHTML = foto({ img:"corte", alt:"Chapas de MDF sobre a bancada da oficina, com trena, lápis e esquadro", tag:"A oficina" },
-    { selo:"3D ilustrativo", sizes:"(max-width: 980px) 100vw, 560px" }) +
-    '<div class="pe"><span><b>Medida conferida na bancada</b><span>Trena, esquadro e acabamento no mesmo endereço</span></span></div>';
+  (function(){
+    var a = ambiente("cozinhas"), f = a && a.fotos.filter(function(x){ return x.id === "cozinha-madeira-led"; })[0];
+    if (!f) return;
+    $("#peca-oficina").innerHTML = '<button type="button" class="foto com-img" data-album="cozinhas" data-i="' + a.fotos.indexOf(f) +
+      '" aria-label="Ver a foto: ' + esc(f.alt) + '">' + imagemObra(f, "(max-width: 980px) 100vw, 560px") + '</button>' +
+      '<div class="pe"><span><b>Feito na oficina, entregue assim</b><span>Cozinha em madeira com LED, obra da Casa do Marceneiro</span></span></div>';
+  })();
 
   // todo link de WhatsApp já nasce com o número no HTML; aqui ganha a primeira frase pronta
   $$("[data-zap]").forEach(function(a){

@@ -1131,3 +1131,7 @@ body.tem-lgpd .zap-flut{opacity:0;pointer-events:none}
   .mosaico.duo{grid-template-columns:1fr}
   .comercial-bts .btn{flex:1 1 100%;justify-content:center}
 }
+/* faixa curta de endereço, horário e WhatsApp no fim da página inicial (12/11) */
+.faixa-nap{padding:clamp(28px,4vw,44px) 0}
+.faixa-nap .nap-linha{margin-top:0}
+#peca-oficina button.foto{display:block;width:100%;padding:0;border:0;cursor:zoom-in;position:relative}

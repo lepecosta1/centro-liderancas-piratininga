@@ -166,7 +166,8 @@ async function nitidez(p) {
 
   // capa com a mensagem do site antigo e "desde 1980" (11/11); MDP e o e-mail antigo em lugar nenhum
   const tudoHtml = await p.evaluate(() => document.body.textContent + " " + [...document.querySelectorAll("a[href^=mailto], meta[content], script[type='application/ld+json']")].map(e => e.outerHTML).join(" "));
-  confere(!/\bMDP\b|contato@marceneirotatuape|preço travado/i.test(tudoHtml), "nada de MDP, preço travado ou do e-mail antigo no site");
+  confere(!/\bMDP\b|contato@marceneirotatuape|preço travado|Oficina aberta|moda antiga|R\$ ?\d/i.test(tudoHtml), "nada de MDP, preço, preço travado, e-mail antigo, oficina aberta ou moda antiga no site");
+  confere(!(await p.$('[data-foto="oficina"], img[src*="fotos/oficina"], img[src*="fotos/corte"]')), "nenhuma imagem 3D da oficina no site");
   confere((tudoHtml.match(/gabriellandiw@hotmail\.com/g) || []).length >= 4, "e-mail gabriellandiw@hotmail.com no lugar do antigo");
   await ir(p, "inicio");
   confere(/^Empresa familiar desde 1980/.test(await p.$eval(".capa-txt .sub", e => e.textContent)) && /Desde 1980/.test(await p.$eval(".capa .provas", e => e.textContent)), "capa: empresa familiar desde 1980");
