@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8">
+<!-- arte de anúncio da Meta: foto real de obra, uma frase e o WhatsApp. Parâmetros na URL (ver criativos.js) -->
+<link rel="stylesheet" href="../../../proposta-marcenaria-tatuape/fontes-embutidas.css">
+<style>
+*{margin:0;box-sizing:border-box}
+html,body{width:1080px;height:var(--alt);overflow:hidden;background:#1A120C}
+body{position:relative;font-family:"Barlow",sans-serif;color:#F4E9D8}
+.foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.veu{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(18,12,8,.72) 0%,rgba(18,12,8,0) 22%),
+  linear-gradient(0deg,rgba(18,12,8,.96) 0%,rgba(18,12,8,.88) 34%,rgba(18,12,8,.25) 56%,rgba(18,12,8,0) 66%)}
+.env{position:relative;height:100%;padding:62px 70px 70px;display:flex;flex-direction:column;justify-content:space-between}
+.topo{display:flex;align-items:center;justify-content:space-between}
+.logo{height:96px;width:auto;display:block}
+.selo{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:22px;
+  color:#F4E9D8;background:rgba(18,12,8,.62);border:1.5px solid rgba(244,233,216,.35);border-radius:6px;padding:10px 16px}
+.rot{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.18em;font-size:27px;color:#F5C15C;
+  display:flex;align-items:center;gap:16px}
+.rot::before{content:"";width:46px;height:2px;background:#F5C15C;display:block}
+h1{font-family:"Fraunces",serif;font-variation-settings:"SOFT" 40,"WONK" 1;font-size:var(--tam);font-weight:600;
+  line-height:1.05;letter-spacing:-.02em;margin-top:18px;text-wrap:balance}
+h1 em{font-style:normal;color:#F5C15C}
+.sub{font-size:31px;line-height:1.38;color:#D9C6AC;margin-top:20px;max-width:30ch}
+.pe{margin-top:34px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.zap{display:inline-flex;align-items:center;gap:14px;background:#1C7C43;color:#F3FBF6;border-radius:8px;padding:18px 26px;
+  font-family:"Barlow Condensed",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:27px}
+.zap svg{width:34px;height:34px}
+.onde{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:24px;color:#C0A88C;line-height:1.35}
+</style></head><body>
+<img class="foto" id="foto" alt="">
+<div class="veu"></div>
+<div class="env">
+  <div class="topo"><img class="logo" src="../../marca/logo-creme.svg" alt="Casa do Marceneiro"><span class="selo">Obra real · desde 1980</span></div>
+  <div>
+    <span class="rot" id="rot"></span>
+    <h1 id="tit"></h1>
+    <p class="sub" id="sub"></p>
+    <div class="pe">
+      <span class="zap"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>(11) 94752-3961</span>
+      <span class="onde">Rua Elisiário, 143<br>Tatuapé · São Paulo</span>
+    </div>
+  </div>
+</div>
+<script>
+var q = new URLSearchParams(location.search);
+document.documentElement.style.setProperty("--alt", q.get("alt") + "px");
+document.documentElement.style.setProperty("--tam", (q.get("tam") || 74) + "px");
+// stories e reels: o Instagram cobre cerca de 250 px em cima e 340 px embaixo
+if (+q.get("alt") > 1600) document.querySelector(".env").style.padding = "240px 70px 360px";
+var f = document.getElementById("foto"); f.src = "../../fotos/obras/" + q.get("foto") + ".webp";
+f.style.objectPosition = q.get("foco") || "50% 40%";
+document.getElementById("rot").textContent = q.get("rot");
+document.getElementById("tit").innerHTML = q.get("tit");
+document.getElementById("sub").textContent = q.get("sub") || "";
+</script></body></html>

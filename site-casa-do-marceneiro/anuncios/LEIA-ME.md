@@ -1,4 +1,4 @@
-# Primeira campanha do Google Ads — R$ 500 por mês
+# Campanhas do Google Ads e da Meta
 
 Campanha de pesquisa local da Casa do Marceneiro, pronta para importar no
 Google Ads Editor no dia em que a conta estiver liberada. A fonte é
@@ -29,37 +29,30 @@ anúncio.
    `medicao.json` (ver o LEIA-ME do site). Sem isso não há como saber que
    palavra traz cliente e qual só gasta.
 
-## Como montar
+## Como montar (plano de 13/11)
 
-| Configuração | Valor | Por quê |
-|---|---|---|
-| Tipo | Rede de Pesquisa, sem Display e sem parceiros | Verba pequena vai inteira para quem está procurando |
-| Orçamento | R$ 16 por dia (≈ R$ 500 no mês) | O Google pode gastar até o dobro num dia, mas fecha o mês dentro de 30,4 × o diário |
-| Local | Raio de 6 km da Rua Elisiário, 143 — Tatuapé, só "presença" (quem está ou costuma estar ali) | A oficina atende perto; clique de quem só pesquisa sobre São Paulo de longe não vira visita |
-| Idioma | Português | |
-| Lances | Maximizar cliques com limite de CPC no começo; Maximizar conversões depois das primeiras 15 a 30 conversões | Estratégia de conversão sem histórico de conversão adivinha |
-| Horário | Todos os dias, 7h às 22h | Quem procura móvel planejado pesquisa à noite; a mensagem fica no WhatsApp para o Gabriel responder de manhã |
-| Grupos | Marcenaria · Móveis sob medida e planejados · Closet e guarda-roupa ligados; Móveis de madeira prontos pausado | A loja só liga com os preços confirmados |
+Três campanhas de Pesquisa, cada uma com verba própria (`CAMPANHAS` em
+`campanha.py`), no cenário recomendado de R$ 1.300 por mês:
 
-Palavras em correspondência **exata** e **de frase**, nunca ampla: com R$ 500,
-a ampla gasta a verba em busca parecida que não é cliente. As negativas tiram
-curso, emprego, faça você mesmo, usado, loja de móvel pronto e corte de chapa
-avulso, que a oficina não vende.
+| Campanha | Onde | Por dia | Grupos |
+|---|---|---|---|
+| Pesquisa \| Sob medida \| Tatuapé 8 km | Raio de 8 km da Rua Elisiário, 143, opção "Presença" | R$ 30 | Marcenaria · Móveis sob medida e planejados · Cozinha planejada · Closet e guarda-roupa · Cama sob medida · Painel de TV e home office (+ loja, pausada) |
+| Pesquisa \| Comercial \| São Paulo | Cidade de São Paulo | R$ 10 | Marcenaria comercial |
+| Pesquisa \| Marca | Cidade de São Paulo | R$ 3 | Marca (só exata) |
 
-## Quanto rende R$ 500
+Só Rede de Pesquisa, sem Display e sem parceiros; todos os dias, 7h às 22h;
+correspondência exata e de frase, nunca ampla; "Maximizar cliques" com limite
+de CPC no primeiro mês, "Maximizar conversões" depois de 30 conversões. A
+local e a comercial têm "casa do marceneiro" como negativa, para não pagar por
+quem já procura a oficina pelo nome.
 
-Depende do custo por clique de cada palavra no Tatuapé, que só o Planejador de
-Palavras-chave mostra, dentro da conta. A conta é simples:
+## Meta Ads
 
-| Se o clique custar | Cliques no mês | Se 1 em 10 chamar no WhatsApp |
-|---|---|---|
-| R$ 2 | 250 | 25 conversas |
-| R$ 4 | 125 | 12 conversas |
-| R$ 6 | 83 | 8 conversas |
-
-Os números da tabela são hipóteses para mostrar a conta, não previsão. O
-primeiro passo na conta é rodar as palavras de `campanha.py` no Planejador,
-com o raio da oficina, e cortar as que passarem do que uma obra paga.
+As artes estão em `meta/`, geradas por `gerador/criativos/criativos.js` a
+partir de fotos reais de obra (feed 1080 × 1350 e stories/Reels 1080 × 1920,
+com o texto fora das faixas que o Instagram cobre). O filme do site
+(`fotos/filme/casa-do-marceneiro.mp4`) é o Reels principal. Campanhas, públicos
+e verbas: no documento "Plano de Crescimento — Casa do Marceneiro".
 
 ## O que olhar toda semana no primeiro mês
 
