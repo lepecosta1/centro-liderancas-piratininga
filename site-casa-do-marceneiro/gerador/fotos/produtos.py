@@ -280,7 +280,103 @@ def bancada():
     camera((1.35, -4.25, 1.58), (0.0, -1.6, 0.85), 40, abertura=5.6)
 
 
-CENAS = {f.__name__: f for f in (nicho, prateleira, tabua, ripado, banqueta, cabeceira, corte, bancada)}
+def aparador():
+    s = nova_cena(1600, 1200)
+    mundo("interior.exr", 0.2, rot=30)
+    parede_e_piso((0.62, 0.56, 0.48), piso="assoalho")
+    W, D = 1.30, 0.38
+    x0, y0, zc, hc = -0.65, -0.03, 0.30, 0.46       # caixa sobre pés, portas sem puxador (toque)
+    corpo = madeira("ap-corpo", "freijo", semente=91, anel=110)
+    porta = madeira("ap-porta", "freijo", veio="Z", semente=92, anel=120)
+    modulo("ap", x0, y0, zc, W, D, hc, corpo, porta, n_portas=3)
+    tampo = madeira("ap-tampo", "freijo", semente=93, anel=110, verniz=0.3)
+    caixa("ap-t", (W + 0.04, D + 0.02, 0.03), (0, y0 - D / 2, zc + hc + 0.015), tampo, chanfro=0.003)
+    pe = madeira("ap-pe", "freijo", veio="Z", semente=94)
+    for k, (dx, dy) in enumerate(((-1, -1), (1, -1), (-1, 1), (1, 1))):
+        barra(f"ap-pe{k}", (dx * (W / 2 - 0.07), y0 - D / 2 + dy * (D / 2 - 0.07), zc),
+              (dx * (W / 2 - 0.045), y0 - D / 2 + dy * (D / 2 - 0.045), 0), 0.018, pe, raio2=0.012)
+    zt = zc + hc + 0.03
+    vaso("ap-v", (-0.42, y0 - 0.2, zt), 0.34, 0.08, liso("ap-cer", (0.78, 0.72, 0.62), 0.55))
+    ramo("ap-r", (-0.42, y0 - 0.2, zt + 0.32), 0.5, semente=12)
+    livros("ap-l", (0.02, y0 - 0.21, zt), 3, deitados=True, semente=14)
+    tigela("ap-tg", (0.40, y0 - 0.2, zt), 0.12, 0.06, liso("ap-cer2", (0.16, 0.13, 0.11), 0.45))
+    # um quadro na parede, para o aparador ter onde estar
+    caixa("ap-quadro", (0.72, 0.025, 0.52), (0.05, -0.0125, 1.50), madeira("ap-moldura", "nogueira", semente=3), chanfro=0.002)
+    caixa("ap-tela", (0.64, 0.01, 0.44), (0.05, -0.027, 1.50), liso("ap-tela", (0.80, 0.76, 0.68), 0.9), chanfro=0)
+    sol_com_janela((0, -0.2, 0.8), azimute=-55, elevacao=28, energia=4.6, distancia=2.6, abertura=(1.3, 1.8), folhas=(2, 3))
+    luz_area("reb", (1.8, -2.6, 1.5), (0, -0.2, 0.7), (2, 2), 45, (1, 0.97, 0.92))
+    camera((0.80, -2.75, 1.20), (0.0, -0.2, 0.86), 40, abertura=4.0)
+
+
+def sapateira():
+    s = nova_cena(1600, 1200)
+    mundo("interior.exr", 0.2, rot=-20)
+    parede_e_piso((0.66, 0.62, 0.55), piso="assoalho")
+    W, D, H = 0.96, 0.34, 1.02
+    x0, y0, z0 = -0.48, -0.03, 0.08
+    corpo = madeira("sp-corpo", "freijo", semente=101, anel=110)
+    porta = madeira("sp-porta", "freijo", veio="Z", semente=102, anel=120)
+    modulo("sp", x0, y0, z0, W, D, H, corpo, porta, n_portas=2)
+    caixa("sp-rodape", (W - 0.06, D - 0.06, z0), (0, y0 - D / 2, z0 / 2), liso("sp-rod", (0.06, 0.05, 0.04), 0.6), chanfro=0)
+    # frente ripada: as portas abrem por toque, as ripas escondem a divisão
+    yf = y0 - D - 0.018 - 0.006
+    x, i = x0 + 0.02, 0
+    while x + 0.026 < x0 + W - 0.015:
+        caixa(f"sp-ripa{i}", (0.026, 0.012, H - 0.05), (x + 0.013, yf, z0 + H / 2),
+              madeira(f"sp-r{i % 5}", "freijo", veio="Z", semente=110 + i % 5, anel=120) if i < 5 else
+              bpy.data.materials[f"sp-r{i % 5}"], chanfro=0.0015)
+        x += 0.026 + 0.012
+        i += 1
+    caixa("sp-tampo", (W + 0.02, D + 0.02, 0.025), (0, y0 - D / 2, z0 + H + 0.0125),
+          madeira("sp-t", "freijo", semente=103, anel=110, verniz=0.3), chanfro=0.003)
+    zt = z0 + H + 0.025
+    placa_arredondada("sp-bandeja", (0.30, 0.18, 0.018), 0.03, (0.18, y0 - 0.19, zt + 0.009),
+                      liso("sp-band", (0.10, 0.08, 0.07), 0.5), rot=(0, 0, -6))
+    vaso("sp-v", (-0.28, y0 - 0.18, zt), 0.26, 0.07, liso("sp-cer", (0.72, 0.42, 0.26), 0.6))
+    ramo("sp-ra", (-0.28, y0 - 0.18, zt + 0.25), 0.42, semente=21)
+    esfera("sp-chave", 0.016, (0.14, y0 - 0.2, zt + 0.028), liso("sp-lat", (0.62, 0.45, 0.20), 0.25, metal=1.0), 0.4)
+    # quadro redondo acima, em moldura de madeira
+    cilindro("sp-mold", 0.27, 0.03, (0.0, -0.015, 1.66), madeira("sp-m", "nogueira", semente=5), rot=(90, 0, 0), chanfro=0.004)
+    cilindro("sp-tela", 0.235, 0.012, (0.0, -0.032, 1.66), liso("sp-linho", (0.84, 0.80, 0.72), 0.9), rot=(90, 0, 0))
+    sol_com_janela((0, -0.2, 0.7), azimute=-60, elevacao=26, energia=4.6, distancia=2.5, abertura=(1.2, 1.8), folhas=(2, 3))
+    luz_area("reb", (1.6, -2.4, 1.5), (0, -0.2, 0.7), (2, 2), 45, (1, 0.97, 0.92))
+    camera((0.66, -2.65, 1.22), (0.0, -0.2, 0.98), 40, abertura=4.0)
+
+
+def luminaria():
+    s = nova_cena(1600, 1200, exposicao=-0.4)
+    mundo("interior.exr", 0.12, rot=50)
+    parede_e_piso((0.52, 0.47, 0.41), piso="assoalho")
+    # mesa lateral redonda
+    mesa = madeira("lm-mesa", "nogueira", semente=121, anel=90)
+    zm = 0.58
+    cilindro("lm-tampo", 0.26, 0.03, (0.0, -0.42, zm - 0.015), mesa, chanfro=0.003)
+    for k in range(3):
+        a = math.radians(90 + 120 * k)
+        barra(f"lm-pe{k}", (0.15 * math.cos(a), -0.42 + 0.15 * math.sin(a), zm - 0.03),
+              (0.21 * math.cos(a), -0.42 + 0.21 * math.sin(a), 0), 0.014, mesa, raio2=0.01)
+    # a luminária: base torneada em freijó maciço e cúpula de linho
+    base = madeira("lm-base", "freijo", veio="Z", semente=122, anel=130, verniz=0.3)
+    perfil = [(0.0, 0.0), (0.075, 0.0), (0.08, 0.012), (0.072, 0.028), (0.045, 0.05), (0.032, 0.09),
+              (0.028, 0.20), (0.036, 0.29), (0.03, 0.33), (0.016, 0.36), (0.008, 0.40), (0.0, 0.40)]
+    torno("lm-pe", perfil, (-0.05, -0.40, zm), base)
+    zc = zm + 0.36
+    torno("lm-cupula", [(0.17, 0.0), (0.168, 0.004), (0.115, 0.24), (0.113, 0.24), (0.165, 0.004), (0.167, 0.0)],
+          (-0.05, -0.40, zc), liso("lm-linho", (0.90, 0.84, 0.72), 0.9))
+    esfera("lm-lampada", 0.03, (-0.05, -0.40, zc + 0.08), emissor("lm-e", (1, 0.82, 0.55), 22))
+    luz_ponto("lm-luz", (-0.05, -0.40, zc + 0.09), 28, (1, 0.74, 0.46), 0.03)
+    livros("lm-l", (0.08, -0.43, zm), 2, deitados=True, semente=31)
+    tigela("lm-tg", (0.13, -0.50, zm + 0.05), 0.05, 0.03, liso("lm-cer", (0.20, 0.16, 0.12), 0.45))
+    # poltrona de canto, só a lateral, para dar escala
+    caixa("lm-poltrona", (0.75, 0.80, 0.42), (0.78, -0.75, 0.24), liso("lm-tecido", (0.30, 0.26, 0.21), 0.95), chanfro=0.04)
+    caixa("lm-encosto", (0.75, 0.16, 0.45), (0.78, -0.30, 0.62), liso("lm-tecido2", (0.30, 0.26, 0.21), 0.95), chanfro=0.04)
+    sol_com_janela((0, -0.4, 0.8), azimute=-70, elevacao=18, energia=2.2, distancia=2.4, abertura=(1.0, 1.6), folhas=(2, 3))
+    luz_area("reb", (1.5, -2.2, 1.4), (0, -0.4, 0.8), (1.6, 1.6), 18, (1, 0.97, 0.92))
+    camera((0.42, -1.85, 1.08), (-0.03, -0.38, 0.86), 50, abertura=3.2)
+
+
+CENAS = {f.__name__: f for f in (nicho, prateleira, tabua, ripado, banqueta, cabeceira, corte, bancada,
+                                  aparador, sapateira, luminaria)}
 
 if __name__ == "__main__":
     nome, saida = sys.argv[1], sys.argv[2]

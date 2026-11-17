@@ -1,0 +1,361 @@
+CAMPANHA: Casa do Marceneiro | Pesquisa | Tatuapé
+Orçamento: R$ 50 por dia · Raio: 10 km da Rua Elisiário, 143, Tatuapé
+Sufixo do URL final (Configurações da campanha > Opções de URL da campanha):
+utm_source=google&utm_medium=cpc&utm_campaign=pesquisa-tatuape&utm_term={keyword}
+
+============================================================
+GRUPO DE ANÚNCIOS: Marcenaria e móveis planejados
+URL final: https://marceneirotatuape.com.br/
+Caminho de exibição: marcenaria / tatuape
+
+Palavras-chave (cole todas de uma vez):
+[marcenaria tatuapé]
+"marcenaria tatuapé"
+[marcenaria zona leste]
+"marcenaria zona leste"
+[marceneiro tatuapé]
+"marceneiro tatuapé"
+[marceneiro zona leste]
+"marceneiro zona leste"
+[marcenaria perto de mim]
+"marcenaria perto de mim"
+[marceneiro perto de mim]
+"marceneiro perto de mim"
+[marcenaria sob medida]
+"marcenaria sob medida"
+[marcenaria mooca]
+"marcenaria mooca"
+[marcenaria anália franco]
+"marcenaria anália franco"
+[marcenaria vila formosa]
+"marcenaria vila formosa"
+[marcenaria penha]
+"marcenaria penha"
+[móveis planejados tatuapé]
+"móveis planejados tatuapé"
+[móveis planejados zona leste]
+"móveis planejados zona leste"
+[móveis sob medida zona leste]
+"móveis sob medida zona leste"
+[móveis sob medida tatuapé]
+"móveis sob medida tatuapé"
+[móveis planejados para apartamento]
+"móveis planejados para apartamento"
+[casa do marceneiro]
+"casa do marceneiro"
+[casa do marceneiro tatuapé]
+"casa do marceneiro tatuapé"
+
+Títulos (15):
+  Marcenaria Familiar Desde 1980
+  Orçamento pelo WhatsApp
+  Fotos Reais das Nossas Obras
+  Garantia de 3 Anos
+  Fale Direto com o Marceneiro
+  Oficina Própria no Tatuapé
+  Prazo Escrito em Contrato
+  Projeto em 3D Antes de Fazer
+  Site Novo: Veja as Obras
+  Comece 2027 com a Casa Pronta
+  Use o 13º na Casa Nova
+  Medição no Local
+  Marceneiro no Tatuapé
+  Móveis Planejados Zona Leste
+  Rua Elisiário, 143, Tatuapé
+
+Descrições (4):
+  Marcenaria familiar desde 1980, com oficina própria no Tatuapé. Peça orçamento hoje.
+  Garantia de 3 anos na estrutura, prazo em contrato e assistência técnica após a entrega.
+  Cozinha, closet, cama, painel de TV e home office. Fale direto com o marceneiro.
+  Mande a medida pelo WhatsApp e receba a faixa de investimento antes da visita.
+
+============================================================
+GRUPO DE ANÚNCIOS: Cozinha planejada
+URL final: https://marceneirotatuape.com.br/projetos/
+Caminho de exibição: cozinha / planejada
+
+Palavras-chave (cole todas de uma vez):
+[cozinha planejada]
+"cozinha planejada"
+[cozinha planejada tatuapé]
+"cozinha planejada tatuapé"
+[cozinha planejada zona leste]
+"cozinha planejada zona leste"
+[cozinha sob medida]
+"cozinha sob medida"
+[cozinha planejada sob medida]
+"cozinha planejada sob medida"
+[armário de cozinha sob medida]
+"armário de cozinha sob medida"
+[cozinha planejada de madeira]
+"cozinha planejada de madeira"
+[cozinha planejada para apartamento]
+"cozinha planejada para apartamento"
+[cozinha planejada pequena]
+"cozinha planejada pequena"
+[cozinha planejada com ilha]
+"cozinha planejada com ilha"
+
+Títulos (15):
+  Marcenaria Familiar Desde 1980
+  Orçamento pelo WhatsApp
+  Fotos Reais das Nossas Obras
+  Garantia de 3 Anos
+  Fale Direto com o Marceneiro
+  Oficina Própria no Tatuapé
+  Prazo Escrito em Contrato
+  Projeto em 3D Antes de Fazer
+  Site Novo: Veja as Obras
+  Comece 2027 com a Casa Pronta
+  Use o 13º na Casa Nova
+  Medição no Local
+  Cozinha Planejada Sob Medida
+  Cozinha Planejada no Tatuapé
+  Torre Quente e LED Embutido
+
+Descrições (4):
+  Marcenaria familiar desde 1980, com oficina própria no Tatuapé. Peça orçamento hoje.
+  Garantia de 3 anos na estrutura, prazo em contrato e assistência técnica após a entrega.
+  Armário até o teto, torre quente, tampo de pedra e LED. Na medida da sua parede.
+  Veja as cozinhas entregues pela oficina e peça a sua pelo WhatsApp.
+
+============================================================
+GRUPO DE ANÚNCIOS: Quarto: closet, guarda-roupa e cama
+URL final: https://marceneirotatuape.com.br/projetos/
+Caminho de exibição: quarto / sob-medida
+
+Palavras-chave (cole todas de uma vez):
+[guarda-roupa sob medida]
+"guarda-roupa sob medida"
+[guarda-roupa planejado]
+"guarda-roupa planejado"
+[guarda roupa planejado]
+"guarda roupa planejado"
+[closet planejado]
+"closet planejado"
+[closet sob medida]
+"closet sob medida"
+[dormitório planejado]
+"dormitório planejado"
+[quarto planejado]
+"quarto planejado"
+[cama sob medida]
+"cama sob medida"
+[cama planejada]
+"cama planejada"
+[cama com gavetas sob medida]
+"cama com gavetas sob medida"
+[bicama sob medida]
+"bicama sob medida"
+[cama alta planejada]
+"cama alta planejada"
+[quarto planejado infantil]
+"quarto planejado infantil"
+
+Títulos (15):
+  Marcenaria Familiar Desde 1980
+  Orçamento pelo WhatsApp
+  Fotos Reais das Nossas Obras
+  Garantia de 3 Anos
+  Fale Direto com o Marceneiro
+  Oficina Própria no Tatuapé
+  Prazo Escrito em Contrato
+  Projeto em 3D Antes de Fazer
+  Site Novo: Veja as Obras
+  Comece 2027 com a Casa Pronta
+  Use o 13º na Casa Nova
+  Medição no Local
+  Guarda-Roupa Sob Medida
+  Cama Sob Medida com Gavetões
+  Quarto Planejado no Tatuapé
+
+Descrições (4):
+  Marcenaria familiar desde 1980, com oficina própria no Tatuapé. Peça orçamento hoje.
+  Garantia de 3 anos na estrutura, prazo em contrato e assistência técnica após a entrega.
+  Guarda-roupa até o teto, closet com espelho e cama com gavetões, na medida do quarto.
+  Cama alta, bicama e gaveteiro: sobra espaço no chão do quarto. Peça pelo WhatsApp.
+
+============================================================
+GRUPO DE ANÚNCIOS: Sala, painel de TV e home office
+URL final: https://marceneirotatuape.com.br/projetos/
+Caminho de exibição: sala / home-office
+
+Palavras-chave (cole todas de uma vez):
+[painel de tv sob medida]
+"painel de tv sob medida"
+[painel ripado sob medida]
+"painel ripado sob medida"
+[painel de tv planejado]
+"painel de tv planejado"
+[rack sob medida]
+"rack sob medida"
+[home office planejado]
+"home office planejado"
+[home office sob medida]
+"home office sob medida"
+[escrivaninha sob medida]
+"escrivaninha sob medida"
+[sala planejada]
+"sala planejada"
+[estante sob medida]
+"estante sob medida"
+
+Títulos (15):
+  Marcenaria Familiar Desde 1980
+  Orçamento pelo WhatsApp
+  Fotos Reais das Nossas Obras
+  Garantia de 3 Anos
+  Fale Direto com o Marceneiro
+  Oficina Própria no Tatuapé
+  Prazo Escrito em Contrato
+  Projeto em 3D Antes de Fazer
+  Site Novo: Veja as Obras
+  Comece 2027 com a Casa Pronta
+  Use o 13º na Casa Nova
+  Medição no Local
+  Painel de TV Sob Medida
+  Painel Ripado com LED
+  Home Office Planejado
+
+Descrições (4):
+  Marcenaria familiar desde 1980, com oficina própria no Tatuapé. Peça orçamento hoje.
+  Garantia de 3 anos na estrutura, prazo em contrato e assistência técnica após a entrega.
+  Painel ripado com LED, rack suspenso e fiação escondida, na medida da sala.
+  Home office com escrivaninha e prateleiras que aproveitam o canto que sobrou.
+
+============================================================
+GRUPO DE ANÚNCIOS: Marcenaria comercial
+URL final: https://marceneirotatuape.com.br/
+Caminho de exibição: comercial / empresas
+
+Palavras-chave (cole todas de uma vez):
+[marcenaria comercial]
+"marcenaria comercial"
+[marcenaria corporativa]
+"marcenaria corporativa"
+[móveis comerciais sob medida]
+"móveis comerciais sob medida"
+[balcão de atendimento sob medida]
+"balcão de atendimento sob medida"
+[balcão de recepção sob medida]
+"balcão de recepção sob medida"
+[móveis para loja sob medida]
+"móveis para loja sob medida"
+[marcenaria para restaurante]
+"marcenaria para restaurante"
+[marcenaria para escritório]
+"marcenaria para escritório"
+[móveis para clínica sob medida]
+"móveis para clínica sob medida"
+[marcenaria para academia]
+"marcenaria para academia"
+
+Títulos (15):
+  Marcenaria Familiar Desde 1980
+  Orçamento pelo WhatsApp
+  Fotos Reais das Nossas Obras
+  Garantia de 3 Anos
+  Fale Direto com o Marceneiro
+  Oficina Própria no Tatuapé
+  Prazo Escrito em Contrato
+  Projeto em 3D Antes de Fazer
+  Site Novo: Veja as Obras
+  Comece 2027 com a Casa Pronta
+  Use o 13º na Casa Nova
+  Medição no Local
+  Marcenaria Comercial em SP
+  Balcão de Recepção Sob Medida
+  No Prazo da Inauguração
+
+Descrições (4):
+  Marcenaria familiar desde 1980, com oficina própria no Tatuapé. Peça orçamento hoje.
+  Garantia de 3 anos na estrutura, prazo em contrato e assistência técnica após a entrega.
+  Salão, recepção, loja, restaurante e academia. Projeto com o seu arquiteto.
+  Balcões, bancos e painéis para uso diário, com cronograma e garantia.
+
+============================================================
+PALAVRAS NEGATIVAS DA CAMPANHA (cole todas de uma vez):
+"curso"
+"cursos"
+"aula"
+"apostila"
+"escola"
+"emprego"
+"vaga"
+"vagas"
+"salário"
+"trabalhe conosco"
+"como fazer"
+"faça você mesmo"
+"diy"
+"passo a passo"
+"pdf"
+"molde"
+"projeto grátis"
+"grátis"
+"gratis"
+"usado"
+"usados"
+"seminovo"
+"segunda mão"
+"olx"
+"mercado livre"
+"shopee"
+"magalu"
+"casas bahia"
+"madeiramadeira"
+"mobly"
+"tok stok"
+"leroy merlin"
+"todeschini"
+"italínea"
+"dell anno"
+"ikea"
+"ferramentas"
+"máquina"
+"maquina"
+"tupia"
+"serra circular"
+"promob"
+"sketchup"
+"chapa de mdf"
+"corte de mdf"
+"plano de corte"
+"seccionadora"
+"madeireira"
+"montador de móveis"
+"montagem de móveis"
+"pallet"
+"desenho"
+"png"
+"imagem"
+"barato"
+"preço de fábrica"
+
+============================================================
+SITELINKS:
+  Fotos das Obras | Cozinhas, quartos, salas e mais | Tudo obra entregue pela oficina | https://marceneirotatuape.com.br/projetos/
+  A Oficina Desde 1980 | Empresa familiar no Tatuapé | Garantia e prazo em contrato | https://marceneirotatuape.com.br/oficina/
+  Pedir Orçamento | Mande a medida pelo WhatsApp | Resposta no horário comercial | https://marceneirotatuape.com.br/contato/
+  Peças Prontas | Aparador, nicho, prateleira | Imagens ilustrativas da loja | https://marceneirotatuape.com.br/loja/
+
+FRASES DE DESTAQUE:
+  Desde 1980
+  Oficina Própria
+  Garantia de 3 Anos
+  Prazo em Contrato
+  Medição no Local
+  Projeto em 3D
+  Assistência Técnica
+  Atende Casa e Empresa
+
+SNIPPET ESTRUTURADO (Serviços):
+  Cozinha Planejada
+  Closet
+  Guarda-Roupa
+  Cama Sob Medida
+  Painel de TV
+  Home Office
+  Marcenaria Comercial
+
+Em fevereiro, tirar os títulos “Comece 2027 com a Casa Pronta” e “Use o 13º na Casa Nova”.

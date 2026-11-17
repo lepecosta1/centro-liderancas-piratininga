@@ -1,0 +1,9 @@
+{
+  "banheiro": true,
+  "capa": true,
+  "closet": true,
+  "cozinha": true,
+  "dormitorio": true,
+  "escritorio": true,
+  "painel": true
+}

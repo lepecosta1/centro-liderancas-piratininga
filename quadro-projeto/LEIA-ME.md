@@ -5,15 +5,17 @@ serra hoje e o que espera na fila. Um toque num item muda o estado, e a
 marcação fica salva.
 
 Três leituras da mesma coisa, da mais resumida para a mais detalhada: a
-**linha do tempo** com os doze marcos datados, o **roteiro da visita** à
-oficina, e o **quadro** de três colunas com os 54 cartões.
+**linha do tempo** com os catorze marcos, o **roteiro da visita** à
+oficina, e o **quadro** de três colunas com os 60 cartões.
 
 Entre o roteiro e o quadro ficam as seções da próxima etapa, escritas para
 apresentar ao Gabriel:
 
-- **Google Meu Negócio, Google Ads e campanha**: as três frentes, nesta ordem,
-  com o que o Leandro faz, o que o Gabriel faz e quando.
-- **Como a oficina atrai cliente**: nove formas, das que custam zero e trazem
+- **Subir para marceneirotatuape.com.br**: os quinze passos, na ordem, do site
+  aprovado ao domínio no ar, ao Search Console e aos anúncios. Um toque marca.
+- **Google Meu Negócio, Google Ads, Meta e verba**: as quatro frentes, com o que
+  o Leandro faz, o que o Gabriel faz e quando, e a verba de R$ 50 a R$ 100 por dia.
+- **Como a oficina atrai cliente**: dez formas, das que custam zero e trazem
   resultado em dias às que demoram e duram, e a ordem recomendada.
 - **Fotos do site**: os 17 lugares de imagem, com o arquivo de cada um e uma
   busca do Pinterest como referência de estilo. Um toque avança o lugar de
@@ -125,6 +127,9 @@ parava no primeiro fundo não transparente e tratava `rgba(...,.13)` como cor
 sólida, sem compor com o que estava atrás. Corrigi o medidor, não o CSS.
 
 ## Verificação
+
+Em 21/10, 82 conferências com a subida: 14 marcos, 60 cartões, quatro frentes, dez
+formas, 15 passos da subida, e o passo marcado sobrevivendo a três gerações.
 
 Em 20/10, 80 conferências em desktop de 1440 px, Pixel 7 e celular de 320 px,
 no artifact e no `index.html` público: contagens batendo com o JSON, data antiga

@@ -1,0 +1,580 @@
+{
+ "nota": "Curadoria das fotos reais das obras (Google Drive, 04/11). 60 arquivos, 53 fotos diferentes depois de tirar as cópias exatas e a recomprimida; das 53 ficaram 33 — as quase iguais, as com gente, bagunça de obra ou TV com imagem de terceiros saíram. Em 10/11, uma segunda conferência, foto por foto e ampliada, achou gente em quatro delas (duas pessoas ao fundo, um reflexo em espelho e um na TV): recorte, borrão no reflexo ou tela escurecida, no campo retoque de cada foto. Cada foto é achada pelo hash do original, não pelo nome: o WhatsApp repete nomes. A capa (cozinha-sala-led-forro) veio à parte, pelo chat, em 04/11: foto em pé de 902 px, ampliada pelo obras.py sem inventar detalhe. gerador/fotos/obras.py processa; montar.py publica. Em 10/11 entraram as pastas Área comercial, Cama sob medida, Projetos concluídos e CasaCor: 31 fotos baixadas, 20 no site. Ficaram fora a imagem 3D com marca de outro escritório, as quase iguais, as com gente em primeiro plano e os dois vídeos (um mostra pessoas e TV ligada do começo ao fim; o outro passa do tamanho que o conector do Drive entrega). As fotos pequenas (menos de 900 px) são ampliadas pelo obras.py do mesmo jeito da capa.",
+ "ambientes": [
+  {
+   "id": "cozinhas",
+   "titulo": "Cozinhas planejadas",
+   "pedido": "cozinha planejada",
+   "texto": "Armários até o teto, torre de forno e micro-ondas, tampo de pedra e iluminação embutida — da cozinha compacta de studio à cozinha aberta para a sala.",
+   "fotos": [
+    {
+     "id": "cozinha-sala-led-forro",
+     "fonte": "b692d0cdb977f587",
+     "foco": "50% 40%",
+     "alt": "Cozinha planejada em madeira integrada à sala, com armários de vidro fumê, nichos com LED e fita de LED no forro, e a mesa de jantar ao fundo"
+    },
+    {
+     "id": "cozinha-madeira-led",
+     "fonte": "ce4469af5ed04017",
+     "foco": "50% 60%",
+     "alt": "Cozinha planejada em madeira com armários até o teto, tampo preto e fita de LED no forro, aberta para a sala"
+    },
+    {
+     "id": "cozinha-integrada-jantar",
+     "fonte": "c491cb0b5751e726",
+     "foco": "50% 45%",
+     "alt": "Cozinha integrada à sala de jantar, com armários brancos e de madeira e mesa oval de madeira em primeiro plano"
+    },
+    {
+     "id": "cozinha-cinza-tijolinho",
+     "fonte": "6d054ec84ace47d7",
+     "foco": "50% 50%",
+     "alt": "Cozinha planejada cinza com tampo preto, torre de micro-ondas, geladeira embutida e parede de tijolinho"
+    },
+    {
+     "id": "cozinha-cinza-cooktop",
+     "fonte": "b5790e009c746e31",
+     "foco": "50% 50%",
+     "alt": "Bancada de cozinha em cinza com cooktop, tampo preto e revestimento de metrô escuro"
+    },
+    {
+     "id": "cozinha-compacta-cinza",
+     "fonte": "91ca7778548e259a",
+     "foco": "50% 55%",
+     "alt": "Cozinha compacta de studio com armários cinza até o teto, tampo de granito e revestimento de metrô branco"
+    },
+    {
+     "id": "cozinha-torre-geladeira",
+     "fonte": "facac2b6308d1831",
+     "foco": "50% 50%",
+     "alt": "Torre de geladeira embutida entre armários cinza, com a cozinha linear do studio ao lado"
+    },
+    {
+     "id": "cozinha-branca-inox",
+     "fonte": "f419f493cc3286c4",
+     "foco": "60% 45%",
+     "alt": "Cozinha aberta com armários brancos até o teto, forno embutido e geladeira inox"
+    },
+    {
+     "id": "cozinha-escura-portas-de-correr",
+     "fonte": "10bdcfde9436a059",
+     "foco": "50% 50%",
+     "alt": "Cozinha em tons escuros com portas de correr que escondem a área de serviço"
+    },
+    {
+     "id": "cozinha-preta-bancada-pedra",
+     "fonte": "140fd55e36f34d13",
+     "foco": "50% 50%",
+     "alt": "Cozinha com armários brancos, revestimento preto, torre de forno e micro-ondas e bancada de pedra com cooktop"
+    },
+    {
+     "id": "cozinha-preta-torre-forno",
+     "fonte": "0dba7e67c6e57dff",
+     "foco": "50% 50%",
+     "alt": "Torre de forno e micro-ondas ao lado da bancada preta, com armários brancos até o teto"
+    }
+   ],
+   "video": {
+    "id": "tour-sala-cozinha-madeira",
+    "fonte": "3b5d698da6901da3",
+    "poster_seg": 7.5,
+    "alt": "Tour em vídeo: painel de TV, cozinha em madeira, portas ripadas da área de serviço e varanda"
+   }
+  },
+  {
+   "id": "dormitorios",
+   "titulo": "Dormitórios e closets",
+   "pedido": "dormitório, closet ou guarda-roupa sob medida",
+   "texto": "Guarda-roupa planejado, closet com portas espelhadas, cabeceira, criado-mudo suspenso e estantes que aproveitam cada parede do quarto.",
+   "fotos": [
+    {
+     "id": "dormitorio-estante-suspensa",
+     "fonte": "bc7ed48b9514b409",
+     "foco": "50% 50%",
+     "alt": "Cama com estante suspensa de ferro e madeira sobre a cabeceira e painel de TV ao lado"
+    },
+    {
+     "id": "dormitorio-cabeceira-terracota",
+     "fonte": "e6ec977bf768b56c",
+     "foco": "50% 52%",
+     "alt": "Dormitório de studio com cabeceira terracota, criado-mudo suspenso, arandela e divisória de ripado"
+    },
+    {
+     "id": "closet-espelhado-escrivaninha",
+     "fonte": "ffe88abfb96d1bb6",
+     "foco": "50% 55%",
+     "alt": "Guarda-roupa com portas espelhadas, escrivaninha verde e cama de casal"
+    },
+    {
+     "id": "closet-espelhado",
+     "fonte": "077ffdc4f1eaabcf",
+     "foco": "50% 42%",
+     "alt": "Guarda-roupa de portas espelhadas até o teto em quarto com piso de mármore"
+    },
+    {
+     "id": "dormitorio-armario-janela",
+     "fonte": "889e09e249c5aa4a",
+     "foco": "50% 55%",
+     "alt": "Quarto de studio com armário cinza até o teto, prateleiras e cama junto à janela"
+    },
+    {
+     "id": "dormitorio-tijolinho",
+     "fonte": "8e2036cd3d2cea38",
+     "foco": "50% 50%",
+     "alt": "Quarto com parede de tijolinho, estante suspensa e cama com colcha azul"
+    },
+    {
+     "id": "dormitorio-painel-tv",
+     "fonte": "b562dcf84d6932f0",
+     "foco": "50% 45%",
+     "alt": "Quarto com guarda-roupa, painel de TV em madeira e prateleiras com LED",
+     "retoque": {
+      "recorte": [
+       0.2,
+       0.0,
+       1.0,
+       0.655
+      ]
+     }
+    },
+    {
+     "id": "dormitorio-criado-mudo",
+     "fonte": "c5069b3122629d8f",
+     "foco": "50% 55%",
+     "alt": "Cabeceira terracota com criado-mudo suspenso e janela de piso a teto"
+    },
+    {
+     "id": "studio-cama-escrivaninha",
+     "fonte": "f84a689392288ec0",
+     "foco": "50% 50%",
+     "alt": "Studio com cama, mesa de trabalho e estante suspensa dividindo os ambientes"
+    }
+   ]
+  },
+  {
+   "id": "camas",
+   "titulo": "Cama sob medida",
+   "pedido": "cama sob medida",
+   "texto": "Cama com gavetões, cama alta com escada e armário embaixo, bicama para o quarto das crianças: feita na medida do quarto, para sobrar espaço no chão.",
+   "fotos": [
+    {
+     "id": "cama-alta-escada-branca",
+     "fonte": "01dfeb3f8be5553c",
+     "foco": "50% 45%",
+     "alt": "Cama alta sob medida em branco, com escada de inox, grade de proteção e gaveteiro ao lado"
+    },
+    {
+     "id": "cama-gavetoes-quarto-rosa",
+     "fonte": "5079ea187253b007",
+     "foco": "50% 50%",
+     "alt": "Cama sob medida branca com gavetões e bicama embaixo, em quarto de parede rosa"
+    },
+    {
+     "id": "cama-gavetoes-quarto-azul",
+     "fonte": "4508657c58a4db88",
+     "foco": "50% 50%",
+     "alt": "Cama sob medida branca com gavetões e bicama embaixo, em quarto de parede azul"
+    },
+    {
+     "id": "cama-alta-armario-embaixo",
+     "fonte": "78bb6aad7b4f656a",
+     "foco": "50% 50%",
+     "alt": "Cama alta com escada e armário de portas cinza embaixo, encostada na janela do quarto"
+    }
+   ]
+  },
+  {
+   "id": "salas",
+   "titulo": "Salas, painéis de TV e home office",
+   "pedido": "painel de TV, móveis de sala ou home office sob medida",
+   "texto": "Painel de TV com LED, rack suspenso, estantes, canto de jantar e escrivaninha — a sala montada em volta de como a família usa.",
+   "fotos": [
+    {
+     "id": "sala-painel-led",
+     "fonte": "912998e993cd1f53",
+     "foco": "40% 50%",
+     "alt": "Painel de TV em madeira com fita de LED vertical, rack suspenso e cozinha integrada ao fundo",
+     "retoque": {
+      "tela": [
+       [
+        417,
+        276
+       ],
+       [
+        798,
+        322
+       ],
+       [
+        798,
+        515
+       ],
+       [
+        422,
+        550
+       ]
+      ]
+     }
+    },
+    {
+     "id": "sala-painel-iluminado",
+     "fonte": "be246fb0b7318f5e",
+     "foco": "50% 45%",
+     "alt": "Sala com painel de TV iluminado, persiana e sofá",
+     "retoque": {
+      "tela": [
+       [
+        445,
+        584
+       ],
+       [
+        685,
+        584
+       ],
+       [
+        685,
+        720
+       ],
+       [
+        445,
+        720
+       ]
+      ]
+     }
+    },
+    {
+     "id": "sala-jantar-nogueira",
+     "fonte": "3dfef2e7b3101b38",
+     "foco": "50% 50%",
+     "alt": "Canto de jantar com banco, painel de TV e estante em madeira escura junto à janela"
+    },
+    {
+     "id": "studio-nogueira-portas-de-correr",
+     "fonte": "3de24721016ec27e",
+     "foco": "50% 50%",
+     "alt": "Studio em nogueira com portas de correr, estante e mesa de jantar redonda"
+    },
+    {
+     "id": "home-office-escrivaninha-verde",
+     "fonte": "0c31ee452d0ce7c6",
+     "foco": "50% 55%",
+     "alt": "Home office com escrivaninha verde, painel de TV e armário aéreo"
+    },
+    {
+     "id": "corredor-painel-tv",
+     "fonte": "1260b82bb182a87b",
+     "foco": "50% 45%",
+     "alt": "Painel de TV iluminado e corredor revestido de madeira",
+     "retoque": {
+      "borrar": [
+       [
+        0.468,
+        0.415,
+        0.537,
+        0.505
+       ]
+      ]
+     }
+    },
+    {
+     "id": "bancada-alta-estante",
+     "fonte": "98e0aeacf9fc8a30",
+     "foco": "50% 55%",
+     "alt": "Bancada alta de refeição com estante vertical de ferro e madeira"
+    },
+    {
+     "id": "painel-tv-giratorio-sala-quarto",
+     "fonte": "6ff6fe073547d9b3",
+     "foco": "50% 45%",
+     "alt": "Painel de TV giratório que divide a sala do quarto, com nicho escuro em cima e rack embaixo",
+     "retoque": {
+      "tela": [
+       [
+        206,
+        585
+       ],
+       [
+        506,
+        607
+       ],
+       [
+        508,
+        930
+       ],
+       [
+        212,
+        842
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "halls",
+   "titulo": "Halls, entradas e divisórias",
+   "pedido": "divisória, ripado ou revestimento de madeira sob medida",
+   "texto": "Guarda-corpo de ripas, divisória de ripado entre quarto e cozinha e parede revestida de madeira que organizam o caminho da casa.",
+   "fotos": [
+    {
+     "id": "entrada-guarda-corpo-ripas",
+     "fonte": "7ea61f16b15fd6a9",
+     "foco": "50% 55%",
+     "alt": "Entrada com guarda-corpo de ripas de madeira e a cozinha ao fundo"
+    },
+    {
+     "id": "divisoria-ripado-quarto",
+     "fonte": "fcc5f6be3938421f",
+     "foco": "50% 55%",
+     "alt": "Divisória de ripado de madeira entre o quarto e a bancada do studio"
+    },
+    {
+     "id": "divisoria-ripado-cozinha",
+     "fonte": "faa901cd513ccc40",
+     "foco": "50% 55%",
+     "alt": "Cozinha de studio com divisórias de ripado de madeira até a área do quarto"
+    },
+    {
+     "id": "hall-revestido-madeira",
+     "fonte": "c50b2b67fe0cad30",
+     "foco": "50% 50%",
+     "alt": "Parede revestida de madeira com arandela de LED e aparador ripado",
+     "retoque": {
+      "recorte": [
+       0.3,
+       0.03,
+       1.0,
+       0.8
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "banheiros",
+   "titulo": "Banheiros e lavabos",
+   "pedido": "móveis de banheiro ou lavabo sob medida",
+   "texto": "Gabinete suspenso, espelho redondo iluminado e parede de ripado: o lavabo é pequeno, o acabamento não.",
+   "fotos": [
+    {
+     "id": "lavabo-espelho-led-ripado",
+     "fonte": "e55b2c771e8cba7a",
+     "foco": "50% 48%",
+     "alt": "Lavabo com espelho redondo iluminado, parede de ripado e gabinete suspenso"
+    },
+    {
+     "id": "lavabo-espelho-verde-madeira",
+     "fonte": "f683df4460bfa0cd",
+     "foco": "50% 48%",
+     "alt": "Lavabo com espelho redondo de moldura verde, parede de madeira e gabinete branco"
+    }
+   ]
+  },
+  {
+   "id": "gourmet",
+   "titulo": "Área gourmet, bar e torre de vidro",
+   "pedido": "área gourmet ou bar sob medida",
+   "texto": "Bancada de churrasqueira, bar com portas de vidro aramado e torre de forno em vidro fumê com LED.",
+   "fotos": [
+    {
+     "id": "torre-vidro-fume-led",
+     "fonte": "3049dcac12eab1c8",
+     "foco": "40% 50%",
+     "alt": "Torre de fornos com portas de vidro fumê e LED, ao lado da geladeira inox"
+    },
+    {
+     "id": "gourmet-bancada-churrasqueira",
+     "fonte": "f8bbcde6cd4de043",
+     "foco": "50% 50%",
+     "alt": "Bancada de área gourmet com cuba, torneira gourmet e churrasqueira"
+    },
+    {
+     "id": "bar-vidro-aramado",
+     "fonte": "11dec49f58055e25",
+     "foco": "50% 50%",
+     "alt": "Bar com tampo preto, portas de vidro aramado e nichos para garrafas"
+    }
+   ]
+  },
+  {
+   "id": "comercial",
+   "titulo": "Projetos comerciais",
+   "pedido": "marcenaria para o meu espaço comercial",
+   "texto": "Salão com cozinha aberta, bancos estofados e painéis de madeira, balcão de atendimento de academia e estantes do piso ao teto: marcenaria feita para receber cliente todos os dias.",
+   "fotos": [
+    {
+     "id": "comercial-salao-mesa-ilha",
+     "fonte": "da572e3655a32b10",
+     "foco": "50% 55%",
+     "alt": "Salão comercial com mesa grande de tampo de vidro, cadeiras estofadas e ilha de cocção ripada com LED",
+     "retoque": {
+      "borrar": [
+       [
+        0.498,
+        0.432,
+        0.566,
+        0.485
+       ]
+      ]
+     }
+    },
+    {
+     "id": "comercial-salao-vista-geral",
+     "fonte": "5060c94b330d0855",
+     "foco": "50% 50%",
+     "alt": "Vista do salão com mesas redondas de madeira, painel amadeirado e iluminação em trilho"
+    },
+    {
+     "id": "comercial-ilha-ripada-led",
+     "fonte": "1bddce8ea4292bd3",
+     "foco": "50% 50%",
+     "alt": "Ilha de cocção com frente ripada, LED embutido, tampo de granito e proteção de vidro",
+     "retoque": {
+      "recorte": [
+       0,
+       0.25,
+       1,
+       1
+      ]
+     }
+    },
+    {
+     "id": "comercial-banco-ripado-led",
+     "fonte": "d5842b7d97db6a2a",
+     "foco": "50% 50%",
+     "alt": "Banco estofado sob medida com painel ripado iluminado por LED"
+    },
+    {
+     "id": "comercial-banco-ripado-em-pe",
+     "fonte": "122426a8cd1a25e7",
+     "foco": "50% 50%",
+     "alt": "Banco estofado com base de madeira e painel ripado iluminado, visto de lado"
+    },
+    {
+     "id": "comercial-banco-jardineira",
+     "fonte": "61619bb345cd48e9",
+     "foco": "50% 50%",
+     "alt": "Banco estofado contínuo com jardineira de madeira em cima e mesa de tampo de vidro"
+    },
+    {
+     "id": "comercial-painel-portas",
+     "fonte": "0064d98e17d79fea",
+     "foco": "50% 50%",
+     "alt": "Painel de madeira que reveste a parede e alinha as duas portas do salão"
+    },
+    {
+     "id": "comercial-academia-balcao-vermelho",
+     "fonte": "83b549db634c20fa",
+     "foco": "50% 50%",
+     "alt": "Balcão de atendimento vermelho laqueado, com frente de alumínio xadrez, em academia de lutas"
+    },
+    {
+     "id": "comercial-academia-balcao-em-l",
+     "fonte": "38da436f0cf18b68",
+     "foco": "50% 50%",
+     "alt": "Balcão vermelho em L com prateleira suspensa na recepção da academia"
+    },
+    {
+     "id": "comercial-estantes-piso-teto",
+     "fonte": "b11850a6199a306a",
+     "foco": "50% 50%",
+     "alt": "Estantes brancas sob medida do piso ao teto, em L, com nichos de vários tamanhos"
+    }
+   ]
+  },
+  {
+   "id": "casacor",
+   "titulo": "CasaCor",
+   "pedido": "um projeto de alto padrão como o da CasaCor",
+   "texto": "Marcenaria executada pela Casa do Marceneiro para um ambiente da mostra CasaCor: estantes de madeira do piso ao teto, painéis e nichos iluminados.",
+   "fotos": [
+    {
+     "id": "casacor-sala-vista-geral",
+     "fonte": "6a4f3a8d52832c83",
+     "foco": "50% 50%",
+     "alt": "Ambiente da CasaCor com estantes de madeira, painéis escuros e forro iluminado"
+    },
+    {
+     "id": "casacor-estantes-nichos",
+     "fonte": "a3808cedd50e5022",
+     "foco": "50% 50%",
+     "alt": "Estantes de madeira com nichos e painéis pretos iluminados no ambiente da CasaCor"
+    },
+    {
+     "id": "casacor-nichos-iluminados",
+     "fonte": "183ffd9b7019591f",
+     "foco": "50% 50%",
+     "alt": "Nichos iluminados em painel preto com moldura de madeira, na CasaCor"
+    },
+    {
+     "id": "casacor-estante-lateral",
+     "fonte": "f6871a9aebcd98e6",
+     "foco": "50% 50%",
+     "alt": "Estante de madeira com nichos ao lado do painel preto, na CasaCor"
+    },
+    {
+     "id": "casacor-estante-corredor",
+     "fonte": "85b0c876d2be3861",
+     "foco": "50% 50%",
+     "alt": "Estante de madeira do piso ao teto vista do corredor, na CasaCor"
+    }
+   ]
+  }
+ ],
+ "lugares": {
+  "capa": {
+   "foto": "cozinha-sala-led-forro",
+   "proporcao": null,
+   "foco": [
+    0.5,
+    0.42
+   ]
+  },
+  "cozinha": {
+   "foto": "cozinha-madeira-led",
+   "foco": [
+    0.5,
+    0.6
+   ]
+  },
+  "closet": {
+   "foto": "closet-espelhado",
+   "foco": [
+    0.5,
+    0.42
+   ]
+  },
+  "dormitorio": {
+   "foto": "dormitorio-estante-suspensa",
+   "foco": [
+    0.5,
+    0.5
+   ]
+  },
+  "painel": {
+   "foto": "sala-painel-iluminado",
+   "foco": [
+    0.5,
+    0.47
+   ]
+  },
+  "escritorio": {
+   "foto": "home-office-escrivaninha-verde",
+   "foco": [
+    0.5,
+    0.55
+   ]
+  },
+  "banheiro": {
+   "foto": "lavabo-espelho-led-ripado",
+   "foco": [
+    0.5,
+    0.48
+   ]
+  }
+ },
+ "mosaico": [
+  "sala-jantar-nogueira",
+  "cozinha-integrada-jantar",
+  "torre-vidro-fume-led"
+ ]
+}
