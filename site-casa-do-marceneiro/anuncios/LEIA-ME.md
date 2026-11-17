@@ -29,22 +29,29 @@ anúncio.
    `medicao.json` (ver o LEIA-ME do site). Sem isso não há como saber que
    palavra traz cliente e qual só gasta.
 
-## Como montar (plano de 13/11)
+## Como montar (campanha de 17/11, R$ 50 por dia)
 
-Três campanhas de Pesquisa, cada uma com verba própria (`CAMPANHAS` em
-`campanha.py`), no cenário recomendado de R$ 1.300 por mês:
+Uma campanha só, para o Gabriel tocar sozinho pelo painel do Google Ads:
+"Casa do Marceneiro | Pesquisa | Tatuapé", R$ 50 por dia, raio de 10 km da Rua
+Elisiário, 143 (opção "Presença"), só Rede de Pesquisa, todos os dias das 7h
+às 22h. Cinco grupos: Marcenaria e móveis planejados · Cozinha planejada ·
+Quarto (closet, guarda-roupa e cama) · Sala, painel de TV e home office ·
+Marcenaria comercial. Correspondência exata e de frase, nunca ampla;
+"Maximizar cliques" com limite de R$ 6 por clique no primeiro mês,
+"Maximizar conversões" depois de 30 conversões.
 
-| Campanha | Onde | Por dia | Grupos |
-|---|---|---|---|
-| Pesquisa \| Sob medida \| Tatuapé 8 km | Raio de 8 km da Rua Elisiário, 143, opção "Presença" | R$ 30 | Marcenaria · Móveis sob medida e planejados · Cozinha planejada · Closet e guarda-roupa · Cama sob medida · Painel de TV e home office (+ loja, pausada) |
-| Pesquisa \| Comercial \| São Paulo | Cidade de São Paulo | R$ 10 | Marcenaria comercial |
-| Pesquisa \| Marca | Cidade de São Paulo | R$ 3 | Marca (só exata) |
+O `kit-gabriel.txt` tem todo o texto na ordem em que o painel pede; as imagens
+dos recursos de imagem estão em `google-imagens/` (`gerador/criativos/imagens_google.py`).
 
-Só Rede de Pesquisa, sem Display e sem parceiros; todos os dias, 7h às 22h;
-correspondência exata e de frase, nunca ampla; "Maximizar cliques" com limite
-de CPC no primeiro mês, "Maximizar conversões" depois de 30 conversões. A
-local e a comercial têm "casa do marceneiro" como negativa, para não pagar por
-quem já procura a oficina pelo nome.
+**Sufixo do URL final** (Configurações da campanha › Opções de URL):
+`utm_source=google&utm_medium=cpc&utm_campaign=pesquisa-tatuape&utm_term={keyword}`.
+Com ele, o site escreve no fim da mensagem de WhatsApp a busca que trouxe o
+cliente ("Cheguei pelo Google, procurando “cozinha planejada”").
+
+**Medição:** o site no domínio lê o `medicao.js` (em public_html, editável no
+cPanel): o código AW- e o rótulo de cada conversão. A tag só carrega com o
+aceite de cookies. `testes/dominio.js` confere a conversão do WhatsApp com um
+código de teste.
 
 ## Meta Ads
 

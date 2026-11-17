@@ -287,7 +287,20 @@ estilo, resto = separar(dom)
 codigo = re.search(r"<script>\n(.*?)</script>", resto, re.S)
 assert codigo and resto.count("<script>") == 1, "esperava um único <script> no corpo"
 (destino / "site.js").write_text(codigo.group(1), encoding="utf-8")
-resto = resto.replace(codigo.group(0), f'<script src="{raiz}site.js"></script>')
+resto = resto.replace(codigo.group(0), f'<script src="{raiz}medicao.js"></script>\n<script src="{raiz}site.js"></script>')
+# A medição fica num arquivo à parte, que dá para editar no Gerenciador de
+# arquivos do cPanel: colar o AW- e os rótulos ali liga a medição sem pacote
+# novo. O valor que vale é o do medicao.json (o que vai no pacote).
+m = {"ads": medicao.get("ads", ""), "conversoes": {k: (medicao.get("conversoes") or {}).get(k, "")
+     for k in ("whatsapp", "ligacao", "formulario", "valor")}, "ga4": medicao.get("ga4", ""), "meta": medicao.get("meta", "")}
+(destino / "medicao.js").write_text(
+    "/* Medição dos anúncios da Casa do Marceneiro.\n"
+    "   ads: o código da tag do Google Ads (começa com AW-).\n"
+    "   conversoes: o rótulo de cada conversão (a parte depois da barra em send_to: 'AW-123/ROTULO').\n"
+    "   ga4: o código do Google Analytics (G-), se houver. meta: o número do Pixel da Meta, se houver.\n"
+    "   Edite só o que está entre aspas e salve. Atenção: subir um pacote novo do site troca este arquivo\n"
+    "   pelo do pacote; mande os códigos ao Leandro para eles entrarem no pacote também. */\n"
+    "window.MEDICAO_SITE = " + json.dumps(m, ensure_ascii=False, indent=2) + ";\n", encoding="utf-8")
 (destino / "estilo.css").write_text(re.sub(r"^<style>\n?|</style>$", "", estilo.strip()), encoding="utf-8")
 estilo = f'<link rel="stylesheet" href="{raiz}estilo.css">'
 for tela, (titulo, descricao) in TELAS.items():

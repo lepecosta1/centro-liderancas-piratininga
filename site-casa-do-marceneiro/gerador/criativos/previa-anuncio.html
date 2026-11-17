@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8">
+<!-- simulação do anúncio de pesquisa no celular, para a apresentação (o Google muda o desenho a cada busca) -->
+<style>
+*{margin:0;box-sizing:border-box}
+body{width:1500px;height:1240px;background:#F4EDE0;font-family:Roboto,Arial,Helvetica,sans-serif;display:flex;gap:90px;justify-content:center;align-items:center}
+.cel{width:520px;height:1080px;border-radius:64px;background:#14100C;padding:18px;box-shadow:0 40px 80px rgba(36,26,18,.35)}
+.tela{width:100%;height:100%;border-radius:48px;background:#fff;overflow:hidden;position:relative}
+.topo{height:46px;display:flex;justify-content:space-between;align-items:center;padding:0 34px;font-size:15px;font-weight:600;color:#202124}
+.busca{margin:8px 16px 0;height:52px;border-radius:26px;box-shadow:0 1px 6px rgba(32,33,36,.28);display:flex;align-items:center;gap:12px;padding:0 18px;font-size:18px;color:#202124}
+.busca .g{font-weight:700;color:#4285F4;font-size:22px}
+.abas{display:flex;gap:22px;padding:14px 22px 0;font-size:14px;color:#5f6368;border-bottom:1px solid #ebebeb}
+.abas span{padding-bottom:10px}.abas .on{color:#1a73e8;border-bottom:3px solid #1a73e8}
+.anuncio{padding:16px 18px 14px;border-bottom:8px solid #f1f3f4}
+.pat{font-size:13px;font-weight:700;color:#202124}
+.marca{display:flex;align-items:center;gap:10px;margin-top:8px}
+.marca img{width:30px;height:30px;border-radius:50%;object-fit:cover}
+.marca b{display:block;font-size:14px;color:#202124;font-weight:500}.marca span{font-size:12px;color:#4d5156}
+.corpo{display:flex;gap:12px;margin-top:10px}
+.corpo h3{font-size:20px;line-height:1.3;color:#1a0dab;font-weight:400;flex:1}
+.corpo img{width:92px;height:92px;border-radius:10px;object-fit:cover;flex:none}
+.desc{font-size:14.5px;line-height:1.5;color:#4d5156;margin-top:6px}
+.frases{font-size:14px;color:#4d5156;margin-top:6px}
+.local{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:14px;color:#202124}
+.local i{width:18px;height:18px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#EA4335;display:block;flex:none}
+.local em{font-style:normal;color:#188038}
+.links{margin-top:12px;border-top:1px solid #ebebeb}
+.links div{padding:12px 0;border-bottom:1px solid #ebebeb;font-size:16px;color:#1a0dab;display:flex;justify-content:space-between}
+.links div::after{content:"›";color:#70757a;font-size:20px}
+.bts{display:flex;gap:10px;margin-top:12px}
+.bts span{flex:1;text-align:center;border:1px solid #dadce0;border-radius:20px;padding:9px 0;font-size:14px;color:#1a73e8;font-weight:500}
+.mapa{padding:14px 18px;border-bottom:8px solid #f1f3f4}.mapa b{font-size:18px;color:#202124;font-weight:400}
+.pin{display:flex;gap:12px;margin-top:10px;align-items:flex-start}.mp{width:84px;height:84px;border-radius:10px;flex:none;
+background:linear-gradient(135deg,#e8eaed 25%,#d2e3fc 25%,#d2e3fc 50%,#e8eaed 50%,#e8eaed 75%,#d2e3fc 75%);position:relative}
+.mp::after{content:"";position:absolute;left:32px;top:24px;width:20px;height:20px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#EA4335}
+.pin h5{font-size:17px;color:#1a0dab;font-weight:400}.pin p{font-size:13.5px;color:#4d5156;margin-top:4px}.pin .ab{color:#188038}
+.org{padding:16px 18px}.org span{font-size:13px;color:#4d5156}.org h4{font-size:19px;color:#1a0dab;font-weight:400;margin-top:4px;line-height:1.3}.org p{font-size:14px;color:#4d5156;margin-top:6px;line-height:1.45}
+</style></head><body>
+<div class="cel"><div class="tela">
+  <div class="topo"><span>9:41</span><span>5G ▮▮▮</span></div>
+  <div class="busca"><span class="g">G</span>cozinha planejada tatuapé</div>
+  <div class="abas"><span class="on">Todas</span><span>Imagens</span><span>Maps</span><span>Vídeos</span><span>Notícias</span></div>
+  <div class="anuncio">
+    <div class="pat">Patrocinado</div>
+    <div class="marca"><img src="../../marca/perfil-1080.png" alt=""><div><b>Casa do Marceneiro</b><span>marceneirotatuape.com.br/cozinha/planejada</span></div></div>
+    <div class="corpo"><h3>Cozinha Planejada Sob Medida | Marcenaria Familiar Desde 1980</h3><img src="../../anuncios/google-imagens/cozinha-preta-bancada-pedra-quadrada.jpg" alt=""></div>
+    <p class="desc">Armário até o teto, torre quente, tampo de pedra e LED. Na medida da sua parede. Garantia de 3 anos na estrutura e prazo em contrato.</p>
+    <p class="frases">Desde 1980 · Oficina Própria · Medição no Local · Projeto em 3D</p>
+    <div class="local"><i></i><span>Rua Elisiário, 143 · Tatuapé · <em>Aberto</em> · 2,1 km</span></div>
+    <div class="links"><div>Fotos das Obras</div><div>A Oficina Desde 1980</div><div>Pedir Orçamento</div></div>
+    <div class="bts"><span>Ligar</span><span>Rota</span><span>Site</span></div>
+  </div>
+  <div class="mapa"><b>Empresas</b><div class="pin"><span class="mp"></span><div><h5>Casa do Marceneiro Tatuapé</h5><p>Marcenaria · Rua Elisiário, 143 · Tatuapé</p><p class="ab">Aberto · Fecha às 18:00</p></div></div></div>
+  <div class="org"><span>marceneirotatuape.com.br</span><h4>Casa do Marceneiro — marcenaria familiar desde 1980</h4><p>Móveis sob medida e planejados, fotos reais das obras e orçamento pelo WhatsApp.</p></div>
+</div></div>
+<div class="cel"><div class="tela">
+  <div class="topo"><span>21:17</span><span>Wi-Fi ▮▮▮</span></div>
+  <div class="busca"><span class="g">G</span>cama sob medida com gavetas</div>
+  <div class="abas"><span class="on">Todas</span><span>Imagens</span><span>Shopping</span><span>Maps</span><span>Vídeos</span></div>
+  <div class="anuncio">
+    <div class="pat">Patrocinado</div>
+    <div class="marca"><img src="../../marca/perfil-1080.png" alt=""><div><b>Casa do Marceneiro</b><span>marceneirotatuape.com.br/quarto/sob-medida</span></div></div>
+    <div class="corpo"><h3>Cama Sob Medida com Gavetões | Fotos Reais das Nossas Obras</h3><img src="../../anuncios/google-imagens/cama-gavetoes-quarto-rosa-quadrada.jpg" alt=""></div>
+    <p class="desc">Cama alta, bicama e gaveteiro: sobra espaço no chão do quarto. Peça pelo WhatsApp. Marcenaria familiar desde 1980, no Tatuapé.</p>
+    <p class="frases">Garantia de 3 Anos · Prazo em Contrato · Assistência Técnica</p>
+    <div class="local"><i></i><span>Rua Elisiário, 143 · Tatuapé · 4,8 km</span></div>
+    <div class="links"><div>Fotos das Obras</div><div>Pedir Orçamento</div><div>A Oficina Desde 1980</div></div>
+    <div class="bts"><span>Ligar</span><span>Rota</span><span>Site</span></div>
+  </div>
+  <div class="mapa"><b>Empresas</b><div class="pin"><span class="mp"></span><div><h5>Casa do Marceneiro Tatuapé</h5><p>Marcenaria · Rua Elisiário, 143 · Tatuapé</p><p class="ab">Aberto · Fecha às 18:00</p></div></div></div>
+  <div class="org"><span>marceneirotatuape.com.br</span><h4>Casa do Marceneiro — marcenaria familiar desde 1980</h4><p>Móveis sob medida e planejados, fotos reais das obras e orçamento pelo WhatsApp.</p></div>
+</div></div>
+</body></html>

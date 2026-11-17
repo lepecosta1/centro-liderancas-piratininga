@@ -763,7 +763,9 @@
             e-mail, endereço de entrega e a mensagem. A conversa pelo WhatsApp segue as regras do próprio WhatsApp.</p>
           <p><b>Para quê.</b> Responder o seu pedido, fazer o orçamento, combinar visita e entrega e emitir a nota.
             A oficina não vende nem repassa os seus dados.</p>
-          <p><b>No seu navegador.</b> As suas escolhas ficam guardadas no próprio aparelho. O mapa da
+          <p><b>No seu navegador.</b> As suas escolhas ficam guardadas no próprio aparelho. Se você chegou por
+            um anúncio, o aparelho guarda por 30 dias de onde veio e o que buscou, só para isso aparecer no fim da
+            mensagem de WhatsApp que você mesmo envia. O mapa da
             página inicial é carregado do Google Maps e segue a política de privacidade do Google.
             <span class="so-medicao" hidden>As ferramentas de medição de anúncio do Google e da Meta só ligam se você
             aceitar no aviso de cookies, e a escolha pode ser desfeita limpando os dados do site no navegador.</span></p>
@@ -1199,6 +1201,16 @@
   var MEDICAO = {};
   var REAIS = {};
   var TITULOS = {};
+  /* No domínio, o medicao.js (um arquivo de texto ao lado do site, que dá
+     para editar no cPanel) completa a medição sem precisar de pacote novo. */
+  (function(){
+    var m = window.MEDICAO_SITE || {};
+    Object.keys(m).forEach(function(k){
+      var v = m[k];
+      if (v && typeof v === "object") { if (Object.keys(v).some(function(c){ return v[c]; })) MEDICAO[k] = v; }
+      else if (v) MEDICAO[k] = v;
+    });
+  })();
 
   var GRUPOS = {
     madeira: { rot:"Madeira", itens:[
@@ -1363,7 +1375,33 @@
     }, 3200);
   }
 
-  function zapLink(msg){ return "https://wa.me/" + TEL + "?text=" + encodeURIComponent(msg); }
+  /* De onde o visitante veio. Quem chega por anúncio traz no endereço
+     utm_source (google, instagram) e, no Google, utm_term = a palavra que
+     buscou. O site guarda isso no próprio aparelho por 30 dias e escreve no
+     fim da mensagem de WhatsApp que a pessoa mesma envia: o Gabriel já
+     sabe de onde veio o cliente e o que ele procurava. Nada vai a terceiro. */
+  var ORIGEM = (function(){
+    try {
+      var q = new URLSearchParams(location.search);
+      var fonte = (q.get("utm_source") || "").toLowerCase().replace(/[^a-z_-]/g, "");
+      if (fonte) {
+        var termo = (q.get("utm_term") || "").indexOf("{") >= 0 ? "" : (q.get("utm_term") || "");
+        var o = { fonte:fonte, termo:termo.replace(/[^\p{L}\p{N} -]/gu, "").slice(0, 60), quando:Date.now() };
+        try { localStorage.setItem("cmt-origem", JSON.stringify(o)); } catch (e) {}
+        return o;
+      }
+      var s = JSON.parse(localStorage.getItem("cmt-origem") || "null");
+      if (s && Date.now() - s.quando < 30 * 864e5) return s;
+    } catch (e) {}
+    return null;
+  })();
+  function notaOrigem(){
+    if (!ORIGEM) return "";
+    var nomes = { google:"Google", instagram:"Instagram", facebook:"Facebook", ig:"Instagram", fb:"Facebook" };
+    var onde = nomes[ORIGEM.fonte] || ORIGEM.fonte;
+    return "\n\n(Cheguei pelo " + onde + (ORIGEM.termo ? ", procurando \u201c" + ORIGEM.termo + "\u201d" : "") + ")";
+  }
+  function zapLink(msg){ return "https://wa.me/" + TEL + "?text=" + encodeURIComponent(msg + notaOrigem()); }
   /* No domínio o checkout simulado não existe: quem liga um evento num
      elemento que pode faltar usa isto, e a página não quebra. */
   function ligar(sel, evento, fn){ var el = $(sel); if (el) el.addEventListener(evento, fn); }

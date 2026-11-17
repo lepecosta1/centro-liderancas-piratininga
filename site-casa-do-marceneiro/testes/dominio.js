@@ -68,6 +68,29 @@ const NCOZ = COZ.fotos.length + (COZ.video ? 1 : 0);   // itens da galeria de co
       confere(!erros.length, `nenhum erro de JavaScript ${erros.join(" | ")}`);
       await ctx.close();
     }
+    // medição: o medicao.js do cPanel liga a tag do Google Ads só com o aceite,
+    // e o clique no WhatsApp dispara a conversão com o rótulo certo
+    {
+      console.log("== medição");
+      const ctx = await b.newContext({ viewport: { width: 1280, height: 860 } }); const p = await ctx.newPage();
+      const pedidos = [];
+      await ctx.route("**/medicao.js", r => r.fulfill({ contentType: "text/javascript",
+        body: 'window.MEDICAO_SITE = {"ads":"AW-111","conversoes":{"whatsapp":"ZAP1","ligacao":"TEL1","formulario":"","valor":""},"ga4":"","meta":""};' }));
+      await ctx.route(/googletagmanager\.com|connect\.facebook\.net|wa\.me|api\.whatsapp/, r => { pedidos.push(r.request().url()); r.fulfill({ body: "" }); });
+      await p.goto(URL0 + "?utm_source=google&utm_medium=cpc&utm_term=cama+sob+medida"); await p.waitForTimeout(600);
+      confere(!pedidos.some(u => /googletagmanager/.test(u)), "sem aceite, a tag do Google não carrega");
+      confere(await p.isVisible("#lgpd-nao"), "com medição, o aviso oferece aceitar ou só o essencial");
+      await p.click("#lgpd-ok"); await p.waitForTimeout(400);
+      confere(pedidos.some(u => /googletagmanager\.com\/gtag\/js\?id=AW-111/.test(u)), "com aceite, a tag AW-111 carrega");
+      const href = decodeURIComponent(await p.$eval("#zap-capa", a => a.href));
+      confere(/Cheguei pelo Google, procurando “cama sob medida”/.test(href), "a mensagem do WhatsApp diz a busca que trouxe o cliente");
+      await p.click("#zap-capa"); await p.waitForTimeout(300);
+      const conv = await p.evaluate(() => (window.dataLayer || []).map(x => Array.from(x)).filter(x => x[0] === "event" && x[1] === "conversion").map(x => x[2].send_to));
+      confere(conv.includes("AW-111/ZAP1"), `o clique no WhatsApp conta a conversão (${conv.join(", ")})`);
+      await ctx.close();
+    }
+    const js = fs.readFileSync(path.join(PUB, "medicao.js"), "utf-8");
+    confere(/window\.MEDICAO_SITE = /.test(js) && /AW-/.test(js), "o pacote leva o medicao.js editável");
     const sm = fs.readFileSync(path.join(PUB, "sitemap.xml"), "utf-8");
     confere((sm.match(/<loc>/g) || []).length === 6 && !/sob-medida|checkout|portfolio/.test(sm), "sitemap com as 6 páginas");
     const idx = fs.readFileSync(path.join(PUB, "index.html"), "utf-8");
